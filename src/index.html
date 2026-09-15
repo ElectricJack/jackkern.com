@@ -1,0 +1,351 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="color-scheme" content="dark light" />
+
+    <title>Jack Kern — software engineering for games, turned agentic systems</title>
+    <!-- TODO(content-1): rewrite this description in your own words; it currently paraphrases the GitHub bio. -->
+    <meta
+      name="description"
+      content="Jack Kern builds instruments for code and the systems that write it — Outrider, Agent Queue, Matter Engine, Quilt Trader. Oakland, CA."
+    />
+    <link rel="canonical" href="https://jackkern.com/" />
+    <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+
+    <meta property="og:type" content="profile" />
+    <meta property="og:site_name" content="jackkern.com" />
+    <meta property="og:title" content="Jack Kern" />
+    <meta
+      property="og:description"
+      content="Software engineering for games, turned agentic systems architect. Oakland, CA."
+    />
+    <meta property="og:url" content="https://jackkern.com/" />
+    <!-- TODO(content-2): add a 1200x630 share image at public/og.png, then uncomment these two tags. -->
+    <!-- <meta property="og:image" content="https://jackkern.com/og.png" /> -->
+    <!-- <meta name="twitter:card" content="summary_large_image" /> -->
+    <meta name="twitter:card" content="summary" />
+    <meta name="twitter:creator" content="@ElectricJack" />
+
+    <!--
+      Applied before first paint so a dark-mode visitor never sees a white
+      flash. Kept inline and tiny for the same reason: an external file here
+      would be a render-blocking round trip on the critical path.
+    -->
+    <script>
+      try {
+        var t = localStorage.getItem('theme');
+        if (t === 'light' || t === 'dark') document.documentElement.dataset.theme = t;
+      } catch (e) {
+        /* Private mode or blocked storage: fall back to prefers-color-scheme. */
+      }
+    </script>
+
+    <link rel="stylesheet" href="/styles.css" />
+  </head>
+
+  <body>
+    <a class="skip-link" href="#main">Skip to content</a>
+
+    <header class="site-header">
+      <div class="shell site-header__inner">
+        <a class="wordmark" href="#top">
+          <span class="wordmark__mark" aria-hidden="true">JK</span>
+          <span class="wordmark__text">Jack Kern</span>
+        </a>
+
+        <nav class="nav" aria-label="Sections">
+          <ul class="nav__list">
+            <li><a href="#about">About</a></li>
+            <li><a href="#projects">Projects</a></li>
+            <li><a href="#writing">Elsewhere</a></li>
+            <li><a href="#contact">Contact</a></li>
+          </ul>
+        </nav>
+
+        <button
+          id="theme-toggle"
+          class="theme-toggle"
+          type="button"
+          aria-pressed="false"
+          hidden
+        >
+          <svg class="theme-toggle__icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+            <circle class="theme-toggle__sun" cx="12" cy="12" r="5" />
+            <g class="theme-toggle__rays">
+              <path d="M12 1v3M12 20v3M1 12h3M20 12h3M4.2 4.2l2.1 2.1M17.7 17.7l2.1 2.1M19.8 4.2l-2.1 2.1M6.3 17.7l-2.1 2.1" />
+            </g>
+            <path class="theme-toggle__moon" d="M20 14.5A8.5 8.5 0 1 1 9.5 4a7 7 0 0 0 10.5 10.5z" />
+          </svg>
+          <span class="theme-toggle__label">Dark mode</span>
+        </button>
+      </div>
+    </header>
+
+    <main id="main">
+      <!-- ---------------------------------------------------------------- -->
+      <section class="hero" id="top" aria-labelledby="hero-title">
+        <!--
+          Decorative only: a nested-rectangle field that nods to the treemap
+          Outrider draws. Purely CSS, no layout cost, hidden from the a11y tree.
+        -->
+        <div class="hero__field" aria-hidden="true">
+          <span></span><span></span><span></span><span></span>
+          <span></span><span></span><span></span><span></span>
+        </div>
+
+        <div class="shell hero__inner">
+          <p class="kicker">
+            <span class="kicker__dot" aria-hidden="true"></span>
+            Oakland, CA
+          </p>
+
+          <h1 class="hero__title" id="hero-title">Jack Kern</h1>
+
+          <!-- TODO(content-3): replace with a tagline in your own voice. Seeded verbatim from the ElectricJack GitHub bio. -->
+          <p class="hero__lead">
+            Background in software engineering for
+            <strong>games</strong>, turned
+            <strong>agentic systems architect</strong><span class="is-placeholder" data-todo="content-3"></span>.
+            I build instruments for reading code and the systems that write it.
+          </p>
+
+          <ul class="hero__facts">
+            <li>
+              <span class="hero__facts-key">Now</span>
+              <span class="hero__facts-val">Aristocrat Technologies</span>
+            </li>
+            <li>
+              <span class="hero__facts-key">Writes</span>
+              <span class="hero__facts-val">Rust · C/C++ · C# · Python · TS</span>
+            </li>
+            <li>
+              <span class="hero__facts-key">Building</span>
+              <span class="hero__facts-val"><a href="#projects">four things</a></span>
+            </li>
+          </ul>
+
+          <p class="hero__actions">
+            <a class="btn btn--primary" href="#projects">See the work</a>
+            <a class="btn" href="https://github.com/ElectricJack" rel="me noopener">GitHub</a>
+          </p>
+        </div>
+      </section>
+
+      <!-- ---------------------------------------------------------------- -->
+      <section class="section" id="about" aria-labelledby="about-title">
+        <div class="shell section__grid">
+          <div class="section__head">
+            <p class="kicker"><span class="kicker__num">01</span> About</p>
+            <h2 class="section__title" id="about-title">A long detour through real-time systems</h2>
+          </div>
+
+          <div class="prose">
+            <!-- TODO(content-4): the whole of this paragraph is a placeholder. Nothing here is sourced; replace it. -->
+            <p class="is-placeholder" data-todo="content-4">
+              Two or three sentences of biography go here — where you started, what
+              you shipped in games, and what pulled you toward agentic systems. This
+              paragraph is a placeholder: no public source was used to write it, so
+              treat every clause as yours to replace.
+            </p>
+
+            <p>
+              What is public, and what the work below shows, is a consistent bet: that
+              the useful artefact is rarely the answer a model gives you, and usually
+              the instrument that lets you check it. Outrider renders a codebase from
+              its AST, call graph and git history rather than from a summary. Agent
+              Queue keeps tasks, dependencies and outcomes in Postgres rather than in
+              one model's context. Quilt Trader stores every bar you traded against in
+              a Parquet file you own. Different domains, the same instinct — keep the
+              ground truth, and make it inspectable.
+            </p>
+
+            <!-- TODO(content-5): drop a photo at public/jack.jpg (square, >= 600px) and swap this monogram for an <img>. -->
+            <figure class="portrait">
+              <div class="portrait__placeholder is-placeholder" data-todo="content-5" role="img" aria-label="Placeholder for a portrait photograph of Jack Kern">
+                <span aria-hidden="true">JK</span>
+              </div>
+              <figcaption>Photo to come.</figcaption>
+            </figure>
+          </div>
+        </div>
+      </section>
+
+      <!-- ---------------------------------------------------------------- -->
+      <section class="section section--projects" id="projects" aria-labelledby="projects-title">
+        <div class="shell">
+          <div class="section__head section__head--wide">
+            <p class="kicker"><span class="kicker__num">02</span> Projects</p>
+            <h2 class="section__title" id="projects-title">Four things in flight</h2>
+            <p class="section__sub">
+              Descriptions are taken from each project's own README. Stars, versions
+              and status live on the repositories — these cards do not try to mirror them.
+            </p>
+          </div>
+
+          <ul class="cards">
+            <li class="card card--feature">
+              <p class="card__meta"><span class="card__lang">Rust</span> · desktop</p>
+              <h3 class="card__title">
+                <a class="card__link" href="https://electricjack.github.io/outrider-ide/" rel="noopener">Outrider</a>
+              </h3>
+              <p class="card__tag">See the code, not a summary of it.</p>
+              <p class="card__body">
+                An IDE that renders an entire codebase as one interactive treemap where
+                every file and every symbol is a real, readable box of source. One
+                continuous zoom walks from forty thousand files down to the comment on a
+                field declaration. Structure — size, tangle, centrality, git churn —
+                owns every colour; the model's narration is always marked as narration.
+              </p>
+              <p class="card__links">
+                <a href="https://electricjack.github.io/outrider-ide/" rel="noopener">Site</a>
+                <a href="https://github.com/ElectricJack/outrider-ide" rel="noopener">Repo</a>
+                <a href="https://github.com/ElectricJack/outrider-ide/releases" rel="noopener">Releases</a>
+              </p>
+            </li>
+
+            <li class="card">
+              <p class="card__meta"><span class="card__lang">Python</span> · service</p>
+              <h3 class="card__title">
+                <a class="card__link" href="https://github.com/ElectricJack/agent-queue" rel="noopener">Agent Queue</a>
+              </h3>
+              <p class="card__tag">A local software factory.</p>
+              <p class="card__body">
+                A background service that runs AI coding agents against your Git
+                repositories. Describe work as tasks; it picks what is ready, hands each
+                one an isolated worktree and an agent CLI, and carries the finished branch
+                toward main under a policy you choose. Tasks, gates and outcomes live in
+                Postgres, so an exhausted agent is a retry rather than the end of the job.
+              </p>
+              <p class="card__links">
+                <a href="https://electricjack.github.io/agent-queue/" rel="noopener">Docs</a>
+                <a href="https://github.com/ElectricJack/agent-queue" rel="noopener">Repo</a>
+              </p>
+            </li>
+
+            <li class="card">
+              <p class="card__meta"><span class="card__lang">C / C++</span> · engine</p>
+              <h3 class="card__title">
+                <a class="card__link" href="https://github.com/ElectricJack/matter-engine" rel="noopener">Matter Engine</a>
+              </h3>
+              <p class="card__tag">Billions of particles, meshed and ray-traced.</p>
+              <p class="card__body">
+                A prototype engine for procedural generation and ray-traced rendering of
+                voxel and particle matter, aimed at real-time rendering of billions of
+                meshed static particles with LOD plus a dynamic physics layer for thermal,
+                electrical and chemical interactions. Structured as a monorepo of
+                independently-buildable sub-projects, each one building on the last.
+              </p>
+              <p class="card__links">
+                <a href="https://github.com/ElectricJack/matter-engine" rel="noopener">Repo</a>
+              </p>
+            </li>
+
+            <li class="card">
+              <p class="card__meta"><span class="card__lang">Python</span> · framework</p>
+              <h3 class="card__title">
+                <a class="card__link" href="https://github.com/ElectricJack/quilt-trader" rel="noopener">Quilt Trader</a>
+              </h3>
+              <p class="card__tag">Honest data, honest backtests.</p>
+              <p class="card__body">
+                A distributed algorithmic trading framework driven by a CLI an agent can
+                run end to end. Every quote and bar lives in a local Parquet store you
+                own, options backtests use direction-aware fills with the realism knob
+                exposed rather than buried, and every operation returns stable JSON with
+                documented exit codes.
+              </p>
+              <p class="card__links">
+                <a href="https://github.com/ElectricJack/quilt-trader" rel="noopener">Repo</a>
+              </p>
+            </li>
+          </ul>
+        </div>
+      </section>
+
+      <!-- ---------------------------------------------------------------- -->
+      <section class="section" id="writing" aria-labelledby="writing-title">
+        <div class="shell section__grid">
+          <div class="section__head">
+            <p class="kicker"><span class="kicker__num">03</span> Elsewhere</p>
+            <h2 class="section__title" id="writing-title">Writing &amp; links</h2>
+          </div>
+
+          <div>
+            <!-- TODO(content-6): no public writing feed was found. Either add posts/links below or delete this whole section. -->
+            <p class="note is-placeholder" data-todo="content-6">
+              No blog or newsletter was found on any public profile, so there is nothing
+              seeded here. Add links to talks, posts or a feed — or delete this section
+              and its nav entry outright.
+            </p>
+
+            <ul class="links">
+              <li>
+                <a href="https://github.com/ElectricJack" rel="me noopener">GitHub</a>
+                <span class="links__note">@ElectricJack — 24 public repositories</span>
+              </li>
+              <li>
+                <a href="https://x.com/ElectricJack" rel="me noopener">X</a>
+                <span class="links__note">@ElectricJack — listed on the GitHub profile</span>
+              </li>
+              <li>
+                <a href="https://electricjack.github.io/outrider-ide/" rel="noopener">Outrider</a>
+                <span class="links__note">Project site, screenshots and downloads</span>
+              </li>
+              <!-- TODO(content-7): add LinkedIn / Mastodon / Bluesky / itch.io / anything else you want listed. -->
+              <li class="is-placeholder" data-todo="content-7">
+                <span class="links__pending">LinkedIn, Mastodon, Bluesky…</span>
+                <span class="links__note">Add or remove — none were found publicly</span>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </section>
+
+      <!-- ---------------------------------------------------------------- -->
+      <section class="section section--contact" id="contact" aria-labelledby="contact-title">
+        <div class="shell">
+          <div class="contact">
+          <p class="kicker"><span class="kicker__num">04</span> Contact</p>
+          <h2 class="section__title" id="contact-title">Say hello</h2>
+          <p class="contact__lead">
+            Best for: interesting systems problems, Outrider bug reports, and anyone who
+            has opinions about rendering a million symbols at sixty frames a second.
+          </p>
+          <!-- TODO(content-8): this address is the one published on the GitHub profile. Confirm you want it on the open web, or swap in an alias / form. -->
+          <p class="contact__actions">
+            <a class="btn btn--primary" href="mailto:jack.w.kern@gmail.com">jack.w.kern@gmail.com</a>
+            <a class="btn" href="https://github.com/ElectricJack/outrider-ide/issues" rel="noopener">File an issue</a>
+            </p>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <div class="shell site-footer__inner">
+        <p>&copy; <span id="year">2026</span> Jack Kern</p>
+        <p>
+          <a href="https://github.com/ElectricJack/jackkern.com" rel="noopener">Source</a>
+          ·
+          <a href="#top">Back to top</a>
+        </p>
+      </div>
+    </footer>
+
+    <script src="/site.js" defer></script>
+
+    <!-- TODO(content-9): fill in jobTitle / sameAs once the placeholders above are settled. -->
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "Person",
+        "name": "Jack Kern",
+        "url": "https://jackkern.com/",
+        "worksFor": { "@type": "Organization", "name": "Aristocrat Technologies" },
+        "address": { "@type": "PostalAddress", "addressLocality": "Oakland", "addressRegion": "CA" },
+        "sameAs": ["https://github.com/ElectricJack", "https://x.com/ElectricJack"]
+      }
+    </script>
+  </body>
+</html>

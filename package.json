@@ -1,0 +1,26 @@
+{
+  "name": "jackkern.com",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Single-page personal site for jackkern.com",
+  "license": "MIT",
+  "author": "Jack Kern",
+  "homepage": "https://jackkern.com",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ElectricJack/jackkern.com.git"
+  },
+  "type": "module",
+  "engines": {
+    "node": ">=20"
+  },
+  "scripts": {
+    "dev": "node tools/dev.mjs",
+    "build": "node tools/build.mjs",
+    "preview": "node tools/dev.mjs --dist",
+    "check:links": "node tools/link-check.mjs dist",
+    "check:links:external": "node tools/link-check.mjs dist --external",
+    "check": "npm run build && npm run check:links:external",
+    "lighthouse": "npx -y @lhci/cli@0.15.1 autorun"
+  }
+}
