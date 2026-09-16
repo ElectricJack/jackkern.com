@@ -1,0 +1,23 @@
+# Build output
+dist/
+
+# Lighthouse CI reports
+.lighthouseci/
+
+# Node
+node_modules/
+npm-debug.log*
+
+# Editors and OS
+.DS_Store
+.vscode/
+.idea/
+*.swp
+
+# `npm run lighthouse` on WSL: chrome-launcher sees WSL, takes its Windows
+# branch, and builds the Chrome profile path out of a Windows AppData location
+# it cannot resolve — so it lands relative to the repo as `undefined:/...` and
+# `\\wsl.localhost\...` (chrome-launcher makeTmpDir(), the `wsl` case). Harmless
+# but not committable. CI runners are plain Linux and never hit it.
+/undefined*
+/[\\]*

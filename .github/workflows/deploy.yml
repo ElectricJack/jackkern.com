@@ -1,0 +1,71 @@
+# Publishes dist/ to GitHub Pages. The Pages site is configured with
+# `build_type: workflow`, so this workflow — not a branch — is the source.
+#
+# dist/CNAME carries the custom domain. It is part of the artifact on purpose:
+# an Actions-published site takes its domain from the artifact, so a build that
+# lost the file would quietly drop jackkern.com back to the *.github.io URL.
+name: Deploy
+
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+# Never cancel a half-finished deploy — let the running one land, then publish
+# the newer commit on top of it.
+concurrency:
+  group: pages
+  cancel-in-progress: false
+
+jobs:
+  build:
+    name: Build
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v7
+
+      - uses: actions/setup-node@v7
+        with:
+          node-version-file: .nvmrc
+
+      # No `npm ci`: the build has no dependencies.
+      - name: Build
+        run: node tools/build.mjs
+
+      # The same check CI runs, re-run here because CI and this workflow can
+      # race on a fast merge and the apex is not where you want to find out.
+      # External URLs are skipped: a rate-limited runner must not block a deploy.
+      - name: Link check
+        run: node tools/link-check.mjs dist
+
+      - name: The custom domain this deploy will publish
+        run: |
+          echo '### CNAME' >> "$GITHUB_STEP_SUMMARY"
+          echo '```' >> "$GITHUB_STEP_SUMMARY"
+          cat dist/CNAME >> "$GITHUB_STEP_SUMMARY"
+          echo '' >> "$GITHUB_STEP_SUMMARY"
+          echo '```' >> "$GITHUB_STEP_SUMMARY"
+
+      - uses: actions/configure-pages@v6
+
+      - uses: actions/upload-pages-artifact@v5
+        with:
+          path: dist
+
+  deploy:
+    name: Deploy
+    needs: build
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - id: deployment
+        uses: actions/deploy-pages@v5

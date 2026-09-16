@@ -1,0 +1,72 @@
+# Every push and pull request: build the site, check the links in the built
+# output, and hold it to a Lighthouse budget.
+name: CI
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+  workflow_dispatch:
+
+concurrency:
+  group: ci-${{ github.ref }}
+  cancel-in-progress: true
+
+permissions:
+  contents: read
+
+jobs:
+  build:
+    name: Build and link check
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v7
+
+      - uses: actions/setup-node@v7
+        with:
+          node-version-file: .nvmrc
+
+      - name: Build
+        run: node tools/build.mjs
+
+      # --external is on here and off in the deploy workflow: a pull request is
+      # the right place to learn that a project link rotted, and the wrong place
+      # is a deploy to the apex. 401/403/405/429 are tolerated as bot defences;
+      # only a 404 or a dead host fails. See tools/link-check.mjs.
+      - name: Link check (including external URLs)
+        run: node tools/link-check.mjs dist --external
+
+      - name: Upload built site
+        uses: actions/upload-artifact@v7
+        with:
+          name: dist
+          path: dist
+          retention-days: 7
+
+  lighthouse:
+    name: Lighthouse budget
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v7
+
+      - uses: actions/setup-node@v7
+        with:
+          node-version-file: .nvmrc
+
+      - name: Build
+        run: node tools/build.mjs
+
+      # lhci serves dist/ itself (staticDistDir) and uses the runner's
+      # preinstalled Chrome. Thresholds live in lighthouserc.json.
+      - name: Lighthouse
+        run: npx -y @lhci/cli@0.15.1 autorun
+
+      - name: Upload Lighthouse reports
+        if: always()
+        uses: actions/upload-artifact@v7
+        with:
+          name: lighthouse
+          path: .lighthouseci
+          retention-days: 7
