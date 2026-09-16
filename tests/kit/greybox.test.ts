@@ -1,10 +1,18 @@
-import { Box3, CatmullRomCurve3, DoubleSide, Matrix4, Mesh, MeshBasicMaterial, Raycaster, Vector3 } from 'three';
+import { Box3, DoubleSide, Matrix4, Mesh, MeshBasicMaterial, Raycaster, Vector3 } from 'three';
 import { expect, test } from 'vitest';
 import contract from '../../kit/contract.json';
 import manifest from '../../content/manifest.json';
 import { layout } from '../../layout/layout.js';
 import type { Part } from '../../src/types';
+import { Rail } from '../../src/camera/rail';
 import { DOORWAY_OPENING, greyboxGeometry, greyboxMaterial } from '../../src/kit/greybox';
+
+// The 112 m walk is sampled every 6 mm, far finer than any clearance below.
+const SAMPLES = 20000;
+// The clearance tests/camera/clearance.test.ts holds the walk to from everything solid: two and
+// a half times the 0.1 m near plane, so nothing clips. That test cannot see an opening, so it
+// leaves doorway panels to this one.
+const CLEARANCE_M = 0.25;
 
 const part = (id: string) => contract.parts.find((candidate) => candidate.id === id) as Part;
 const bounds = (id: string) =>
@@ -63,57 +71,65 @@ test('a doorway keeps the wall silhouette but is hollow at its threshold socket'
 
 test('the camera rail crosses each doorway it meets through the opening, not the frame', () => {
   const plan = layout(manifest, contract);
-  const curve = new CatmullRomCurve3(
-    plan.rail.map((v) => new Vector3(...v.position)),
-    false,
-    'centripetal',
-  );
-  const samples = curve.getPoints(20000);
+  // What the camera rides: the whole walk, through the bay each doorway opens. A spline through
+  // the viewpoints alone is not held to the doorways and has not been the rail since task
+  // vivid-impact, so it is not what this measures.
+  const rail = new Rail(plan.rail, plan.path);
+  const samples = Array.from({ length: SAMPLES + 1 }, (_, i) => rail.pose(i / SAMPLES).position);
   const doors = plan.placements.filter((p) => p.part === 'wall-3m-doorway');
   const panel = part('wall-3m-doorway');
   const half = panel.footprint[0] / 2;
+  const face = bounds('wall-3m-doorway').max.z;
   expect(doors.length).toBeGreaterThan(0);
 
-  // One panel at the origin; each rail segment is brought into the doorway's own frame instead.
+  // One panel at the origin; the walk is brought into each doorway's own frame instead.
   const mesh = new Mesh(greyboxGeometry(panel), new MeshBasicMaterial({ side: DoubleSide }));
   mesh.updateMatrixWorld();
   const ray = new Raycaster();
+  const through = new Vector3(0, 0, 1);
+  const origin = new Vector3();
+  // Straight through the panel along its normal: solid means the frame stands at (x, y).
+  const solid = (x: number, y: number) => {
+    ray.set(origin.set(x, y, -2), through);
+    return ray.intersectObject(mesh).length > 0;
+  };
   const toDoor = new Matrix4();
   const a = new Vector3();
   const b = new Vector3();
   const hit = new Vector3();
-  const heading = new Vector3();
   const missed: string[] = [];
 
   for (const door of doors) {
     toDoor.fromArray(door.transform).invert();
-    let clears = false;
-    b.copy(samples[0]).applyMatrix4(toDoor);
-    for (let i = 1; i < samples.length; i++) {
-      a.copy(b);
-      b.copy(samples[i]).applyMatrix4(toDoor);
+    const local = samples.map((p) => p.clone().applyMatrix4(toDoor));
+    let crosses = false;
+    for (let i = 1; i < local.length && !crosses; i++) {
+      a.copy(local[i - 1]);
+      b.copy(local[i]);
       if (a.z === b.z || Math.sign(a.z) === Math.sign(b.z)) continue;
       hit.lerpVectors(a, b, Math.abs(a.z) / Math.abs(a.z - b.z));
       // Only a crossing strictly inside this panel's rectangle is the rail meeting this
       // doorway; the plane it lies in runs on through the rest of the villa.
-      if (Math.abs(hit.x) >= half || hit.y <= 0 || hit.y >= panel.height) continue;
-      // Consecutive samples are millimetres apart, so carry the crossing a metre either way
-      // to cover the full 0.3 m of wall the camera would have to pass through.
-      heading.subVectors(b, a).normalize();
-      ray.set(hit.clone().addScaledVector(heading, -1), heading);
-      ray.far = 2;
-      clears = ray.intersectObject(mesh).length === 0;
-      break;
+      crosses = Math.abs(hit.x) < half && hit.y > 0 && hit.y < panel.height;
     }
-    if (!clears) missed.push(door.instance);
+    // From a clearance in front of the panel to a clearance past it, the camera and the
+    // clearance beside it and over its head all have to be in the opening, not in the frame.
+    const tight = local.some(
+      (p) =>
+        Math.abs(p.z) <= face + CLEARANCE_M &&
+        Math.abs(p.x) < half &&
+        [[0, 0], [-CLEARANCE_M, 0], [CLEARANCE_M, 0], [0, CLEARANCE_M]].some(([dx, dy]) => solid(p.x + dx, p.y + dy)),
+    );
+    if (!crosses || tight) missed.push(door.instance);
   }
 
-  // The exedra's two doorways are the only ones the rail does not pass through: fill() puts a
-  // doorway in the middle *bay* of a side, which is 1.5 m off-axis when a side has an even
-  // number of bays, so the rail runs down their outer edge instead (task eager-nexus). Every
-  // doorway the rail does meet, it clears — six of the eight, crossing up to 0.47 m off centre
-  // and 1.91 m up.
-  expect(missed).toEqual(['agent-queue.wall-3m-doorway.1', 'agent-queue.wall-3m-doorway.2']);
+  // None. Task fleet-vault moved the promenade onto the bay fill() opens, the exedra's two
+  // off-axis doorways included, and the walk goes through the middle of every one. The tightest
+  // is overhead where a stop is sunk a level: its entry panel stands on the lower floor while
+  // the camera arrives at the upper floor's eye height, up to 2.82 m up the panel, which is what
+  // sets the opening's height. The expectation was two doorways, then five, while this measured
+  // a spline through the viewpoints alone.
+  expect(missed).toEqual([]);
 });
 
 test('materials differ by category', () => {
