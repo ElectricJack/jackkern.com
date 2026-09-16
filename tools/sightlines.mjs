@@ -97,6 +97,11 @@ export function rayHitsBox(origin, end, shape) {
   return t0 > 1e-4 && t0 < 1 ? t0 : null;
 }
 
+/** Distance from a point to a stand-in's box, 0 when the point is inside it. */
+export function boxDistance(point, shape) {
+  return Math.hypot(...[0, 1, 2].map((i) => Math.max(shape.min[i] - point[i], 0, point[i] - shape.max[i])));
+}
+
 /** Every shape the segment from a viewpoint to an anchor passes through, nearest first. */
 export function occludersOf(position, anchor, shapes) {
   return shapes

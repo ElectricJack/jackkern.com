@@ -6,7 +6,7 @@ import { Director } from '../../src/camera/director';
 import { Rail } from '../../src/camera/rail';
 
 const plan = layout(manifest, contract);
-const make = () => { const rail = new Rail(plan.rail); const camera = new PerspectiveCamera(); return { rail, camera, director: new Director(rail, camera) }; };
+const make = () => { const rail = new Rail(plan.rail, plan.path); const camera = new PerspectiveCamera(); return { rail, camera, director: new Director(rail, camera) }; };
 const settle = (d: Director, frames = 400) => { for (let i = 0; i < frames; i++) d.update(1 / 60); };
 
 test('scroll mode eases the camera to the scroll fraction', () => {

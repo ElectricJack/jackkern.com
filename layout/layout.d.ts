@@ -20,6 +20,6 @@ export function worldTransform(stop: Pick<Stop, 'x' | 'z' | 'h' | 'level'>, u: n
 export function entryLocal(stop: Stop): [number, number];
 export function exitLocal(stop: Stop): [number, number];
 export function fill(stop: Stop, parts: Map<string, Part>, rng: () => number): Placement[];
-export function railFor(stops: Stop[]): { rail: Viewpoint[]; hotspots: Hotspot[] };
+export function railFor(stops: Stop[]): { rail: Viewpoint[]; hotspots: Hotspot[]; path: Viewpoint[] };
 export function boundsFor(stops: Stop[]): Record<string, Bounds>;
 export function layout(manifest: Manifest, contract: Contract, seed?: number): Layout;

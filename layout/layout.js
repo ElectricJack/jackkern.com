@@ -16,6 +16,7 @@ const OPEN_EDGE = 1.5; // how far in from an open stop's near edge a visitor sta
 const AISLE = 0.75; // the side aisle, w/2 - AISLE: where the urns stand and a visitor walks
 const FRAME_PER_METRE = 1.6; // standoff per metre of focal height: fills ~60% of the frame at 55 degrees
 const MARKER_INSET = 1.5; // how far short of, and to one side of, the feature a marker floats
+const PASS_INSET = 1.8; // how far aside the walk steps: clear of a focal piece and of the column rows
 const MARKER_HEIGHT = 1.6; // eye height, clear of the pool lips, benches and urns it passes
 const VIEW_CLEARANCE = 2.5; // dressing is kept this far from where the camera stands
 
@@ -246,6 +247,76 @@ function thresholdLocal(stop) {
   return [eu === 0 ? keepSide(stop) * MARKER_INSET : eu, ev - MARKER_INSET];
 }
 
+/**
+ * The walk between the viewpoints. A straight line from one viewpoint to the next is not
+ * held to the stops that contain them: it cuts through whatever the stop is built around
+ * and crosses the wall wherever it likes. These are the points that keep it honest — the
+ * bay fill() opens, and the steps aside that route it round what stands in its way.
+ *
+ * Coming in, the walk goes straight on from the doorway to the depth the first viewpoint
+ * stands at, and only crosses to it from there. What is in the way otherwise is whatever
+ * flanks the opening: the columns that end an open stop's colonnade, or the jamb of the
+ * bay next door. Nothing to round when the viewpoint already stands on the doorway's line.
+ */
+function walkIn(stop) {
+  if (!stop.hasEntry) return [];
+  const [du] = entryLocal(stop);
+  const [vu, vv] = viewLocals(stop)[0];
+  return vu === du ? [] : [['in', du, vv]];
+}
+
+/** Going out: round the centrepiece, or the focal piece, and square up to the doorway. */
+function walkOut(stop) {
+  if (!stop.hasExit) return [];
+  const [eu, ev] = exitLocal(stop);
+  const door = ['door', eu, ev];
+  // Turning out of a court or courtyard, the water in the middle stands between the visitor
+  // and the exit: keep to the near aisle across to the exit side, then square up and go
+  // straight out, rather than cutting the corner into the column that ends the run.
+  if (stop.turn !== 0) {
+    const aside = eu - stop.turn * PASS_INSET;
+    return [['turn', aside, OPEN_EDGE], ['square', aside, ev], door];
+  }
+  if (stop.kind !== 'room') return [door];
+  // Straight on out of a room, the focal piece stands on the axis at the far wall, between
+  // the last viewpoint and the doorway: pass it on the doorway's own side of the axis.
+  return [['pass', (eu === 0 ? keepSide(stop) : Math.sign(eu)) * PASS_INSET, focalLocal(stop)[1]], door];
+}
+
+/**
+ * A walk point looks where the viewpoints on either side of it look, blended by how far
+ * along it is between them. The detour is in the positions only: the look direction still
+ * runs viewpoint to viewpoint, the way it did when the two were joined by a straight line.
+ */
+function aimWalk(path) {
+  const gap = (a, b) => {
+    const d = [0, 1, 2].map((i) => b.position[i] - a.position[i]);
+    return Math.sqrt(d[0] * d[0] + d[1] * d[1] + d[2] * d[2]);
+  };
+  for (let i = 0; i < path.length; i++) {
+    if (path[i].target) continue;
+    // Filled in order, so the point before this one is already aimed; the first and last of
+    // the path are viewpoints, so there is always one to reach on either side.
+    const before = i - 1;
+    let after = i + 1;
+    while (!path[after].target) after++;
+    let run = 0;
+    let reached = 0;
+    for (let k = before; k < after; k++) {
+      run += gap(path[k], path[k + 1]);
+      if (k === i - 1) reached = run;
+    }
+    const t = run ? reached / run : 0;
+    path[i].target = path[before].target.map((v, k) => fix(v + (path[after].target[k] - v) * t));
+  }
+}
+
+/** Every local (u, v) the camera passes through in a stop: the walk in, its viewpoints, the walk out. */
+function walkThrough(stop) {
+  const locals = (walk) => walk.map(([, u, v]) => [u, v]);
+  return [...locals(walkIn(stop)), ...viewLocals(stop), ...locals(walkOut(stop))];
+}
+
 /** Each side yields 3 m segments as { u, v, localQ, index } in local coords. */
 function sideSegments(stop, side) {
   const { w, d } = stop;
@@ -345,14 +416,16 @@ export function fill(stop, parts, rng) {
   // Focal object at the far wall on the rail axis.
   if (stop.kind === 'room') place(stop.focal, ...focalLocal(stop), 0, 0);
 
-  // Dressing along the side walls, away from thresholds and out of the viewpoints' way.
-  const views = viewLocals(stop);
+  // Dressing along the side walls, away from thresholds and out of the camera's way. The
+  // camera rides the whole walk, not only the viewpoints, so an urn on the line it takes
+  // round the focal piece looms just as large as one standing where it comes to rest.
+  const walk = walkThrough(stop);
   const slots = [];
   for (const u of [-(w / 2 - AISLE), w / 2 - AISLE]) {
     for (let v = 1.5; v <= d - 1.5; v += 1.5) {
       const sideIsDoor = (u < 0 && status.left === 'door') || (u > 0 && status.right === 'door');
       if (sideIsDoor && Math.abs(v - d / 2) < 2) continue;
-      if (views.some(([vu, vv]) => Math.hypot(u - vu, v - vv) < VIEW_CLEARANCE)) continue;
+      if (walk.some(([wu, wv]) => Math.hypot(u - wu, v - wv) < VIEW_CLEARANCE)) continue;
       slots.push([u, v]);
     }
   }
@@ -373,21 +446,30 @@ function lookFor(stop) {
   return worldPoint(stop, stop.turn * (w / 2 + 3), ev, 1.5);
 }
 
-/** Camera rail in stop order, plus one hotspot per consecutive pair. */
+/** Camera rail in stop order, the walk that joins it, plus one hotspot per consecutive pair. */
 export function railFor(stops) {
   const rail = [];
+  const path = []; // every point the camera curve runs through; the rail is a subsequence of it
+  const stand = (viewpoint) => { rail.push(viewpoint); path.push(viewpoint); };
   for (const stop of stops) {
     const views = viewLocals(stop);
+    for (const [name, u, v] of walkIn(stop)) {
+      path.push({ id: stop.id + '-' + name, stop: stop.id, position: worldPoint(stop, u, v, EYE_HEIGHT) });
+    }
     if (stop.kind === 'room') {
       const [fu, fv] = focalLocal(stop);
       const target = worldPoint(stop, fu, fv, 1.5); // mid-height of the piece, not its feet
       const [enter, focal] = views;
-      rail.push({ id: stop.id + '-enter', stop: stop.id, position: worldPoint(stop, ...enter, EYE_HEIGHT), target });
-      rail.push({ id: stop.id + '-focal', stop: stop.id, position: worldPoint(stop, ...focal, EYE_HEIGHT), target });
+      stand({ id: stop.id + '-enter', stop: stop.id, position: worldPoint(stop, ...enter, EYE_HEIGHT), target });
+      stand({ id: stop.id + '-focal', stop: stop.id, position: worldPoint(stop, ...focal, EYE_HEIGHT), target });
     } else {
-      rail.push({ id: stop.id + '-view', stop: stop.id, position: worldPoint(stop, ...views[0], EYE_HEIGHT), target: lookFor(stop) });
+      stand({ id: stop.id + '-view', stop: stop.id, position: worldPoint(stop, ...views[0], EYE_HEIGHT), target: lookFor(stop) });
+    }
+    for (const [name, u, v] of walkOut(stop)) {
+      path.push({ id: stop.id + '-' + name, stop: stop.id, position: worldPoint(stop, u, v, EYE_HEIGHT) });
     }
   }
+  aimWalk(path);
   const hotspots = [];
   for (let i = 0; i + 1 < rail.length; i++) {
     const a = rail[i], b = rail[i + 1];
@@ -399,7 +481,7 @@ export function railFor(stops) {
       hotspots.push({ from: a.id, to: b.id, anchor: worldPoint(stop, ...thresholdLocal(stop), MARKER_HEIGHT), label: 'threshold' });
     }
   }
-  return { rail, hotspots };
+  return { rail, hotspots, path };
 }
 
 /** World-space axis-aligned box per stop, from the footprint corners and the level floor. */
@@ -423,8 +505,8 @@ export function layout(manifest, contract, seed) {
   const stops = sequence(manifest, parts);
   const placements = [];
   for (const stop of stops) placements.push(...fill(stop, parts, rng));
-  const { rail, hotspots } = railFor(stops);
+  const { rail, hotspots, path } = railFor(stops);
   const bounds = boundsFor(stops);
-  const body = { version: LAYOUT_VERSION, placements, rail, hotspots, bounds };
+  const body = { version: LAYOUT_VERSION, placements, rail, path, hotspots, bounds };
   return { ...body, hash: fnv1a64(canonical(body)) };
 }
