@@ -1,6 +1,6 @@
 import contract from '../../kit/contract.json';
 import manifest from '../../content/manifest.json';
-import { entryLocal, exitLocal, fill, sequence, worldPoint, worldTransform } from '../../layout/layout.js';
+import { HEADINGS, entryLocal, exitLocal, fill, sequence, worldPoint, worldTransform } from '../../layout/layout.js';
 import { mulberry32 } from '../../layout/rng.js';
 // @ts-expect-error -- plain JS geometry helper, shared with docs/verification/task-16/occlusion.mjs
 import { rayHitsBox, worldShapes } from '../../tools/sightlines.mjs';
@@ -50,6 +50,21 @@ test('an open stop gets columns and entablature, no walls, and a courtyard gets 
 test('a dropping courtyard places a stair run at its exit', () => {
   expect(placementsOf('cy-3').filter((x) => x.part === 'stair-run-3m').length).toBe(1);
   expect(placementsOf('cy-1').filter((x) => x.part === 'stair-run-3m').length).toBe(0);
+});
+
+test('a stair run fills the first 3 m past the exit and goes down facing on through it', () => {
+  // The run slopes down along its local +z (src/kit/greybox.ts), so that has to be the way the
+  // walk leaves: straight on, or out through the side a courtyard turns to.
+  const cy3 = byId('cy-3');
+  for (const turn of [0, 1, -1] as const) {
+    const stop = { ...cy3, turn };
+    const [stairs] = fill(stop, parts, mulberry32(1)).filter((p) => p.part === 'stair-run-3m');
+    const ahead = HEADINGS[(stop.h + turn + 4) % 4];
+    const [ex, , ez] = worldPoint(stop, ...exitLocal(stop), 0);
+    expect(`turn ${turn}: +z to ${stairs.transform.slice(8, 11)}`).toBe(`turn ${turn}: +z to ${[ahead[0], 0, ahead[1]]}`);
+    expect(`turn ${turn}: centre ${stairs.transform.slice(12, 15)}`)
+      .toBe(`turn ${turn}: centre ${[ex + 1.5 * ahead[0], worldPoint(stop, 0, 0, 0)[1], ez + 1.5 * ahead[1]]}`);
+  }
 });
 
 test('fill is deterministic for the same seed', () => {

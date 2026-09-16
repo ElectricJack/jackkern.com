@@ -1,6 +1,8 @@
 import contract from '../../kit/contract.json';
 import manifest from '../../content/manifest.json';
 import { layout } from '../../layout/layout.js';
+// @ts-expect-error -- plain JS geometry helper, shared with tests/layout/sightlines.test.ts
+import { worldShapes } from '../../tools/sightlines.mjs';
 
 test('layout produces a hashed, complete document', () => {
   const plan = layout(manifest, contract);
@@ -32,6 +34,16 @@ test('every viewpoint sits at eye height above its stop floor and inside its bou
     expect(v.position[0]).toBeLessThanOrEqual(b.max[0] + 1e-6);
     expect(v.position[2]).toBeGreaterThanOrEqual(b.min[2] - 1e-6);
     expect(v.position[2]).toBeLessThanOrEqual(b.max[2] + 1e-6);
+  }
+});
+
+test('no viewpoint stands on a stair run: a stop entered down one is viewed from past its foot', () => {
+  const plan = layout(manifest, contract);
+  const stairs = worldShapes(plan, new Map(contract.parts.map((p) => [p.id, p]))).filter((s: any) => s.part === 'stair-run-3m');
+  expect(stairs.length).toBeGreaterThan(0);
+  for (const v of plan.rail) {
+    const on = stairs.filter((s: any) => [0, 2].every((i) => v.position[i] > s.min[i] && v.position[i] < s.max[i]));
+    expect(`${v.id} stands on ${on.length} stair runs`).toBe(`${v.id} stands on 0 stair runs`);
   }
 });
 

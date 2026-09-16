@@ -34,6 +34,16 @@ function doorwayGeometry(
 }
 
 /**
+ * A stair run as the slope its treads make: level with the floor it leaves along its back edge
+ * (local -z), down `drop` at its foot (+z), extruded across its width.
+ */
+function rampGeometry(width: number, depth: number, drop: number): BufferGeometry {
+  const profile = new Shape([new Vector2(-depth / 2, 0), new Vector2(-depth / 2, -drop), new Vector2(depth / 2, -drop)]);
+  // The profile is drawn in (z, y) and extruded along +z; a quarter turn lays the extrusion across x.
+  return new ExtrudeGeometry(profile, { depth: width, bevelEnabled: false, steps: 1 }).rotateY(-Math.PI / 2).translate(width / 2, 0, 0);
+}
+
+/**
  * Stand-in shapes: enough silhouette to judge the layout, nothing more.
  * All stand on y=0 at their local origin, except floor and stairs which sit below it.
  */
@@ -48,7 +58,7 @@ export function greyboxGeometry(part: Part): BufferGeometry {
     return new BoxGeometry(footprintWidth, 0.6, 0.6).translate(0, 0.3, 0);
   }
   if (part.id.startsWith('stair')) {
-    return new BoxGeometry(footprintWidth, 1, footprintDepth).translate(0, -0.5, 0);
+    return rampGeometry(footprintWidth, footprintDepth, height);
   }
   if (part.category === 'floor') {
     return new BoxGeometry(footprintWidth, 0.1, footprintDepth).translate(0, -0.05, 0);
