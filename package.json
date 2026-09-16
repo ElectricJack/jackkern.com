@@ -1,26 +1,42 @@
 {
   "name": "jackkern.com",
-  "version": "1.0.0",
+  "version": "2.0.0",
   "private": true,
-  "description": "Single-page personal site for jackkern.com",
+  "description": "Jack Kern's projects as rooms of a sunlit villa",
   "license": "MIT",
   "author": "Jack Kern",
   "homepage": "https://jackkern.com",
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/ElectricJack/jackkern.com.git"
-  },
+  "repository": { "type": "git", "url": "git+https://github.com/ElectricJack/jackkern.com.git" },
   "type": "module",
-  "engines": {
-    "node": ">=20"
-  },
+  "engines": { "node": ">=24" },
   "scripts": {
-    "dev": "node tools/dev.mjs",
-    "build": "node tools/build.mjs",
-    "preview": "node tools/dev.mjs --dist",
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview",
+    "typecheck": "tsc --noEmit",
+    "validate": "node tools/validate.mjs",
+    "test": "vitest run",
+    "render:static": "node tools/render-static.mjs --png tmp/visual",
+    "check:visual": "node tools/check-visual.mjs tmp/visual tests/visual/refs",
     "check:links": "node tools/link-check.mjs dist",
     "check:links:external": "node tools/link-check.mjs dist --external",
-    "check": "npm run build && npm run check:links:external",
+    "budgets": "node tools/budgets.mjs",
     "lighthouse": "npx -y @lhci/cli@0.15.1 autorun"
+  },
+  "dependencies": {
+    "three": "^0.180.0"
+  },
+  "devDependencies": {
+    "@types/three": "^0.180.0",
+    "ajv": "^8.17.1",
+    "jsdom": "^26.1.0",
+    "marked": "^16.1.0",
+    "pixelmatch": "^7.1.0",
+    "playwright": "^1.55.0",
+    "pngjs": "^7.0.0",
+    "quickjs-emscripten": "^0.31.0",
+    "typescript": "^5.9.2",
+    "vite": "^7.1.0",
+    "vitest": "^3.2.4"
   }
 }
