@@ -28,8 +28,15 @@ export class Rail {
     const lengths = this.curve.getLengths(DIVISIONS);
     const total = lengths[lengths.length - 1];
     // getPoint spreads the path evenly over t, so point i sits at t = i / (path.length - 1).
+    // That t rarely falls on a division, and rounding it to one stands the camera up to half a
+    // division of spline off the viewpoint. getUtoTmapping interpolates linearly between the
+    // divisions' lengths, so the length at t is read the same way and pose maps it back to t.
     const spans = path.length - 1;
-    this.u = viewpoints.map((v) => lengths[Math.round((at.get(v.id)! / spans) * DIVISIONS)] / total);
+    this.u = viewpoints.map((v) => {
+      const d = (at.get(v.id)! / spans) * DIVISIONS;
+      const i = Math.floor(d);
+      return (i === DIVISIONS ? total : lengths[i] + (d - i) * (lengths[i + 1] - lengths[i])) / total;
+    });
     this.u[viewpoints.length - 1] = 1;
   }
 
