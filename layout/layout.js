@@ -8,6 +8,17 @@ export const EYE_HEIGHT = 1.7;
 export const SIZES = { court: [9, 9], gallery: [9, 12], 'pool-hall': [9, 9], exedra: [6, 6], courtyard: [9, 6], terrace: [9, 6] };
 export const HEADINGS = [[0, 1], [1, 0], [0, -1], [-1, 0]]; // dx, dz for heading 0:+z 1:+x 2:-z 3:-x
 
+// Where a visitor stands, and where the markers float. A viewpoint frames its stop from the
+// near edge rather than from on top of whatever the stop is built around; a marker floats in
+// open air short of the thing it names, so it is never inside or behind it.
+const EDGE_STANDOFF = 1.0; // metres a room viewpoint stands clear of the wall behind it
+const OPEN_EDGE = 1.5; // how far in from an open stop's near edge a visitor stands
+const AISLE = 0.75; // the side aisle, w/2 - AISLE: where the urns stand and a visitor walks
+const FRAME_PER_METRE = 1.6; // standoff per metre of focal height: fills ~60% of the frame at 55 degrees
+const MARKER_INSET = 1.5; // how far short of, and to one side of, the feature a marker floats
+const MARKER_HEIGHT = 1.6; // eye height, clear of the pool lips, benches and urns it passes
+const VIEW_CLEARANCE = 2.5; // dressing is kept this far from where the camera stands
+
 export class LayoutError extends Error {
   constructor(code, message) {
     super(message);
@@ -48,22 +59,26 @@ export function exitFor(x, z, h, w, d, turn) {
   };
 }
 
+const CENTREPIECE = 'fountain-tiered'; // what fill() stands on the centre of a court or courtyard
+
+const centrepieceHeight = (parts) => (parts.get(CENTREPIECE) || { height: 0 }).height;
+
 /** Manifest stops to the full chain: court, room, courtyard, room, ..., courtyard, terrace. */
 function expand(manifest, parts) {
   const entries = [];
   let courtyards = 0;
   for (const m of manifest.stops) {
     if (m.kind === 'court') {
-      entries.push({ id: m.id, kind: 'court', archetype: 'court' });
+      entries.push({ id: m.id, kind: 'court', archetype: 'court', centreHeight: centrepieceHeight(parts) });
     } else if (m.kind === 'project') {
       if (!SIZES[m.archetype]) throw new LayoutError('unknown_archetype', m.id + ': unknown archetype ' + m.archetype);
       const focal = parts.get(m.focal);
       if (!focal || focal.category !== 'focal') throw new LayoutError('unknown_focal', m.id + ': ' + m.focal + ' is not a focal part');
       const last = entries[entries.length - 1];
-      if (last && last.kind === 'room') entries.push({ id: 'cy-' + ++courtyards, kind: 'courtyard', archetype: 'courtyard' });
-      entries.push({ id: m.id, kind: 'room', archetype: m.archetype, focal: m.focal, title: m.title });
+      if (last && last.kind === 'room') entries.push({ id: 'cy-' + ++courtyards, kind: 'courtyard', archetype: 'courtyard', centreHeight: centrepieceHeight(parts) });
+      entries.push({ id: m.id, kind: 'room', archetype: m.archetype, focal: m.focal, centreHeight: focal.height, title: m.title });
     } else if (m.kind === 'terrace') {
-      entries.push({ id: 'cy-' + ++courtyards, kind: 'courtyard', archetype: 'courtyard' });
+      entries.push({ id: 'cy-' + ++courtyards, kind: 'courtyard', archetype: 'courtyard', centreHeight: centrepieceHeight(parts) });
       entries.push({ id: m.id, kind: 'terrace', archetype: 'terrace' });
     } else {
       throw new LayoutError('unknown_kind', m.id + ': unknown stop kind ' + m.kind);
@@ -155,6 +170,42 @@ export function exitLocal(stop) {
   return [stop.turn === 1 ? stop.w / 2 : -stop.w / 2, stop.d / 2];
 }
 
+/** The side of the centre line the camera keeps to: away from the turn ahead. */
+function keepSide(stop) {
+  return stop.turn === 0 ? -1 : -stop.turn;
+}
+
+/** Local (u, v) of the focal object: on the rail axis at the far wall. */
+function focalLocal(stop) {
+  return [0, stop.d - 1.5];
+}
+
+/** Local (u, v) of every viewpoint of a stop, in rail order. */
+function viewLocals(stop) {
+  if (stop.kind !== 'room') {
+    // A terrace has nothing in the middle: it looks straight out over its far edge.
+    if (!stop.centreHeight) return [[0, OPEN_EDGE]];
+    // A court or courtyard is built around a fountain. Stand back far enough to see the
+    // whole of it, and where the stop is too shallow for that, make up the distance by
+    // stepping into the side aisle away from the turn ahead, looking across the water.
+    const want = FRAME_PER_METRE * stop.centreHeight;
+    const axial = stop.d / 2 - OPEN_EDGE;
+    const aside = Math.min(stop.w / 2 - AISLE, Math.sqrt(Math.max(0, want * want - axial * axial)));
+    return [[fix(keepSide(stop) * aside), OPEN_EDGE]];
+  }
+  const focalV = focalLocal(stop)[1];
+  const framed = focalV - FRAME_PER_METRE * stop.centreHeight;
+  // Far enough back to frame the piece, but always inside the room and ahead of the entry.
+  return [[0, EDGE_STANDOFF], [0, fix(Math.max(EDGE_STANDOFF + 1, Math.min(focalV - 1.5, framed)))]];
+}
+
+/** Local (u, v) of the marker that leads out: short of the threshold, off the line the camera takes. */
+function thresholdLocal(stop) {
+  const [eu, ev] = exitLocal(stop);
+  if (stop.turn === 0) return [keepSide(stop) * MARKER_INSET, ev - MARKER_INSET];
+  return [eu - stop.turn * MARKER_INSET, ev - MARKER_INSET];
+}
+
 /** Each side yields 3 m segments as { u, v, localQ, index } in local coords. */
 function sideSegments(stop, side) {
   const { w, d } = stop;
@@ -240,7 +291,7 @@ export function fill(stop, parts, rng) {
   // Water.
   if (archetype === 'pool-hall' || archetype === 'courtyard' || archetype === 'court') {
     place('pool-basin-3x3', 0, d / 2, 0, 0);
-    if (archetype !== 'pool-hall') place('fountain-tiered', 0, d / 2, 0, 0);
+    if (archetype !== 'pool-hall') place(CENTREPIECE, 0, d / 2, 0, 0);
   }
 
   // Stairs at the exit of a dropping courtyard.
@@ -252,14 +303,16 @@ export function fill(stop, parts, rng) {
   }
 
   // Focal object at the far wall on the rail axis.
-  if (stop.kind === 'room') place(stop.focal, 0, d - 1.5, 0, 0);
+  if (stop.kind === 'room') place(stop.focal, ...focalLocal(stop), 0, 0);
 
-  // Dressing along the side walls, away from thresholds.
+  // Dressing along the side walls, away from thresholds and out of the viewpoints' way.
+  const views = viewLocals(stop);
   const slots = [];
-  for (const u of [-(w / 2 - 0.75), w / 2 - 0.75]) {
+  for (const u of [-(w / 2 - AISLE), w / 2 - AISLE]) {
     for (let v = 1.5; v <= d - 1.5; v += 1.5) {
       const sideIsDoor = (u < 0 && status.left === 'door') || (u > 0 && status.right === 'door');
       if (sideIsDoor && Math.abs(v - d / 2) < 2) continue;
+      if (views.some(([vu, vv]) => Math.hypot(u - vu, v - vv) < VIEW_CLEARANCE)) continue;
       slots.push([u, v]);
     }
   }
@@ -283,11 +336,15 @@ function lookFor(stop) {
 export function railFor(stops) {
   const rail = [];
   for (const stop of stops) {
+    const views = viewLocals(stop);
     if (stop.kind === 'room') {
-      rail.push({ id: stop.id + '-enter', stop: stop.id, position: worldPoint(stop, 0, 1.5, EYE_HEIGHT), target: worldPoint(stop, 0, stop.d - 1.5, 1.2) });
-      rail.push({ id: stop.id + '-focal', stop: stop.id, position: worldPoint(stop, 0, stop.d * 0.55, EYE_HEIGHT), target: worldPoint(stop, 0, stop.d - 1.5, 1.0) });
+      const [fu, fv] = focalLocal(stop);
+      const target = worldPoint(stop, fu, fv, 1.5); // mid-height of the piece, not its feet
+      const [enter, focal] = views;
+      rail.push({ id: stop.id + '-enter', stop: stop.id, position: worldPoint(stop, ...enter, EYE_HEIGHT), target });
+      rail.push({ id: stop.id + '-focal', stop: stop.id, position: worldPoint(stop, ...focal, EYE_HEIGHT), target });
     } else {
-      rail.push({ id: stop.id + '-view', stop: stop.id, position: worldPoint(stop, 0, Math.max(1.5, stop.d / 2 - 1.5), EYE_HEIGHT), target: lookFor(stop) });
+      rail.push({ id: stop.id + '-view', stop: stop.id, position: worldPoint(stop, ...views[0], EYE_HEIGHT), target: lookFor(stop) });
     }
   }
   const hotspots = [];
@@ -295,10 +352,10 @@ export function railFor(stops) {
     const a = rail[i], b = rail[i + 1];
     const stop = stops.find((s) => s.id === a.stop);
     if (a.stop === b.stop) {
-      hotspots.push({ from: a.id, to: b.id, anchor: worldPoint(stop, 0, stop.d - 1.5, 1.0), label: 'focal' });
+      const [fu, fv] = focalLocal(stop);
+      hotspots.push({ from: a.id, to: b.id, anchor: worldPoint(stop, fu, fv - MARKER_INSET, MARKER_HEIGHT), label: 'focal' });
     } else {
-      const [eu, ev] = exitLocal(stop);
-      hotspots.push({ from: a.id, to: b.id, anchor: worldPoint(stop, eu, ev, 1.0), label: 'threshold' });
+      hotspots.push({ from: a.id, to: b.id, anchor: worldPoint(stop, ...thresholdLocal(stop), MARKER_HEIGHT), label: 'threshold' });
     }
   }
   return { rail, hotspots };
