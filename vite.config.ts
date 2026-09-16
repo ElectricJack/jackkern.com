@@ -1,8 +1,13 @@
 import { defineConfig, type Plugin } from 'vitest/config';
+import contract from './kit/contract.json';
+import manifest from './content/manifest.json';
 import { buildContent } from './tools/content.mjs';
+import { layout } from './layout/layout.js';
+import { staticMarkup } from './src/fallback/static';
 import { panelMarkup } from './src/panels/panels';
+import type { Contract, Manifest } from './src/types';
 
-/** Serves `virtual:content` and injects the panel sections into index.html. */
+/** Serves content to the scene and injects both scene panels and the no-JS fallback. */
 function villaContent(): Plugin {
   const id = 'virtual:content';
   const resolved = '\0' + id;
@@ -18,7 +23,11 @@ function villaContent(): Plugin {
       return `export default ${JSON.stringify(await buildContent(root))};`;
     },
     async transformIndexHtml(html) {
-      return html.replace('<!-- panels -->', panelMarkup(await buildContent(root)));
+      const content = await buildContent(root);
+      const plan = layout(manifest as Manifest, contract as Contract);
+      return html
+        .replace('<!-- fallback -->', staticMarkup(content, plan.rail))
+        .replace('<!-- panels -->', panelMarkup(content));
     },
   };
 }

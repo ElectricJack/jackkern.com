@@ -12,7 +12,10 @@ const content = [
 
 test('staticMarkup emits one image per viewpoint, in rail order, and each project panel once', () => {
   const html = staticMarkup(content, plan.rail);
-  expect(html.match(/<figure class="static-view">/g)!.length).toBe(plan.rail.length);
+  expect(html.match(/class="static-view"/g)!.length).toBe(plan.rail.length);
+  expect(html.match(/<details class="static-view">/g)!.length).toBe(plan.rail.length - 1);
+  expect(html).toContain('entry-view.jpg" alt="View of entry" loading="eager"');
+  expect(html).toContain('matter-engine-enter.jpg" alt="View of matter-engine" loading="lazy"');
   expect(html.indexOf('/static/entry-view.jpg')).toBeLessThan(html.indexOf('/static/matter-engine-enter.jpg'));
   expect(html.match(/data-stop="matter-engine"/g)!.length).toBe(1);
   expect(html).toContain('<h2>Matter &lt;Engine&gt;</h2>');
