@@ -1,14 +1,17 @@
-import { Box3 } from 'three';
+import { Box3, CatmullRomCurve3, DoubleSide, Matrix4, Mesh, MeshBasicMaterial, Raycaster, Vector3 } from 'three';
 import { expect, test } from 'vitest';
 import contract from '../../kit/contract.json';
+import manifest from '../../content/manifest.json';
+import { layout } from '../../layout/layout.js';
 import type { Part } from '../../src/types';
-import { greyboxGeometry, greyboxMaterial } from '../../src/kit/greybox';
+import { DOORWAY_OPENING, greyboxGeometry, greyboxMaterial } from '../../src/kit/greybox';
 
 const part = (id: string) => contract.parts.find((candidate) => candidate.id === id) as Part;
+const bounds = (id: string) =>
+  new Box3().setFromBufferAttribute(greyboxGeometry(part(id)).getAttribute('position') as any);
 
 test('a column is a vertical cylinder standing on y=0 with the contract height', () => {
-  const geometry = greyboxGeometry(part('column-doric'));
-  const box = new Box3().setFromBufferAttribute(geometry.getAttribute('position') as any);
+  const box = bounds('column-doric');
 
   expect(box.min.y).toBeCloseTo(0, 5);
   expect(box.max.y).toBeCloseTo(4, 5);
@@ -16,17 +19,101 @@ test('a column is a vertical cylinder standing on y=0 with the contract height',
 });
 
 test('a wall spans its footprint width and a floor slab hangs just below y=0', () => {
-  const wall = new Box3().setFromBufferAttribute(
-    greyboxGeometry(part('wall-3m')).getAttribute('position') as any,
-  );
+  const wall = bounds('wall-3m');
   expect(wall.max.x - wall.min.x).toBeCloseTo(3, 5);
   expect(wall.max.y).toBeCloseTo(4, 5);
 
-  const floor = new Box3().setFromBufferAttribute(
-    greyboxGeometry(part('floor-slab-3x3')).getAttribute('position') as any,
-  );
+  const floor = bounds('floor-slab-3x3');
   expect(floor.max.y).toBeCloseTo(0, 5);
   expect(floor.max.z - floor.min.z).toBeCloseTo(3, 5);
+});
+
+test('a doorway keeps the wall silhouette but is hollow at its threshold socket', () => {
+  const panel = part('wall-3m-doorway');
+  const door = bounds('wall-3m-doorway');
+  const wall = bounds('wall-3m');
+  expect(door.min.toArray()).toEqual(wall.min.toArray());
+  expect(door.max.toArray()).toEqual(wall.max.toArray());
+
+  const mesh = new Mesh(greyboxGeometry(panel), new MeshBasicMaterial());
+  mesh.updateMatrixWorld();
+  const ray = new Raycaster();
+  // Straight through the wall along the socket's +z, the way the camera crosses it.
+  const blocked = (x: number, y: number) => {
+    ray.set(new Vector3(x, y, -2), new Vector3(0, 0, 1));
+    return ray.intersectObject(mesh).length > 0;
+  };
+  const [socketX] = panel.sockets.find((socket) => socket.name === 'threshold')!.at;
+  const centre = socketX - panel.footprint[0] / 2;
+  const halfOpening = DOORWAY_OPENING.width / 2;
+
+  for (const y of [0.05, 1.7, DOORWAY_OPENING.height - 0.05]) {
+    for (const x of [centre, centre - halfOpening + 0.05, centre + halfOpening - 0.05]) expect(blocked(x, y)).toBe(false);
+  }
+  // Jambs either side and a lintel over the head are still solid.
+  expect(blocked(centre - halfOpening - 0.05, 1.7)).toBe(true);
+  expect(blocked(centre + halfOpening + 0.05, 1.7)).toBe(true);
+  expect(blocked(centre, DOORWAY_OPENING.height + 0.05)).toBe(true);
+  // A plain wall is solid where the doorway is open.
+  const solid = new Mesh(greyboxGeometry(part('wall-3m')), new MeshBasicMaterial());
+  solid.updateMatrixWorld();
+  ray.set(new Vector3(centre, 1.7, -2), new Vector3(0, 0, 1));
+  expect(ray.intersectObject(solid).length).toBeGreaterThan(0);
+});
+
+test('the camera rail crosses each doorway it meets through the opening, not the frame', () => {
+  const plan = layout(manifest, contract);
+  const curve = new CatmullRomCurve3(
+    plan.rail.map((v) => new Vector3(...v.position)),
+    false,
+    'centripetal',
+  );
+  const samples = curve.getPoints(20000);
+  const doors = plan.placements.filter((p) => p.part === 'wall-3m-doorway');
+  const panel = part('wall-3m-doorway');
+  const half = panel.footprint[0] / 2;
+  expect(doors.length).toBeGreaterThan(0);
+
+  // One panel at the origin; each rail segment is brought into the doorway's own frame instead.
+  const mesh = new Mesh(greyboxGeometry(panel), new MeshBasicMaterial({ side: DoubleSide }));
+  mesh.updateMatrixWorld();
+  const ray = new Raycaster();
+  const toDoor = new Matrix4();
+  const a = new Vector3();
+  const b = new Vector3();
+  const hit = new Vector3();
+  const heading = new Vector3();
+  const missed: string[] = [];
+
+  for (const door of doors) {
+    toDoor.fromArray(door.transform).invert();
+    let clears = false;
+    b.copy(samples[0]).applyMatrix4(toDoor);
+    for (let i = 1; i < samples.length; i++) {
+      a.copy(b);
+      b.copy(samples[i]).applyMatrix4(toDoor);
+      if (a.z === b.z || Math.sign(a.z) === Math.sign(b.z)) continue;
+      hit.lerpVectors(a, b, Math.abs(a.z) / Math.abs(a.z - b.z));
+      // Only a crossing strictly inside this panel's rectangle is the rail meeting this
+      // doorway; the plane it lies in runs on through the rest of the villa.
+      if (Math.abs(hit.x) >= half || hit.y <= 0 || hit.y >= panel.height) continue;
+      // Consecutive samples are millimetres apart, so carry the crossing a metre either way
+      // to cover the full 0.3 m of wall the camera would have to pass through.
+      heading.subVectors(b, a).normalize();
+      ray.set(hit.clone().addScaledVector(heading, -1), heading);
+      ray.far = 2;
+      clears = ray.intersectObject(mesh).length === 0;
+      break;
+    }
+    if (!clears) missed.push(door.instance);
+  }
+
+  // The exedra's two doorways are the only ones the rail does not pass through: fill() puts a
+  // doorway in the middle *bay* of a side, which is 1.5 m off-axis when a side has an even
+  // number of bays, so the rail runs down their outer edge instead (task eager-nexus). Every
+  // doorway the rail does meet, it clears — six of the eight, crossing up to 0.47 m off centre
+  // and 1.91 m up.
+  expect(missed).toEqual(['agent-queue.wall-3m-doorway.1', 'agent-queue.wall-3m-doorway.2']);
 });
 
 test('materials differ by category', () => {
