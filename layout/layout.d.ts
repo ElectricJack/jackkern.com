@@ -7,7 +7,7 @@ export const HEADINGS: [number, number][];
 export class LayoutError extends Error { code: string; constructor(code: string, message: string); }
 export type Stop = {
   id: string; kind: 'court' | 'room' | 'courtyard' | 'terrace'; archetype: string; focal?: string; centreHeight?: number; title?: string;
-  x: number; z: number; h: number; w: number; d: number; level: number; turn: -1 | 0 | 1; drop: boolean;
+  x: number; z: number; h: number; w: number; d: number; level: number; entryLevel: number; turn: -1 | 0 | 1; drop: boolean;
   hasEntry: boolean; hasExit: boolean; exit: { x: number; z: number; h: number };
 };
 export function footprintCells(x: number, z: number, h: number, w: number, d: number): string[];

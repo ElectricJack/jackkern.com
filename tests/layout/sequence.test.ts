@@ -19,6 +19,8 @@ test('every second courtyard turns, alternating, and every third drops a level',
   expect(cy('cy-3').drop).toBe(true);
   expect(cy('cy-1').drop).toBe(false);
   expect(stops.map((s) => s.level)).toEqual([0, 0, 0, 0, 0, 0, 0, -1, -1, -1]);
+  // A stop is entered on the floor of the stop before it: quilt-trader at the head of cy-3's stairs.
+  expect(stops.map((s) => s.entryLevel)).toEqual([0, 0, 0, 0, 0, 0, 0, 0, -1, -1]);
 });
 
 test('no two stops share a grid cell', () => {

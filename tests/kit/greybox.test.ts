@@ -28,6 +28,26 @@ test('a wall spans its footprint width and a floor slab hangs just below y=0', (
   expect(floor.max.z - floor.min.z).toBeCloseTo(3, 5);
 });
 
+test('a stair run is a ramp from the floor at its head down a level to its foot', () => {
+  const stairs = part('stair-run-3m');
+  const box = bounds('stair-run-3m');
+  expect(box.min.toArray()).toEqual([-1.5, -stairs.height, -1.5]);
+  expect(box.max.toArray()).toEqual([1.5, 0, 1.5]);
+
+  // Down onto it from above, as the scene draws it: front faces only.
+  const mesh = new Mesh(greyboxGeometry(stairs), new MeshBasicMaterial());
+  mesh.updateMatrixWorld();
+  const ray = new Raycaster();
+  const tread = (x: number, z: number) => {
+    ray.set(new Vector3(x, 10, z), new Vector3(0, -1, 0));
+    return ray.intersectObject(mesh)[0]?.point.y;
+  };
+  // Level with the floor it leaves along local -z, a level down at +z, and straight between.
+  for (const x of [-1.4, 0, 1.4]) {
+    for (const z of [-1.4, -0.5, 0.5, 1.4]) expect(tread(x, z)).toBeCloseTo((-(z + 1.5) / 3) * stairs.height, 5);
+  }
+});
+
 test('a doorway keeps the wall silhouette but is hollow at its threshold socket', () => {
   const panel = part('wall-3m-doorway');
   const door = bounds('wall-3m-doorway');

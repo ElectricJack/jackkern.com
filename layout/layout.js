@@ -19,6 +19,7 @@ const MARKER_INSET = 1.5; // how far short of, and to one side of, the feature a
 const PASS_INSET = 1.8; // how far aside the walk steps: clear of a focal piece and of the column rows
 const MARKER_HEIGHT = 1.6; // eye height, clear of the pool lips, benches and urns it passes
 const VIEW_CLEARANCE = 2.5; // dressing is kept this far from where the camera stands
+const STAIR_RUN = 3; // metres of ground a stair run takes to go down a level: stair-run-3m's depth
 
 export class LayoutError extends Error {
   constructor(code, message) {
@@ -119,6 +120,7 @@ export function sequence(manifest, parts) {
   let z = 0;
   let h = 0;
   let level = 0;
+  let entryLevel = 0; // the floor the next stop is entered on: the level of the stop before it
   let courtyardIndex = 0;
   let turnCount = 0;
 
@@ -158,10 +160,11 @@ export function sequence(manifest, parts) {
     if (!chosen) throw new LayoutError('no_placement', e.id + ': no non-overlapping exit');
 
     for (const c of cells) occupied.add(c);
-    stops.push({ ...e, x, z, h, w, d, level, turn: chosen.turn, drop, hasEntry: i > 0, hasExit: !isLast, exit: chosen.exit });
+    stops.push({ ...e, x, z, h, w, d, level, entryLevel, turn: chosen.turn, drop, hasEntry: i > 0, hasExit: !isLast, exit: chosen.exit });
     x = chosen.origin.x;
     z = chosen.origin.z;
     h = chosen.origin.h;
+    entryLevel = level;
     if (drop) level -= 1;
   }
   return stops;
@@ -212,6 +215,15 @@ function keepSide(stop) {
   return stop.turn === 0 ? -1 : -stop.turn;
 }
 
+/**
+ * How far in from its back edge a stop's own floor begins. A stop sunk below the one before it
+ * is entered at the head of the stair run fill() stands in its first STAIR_RUN metres, on the
+ * floor above, and a visitor only stops once they are down it: its near edge is the foot of the run.
+ */
+function nearEdge(stop) {
+  return stop.entryLevel > stop.level ? STAIR_RUN : 0;
+}
+
 /** Local (u, v) of the focal object: on the rail axis at the far wall. */
 function focalLocal(stop) {
   return [0, stop.d - 1.5];
@@ -219,9 +231,12 @@ function focalLocal(stop) {
 
 /** Local (u, v) of every viewpoint of a stop, in rail order. */
 function viewLocals(stop) {
+  // Only a room or the terrace ever follows the courtyard a level drops at, so only they have
+  // stairs to stand past.
+  const near = nearEdge(stop);
   if (stop.kind !== 'room') {
     // A terrace has nothing in the middle: it looks straight out over its far edge.
-    if (!stop.centreHeight) return [[0, OPEN_EDGE]];
+    if (!stop.centreHeight) return [[0, near + OPEN_EDGE]];
     // A court or courtyard is built around a fountain. Stand back far enough to see the
     // whole of it, and where the stop is too shallow for that, make up the distance by
     // stepping into the side aisle away from the turn ahead, looking across the water.
@@ -233,7 +248,8 @@ function viewLocals(stop) {
   const focalV = focalLocal(stop)[1];
   const framed = focalV - FRAME_PER_METRE * stop.centreHeight;
   // Far enough back to frame the piece, but always inside the room and ahead of the entry.
-  return [[0, EDGE_STANDOFF], [0, fix(Math.max(EDGE_STANDOFF + 1, Math.min(focalV - 1.5, framed)))]];
+  const enter = near + EDGE_STANDOFF;
+  return [[0, enter], [0, fix(Math.max(enter + 1, Math.min(focalV - 1.5, framed)))]];
 }
 
 /** Local (u, v) of the marker that leads out: short of the threshold, clear of the focal piece. */
@@ -262,7 +278,12 @@ function walkIn(stop) {
   if (!stop.hasEntry) return [];
   const [du] = entryLocal(stop);
   const [vu, vv] = viewLocals(stop)[0];
-  return vu === du ? [] : [['in', du, vv]];
+  // Into a sunk stop, the doorway is the head of a stair run: go straight down it to its foot
+  // before anything else, so the camera comes down the stairs at eye height over each of them
+  // rather than dropping the whole level in whatever ground lies before the first viewpoint.
+  const near = nearEdge(stop);
+  const stairs = near ? [['stairs', du, near]] : [];
+  return vu === du ? stairs : [...stairs, ['in', du, vv]];
 }
 
 /** Going out: round the centrepiece, or the focal piece, and square up to the doorway. */
@@ -277,7 +298,10 @@ function walkOut(stop) {
     const aside = eu - stop.turn * PASS_INSET;
     return [['turn', aside, OPEN_EDGE], ['square', aside, ev], door];
   }
-  if (stop.kind !== 'room') return [door];
+  // Straight on out of a stop that drops a level, the doorway is the head of a stair run: square
+  // up to it EDGE_STANDOFF short, as the viewpoint below stands that far past the foot, so the
+  // walk comes onto the stairs straight and level rather than already on its way down.
+  if (stop.kind !== 'room') return stop.drop ? [['head', eu, ev - EDGE_STANDOFF], door] : [door];
   // Straight on out of a room, the focal piece stands on the axis at the far wall, between
   // the last viewpoint and the doorway: pass it on the doorway's own side of the axis.
   return [['pass', (eu === 0 ? keepSide(stop) : Math.sign(eu)) * PASS_INSET, focalLocal(stop)[1]], door];
@@ -405,10 +429,11 @@ export function fill(stop, parts, rng) {
     if (archetype !== 'pool-hall') place(CENTREPIECE, 0, d / 2, 0, 0);
   }
 
-  // Stairs at the exit of a dropping courtyard.
+  // Stairs at the exit of a dropping courtyard, going down on through it: the run's local +z,
+  // where it meets the floor below, faces the way the exit leads.
   if (stop.drop) {
     const [eu, ev] = exitLocal(stop);
-    const q = stop.turn === 0 ? 0 : 1;
+    const q = (stop.turn + 4) % 4;
     const along = stop.turn === 0 ? [0, 1.5] : [stop.turn * 1.5, 0];
     place('stair-run-3m', eu + along[0], ev + along[1], q, 0);
   }

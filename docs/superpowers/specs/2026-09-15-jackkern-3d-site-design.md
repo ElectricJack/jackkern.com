@@ -147,9 +147,11 @@ Three passes:
 3. **Rail and nodes.** Two viewpoints per project room; one each for the
    entry court, every courtyard, and the terrace; each with position, look
    target, and stop id. Between them, the walk: the doorway bays the camera
-   goes out through and the steps aside that keep it clear of the centrepieces
-   and the focal pieces, so the curve stays inside the rooms that hold its
-   viewpoints. Hotspots per viewpoint: visible thresholds and the focal object.
+   goes out through, the steps aside that keep it clear of the centrepieces
+   and the focal pieces, and the head and foot of a stair run it goes down, so
+   the curve stays inside the rooms that hold its viewpoints and at eye height
+   over the floor or stairs under it. A stop entered down stairs is viewed
+   from past their foot. Hotspots per viewpoint: visible thresholds and the focal object.
 
 Output, JSON-serialisable:
 

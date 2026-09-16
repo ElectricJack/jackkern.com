@@ -25,6 +25,15 @@ function box(w, h, d, y0) {
   return { points, edges };
 }
 
+/** A stair run's ramp: level with y=0 along its back edge (-z), h down at its foot (+z). */
+function ramp(w, d, h) {
+  const points = [];
+  for (const x of [-w / 2, w / 2]) points.push([x, 0, -d / 2], [x, -h, -d / 2], [x, -h, d / 2]);
+  // Two triangular ends, indexed x*3 + corner, and the three edges that run across between them.
+  const edges = [[0, 1], [1, 2], [2, 0], [3, 4], [4, 5], [5, 3], [0, 3], [1, 4], [2, 5]];
+  return { points, edges };
+}
+
 function cylinder(segments, radiusBottom, radiusTop, y0, h) {
   const points = [];
   for (let i = 0; i < segments; i++) {
@@ -49,7 +58,7 @@ export function standIn(part) {
   const height = Math.max(part.height, 0.1);
   if (part.id.startsWith('column')) return cylinder(16, 0.45, 0.4, 0, height);
   if (part.id.startsWith('entablature')) return box(footprintWidth, 0.6, 0.6, 0);
-  if (part.id.startsWith('stair')) return box(footprintWidth, 1, footprintDepth, -1);
+  if (part.id.startsWith('stair')) return ramp(footprintWidth, footprintDepth, height);
   if (part.category === 'floor') return box(footprintWidth, 0.1, footprintDepth, -0.1);
   if (part.category === 'water') {
     return part.id.startsWith('pool')
