@@ -22,3 +22,11 @@ npm-debug.log*
 # but not committable. CI runners are plain Linux and never hit it.
 /undefined*
 /[\\]*
+
+# Local tool caches. `graft/` is an agent-side code-index cache, not part of
+# the site: it holds per-worker state (`.cache/stats.json` records the last
+# file that worker touched), so every branch that commits it conflicts with
+# every other branch that commits it. Nothing in this repo references graft/,
+# so the whole directory is ignored; narrow this to `graft/.cache/` if graft
+# ever gains committable config.
+graft/
