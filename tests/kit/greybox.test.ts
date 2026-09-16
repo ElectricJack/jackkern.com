@@ -121,7 +121,7 @@ test('the sight-line stand-in for a wall is solid exactly where its grey box is'
   }
 });
 
-test('the camera rail crosses each doorway it meets through the opening, not the frame', () => {
+test('the camera walk crosses every doorway through the opening, not the frame', () => {
   const plan = layout(manifest, contract);
   // What the camera rides: the whole walk, through the bay each doorway opens. A spline through
   // the viewpoints alone is not held to the doorways and has not been the rail since task
@@ -175,12 +175,9 @@ test('the camera rail crosses each doorway it meets through the opening, not the
     if (!crosses || tight) missed.push(door.instance);
   }
 
-  // None. Task fleet-vault moved the promenade onto the bay fill() opens, the exedra's two
-  // off-axis doorways included, and the walk goes through the middle of every one. The tightest
-  // is overhead where a stop is sunk a level: its entry panel stands on the lower floor while
-  // the camera arrives at the upper floor's eye height, up to 2.82 m up the panel, which is what
-  // sets the opening's height. The expectation was two doorways, then five, while this measured
-  // a spline through the viewpoints alone.
+  // Every doorway must be crossed with clearance, including the exedra's off-axis bays.
+  // A sunk room's entry doorway stands at the head of the stairs, on the floor the camera
+  // arrives from. A doorway the walk never crosses inside its panel counts as missed too.
   expect(missed).toEqual([]);
 });
 
