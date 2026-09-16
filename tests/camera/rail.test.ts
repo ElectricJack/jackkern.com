@@ -7,7 +7,7 @@ import { Rail } from '../../src/camera/rail';
 const plan = layout(manifest, contract);
 
 test('u fractions are monotonic from 0 to 1 and the curve passes through every viewpoint', () => {
-  const rail = new Rail(plan.rail);
+  const rail = new Rail(plan.rail, plan.path);
   expect(rail.u[0]).toBe(0);
   expect(rail.u[rail.u.length - 1]).toBe(1);
   for (let i = 1; i < rail.u.length; i++) expect(rail.u[i]).toBeGreaterThan(rail.u[i - 1]);
@@ -19,12 +19,17 @@ test('u fractions are monotonic from 0 to 1 and the curve passes through every v
 });
 
 test('nearest returns the closest viewpoint index and pose clamps u', () => {
-  const rail = new Rail(plan.rail);
+  const rail = new Rail(plan.rail, plan.path);
   expect(rail.nearest(rail.u[3] + 0.001)).toBe(3);
   expect(rail.nearest(-1)).toBe(0);
   expect(rail.pose(2).position.distanceTo(rail.pose(1).position)).toBe(0);
 });
 
 test('a rail needs at least two viewpoints', () => {
-  expect(() => new Rail([plan.rail[0]])).toThrow('at least two');
+  expect(() => new Rail([plan.rail[0]], plan.path)).toThrow('at least two');
+});
+
+test('a rail rejects a viewpoint the path does not run through', () => {
+  const stray = { ...plan.rail[2], id: 'nowhere' };
+  expect(() => new Rail([plan.rail[0], stray], plan.path)).toThrow('on the path');
 });

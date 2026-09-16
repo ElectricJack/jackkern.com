@@ -146,8 +146,10 @@ Three passes:
    dressing budget is spent.
 3. **Rail and nodes.** Two viewpoints per project room; one each for the
    entry court, every courtyard, and the terrace; each with position, look
-   target, and stop id. Hotspots per viewpoint: visible thresholds
-   and the focal object.
+   target, and stop id. Between them, the walk: the doorway bays the camera
+   goes out through and the steps aside that keep it clear of the centrepieces
+   and the focal pieces, so the curve stays inside the rooms that hold its
+   viewpoints. Hotspots per viewpoint: visible thresholds and the focal object.
 
 Output, JSON-serialisable:
 
@@ -157,6 +159,7 @@ type Layout = {
   hash: string;                       // FNV-1a 64-bit over the canonical JSON of everything below, implemented inside the module (no crypto dependency in QuickJS)
   placements: { instance: string; part: string; stop: string; transform: number[16] }[];
   rail: { id: string; stop: string; position: number[3]; target: number[3] }[];
+  path: { id: string; stop: string; position: number[3]; target: number[3] }[];   // the whole walk the camera rides; `rail` is the subsequence it stops at
   hotspots: { from: string; to: string; anchor: number[3]; label: string }[];
   bounds: Record<string, { min: number[3]; max: number[3] }>;   // per stop, for streaming
 };
@@ -180,8 +183,9 @@ Five modules with one-way dependencies.
 - **Streamer.** Loads the entry court immediately, then stops in rail order two
   ahead of the camera; disposes stops more than three behind.
 - **Camera director.** Sole owner of the camera. Scroll mode maps scroll
-  position to distance along a Catmull-Rom curve through the rail with easing
-  and look-ahead. Node mode animates between viewpoints on the same curve. One
+  position to distance along a Catmull-Rom curve through the walk with easing
+  and look-ahead; splining the viewpoints alone would bow the curve out through
+  the walls between them. Node mode animates between viewpoints on the same curve. One
   state machine: scrolling from a node resumes the rail there; a hotspot click
   pauses scroll mapping until the glide lands. Touch swipe drives scroll;
   keyboard arrows step nodes.

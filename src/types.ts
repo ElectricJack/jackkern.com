@@ -15,4 +15,8 @@ export type Placement = { instance: string; part: string; stop: string; transfor
 export type Viewpoint = { id: string; stop: string; position: Vec3; target: Vec3 };
 export type Hotspot = { from: string; to: string; anchor: Vec3; label: 'focal' | 'threshold' };
 export type Bounds = { min: Vec3; max: Vec3 };
-export type Layout = { version: 1; hash: string; placements: Placement[]; rail: Viewpoint[]; hotspots: Hotspot[]; bounds: Record<string, Bounds> };
+export type Layout = {
+  version: 1; hash: string; placements: Placement[]; rail: Viewpoint[];
+  path: Viewpoint[]; // the whole walk the camera rides; `rail` is the subsequence it stops at
+  hotspots: Hotspot[]; bounds: Record<string, Bounds>;
+};

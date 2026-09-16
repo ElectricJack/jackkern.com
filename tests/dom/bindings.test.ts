@@ -29,7 +29,7 @@ test('hotspotMarkers creates one hidden marker per hotspot with viewpoint indice
 test('wheel scrolls by pixels over the whole rail and arrow keys step', () => {
   const el = document.createElement('div');
   document.body.appendChild(el);
-  const rail = new Rail(plan.rail);
+  const rail = new Rail(plan.rail, plan.path);
   const director = new Director(rail, new PerspectiveCamera());
   const scrollBy = vi.spyOn(director, 'scrollBy');
   const step = vi.spyOn(director, 'step');

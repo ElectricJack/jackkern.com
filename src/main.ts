@@ -53,7 +53,7 @@ async function boot(): Promise<void> {
   scene.add(root);
 
   const streamer = new Streamer(stops, order);
-  const rail = new Rail(plan.rail);
+  const rail = new Rail(plan.rail, plan.path);
   const director = new Director(rail, camera);
   const markers = hotspotMarkers(plan.hotspots, plan.rail);
   scene.add(markers);
