@@ -1,8 +1,9 @@
-import { Box3, CatmullRomCurve3, DoubleSide, Matrix4, Mesh, MeshBasicMaterial, Raycaster, Vector3 } from 'three';
+import { Box3, DoubleSide, Matrix4, Mesh, MeshBasicMaterial, Raycaster, Vector3 } from 'three';
 import { expect, test } from 'vitest';
 import contract from '../../kit/contract.json';
 import manifest from '../../content/manifest.json';
 import { layout } from '../../layout/layout.js';
+import { Rail } from '../../src/camera/rail';
 import type { Part } from '../../src/types';
 import { DOORWAY_OPENING, greyboxGeometry, greyboxMaterial } from '../../src/kit/greybox';
 
@@ -61,14 +62,11 @@ test('a doorway keeps the wall silhouette but is hollow at its threshold socket'
   expect(ray.intersectObject(solid).length).toBeGreaterThan(0);
 });
 
-test('the camera rail crosses each doorway it meets through the opening, not the frame', () => {
+test('the camera walk crosses every doorway through the opening, not the frame', () => {
   const plan = layout(manifest, contract);
-  const curve = new CatmullRomCurve3(
-    plan.rail.map((v) => new Vector3(...v.position)),
-    false,
-    'centripetal',
-  );
-  const samples = curve.getPoints(20000);
+  // The curve the camera rides: the whole walk, not a spline through the viewpoints alone,
+  // which cuts corners between stops and misses doorways the camera really goes through.
+  const samples = new Rail(plan.rail, plan.path).curve.getPoints(20000);
   const doors = plan.placements.filter((p) => p.part === 'wall-3m-doorway');
   const panel = part('wall-3m-doorway');
   const half = panel.footprint[0] / 2;
@@ -108,12 +106,10 @@ test('the camera rail crosses each doorway it meets through the opening, not the
     if (!clears) missed.push(door.instance);
   }
 
-  // The exedra's two doorways are the only ones the rail does not pass through: fill() puts a
-  // doorway in the middle *bay* of a side, which is 1.5 m off-axis when a side has an even
-  // number of bays, so the rail runs down their outer edge instead (task eager-nexus). Every
-  // doorway the rail does meet, it clears — six of the eight, crossing up to 0.47 m off centre
-  // and 1.91 m up.
-  expect(missed).toEqual(['agent-queue.wall-3m-doorway.1', 'agent-queue.wall-3m-doorway.2']);
+  // A doorway the walk never crosses inside its panel counts as missed too, so this holds the
+  // walk to every doorway in the villa: each is crossed on its centre line, 1.7 m up, except
+  // quilt-trader's entry, which the walk crosses 2.7 m up from the top of cy-3's stairs.
+  expect(missed).toEqual([]);
 });
 
 test('materials differ by category', () => {
