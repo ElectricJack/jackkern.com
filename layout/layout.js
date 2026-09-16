@@ -270,3 +270,63 @@ export function fill(stop, parts, rng) {
 
   return out;
 }
+
+/** Where a non-room stop looks: on through the exit, or out past the far edge at the end. */
+function lookFor(stop) {
+  const { w, d } = stop;
+  if (!stop.hasExit) return worldPoint(stop, 0, d + 6, 1.5);
+  if (stop.turn === 0) return worldPoint(stop, 0, d + 3, 1.5);
+  return worldPoint(stop, stop.turn * (w / 2 + 3), d / 2, 1.5);
+}
+
+/** Camera rail in stop order, plus one hotspot per consecutive pair. */
+export function railFor(stops) {
+  const rail = [];
+  for (const stop of stops) {
+    if (stop.kind === 'room') {
+      rail.push({ id: stop.id + '-enter', stop: stop.id, position: worldPoint(stop, 0, 1.5, EYE_HEIGHT), target: worldPoint(stop, 0, stop.d - 1.5, 1.2) });
+      rail.push({ id: stop.id + '-focal', stop: stop.id, position: worldPoint(stop, 0, stop.d * 0.55, EYE_HEIGHT), target: worldPoint(stop, 0, stop.d - 1.5, 1.0) });
+    } else {
+      rail.push({ id: stop.id + '-view', stop: stop.id, position: worldPoint(stop, 0, Math.max(1.5, stop.d / 2 - 1.5), EYE_HEIGHT), target: lookFor(stop) });
+    }
+  }
+  const hotspots = [];
+  for (let i = 0; i + 1 < rail.length; i++) {
+    const a = rail[i], b = rail[i + 1];
+    const stop = stops.find((s) => s.id === a.stop);
+    if (a.stop === b.stop) {
+      hotspots.push({ from: a.id, to: b.id, anchor: worldPoint(stop, 0, stop.d - 1.5, 1.0), label: 'focal' });
+    } else {
+      const [eu, ev] = exitLocal(stop);
+      hotspots.push({ from: a.id, to: b.id, anchor: worldPoint(stop, eu, ev, 1.0), label: 'threshold' });
+    }
+  }
+  return { rail, hotspots };
+}
+
+/** World-space axis-aligned box per stop, from the footprint corners and the level floor. */
+export function boundsFor(stops) {
+  const bounds = {};
+  for (const stop of stops) {
+    const corners = [[-stop.w / 2, 0], [stop.w / 2, 0], [-stop.w / 2, stop.d], [stop.w / 2, stop.d]].map(([u, v]) => worldPoint(stop, u, v, 0));
+    const xs = corners.map((c) => c[0]), zs = corners.map((c) => c[2]);
+    const y0 = stop.level * LEVEL_HEIGHT;
+    bounds[stop.id] = { min: [fix(Math.min(...xs)), fix(y0 - 0.2), fix(Math.min(...zs))], max: [fix(Math.max(...xs)), fix(y0 + 4.6), fix(Math.max(...zs))] };
+  }
+  return bounds;
+}
+
+/** The whole placement document, hashed over its canonical form. */
+export function layout(manifest, contract, seed) {
+  if (manifest.version !== 1) throw new LayoutError('manifest_version', 'unsupported manifest version ' + manifest.version);
+  if (contract.version !== 1) throw new LayoutError('contract_version', 'unsupported contract version ' + contract.version);
+  const parts = new Map(contract.parts.map((p) => [p.id, p]));
+  const rng = mulberry32(seed === undefined ? manifest.seed : seed);
+  const stops = sequence(manifest, parts);
+  const placements = [];
+  for (const stop of stops) placements.push(...fill(stop, parts, rng));
+  const { rail, hotspots } = railFor(stops);
+  const bounds = boundsFor(stops);
+  const body = { version: LAYOUT_VERSION, placements, rail, hotspots, bounds };
+  return { ...body, hash: fnv1a64(canonical(body)) };
+}
