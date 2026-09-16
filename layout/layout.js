@@ -119,6 +119,7 @@ export function sequence(manifest, parts) {
   let z = 0;
   let h = 0;
   let level = 0;
+  let entryLevel = 0; // the floor the next stop is entered on: the level of the stop before it
   let courtyardIndex = 0;
   let turnCount = 0;
 
@@ -158,10 +159,11 @@ export function sequence(manifest, parts) {
     if (!chosen) throw new LayoutError('no_placement', e.id + ': no non-overlapping exit');
 
     for (const c of cells) occupied.add(c);
-    stops.push({ ...e, x, z, h, w, d, level, turn: chosen.turn, drop, hasEntry: i > 0, hasExit: !isLast, exit: chosen.exit });
+    stops.push({ ...e, x, z, h, w, d, level, entryLevel, turn: chosen.turn, drop, hasEntry: i > 0, hasExit: !isLast, exit: chosen.exit });
     x = chosen.origin.x;
     z = chosen.origin.z;
     h = chosen.origin.h;
+    entryLevel = level;
     if (drop) level -= 1;
   }
   return stops;
@@ -383,7 +385,12 @@ export function fill(stop, parts, rng) {
         }
         place('entablature-3m', seg.u, seg.v, seg.localQ, columnHeight);
       } else if (status[side] === 'door' && (seg.localQ === 0 ? seg.u : seg.v) === door) {
-        place('wall-3m-doorway', seg.u, seg.v, seg.localQ, 0);
+        // A stop sunk below the one before it is entered at the head of that stop's stair run,
+        // on the floor the stairs go down from, so its entry doorway stands on that floor too.
+        // On its own floor, a level down, the lintel would be a level lower over the visitor's
+        // head. The bay stands that much taller than the wall either side, over the stair run.
+        const rise = side === 'back' ? (stop.entryLevel - stop.level) * LEVEL_HEIGHT : 0;
+        place('wall-3m-doorway', seg.u, seg.v, seg.localQ, rise);
       } else {
         place('wall-3m', seg.u, seg.v, seg.localQ, 0);
       }
