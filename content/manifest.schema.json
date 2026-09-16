@@ -1,0 +1,30 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "type": "object",
+  "required": ["version", "seed", "stops"],
+  "additionalProperties": false,
+  "properties": {
+    "version": { "const": 1 },
+    "seed": { "type": "integer", "minimum": 0 },
+    "stops": {
+      "type": "array",
+      "minItems": 3,
+      "items": {
+        "type": "object",
+        "required": ["id", "kind"],
+        "additionalProperties": false,
+        "properties": {
+          "id": { "type": "string", "pattern": "^[a-z0-9]+(-[a-z0-9]+)*$" },
+          "kind": { "enum": ["court", "project", "terrace"] },
+          "title": { "type": "string", "minLength": 1 },
+          "archetype": { "enum": ["gallery", "pool-hall", "exedra"] },
+          "focal": { "type": "string" },
+          "panel": { "type": "string", "pattern": "^content/.+\\.md$" },
+          "screenshots": { "type": "array", "items": { "type": "string" } }
+        },
+        "if": { "properties": { "kind": { "const": "project" } } },
+        "then": { "required": ["title", "archetype", "focal", "panel"] }
+      }
+    }
+  }
+}

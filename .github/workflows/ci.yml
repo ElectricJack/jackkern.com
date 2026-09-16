@@ -1,5 +1,6 @@
-# Every push and pull request: build the site, check the links in the built
-# output, and hold it to a Lighthouse budget.
+# Every push and pull request: validate the data files, run the unit tests,
+# build, capture the static views, compare them to the references, enforce
+# byte budgets, check links, and hold the page to its Lighthouse budget.
 name: CI
 
 on:
@@ -17,23 +18,32 @@ permissions:
 
 jobs:
   build:
-    name: Build and link check
+    name: Test, build, capture, budgets, links
     runs-on: ubuntu-latest
-    timeout-minutes: 10
+    timeout-minutes: 20
     steps:
       - uses: actions/checkout@v7
 
       - uses: actions/setup-node@v7
         with:
           node-version-file: .nvmrc
+          cache: npm
 
-      - name: Build
-        run: node tools/build.mjs
+      - run: npm ci
+      - run: npm run validate
+      - run: npm run typecheck
+      - run: npm test
+      - run: npm run build
+
+      - name: Install Chromium for the static capture
+        run: npx playwright install --with-deps chromium
+
+      - run: npm run render:static
+      - run: npm run check:visual
+      - run: npm run budgets
 
       # --external is on here and off in the deploy workflow: a pull request is
-      # the right place to learn that a project link rotted, and the wrong place
-      # is a deploy to the apex. 401/403/405/429 are tolerated as bot defences;
-      # only a 404 or a dead host fails. See tools/link-check.mjs.
+      # the right place to learn that a project link rotted.
       - name: Link check (including external URLs)
         run: node tools/link-check.mjs dist --external
 
@@ -42,6 +52,14 @@ jobs:
         with:
           name: dist
           path: dist
+          retention-days: 7
+
+      - name: Upload captures on failure
+        if: failure()
+        uses: actions/upload-artifact@v7
+        with:
+          name: visual
+          path: tmp/visual
           retention-days: 7
 
   lighthouse:
@@ -54,12 +72,13 @@ jobs:
       - uses: actions/setup-node@v7
         with:
           node-version-file: .nvmrc
+          cache: npm
 
-      - name: Build
-        run: node tools/build.mjs
+      - run: npm ci
+      - run: npm run build
 
-      # lhci serves dist/ itself (staticDistDir) and uses the runner's
-      # preinstalled Chrome. Thresholds live in lighthouserc.json.
+      # lhci serves dist/ itself (staticDistDir) and uses the runner's Chrome.
+      # Thresholds live in lighthouserc.json.
       - name: Lighthouse
         run: npx -y @lhci/cli@0.15.1 autorun
 
