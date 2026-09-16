@@ -84,9 +84,26 @@ test('a room opens its threshold sides on the bay the rail crosses', () => {
       .filter((p) => p.part === 'wall-3m-doorway')
       .map((p) => p.transform.slice(12, 15).join(','));
     const wanted = [
-      worldPoint(stop, ...entryLocal(stop), 0).join(','),
+      worldPoint({ ...stop, level: stop.entryLevel }, ...entryLocal(stop), 0).join(','),
       worldPoint(stop, ...exitLocal(stop), 0).join(','),
     ].filter((_, i) => (i === 0 ? stop.hasEntry : stop.hasExit));
     expect(`${stop.id}: ${doors.sort().join(' ')}`).toBe(`${stop.id}: ${wanted.sort().join(' ')}`);
+  }
+});
+
+test('a stop sunk a level is entered through a doorway at the head of the stair run, on the floor above', () => {
+  // The visitor crosses the threshold before going down the stairs fill() stands just past it,
+  // so the doorway over it stands where the stair run starts, not on the floor it runs down to.
+  const sunk = stops.filter((stop, i) => i > 0 && stops[i - 1].drop && stop.kind === 'room');
+  expect(sunk.length).toBeGreaterThan(0);
+  for (const stop of sunk) {
+    const above = stops[stops.indexOf(stop) - 1];
+    const [stairs] = placementsOf(above.id).filter((p) => p.part === 'stair-run-3m');
+    const [x, , z] = worldPoint(stop, ...entryLocal(stop), 0);
+    const [door] = placementsOf(stop.id).filter((p) => p.part === 'wall-3m-doorway' && p.transform[12] === x && p.transform[14] === z);
+    expect(door, `${stop.id} has an entry doorway`).toBeDefined();
+    expect(stop.level).toBe(above.level - 1);
+    expect(`${stop.id} entry doorway stands at y ${door.transform[13]}`).toBe(`${stop.id} entry doorway stands at y ${stairs.transform[13]}`);
+    expect(stairs.transform[13]).toBe(worldPoint(above, 0, 0, 0)[1]);
   }
 });
