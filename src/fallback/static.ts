@@ -4,7 +4,11 @@ import type { Viewpoint } from '../types';
 export function supportsWebGL(): boolean {
   try {
     const canvas = document.createElement('canvas');
-    return !!(canvas.getContext('webgl2') || canvas.getContext('webgl'));
+    const gl = canvas.getContext('webgl2') || canvas.getContext('webgl');
+    // Hand the test context back now rather than whenever it is collected:
+    // browsers cap live contexts per page and evict the oldest.
+    gl?.getExtension('WEBGL_lose_context')?.loseContext();
+    return !!gl;
   } catch {
     return false;
   }
