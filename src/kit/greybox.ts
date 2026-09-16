@@ -12,11 +12,14 @@ const COLORS: Record<Part['category'], number> = {
 const WALL_THICKNESS = 0.3;
 
 /**
- * The hole a threshold socket cuts in its wall. The camera rail is a spline through
- * eye-height (1.7 m) viewpoints and crosses a doorway up to 0.47 m off its centre and
- * 1.91 m up, so the opening is sized to clear that with room to spare.
+ * The hole a threshold socket cuts in its wall. The camera walks through every doorway at eye
+ * height (1.7 m), never more than 0.41 m off its centre, so 2 m leaves the jambs well clear.
+ * The height is set by a stop sunk a level below the one before it: its entry panel stands on
+ * the lower floor while the camera arrives at the upper floor's eye height, and the walk crests
+ * 2.82 m up that panel on its way through. 3.2 m keeps the lintel 0.38 m over the camera, past
+ * the 0.25 m that tests/kit/greybox.test.ts holds the frame to.
  */
-export const DOORWAY_OPENING = { width: 2, height: 2.8 };
+export const DOORWAY_OPENING = { width: 2, height: 3.2 };
 
 /** Narrowest jamb and shallowest lintel left standing when a part is too small for the full opening. */
 const MIN_FRAME = 0.3;

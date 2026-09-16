@@ -1,11 +1,11 @@
 import { chromium } from 'playwright';
-import { PerspectiveCamera, Vector3 } from 'three';
+import { CatmullRomCurve3, PerspectiveCamera, Vector3 } from 'three';
 import { PNG } from 'pngjs';
 import { readFileSync, writeFileSync, mkdirSync } from 'node:fs';
 import { layout } from '../../../layout/layout.js';
 import { survey } from '../../../tools/sightlines.mjs';
 
-const BASE = 'http://localhost:5177';
+const BASE = process.env.VILLA_URL ?? 'http://localhost:5177'; // another port when 5177 is taken
 const W = 1280, H = 720;
 const PANEL_X = 860;            // #panels covers x >= 860; the 3D view is left of it.
 const SHOTS = 'tmp/verify/shots';
@@ -78,16 +78,21 @@ function project(world, viewpoint) {
 
 const browser = await chromium.launch({ args: ['--use-angle=swiftshader', '--enable-unsafe-swiftshader'] });
 
+// Since nimble-horizon the page is always built with both halves: the static promenade in
+// #fallback and the scene's canvas and panels, hidden until the visitor enters the villa.
+// #app[data-mode] says which one is showing, and the scene's panels are the ones in #panels.
 const state = (page) => page.evaluate(() => ({
-  canvas: !!document.getElementById('villa'),
-  mode: document.getElementById('panels')?.dataset.mode ?? null,
-  shown: [...document.querySelectorAll('section.panel')].filter((s) => !s.hidden).map((s) => s.dataset.stop),
+  canvas: !(document.getElementById('villa')?.hidden ?? true),
+  mode: document.getElementById('app')?.dataset.mode ?? null,
+  launch: !(document.getElementById('enter-villa')?.hidden ?? true),
+  shown: [...document.querySelectorAll('#panels section.panel')].filter((s) => !s.hidden).map((s) => s.dataset.stop),
   ready: window.__villaReady,
-  staticImgs: [...document.querySelectorAll('.static-view img')].map((i) => i.getAttribute('src')),
-  staticPanels: [...document.querySelectorAll('section.panel.static')].map((s) => s.dataset.stop),
+  staticImgs: [...document.querySelectorAll('#fallback .static-view img')].map((i) => i.getAttribute('src')),
+  staticPanels: [...document.querySelectorAll('#fallback section.panel.static')].map((s) => s.dataset.stop),
 }));
 
-async function open(path, opts = {}) {
+/** Opens a page; `enter` presses "Enter the villa", which is what starts three.js for a visitor. */
+async function open(path, { enter = false, ...opts } = {}) {
   const context = await browser.newContext({ viewport: { width: W, height: H }, deviceScaleFactor: 1, ...opts });
   const page = await context.newPage();
   const errors = [];
@@ -96,12 +101,16 @@ async function open(path, opts = {}) {
   page.on('pageerror', (e) => errors.push(String(e)));
   page.on('response', (r) => { if (r.status() === 404) missing.push(new URL(r.url()).pathname); });
   await page.goto(BASE + path, { waitUntil: 'load' });
+  if (enter) {
+    await page.click('#enter-villa');
+    await page.waitForFunction(() => document.getElementById('app')?.dataset.mode === 'scene');
+  }
   return { context, page, errors, missing };
 }
 
 // ── 1. The entry court renders ────────────────────────────────────────────────
 {
-  const { context, page, errors } = await open('/');
+  const { context, page, errors } = await open('/', { enter: true });
   await page.waitForTimeout(2500);
   const s = await state(page);
   const buf = await page.screenshot();
@@ -116,7 +125,7 @@ async function open(path, opts = {}) {
   const blueShare = (p.blue / p.n) * 100;
 
   const elements = { 'warm sky #e8e4dc': p.sky > 0, 'floor/columns (warm solids)': p.floorish > 0, 'blue water': p.blue > 0 };
-  const allFour = Object.values(elements).every(Boolean);
+  const allFour = Object.values(elements).every(Boolean) && s.canvas && s.mode === 'scene';
   // eager-meadow's bar is per part: "no single part covers more than ~25% of the viewport".
   // The blue-pixel share below counts the pool basin and the fountain as one blob, and a
   // 3x3 pool in a 9x6 courtyard never falls under 25% from anywhere you can stand, so it
@@ -129,7 +138,7 @@ async function open(path, opts = {}) {
     allFour && readable,
     `All four elements ARE in the frame: ${Object.entries(elements).map(([k, v]) => `${k}=${v}`).join(', ')} ` +
     `(sky ${p.pct(p.sky)}, warm solids ${p.pct(p.floorish)}, blue water ${p.pct(p.blue)} of the 3D area). ` +
-    `Canvas present=${s.canvas}, static mode=${s.mode}, no panel at the court (shown=[${s.shown}]), console errors=${errors.length}. ` +
+    `Entered with the launch button: canvas shown=${s.canvas}, #app[data-mode]=${s.mode}, no panel at the court (shown=[${s.shown}]), console errors=${errors.length}. ` +
     `Composition: the largest single part in frame is ${biggest.part} at ${(biggest.share * 100).toFixed(0)}% of the 3D window, ` +
     `${readable ? 'under' : 'OVER'} the 25% one-part limit. All the blue (pool basin + fountain together) fills ` +
     `x ${p.blueLeft}-${p.blueRight} of 0-${PANEL_X} and y ${p.blueTop}-${p.blueBottom} of 0-${H}, ${blueShare.toFixed(0)}% of the 3D area. ` +
@@ -141,7 +150,7 @@ async function open(path, opts = {}) {
 
 // ── 2. Wheel scrolls forward; the Matter Engine panel appears at the pool hall ─
 {
-  const { context, page, errors } = await open('/');
+  const { context, page, errors } = await open('/', { enter: true });
   await page.waitForTimeout(2000);
   const before = await page.screenshot();
   await page.mouse.move(W / 2, H / 2);
@@ -188,7 +197,7 @@ async function open(path, opts = {}) {
   }
 
   // Then click the entry marker and see whether it glides.
-  const { context, page, errors } = await open('/');
+  const { context, page, errors } = await open('/', { enter: true });
   await page.waitForTimeout(2000);
   const at = project(plan.hotspots[0].anchor, plan.rail[0]);
   await page.screenshot({ path: `${SHOTS}/3a-before-click.png` });
@@ -211,7 +220,7 @@ async function open(path, opts = {}) {
 
 // ── 4. Arrow keys step viewpoints; the terrace shows no panel ──────────────────
 {
-  const { context, page, errors } = await open('/');
+  const { context, page, errors } = await open('/', { enter: true });
   await page.waitForTimeout(2000);
   const seen = [];
   for (let i = 0; i < plan.rail.length - 1; i++) {
@@ -241,11 +250,11 @@ async function open(path, opts = {}) {
   const s = await state(page);
   await page.screenshot({ path: `${SHOTS}/5-vp5-capture.png` });
   const vp = plan.rail[5];
-  const ok = s.ready === 5 && s.canvas && s.shown[0] === vp.stop && errors.length === 0;
+  const ok = s.ready === 5 && s.canvas && s.mode === 'scene' && s.shown.join() === vp.stop && errors.length === 0;
   record(5, '?vp=5&capture=1 loads directly at the Outrider focal viewpoint; window.__villaReady is 5',
     ok,
     `window.__villaReady === ${JSON.stringify(s.ready)} (read from the page, the value the capture tool polls). ` +
-    `rail[5] is "${vp.id}" — stop "${vp.stop}" at [${vp.position}], the focal viewpoint of the Outrider gallery — and its panel [${s.shown}] is up on load with no scrolling. Console errors=${errors.length}. ` +
+    `rail[5] is "${vp.id}" — stop "${vp.stop}" at [${vp.position}], the focal viewpoint of the Outrider gallery — and its panel [${s.shown}] is up on load with no scrolling or launch button (capture starts the scene itself). Console errors=${errors.length}. ` +
     `Screenshot ${SHOTS}/5-vp5-capture.png`);
   await context.close();
 }
@@ -257,14 +266,50 @@ async function open(path, opts = {}) {
   await page.waitForTimeout(1500);
   const s = await state(page);
   await page.screenshot({ path: `${SHOTS}/6-reduced-motion.png` });
-  const ok = !s.canvas && s.mode === 'static' && s.staticImgs.length === plan.rail.length && s.staticPanels.length === 4 && errors.length === 0;
+  const ok = !s.canvas && !s.launch && s.mode === 'static' && s.staticImgs.length === plan.rail.length && s.staticPanels.length === 4 && errors.length === 0;
   record(6, 'prefers-reduced-motion: reduce removes the canvas and shows the static list of images and panels',
     ok,
-    `#villa canvas removed (present=${s.canvas}); #panels[data-mode]="${s.mode}"; ${s.staticImgs.length} static <img>, one per rail viewpoint (expected ${plan.rail.length}), first="${s.staticImgs[0]}"; ` +
+    `#villa canvas hidden (shown=${s.canvas}); no "Enter the villa" button (shown=${s.launch}); #app[data-mode]="${s.mode}"; ${s.staticImgs.length} static <img>, one per rail viewpoint (expected ${plan.rail.length}), first="${s.staticImgs[0]}"; ` +
     `${s.staticPanels.length} static panels [${s.staticPanels}] in rail order. ` +
-    `No image resolves yet, as the plan expects until Task 17 renders them — under \`vite dev\` the SPA fallback answers /static/*.jpg with 200 text/html rather than 404, so the browser shows broken images` +
+    `Under \`vite dev\` no image resolves: tools/render-static.mjs writes them into dist/static, and the SPA fallback answers /static/*.jpg with 200 text/html rather than 404, so the browser shows broken images` +
     `${missing.length ? ` (404s seen: ${[...new Set(missing)].slice(0, 3).join(', ')})` : ''}. Console errors=${errors.length}. ` +
     `Screenshot ${SHOTS}/6-reduced-motion.png`);
+  await context.close();
+}
+
+// ── Doorway crossing (calm-vault) ─────────────────────────────────────────────
+// Not one of the six: the camera at the tightest doorway on the walk. quilt-trader is sunk a
+// level below cy-3, so its entry panel stands on the lower floor while the camera comes in at
+// cy-3's eye height. The wheel parks the camera on the walk at the panel's face, 0.15 m short
+// of its plane, with the lintel overhead; a 2.8 m opening put that lintel across the view.
+{
+  // Mirrors src/camera/rail.ts: a centripetal spline through plan.path, ridden by arc length.
+  const curve = new CatmullRomCurve3(plan.path.map((p) => new Vector3(...p.position)), false, 'centripetal');
+  curve.arcLengthDivisions = 1000;
+  const lengths = curve.getLengths(1000);
+  const uOf = (id) => lengths[Math.round((plan.path.findIndex((p) => p.id === id) / (plan.path.length - 1)) * 1000)] / lengths.at(-1);
+  const door = plan.placements.find((p) => p.instance === 'quilt-trader.wall-3m-doorway.1');
+  const from = plan.rail.findIndex((v) => v.id === 'cy-3-view');
+  const [u0, u1] = [uOf('cy-3-view'), uOf('quilt-trader-enter')];
+  const SHORT = 0.15;
+  // The walk runs toward -x through this panel; bisect for where it is SHORT metres from its plane.
+  let lo = u0, hi = u1;
+  for (let k = 0; k < 60; k++) {
+    const mid = (lo + hi) / 2;
+    if (curve.getPointAt(mid).x > door.transform[12] + SHORT) lo = mid; else hi = mid;
+  }
+  const { context, page, errors } = await open(`/?vp=${from}&capture=1`);
+  await page.waitForFunction((i) => window.__villaReady === i, from, { timeout: 60000 });
+  await page.mouse.move(400, 360);
+  await page.mouse.wheel(0, (lo - u0) * 900 * (plan.rail.length - 1));
+  await page.waitForTimeout(3000);
+  await page.screenshot({ path: `${SHOTS}/doorway-crossing.png` });
+  const p = curve.getPointAt(lo);
+  console.log(
+    `doorway ${door.instance} at [${door.transform.slice(12, 15)}]: camera at [${p.toArray().map((v) => v.toFixed(2))}], ` +
+    `${SHORT}m short of the panel and ${(p.y - door.transform[13]).toFixed(2)}m up it. Console errors=${errors.length}. ` +
+    `Screenshot ${SHOTS}/doorway-crossing.png\n`,
+  );
   await context.close();
 }
 

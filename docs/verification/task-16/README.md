@@ -2,7 +2,8 @@
 
 Evidence for the six-point manual browser checklist in
 `docs/superpowers/plans/2026-09-15-greybox-promenade.md` (Task 16, Step 3),
-re-run after `eager-meadow` fixed the two layout defects it exposed.
+re-run after `eager-meadow` fixed the two layout defects it exposed, and again by
+`calm-vault` once the follow-ups after it had merged.
 
 ## How to reproduce
 
@@ -11,6 +12,7 @@ npm install
 npm run typecheck && npm test
 npm run dev -- --port 5177 --strictPort      # in one shell
 node docs/verification/task-16/checklist.mjs # in another; drives headless Chromium
+# on another port: VILLA_URL=http://localhost:5288 node docs/verification/task-16/checklist.mjs
 node docs/verification/task-16/occlusion.mjs # pure geometry, no browser needed
 ```
 
@@ -19,7 +21,11 @@ node docs/verification/task-16/occlusion.mjs # pure geometry, no browser needed
 no GPU required) at 1280x720 and writes its screenshots to `tmp/verify/shots/`.
 It reads the composited frames rather than the canvas: three.js leaves
 `preserveDrawingBuffer` off, so an in-page `drawImage(canvas)` readback comes back
-blank.
+blank. Since `nimble-horizon` the page opens as the static promenade and three.js
+starts only when a visitor presses "Enter the villa" (or the URL has `capture=1`),
+so items 1-4 press it first, and items 1, 5 and 6 read the mode from
+`#app[data-mode]` and the scene's panels from `#panels` rather than the static
+list's copies in `#fallback`.
 
 `occlusion.mjs` needs no browser. It exits non-zero if any marker is blocked, any
 viewpoint stands too close to what it looks at, or any object swamps the frame;
@@ -28,20 +34,42 @@ viewpoint stands too close to what it looks at, or any object swamps the frame;
 whose stand-in shapes mirror `src/kit/greybox.ts` and whose frustum mirrors the
 `PerspectiveCamera(55, ...)` in `src/main.ts`.
 
-## Results (2026-09-15, node v24.15.0, vite 7.3.6, three 0.180.0)
+## Results (2026-09-16, node v24.15.0, vite 7.3.6, three 0.180.0)
 
 | # | Checklist item | Result |
 |---|----------------|--------|
-| 1 | Entry court renders: floor, columns, blue pool + fountain, warm sky | pass |
+| 1 | Entry court renders after "Enter the villa": floor, columns, blue pool + fountain, warm sky | pass |
 | 2 | Wheel scrolls forward; "Matter Engine" panel appears at the pool hall | pass |
 | 3 | Translucent sphere at the doorway; clicking it glides and swaps the panel | pass |
 | 4 | Arrow keys step viewpoints; the terrace shows no panel | pass |
 | 5 | `?vp=5&capture=1` starts at the Outrider focal; `__villaReady === 5` | pass |
-| 6 | `prefers-reduced-motion: reduce` drops the canvas for the static list | pass |
+| 6 | `prefers-reduced-motion: reduce` keeps the static list, with no canvas or launch button | pass |
 
 `entry-court.png` is item 1 as rendered: the fountain reads across the left of the
 frame at 24% of the 3D window, the hotspot marker is the pale sphere in front of
-the pool hall doorway, and the way on is clear. `pool-hall-vp1.png` is `?vp=1`.
+the pool hall doorway, and the way on is clear. `pool-hall-vp1.png` is `?vp=1`, as
+`eager-meadow` captured it. `doorway-crossing.png` is below.
+
+## The doorway crossing (calm-vault)
+
+Once `eager-meadow`, `solid-beacon`, `fleet-vault` and `vivid-impact` had all merged,
+`tests/kit/greybox.test.ts` reported the camera missing five doorways. It was
+splining the viewpoints alone. `vivid-impact` had moved the camera onto the whole
+walk in `plan.path`, which goes through the middle of all eight doorways. Measured on
+the walk the camera actually rides, the test found one real defect in their place:
+
+- `quilt-trader` is sunk 1 m below `cy-3`, so its entry panel stands on the lower
+  floor while the camera comes in at `cy-3`'s eye height, and within 0.25 m of the
+  panel's faces the walk rises to 2.82 m up it. The opening was 2.8 m, so the 0.1 m
+  near plane cut into the lintel: `doorway-crossing-before.png` is `main` at `bf1a870`,
+  0.15 m short of the panel, with the lintel as a dark band across the frame.
+- `DOORWAY_OPENING` in `src/kit/greybox.ts` is now 3.2 m tall, which keeps the lintel
+  0.38 m over the camera. `doorway-crossing.png` is the same pose afterwards.
+  The test now rides `Rail(plan.rail, plan.path)`, holds the camera 0.25 m inside
+  every opening, and expects no doorway missed.
+
+The checklist writes `doorway-crossing.png` after the six items. It is not one of
+them, and it does not count toward the pass total.
 
 ## What the first run found, and what changed
 
@@ -98,7 +126,9 @@ largest single part and reports the blue share alongside it as context.
 
 ## Note on item 6
 
-The plan says the static images "404 until Task 17". Under `vite dev` they do not:
+The plan says the static images "404 until Task 17". Task 17's
+`tools/render-static.mjs` now writes them into `dist/static`, which `vite dev` does
+not serve, and under `vite dev` they do not 404 either:
 the SPA fallback answers `/static/entry-view.jpg` with `200 text/html` (index.html),
 and the browser fails to decode it as an image. The visible result is the same --
 broken images over a working static list -- and a built `dist` has no such

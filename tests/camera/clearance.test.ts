@@ -18,8 +18,9 @@ const SAMPLES = 4000;
 // for nothing to clip. Raising it is a question about where fill() stands the focal piece.
 const CLEARANCE_M = 0.25;
 const DOOR_HALF_M = 0.75; // half a 3 m doorway bay: the camera keeps to the middle of the opening
-// The grey box for a doorway wall is a solid slab with no hole cut in it, so the camera has to
-// pass through its box to use the door. The third test is what holds it to the opening.
+// The stand-ins in tools/sightlines.mjs are boxes, and a doorway wall's box has no opening in it,
+// so the camera has to pass through that box to use the door. The third test holds it to the
+// middle of the bay; tests/kit/greybox.test.ts holds it clear of the frame of the real opening.
 const DOORWAY = 'wall-3m-doorway';
 
 const parts = new Map(contract.parts.map((p) => [p.id, p]));
