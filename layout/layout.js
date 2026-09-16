@@ -46,17 +46,39 @@ export function footprintCells(x, z, h, w, d) {
   return cells;
 }
 
-/** Where the next stop begins for a stop at (x, z, h) of size (w, d) exiting straight (0), right (1) or left (-1). */
+/**
+ * How far past the middle of a side its threshold sits. A side of length L is built from 3 m
+ * bays centred at -L/2 + 1.5 + 3i, so an odd bay count puts a bay on the middle of the side and
+ * an even one puts a joint there: a seam between two walls, or the column that ends both runs.
+ * The threshold takes the bay fill() opens instead — the one just past the middle — so a 6 m
+ * side is crossed 1.5 m off its centre rather than through the joint nothing can pass.
+ */
+export function thresholdOffset(length) {
+  return (length / 3) % 2 === 0 ? 1.5 : 0;
+}
+
+/** Where the threshold out of a stop at (x, z, h) of size (w, d) sits, going straight (0), right (1) or left (-1). */
 export function exitFor(x, z, h, w, d, turn) {
   const fwd = fwdOf(h);
   const right = rightOf(h);
-  if (turn === 0) return { x: x + fwd[0] * d, z: z + fwd[1] * d, h };
+  if (turn === 0) {
+    const u = thresholdOffset(w);
+    return { x: x + fwd[0] * d + right[0] * u, z: z + fwd[1] * d + right[1] * u, h };
+  }
   const side = turn === 1 ? right : [-right[0], -right[1]];
+  const v = d / 2 + thresholdOffset(d);
   return {
-    x: x + fwd[0] * (d / 2) + side[0] * (w / 2),
-    z: z + fwd[1] * (d / 2) + side[1] * (w / 2),
+    x: x + fwd[0] * v + side[0] * (w / 2),
+    z: z + fwd[1] * v + side[1] * (w / 2),
     h: (h + turn + 4) % 4,
   };
+}
+
+/** Where a stop of width w begins so that its own entry threshold meets the exit it is handed. */
+export function originFor(exit, w) {
+  const right = rightOf(exit.h);
+  const u = thresholdOffset(w);
+  return { x: exit.x - right[0] * u, z: exit.z - right[1] * u, h: exit.h };
 }
 
 const CENTREPIECE = 'fountain-tiered'; // what fill() stands on the centre of a court or courtyard
@@ -120,21 +142,25 @@ export function sequence(manifest, parts) {
     let chosen = null;
     for (const turn of candidates.filter((t, k, arr) => arr.indexOf(t) === k)) {
       const exit = exitFor(x, z, h, w, d, turn);
-      if (!isLast) {
-        const [nw, nd] = SIZES[entries[i + 1].archetype];
-        const next = footprintCells(exit.x, exit.z, exit.h, nw, nd);
-        if (next.some((c) => occupied.has(c) || cells.includes(c))) continue;
+      if (isLast) {
+        chosen = { turn, exit, origin: exit };
+        break;
       }
-      chosen = { turn, exit };
+      // The next stop stands back from the threshold by its own entry offset, so the two bays meet.
+      const [nw, nd] = SIZES[entries[i + 1].archetype];
+      const origin = originFor(exit, nw);
+      const next = footprintCells(origin.x, origin.z, origin.h, nw, nd);
+      if (next.some((c) => occupied.has(c) || cells.includes(c))) continue;
+      chosen = { turn, exit, origin };
       break;
     }
     if (!chosen) throw new LayoutError('no_placement', e.id + ': no non-overlapping exit');
 
     for (const c of cells) occupied.add(c);
     stops.push({ ...e, x, z, h, w, d, level, turn: chosen.turn, drop, hasEntry: i > 0, hasExit: !isLast, exit: chosen.exit });
-    x = chosen.exit.x;
-    z = chosen.exit.z;
-    h = chosen.exit.h;
+    x = chosen.origin.x;
+    z = chosen.origin.z;
+    h = chosen.origin.h;
     if (drop) level -= 1;
   }
   return stops;
@@ -164,10 +190,20 @@ export function worldTransform(stop, u, v, y, localQ) {
   return [c, 0, -s, 0, 0, 1, 0, 0, s, 0, c, 0, x, wy, z, 1];
 }
 
-/** Local (u, v) of the exit threshold centre. */
+/** Local (u, v) of the entry threshold: the centre of the bay fill() opens on the back side. */
+export function entryLocal(stop) {
+  return [thresholdOffset(stop.w), 0];
+}
+
+/** Local (u, v) of the exit threshold: the centre of the bay fill() opens on the exit side. */
 export function exitLocal(stop) {
-  if (stop.turn === 0) return [0, stop.d];
-  return [stop.turn === 1 ? stop.w / 2 : -stop.w / 2, stop.d / 2];
+  if (stop.turn === 0) return [thresholdOffset(stop.w), stop.d];
+  return [stop.turn === 1 ? stop.w / 2 : -stop.w / 2, stop.d / 2 + thresholdOffset(stop.d)];
+}
+
+/** Where the threshold crosses a side, along that side: u for back and front, v for left and right. */
+function thresholdAlong(stop, side) {
+  return side === 'back' || side === 'front' ? thresholdOffset(stop.w) : stop.d / 2 + thresholdOffset(stop.d);
 }
 
 /** The side of the centre line the camera keeps to: away from the turn ahead. */
@@ -199,11 +235,15 @@ function viewLocals(stop) {
   return [[0, EDGE_STANDOFF], [0, fix(Math.max(EDGE_STANDOFF + 1, Math.min(focalV - 1.5, framed)))]];
 }
 
-/** Local (u, v) of the marker that leads out: short of the threshold, off the line the camera takes. */
+/** Local (u, v) of the marker that leads out: short of the threshold, clear of the focal piece. */
 function thresholdLocal(stop) {
   const [eu, ev] = exitLocal(stop);
-  if (stop.turn === 0) return [keepSide(stop) * MARKER_INSET, ev - MARKER_INSET];
-  return [eu - stop.turn * MARKER_INSET, ev - MARKER_INSET];
+  // Turning out of a courtyard, the water in the middle stands between the visitor and the far
+  // end of the exit side, so the marker keeps to the visitor's own depth, beside the threshold.
+  if (stop.turn !== 0) return [eu - stop.turn * MARKER_INSET, Math.min(ev - MARKER_INSET, OPEN_EDGE)];
+  // Straight ahead, the focal piece stands on the axis at the far wall: step aside from it, onto
+  // the doorway's own line where the doorway is already off the axis.
+  return [eu === 0 ? keepSide(stop) * MARKER_INSET : eu, ev - MARKER_INSET];
 }
 
 /** Each side yields 3 m segments as { u, v, localQ, index } in local coords. */
@@ -258,7 +298,7 @@ export function fill(stop, parts, rng) {
   const status = sideStatus(stop);
   for (const side of ['back', 'front', 'left', 'right']) {
     const segments = sideSegments(stop, side);
-    const middle = Math.floor(segments.length / 2);
+    const door = thresholdAlong(stop, side);
     for (const seg of segments) {
       if (open) {
         // Column run with entablature; the doorway is simply the gap between columns.
@@ -271,7 +311,7 @@ export function fill(stop, parts, rng) {
           column(seg.u, along[1]);
         }
         place('entablature-3m', seg.u, seg.v, seg.localQ, columnHeight);
-      } else if (status[side] === 'door' && seg.index === middle) {
+      } else if (status[side] === 'door' && (seg.localQ === 0 ? seg.u : seg.v) === door) {
         place('wall-3m-doorway', seg.u, seg.v, seg.localQ, 0);
       } else {
         place('wall-3m', seg.u, seg.v, seg.localQ, 0);
@@ -328,8 +368,9 @@ export function fill(stop, parts, rng) {
 function lookFor(stop) {
   const { w, d } = stop;
   if (!stop.hasExit) return worldPoint(stop, 0, d + 6, 1.5);
-  if (stop.turn === 0) return worldPoint(stop, 0, d + 3, 1.5);
-  return worldPoint(stop, stop.turn * (w / 2 + 3), d / 2, 1.5);
+  const [eu, ev] = exitLocal(stop);
+  if (stop.turn === 0) return worldPoint(stop, eu, d + 3, 1.5);
+  return worldPoint(stop, stop.turn * (w / 2 + 3), ev, 1.5);
 }
 
 /** Camera rail in stop order, plus one hotspot per consecutive pair. */
