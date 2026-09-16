@@ -10,6 +10,21 @@ Design: `docs/superpowers/specs/2026-09-15-jackkern-3d-site-design.md`.
     npm run validate     # schema + cross-reference checks on kit/ and content/
     npm run typecheck
 
+## Loading and moving through the villa
+
+With WebGL, and without `prefers-reduced-motion: reduce`, the page opens straight into the villa:
+its sky colour and a thin progress line while three.js downloads, then the entry court. Without
+WebGL, with reduced motion, or without scripts, it shows the static version instead, an image of
+every view and every panel.
+
+The mouse wheel and touch swipes push the camera along its rail through a velocity that coasts to
+rest: a wheel notch walks about half a metre, a trackpad flick coasts to a stop within a second, and
+nothing moves it faster than 4 m/s. Every tuning constant is in `src/camera/travel.ts`. The arrow
+keys, Page Up, Page Down, Space and the hotspot spheres glide to a viewpoint instead. The camera's
+position and its look target follow two splines through the same points (`src/camera/rail.ts`),
+with the view leaning a little ahead between viewpoints so it turns into a doorway before walking
+through it.
+
 ## Build and check
 
     npx playwright install chromium     # once
@@ -29,9 +44,9 @@ fails the build instead. A capture that logs a console error, throws, or has a r
 answer 400 or more fails the build too.
 
 `npm run probe` (`tools/console-probe.mjs`) serves `dist/`, loads `/` and `/?vp=5` under three GL
-setups (`--modes swiftshader,gl,no-gpu`), enters the villa, scrolls, presses ArrowDown, simulates a
-lost WebGL context, clicks a hotspot, and fails on any console error, uncaught exception, failed
-request, response of 400 or more, or broken image. It lists warnings without failing on them
+setups (`--modes swiftshader,gl,no-gpu`), waits for the villa to start, scrolls, presses ArrowDown,
+simulates a lost WebGL context, clicks a hotspot, and fails on any console error, uncaught
+exception, failed request, response of 400 or more, or broken image. It lists warnings without failing on them
 (`--strict` fails on those too). Headless Chromium has no GPU, so every mode renders through
 SwiftShader there; `--headed` opens real windows, which reach the GPU on a desktop or under WSLg.
 `--url` probes a running server instead, such as `npm run dev`.

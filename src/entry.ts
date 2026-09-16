@@ -12,10 +12,10 @@ if (debugLog) {
 }
 
 const app = document.getElementById('app') as HTMLElement;
+const loading = document.getElementById('loading') as HTMLElement;
 const fallback = document.getElementById('fallback') as HTMLElement;
 const canvas = document.getElementById('villa') as HTMLCanvasElement;
 const panels = document.getElementById('panels') as HTMLElement;
-const launch = document.getElementById('enter-villa') as HTMLButtonElement;
 const capture = new URLSearchParams(location.search).has('capture');
 
 const mode = chooseMode({
@@ -24,38 +24,47 @@ const mode = chooseMode({
   capture,
 });
 
-let starting = false;
+/** The scene has drawn a frame, so the context coming back should show it again. */
 let running = false;
+let lost = false;
 
-function showScene(): void {
-  app.dataset.mode = 'scene';
-  fallback.hidden = true;
-  canvas.hidden = false;
-  panels.hidden = false;
-  launch.hidden = true;
+/**
+ * `loading` and `scene` differ only in the loading overlay: it covers the canvas until the
+ * first frame is drawn, then fades (styles.css).
+ */
+function show(next: 'loading' | 'scene' | 'static'): void {
+  app.dataset.mode = next;
+  fallback.hidden = next !== 'static';
+  canvas.hidden = next === 'static';
+  panels.hidden = next === 'static';
 }
 
-function showStatic(): void {
-  app.dataset.mode = 'static';
-  fallback.hidden = false;
-  canvas.hidden = true;
-  panels.hidden = true;
+/** Moves the progress line to `fraction`, taking `seconds` to get there. */
+function progress(fraction: number, seconds = 0.3): void {
+  const line = loading.firstElementChild as HTMLElement;
+  line.style.setProperty('--progress-seconds', `${seconds}s`);
+  line.style.setProperty('--progress', String(fraction));
+  loading.setAttribute('aria-valuenow', String(Math.round(fraction * 100)));
 }
 
 async function startScene(): Promise<void> {
-  if (starting) return;
-  starting = true;
-  launch.disabled = true;
-  showScene();
+  show('loading');
+  // Most of the wait is the three.js chunk, which reports no progress of its own, so the line
+  // creeps most of the way over what a slow connection takes and then catches up.
+  progress(0.7, 8);
 
   try {
     const { boot } = await import('./main');
-    await boot();
-    running = true;
+    progress(0.8);
+    await boot((fraction) => {
+      progress(0.8 + 0.2 * fraction);
+      if (fraction < 1) return;
+      running = true;
+      if (!lost) show('scene');
+    });
   } catch (error) {
     console.error('villa: falling back to static', error);
-    // The launch button stays hidden: the same boot would fail the same way.
-    showStatic();
+    show('static');
   }
 }
 
@@ -64,14 +73,16 @@ async function startScene(): Promise<void> {
 // so show the static page meanwhile and come back when the browser restores it.
 canvas.addEventListener('webglcontextlost', () => {
   console.warn('villa: WebGL context lost; showing the static page until it is restored');
-  showStatic();
+  lost = true;
+  show('static');
 });
 canvas.addEventListener('webglcontextrestored', () => {
-  if (running) showScene();
+  lost = false;
+  if (running) show('scene');
 });
 
-if (mode === 'scene') {
-  launch.hidden = false;
-  launch.addEventListener('click', () => { void startScene(); });
-  if (capture) void startScene();
-}
+// The capture tool screenshots the first frame; a fading overlay would be in it.
+if (capture) app.dataset.capture = '';
+
+if (mode === 'scene') void startScene();
+else show('static');

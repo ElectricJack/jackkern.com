@@ -25,10 +25,11 @@ export function staticMarkup(content: PanelContent[], viewpoints: Viewpoint[]): 
   let html = '';
 
   for (const [index, viewpoint] of viewpoints.entries()) {
-    const image = `<img src="/static/${escapeHtml(viewpoint.id)}.jpg" alt="View of ${escapeHtml(viewpoint.stop)}" loading="${index === 0 ? 'eager' : 'lazy'}" width="1280" height="720">`;
-    // The first view gives the page a fast, useful visual. The rest remain
-    // available in the no-JS fallback without prompting the browser to fetch
-    // several full-size screenshots before the visitor asks for them.
+    // Every view is lazy, the first included. While the villa loads the list is hidden, and a hidden
+    // lazy image is never fetched, so a visitor who gets the villa does not also download its
+    // picture; when the list does show, the first view is on screen and loads at once. The rest
+    // stay folded away so the browser does not fetch full-size screenshots nobody opened.
+    const image = `<img src="/static/${escapeHtml(viewpoint.id)}.jpg" alt="View of ${escapeHtml(viewpoint.stop)}" loading="lazy" width="1280" height="720">`;
     html += index === 0
       ? `<figure class="static-view">${image}</figure>`
       : `<details class="static-view"><summary>Show view of ${escapeHtml(viewpoint.stop)}</summary>${image}</details>`;

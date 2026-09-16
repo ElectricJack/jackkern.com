@@ -20,6 +20,8 @@ declare global {
     __villaViewpoint?: number;
     /** Screen positions of the clickable hotspot markers, for tools/console-probe.mjs. */
     __villaHotspots?: () => { x: number; y: number; to: number; onScreen: boolean }[];
+    /** Where the camera is along the walk and how fast it is going, for the wheel checks in docs/verification. */
+    __villaTravel?: () => { u: number; metres: number; speed: number; mode: string; viewpoint: number; position: number[] };
   }
 }
 
@@ -34,8 +36,11 @@ const startAt = Math.min(plan.rail.length - 1, Math.max(0, Number(params.get('vp
 
 const projectIds = new Set(content.map((c) => c.id));
 
-/** Start the optional WebGL scene after the lightweight static page is visible. */
-export async function boot(): Promise<void> {
+/**
+ * Build the scene and start drawing it. `progress` hears the fraction of this work done: part
+ * way as the scene and its first stops are built, and 1 once the first frame is on screen.
+ */
+export async function boot(progress: (fraction: number) => void = () => {}): Promise<void> {
   const renderer = new WebGLRenderer({ canvas, antialias: true, powerPreference: 'high-performance' });
   renderer.setPixelRatio(Math.min(devicePixelRatio, 2));
 
@@ -52,6 +57,7 @@ export async function boot(): Promise<void> {
   const loader = new KitLoader(contract as Contract, new GreyboxSource());
   const { root, stops, order } = buildScene(plan, loader);
   scene.add(root);
+  progress(0.3);
 
   const streamer = new Streamer(stops, order);
   const rail = new Rail(plan.rail, plan.path);
@@ -67,7 +73,7 @@ export async function boot(): Promise<void> {
     void streamer.update(stop);
   });
 
-  bindInputs(app, director, camera, markers, plan.rail.length);
+  bindInputs(app, director, camera, markers);
 
   window.__villaHotspots = () => {
     const rect = canvas.getBoundingClientRect();
@@ -92,8 +98,18 @@ export async function boot(): Promise<void> {
   addEventListener('resize', resize);
   resize();
 
+  window.__villaTravel = () => ({
+    u: director.u,
+    metres: director.u * rail.length,
+    speed: director.travel.velocity,
+    mode: director.mode,
+    viewpoint: director.nearest(),
+    position: camera.position.toArray(),
+  });
+
   await streamer.update(plan.rail[startAt].stop);
   director.jump(startAt);
+  progress(0.8);
 
   let last = performance.now();
   renderer.setAnimationLoop((now) => {
@@ -101,6 +117,9 @@ export async function boot(): Promise<void> {
     last = now;
     director.update(dt);
     renderer.render(scene, camera);
-    if (window.__villaReady === undefined) window.__villaReady = startAt;
+    if (window.__villaReady === undefined) {
+      window.__villaReady = startAt;
+      progress(1);
+    }
   });
 }

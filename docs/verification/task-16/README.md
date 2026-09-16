@@ -2,8 +2,9 @@
 
 Evidence for the six-point manual browser checklist in
 `docs/superpowers/plans/2026-09-15-greybox-promenade.md` (Task 16, Step 3),
-re-run after `eager-meadow` fixed the two layout defects it exposed, and again by
-`calm-vault` once the follow-ups after it had merged.
+re-run after `eager-meadow` fixed the two layout defects it exposed, again by
+`calm-vault` once the follow-ups after it had merged, and again by `clear-stone.2`
+when the villa started loading without a click.
 
 ## How to reproduce
 
@@ -21,11 +22,15 @@ node docs/verification/task-16/occlusion.mjs # pure geometry, no browser needed
 no GPU required) at 1280x720 and writes its screenshots to `tmp/verify/shots/`.
 It reads the composited frames rather than the canvas: three.js leaves
 `preserveDrawingBuffer` off, so an in-page `drawImage(canvas)` readback comes back
-blank. Since `nimble-horizon` the page opens as the static promenade and three.js
-starts only when a visitor presses "Enter the villa" (or the URL has `capture=1`),
-so items 1-4 press it first, and items 1, 5 and 6 read the mode from
-`#app[data-mode]` and the scene's panels from `#panels` rather than the static
-list's copies in `#fallback`.
+blank. `nimble-horizon` had put three.js behind an "Enter the villa" button;
+since `clear-stone.2` it starts on load, with the villa's sky colour and a thin
+progress line while it downloads, so items 1-4 wait for the first frame without
+clicking anything. Items 1, 5 and 6 read the mode from `#app[data-mode]` and the
+scene's panels from `#panels` rather than the static list's copies in `#fallback`,
+and items 1 and 6 check that no gate button or loading overlay is left on screen.
+The wheel now pushes the camera through the velocity model in
+`src/camera/travel.ts` (half a metre a notch), so item 2 turns it in 100 px notches.
+`docs/verification/villa-travel/` checks the loading state and the wheel itself.
 
 `occlusion.mjs` needs no browser. It exits non-zero if any marker is blocked, any
 viewpoint stands too close to what it looks at, or any object swamps the frame;
@@ -38,16 +43,17 @@ whose stand-in shapes mirror `src/kit/greybox.ts` and whose frustum mirrors the
 
 | # | Checklist item | Result |
 |---|----------------|--------|
-| 1 | Entry court renders after "Enter the villa": floor, columns, blue pool + fountain, warm sky | pass |
-| 2 | Wheel scrolls forward; "Matter Engine" panel appears at the pool hall | pass |
+| 1 | Entry court renders on load, with nothing to click: floor, columns, blue pool + fountain, warm sky | pass |
+| 2 | Wheel moves forward; "Matter Engine" panel appears at the pool hall (11 notches) | pass |
 | 3 | Translucent sphere at the doorway; clicking it glides and swaps the panel | pass |
 | 4 | Arrow keys step viewpoints; the terrace shows no panel | pass |
 | 5 | `?vp=5&capture=1` starts at the Outrider focal; `__villaReady === 5` | pass |
-| 6 | `prefers-reduced-motion: reduce` keeps the static list, with no canvas or launch button | pass |
+| 6 | `prefers-reduced-motion: reduce` keeps the static list, with no canvas, gate or loading overlay | pass |
 
-`entry-court.png` is item 1 as rendered: the fountain reads across the left of the
-frame at 24% of the 3D window, the hotspot marker is the pale sphere in front of
-the pool hall doorway, and the way on is clear. `pool-hall-vp1.png` is `?vp=1`, as
+`entry-court.png` is item 1 as rendered, now loaded with no click; the frame is
+byte-for-byte the one `calm-vault` captured through the launch button. The fountain
+reads across the left of the frame at 24% of the 3D window, the hotspot marker is the
+pale sphere in front of the pool hall doorway, and the way on is clear. `pool-hall-vp1.png` is `?vp=1`, as
 `eager-meadow` captured it. `doorway-crossing.png` is below.
 
 ## The doorway crossing (calm-vault)
@@ -69,7 +75,10 @@ the walk the camera actually rides, the test found one real defect in their plac
   every opening, and expects no doorway missed.
 
 The checklist writes `doorway-crossing.png` after the six items. It is not one of
-them, and it does not count toward the pass total.
+them, and it does not count toward the pass total. Since `clear-stone.2` it parks the
+camera with wheel notches, reading where the camera got to from `window.__villaTravel`
+rather than mirroring the rail's arithmetic, so it lands within a few centimetres of
+0.15 m short (0.17 m on its last run); the committed image is `calm-vault`'s.
 
 ## What the first run found, and what changed
 
@@ -127,9 +136,6 @@ largest single part and reports the blue share alongside it as context.
 ## Note on item 6
 
 The plan says the static images "404 until Task 17". Task 17's
-`tools/render-static.mjs` now writes them into `dist/static`, which `vite dev` does
-not serve, and under `vite dev` they do not 404 either:
-the SPA fallback answers `/static/entry-view.jpg` with `200 text/html` (index.html),
-and the browser fails to decode it as an image. The visible result is the same --
-broken images over a working static list -- and a built `dist` has no such
-fallback.
+`tools/render-static.mjs` writes them into `dist/static`, and since `clear-stone.1`
+`vite dev` serves `/static/<viewpoint>.jpg` from the last build's captures, or a
+placeholder before there is one, while any other missing file is a real 404.

@@ -22,6 +22,9 @@ test('vite build emits index.html, a bundle, and the CNAME', () => {
   expect(entry).toBeDefined();
   expect(statSync(join(out, 'bundle', entry!)).size).toBeLessThan(8_000);
   expect(html).toContain('id="fallback"');
+  // The villa starts on load: no gate to click, a loading state in its place.
+  expect(html).not.toContain('enter-villa');
+  expect(html).toContain('id="loading"');
 }, 120_000);
 
 test('vite preview answers a missing file with 404, not index.html', async () => {

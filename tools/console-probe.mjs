@@ -7,8 +7,8 @@
  *                                [--paths /,/?vp=5] [--headed] [--no-interact] [--strict]
  *
  * Without --url it serves dist/ with `vite preview` (run `npm run build` first).
- * Each path is loaded once per GL mode; the scene is entered with the launch
- * button, then driven with a wheel, ArrowDown and a hotspot click. Exits 1 on
+ * Each path is loaded once per GL mode; the scene starts on its own, and is
+ * then driven with a wheel, ArrowDown and a hotspot click. Exits 1 on
  * any error, page error, failed request, >= 400 response or broken image;
  * --strict also fails on warnings.
  *
@@ -107,15 +107,9 @@ async function glRenderer(page) {
   });
 }
 
-/** Enter the scene and drive it the way a visitor would. Returns what happened, for the report. */
+/** Wait for the scene to start on its own and drive it the way a visitor would. Returns what happened, for the report. */
 async function interact(page, found) {
   const steps = [];
-  const launch = page.locator('#enter-villa');
-  if (!(await launch.isVisible())) {
-    steps.push(`static mode (${await page.evaluate(() => document.getElementById('app')?.dataset.mode)}), no launch button`);
-    return steps;
-  }
-  await launch.click();
   await page.waitForFunction(
     () => window.__villaReady !== undefined || document.getElementById('app')?.dataset.mode === 'static',
     null,
@@ -123,14 +117,17 @@ async function interact(page, found) {
   );
   const mode = await page.evaluate(() => document.getElementById('app')?.dataset.mode);
   if (mode !== 'scene') {
-    steps.push('launch fell back to static');
+    steps.push(`static mode (${mode})`);
     return steps;
   }
   steps.push('scene');
 
   const box = await page.locator('#villa').boundingBox();
   await page.mouse.move(box.x + box.width * 0.3, box.y + box.height / 2);
-  await page.mouse.wheel(0, 900);
+  for (let notch = 0; notch < 6; notch++) {
+    await page.mouse.wheel(0, 100);
+    await page.waitForTimeout(150);
+  }
   await page.waitForTimeout(1_000);
   steps.push('wheel');
 

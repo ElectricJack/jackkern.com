@@ -8,9 +8,8 @@ import {
   type Camera,
 } from 'three';
 import type { Director } from '../camera/director';
+import { wheelPixels } from '../camera/travel';
 import type { Hotspot, Viewpoint } from '../types';
-
-export const SCROLL_PIXELS_PER_VIEWPOINT = 900;
 
 /** Clickable spheres at hotspot anchors. Only markers leaving the current viewpoint are visible. */
 export function hotspotMarkers(hotspots: Hotspot[], viewpoints: Viewpoint[]): Group {
@@ -49,24 +48,24 @@ export function setActiveHotspots(group: Group, fromIndex: number): void {
 }
 
 /**
- * Connects the rail director to wheel, touch, keyboard, and hotspot input.
- * Returns a disposer so the scene can release all document-level listeners.
+ * Connects the rail director to wheel, touch, keyboard, and hotspot input. Wheel and swipe
+ * distances push the camera through the velocity model in src/camera/travel.ts; keys and
+ * hotspots glide to a viewpoint. Returns a disposer so the scene can release all
+ * document-level listeners.
  */
 export function bindInputs(
   el: HTMLElement,
   director: Director,
   camera: Camera,
   markers: Group,
-  viewpointCount: number,
 ): () => void {
-  const total = SCROLL_PIXELS_PER_VIEWPOINT * Math.max(1, viewpointCount - 1);
   const ray = new Raycaster();
   const ndc = new Vector2();
   let touchY: number | null = null;
 
   const onWheel = (event: WheelEvent): void => {
     event.preventDefault();
-    director.scrollBy(event.deltaY / total);
+    director.push(wheelPixels(event));
   };
 
   const onTouchStart = (event: TouchEvent): void => {
@@ -79,7 +78,8 @@ export function bindInputs(
     if (y === undefined) return;
 
     event.preventDefault();
-    director.scrollBy((touchY - y) / total);
+    // Dragging up walks onward, as the wheel does.
+    director.push(touchY - y);
     touchY = y;
   };
 

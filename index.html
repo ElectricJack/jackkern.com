@@ -9,8 +9,8 @@
     <link rel="stylesheet" href="/src/styles.css" />
   </head>
   <body>
-    <main id="app" data-mode="static">
-      <button id="enter-villa" class="villa-launch" type="button" hidden>Enter the villa</button>
+    <main id="app" data-mode="boot">
+      <div id="loading" role="progressbar" aria-label="Loading the villa" aria-valuemin="0" aria-valuemax="100"><span></span></div>
       <section id="fallback" aria-label="Project promenade"><!-- fallback --></section>
       <canvas id="villa" aria-hidden="true" hidden></canvas>
       <aside id="panels" aria-live="polite" hidden><!-- panels --></aside>

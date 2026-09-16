@@ -14,7 +14,9 @@ test('staticMarkup emits one image per viewpoint, in rail order, and each projec
   const html = staticMarkup(content, plan.rail);
   expect(html.match(/class="static-view"/g)!.length).toBe(plan.rail.length);
   expect(html.match(/<details class="static-view">/g)!.length).toBe(plan.rail.length - 1);
-  expect(html).toContain('entry-view.jpg" alt="View of entry" loading="eager"');
+  // Even the first view is lazy: the list is hidden while the villa loads, and a hidden lazy image
+  // is never fetched, so a visitor who gets the villa does not download the fallback's picture.
+  expect(html).toContain('entry-view.jpg" alt="View of entry" loading="lazy"');
   expect(html).toContain('matter-engine-enter.jpg" alt="View of matter-engine" loading="lazy"');
   expect(html.indexOf('/static/entry-view.jpg')).toBeLessThan(html.indexOf('/static/matter-engine-enter.jpg'));
   expect(html.match(/data-stop="matter-engine"/g)!.length).toBe(1);
