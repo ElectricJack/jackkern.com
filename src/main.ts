@@ -1,4 +1,4 @@
-import { AmbientLight, Color, DirectionalLight, Fog, HemisphereLight, PerspectiveCamera, Scene, WebGLRenderer } from 'three';
+import { AmbientLight, Color, DirectionalLight, Fog, HemisphereLight, PerspectiveCamera, Scene, Vector3, WebGLRenderer } from 'three';
 import content from 'virtual:content';
 import contract from '../kit/contract.json';
 import manifest from '../content/manifest.json';
@@ -13,7 +13,14 @@ import { Streamer } from './scene/streamer';
 import type { Contract, Manifest } from './types';
 
 declare global {
-  interface Window { __villaReady?: number }
+  interface Window {
+    /** Set on the first rendered frame to the viewpoint the scene started at. */
+    __villaReady?: number;
+    /** The viewpoint the camera is nearest, for tools/console-probe.mjs. */
+    __villaViewpoint?: number;
+    /** Screen positions of the clickable hotspot markers, for tools/console-probe.mjs. */
+    __villaHotspots?: () => { x: number; y: number; to: number; onScreen: boolean }[];
+  }
 }
 
 const app = document.getElementById('app') as HTMLElement;
@@ -54,12 +61,27 @@ export async function boot(): Promise<void> {
   const panels = new Panels(panelsRoot, content);
 
   director.onViewpoint((index, stop) => {
+    window.__villaViewpoint = index;
     setActiveHotspots(markers, index);
     panels.show(projectIds.has(stop) ? stop : null);
     void streamer.update(stop);
   });
 
   bindInputs(app, director, camera, markers, plan.rail.length);
+
+  window.__villaHotspots = () => {
+    const rect = canvas.getBoundingClientRect();
+    const at = new Vector3();
+    return markers.children.filter((marker) => marker.visible).map((marker) => {
+      marker.getWorldPosition(at).project(camera);
+      return {
+        x: rect.left + ((at.x + 1) / 2) * rect.width,
+        y: rect.top + ((1 - at.y) / 2) * rect.height,
+        to: marker.userData.to as number,
+        onScreen: Math.abs(at.x) < 1 && Math.abs(at.y) < 1 && at.z < 1,
+      };
+    });
+  };
 
   const resize = () => {
     const w = app.clientWidth, h = app.clientHeight;
@@ -79,6 +101,6 @@ export async function boot(): Promise<void> {
     last = now;
     director.update(dt);
     renderer.render(scene, camera);
-    if (capture && window.__villaReady === undefined) window.__villaReady = startAt;
+    if (window.__villaReady === undefined) window.__villaReady = startAt;
   });
 }

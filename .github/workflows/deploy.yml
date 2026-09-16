@@ -36,12 +36,14 @@ jobs:
           cache: npm
 
       - run: npm ci
-      - run: npm run build
 
+      # Before the build: `npm run build` captures the static fallback images
+      # into dist/static, and under CI a missing Chromium fails the build
+      # rather than publishing a page whose images do not exist.
       - name: Install Chromium for the static capture
         run: npx playwright install --with-deps chromium
 
-      - run: npm run render:static
+      - run: npm run build
 
       # External URLs are skipped: a rate-limited runner must not block a deploy.
       - name: Link check
