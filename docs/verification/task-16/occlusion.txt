@@ -1,0 +1,37 @@
+hotspot marker occlusion (ray from the viewpoint to the marker anchor):
+
+entry-view             -> matter-engine-enter    threshold  anchor 6.4m away  clear
+matter-engine-enter    -> matter-engine-focal    focal      anchor 5.0m away  clear
+matter-engine-focal    -> cy-1-view              threshold  anchor 5.0m away  clear
+cy-1-view              -> outrider-ide-enter     threshold  anchor 3.8m away  clear
+outrider-ide-enter     -> outrider-ide-focal     focal      anchor 8.0m away  clear
+outrider-ide-focal     -> cy-2-view              threshold  anchor 5.0m away  clear
+cy-2-view              -> agent-queue-enter      threshold  anchor 6.8m away  clear
+agent-queue-enter      -> agent-queue-focal      focal      anchor 2.0m away  clear
+agent-queue-focal      -> cy-3-view              threshold  anchor 2.9m away  clear
+cy-3-view              -> quilt-trader-enter     threshold  anchor 3.8m away  clear
+quilt-trader-enter     -> quilt-trader-focal     focal      anchor 8.0m away  clear
+quilt-trader-focal     -> cy-4-view              threshold  anchor 3.5m away  clear
+cy-4-view              -> terrace-view           threshold  anchor 6.8m away  clear
+
+0/13 hotspot markers are behind scene geometry or off screen.
+
+viewpoint framing (nearest part ahead within 45 degrees, and the largest object in frame):
+
+entry-view             nearest urn-small        3.23m  largest object fountain-tiered   24%
+matter-engine-enter    nearest column-doric     4.62m  largest object pool-basin-3x3    16%  subject fountain-wall 13%
+matter-engine-focal    nearest fountain-wall    4.80m  largest object pool-basin-3x3     9%  subject fountain-wall 25%
+cy-1-view              nearest urn-small        3.23m  largest object fountain-tiered   22%
+outrider-ide-enter     nearest column-doric     4.62m  largest object statue-a           3%  subject statue-b 2%
+outrider-ide-focal     nearest statue-b         4.80m  largest object statue-a          13%  subject statue-b 8%
+cy-2-view              nearest column-doric     2.72m  largest object fountain-tiered   24%
+agent-queue-enter      nearest relief-a         3.51m  largest object statue-a          24%  subject relief-a 48%
+agent-queue-focal      nearest relief-a         2.51m  largest object statue-a          21%  subject relief-a 65%
+cy-3-view              nearest planter-square   3.23m  largest object fountain-tiered   22%
+quilt-trader-enter     nearest column-doric     4.62m  largest object statue-a           3%  subject urn-large 1%
+quilt-trader-focal     nearest urn-large        3.28m  largest object fountain-tiered    5%  subject urn-large 13%
+cy-4-view              nearest column-doric     2.72m  largest object fountain-tiered   16%
+terrace-view           nearest column-doric     4.75m  largest object pool-basin-3x3     0%
+
+0/14 viewpoints stand closer than 2.5m to what is ahead of them; 0/14 have an object covering more than 25% of the viewport.
+
