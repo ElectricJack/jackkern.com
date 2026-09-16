@@ -1,8 +1,11 @@
 // tools/sightlines.mjs — what a camera standing at a viewpoint can actually see.
 //
 // Pure geometry, no renderer. The stand-in shapes mirror src/kit/greybox.ts part for
-// part, and the frustum mirrors the PerspectiveCamera in src/main.ts, so "clear" here
-// means a marker you can see in the browser and "covers 19% of the viewport" means it.
+// part, a doorway's opening taken from the same src/kit/doorway.js, and the frustum mirrors
+// the PerspectiveCamera in src/main.ts, so "clear" here means a marker you can see in the
+// browser and "covers 19% of the viewport" means it.
+
+import { WALL_THICKNESS, doorwayOpening } from '../src/kit/doorway.js';
 
 export const FOV_Y = 55; // degrees; src/main.ts: new PerspectiveCamera(55, ...)
 export const ASPECT = 1280 / 720; // the checklist runs Chromium at 1280x720
@@ -16,9 +19,9 @@ const TAU = Math.PI * 2;
 const TAN_HALF_Y = Math.tan((FOV_Y / 2) * (Math.PI / 180));
 
 /** A convex stand-in as corner points plus the edges between them, in the part's local frame. */
-function box(w, h, d, y0) {
+function box(w, h, d, y0, x0 = 0) {
   const points = [];
-  for (const x of [-w / 2, w / 2]) for (const y of [y0, y0 + h]) for (const z of [-d / 2, d / 2]) points.push([x, y, z]);
+  for (const x of [x0 - w / 2, x0 + w / 2]) for (const y of [y0, y0 + h]) for (const z of [-d / 2, d / 2]) points.push([x, y, z]);
   // points are indexed x*4 + y*2 + z; an edge joins two corners differing in one bit.
   const edges = [];
   for (let i = 0; i < 8; i++) for (const bit of [4, 2, 1]) if ((i & bit) === 0) edges.push([i, i | bit]);
@@ -43,38 +46,53 @@ function cylinder(segments, radiusBottom, radiusTop, y0, h) {
   return { points, edges };
 }
 
-/** The stand-in three.js builds for a part. Mirrors greyboxGeometry in src/kit/greybox.ts. */
+/**
+ * The stand-in three.js builds for a part, as the convex pieces it is made of: one for most
+ * parts, and a doorway's jambs and lintel round its opening. Mirrors greyboxGeometry in
+ * src/kit/greybox.ts.
+ */
 export function standIn(part) {
   const [footprintWidth, footprintDepth] = part.footprint;
   const height = Math.max(part.height, 0.1);
-  if (part.id.startsWith('column')) return cylinder(16, 0.45, 0.4, 0, height);
-  if (part.id.startsWith('entablature')) return box(footprintWidth, 0.6, 0.6, 0);
-  if (part.id.startsWith('stair')) return box(footprintWidth, 1, footprintDepth, -1);
-  if (part.category === 'floor') return box(footprintWidth, 0.1, footprintDepth, -0.1);
+  if (part.id.startsWith('column')) return [cylinder(16, 0.45, 0.4, 0, height)];
+  if (part.id.startsWith('entablature')) return [box(footprintWidth, 0.6, 0.6, 0)];
+  if (part.id.startsWith('stair')) return [box(footprintWidth, 1, footprintDepth, -1)];
+  if (part.category === 'floor') return [box(footprintWidth, 0.1, footprintDepth, -0.1)];
   if (part.category === 'water') {
-    return part.id.startsWith('pool')
+    return [part.id.startsWith('pool')
       ? box(footprintWidth, 0.3, footprintDepth, 0)
-      : cylinder(12, 0.8, 0.5, 0, height);
+      : cylinder(12, 0.8, 0.5, 0, height)];
   }
-  if (part.category === 'structure') return box(footprintWidth, height, 0.3, 0);
-  return box(footprintWidth * 0.7, height, footprintDepth * 0.7, 0);
+  if (part.category === 'structure') {
+    const opening = doorwayOpening(part, height);
+    if (!opening) return [box(footprintWidth, height, WALL_THICKNESS, 0)];
+    const { left, right, head } = opening;
+    const half = footprintWidth / 2;
+    return [
+      box(left + half, head, WALL_THICKNESS, 0, (left - half) / 2),
+      box(half - right, head, WALL_THICKNESS, 0, (right + half) / 2),
+      box(footprintWidth, height - head, WALL_THICKNESS, head),
+    ];
+  }
+  return [box(footprintWidth * 0.7, height, footprintDepth * 0.7, 0)];
 }
 
-/** A placement's stand-in in world space, with the axis-aligned box that encloses it. */
-export function worldShape(placement, part) {
+/** A placement's stand-in in world space, one shape per piece, each with the axis-aligned box that encloses it. */
+function placementShapes(placement, part) {
   const m = placement.transform; // column-major, quarter-turn yaw about +y
   const [c, s] = [m[0], m[8]];
   const [tx, ty, tz] = [m[12], m[13], m[14]];
-  const local = standIn(part);
-  const points = local.points.map(([x, y, z]) => [c * x + s * z + tx, y + ty, -s * x + c * z + tz]);
-  const min = [0, 1, 2].map((i) => Math.min(...points.map((p) => p[i])));
-  const max = [0, 1, 2].map((i) => Math.max(...points.map((p) => p[i])));
-  return { part: placement.part, stop: placement.stop, points, edges: local.edges, min, max };
+  return standIn(part).map((piece) => {
+    const points = piece.points.map(([x, y, z]) => [c * x + s * z + tx, y + ty, -s * x + c * z + tz]);
+    const min = [0, 1, 2].map((i) => Math.min(...points.map((p) => p[i])));
+    const max = [0, 1, 2].map((i) => Math.max(...points.map((p) => p[i])));
+    return { instance: placement.instance, part: placement.part, stop: placement.stop, points, edges: piece.edges, min, max };
+  });
 }
 
-/** Every placement as a world stand-in, in plan order. */
+/** Every placement's stand-in pieces as world shapes, in plan order. */
 export function worldShapes(plan, parts) {
-  return plan.placements.map((p) => worldShape(p, parts.get(p.part)));
+  return plan.placements.flatMap((p) => placementShapes(p, parts.get(p.part)));
 }
 
 /** Slab test over t in (0, 1] along origin -> end; returns the entry fraction or null. */

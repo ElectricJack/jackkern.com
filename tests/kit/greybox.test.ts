@@ -5,13 +5,17 @@ import manifest from '../../content/manifest.json';
 import { layout } from '../../layout/layout.js';
 import type { Part } from '../../src/types';
 import { Rail } from '../../src/camera/rail';
-import { DOORWAY_OPENING, greyboxGeometry, greyboxMaterial } from '../../src/kit/greybox';
+import { DOORWAY_OPENING } from '../../src/kit/doorway.js';
+import { greyboxGeometry, greyboxMaterial } from '../../src/kit/greybox';
+// @ts-expect-error -- plain JS geometry helper, shared with tests/layout/sightlines.test.ts
+import { rayHitsBox, worldShapes } from '../../tools/sightlines.mjs';
 
 // The 112 m walk is sampled every 6 mm, far finer than any clearance below.
 const SAMPLES = 20000;
 // The clearance tests/camera/clearance.test.ts holds the walk to from everything solid: two and
-// a half times the 0.1 m near plane, so nothing clips. That test cannot see an opening, so it
-// leaves doorway panels to this one.
+// a half times the 0.1 m near plane, so nothing clips. That test measures the straight-line gap
+// to the stand-in boxes in tools/sightlines.mjs, a doorway's frame among them; this one holds
+// the same 0.25 m beside and over the camera against the mesh three.js builds.
 const CLEARANCE_M = 0.25;
 
 const part = (id: string) => contract.parts.find((candidate) => candidate.id === id) as Part;
@@ -67,6 +71,34 @@ test('a doorway keeps the wall silhouette but is hollow at its threshold socket'
   solid.updateMatrixWorld();
   ray.set(new Vector3(centre, 1.7, -2), new Vector3(0, 0, 1));
   expect(ray.intersectObject(solid).length).toBeGreaterThan(0);
+});
+
+test('the sight-line stand-in for a wall is solid exactly where its grey box is', () => {
+  // tools/sightlines.mjs is what the sight-line, clearance and occlusion checks see, so it has
+  // to agree with the mesh, doorway opening included. Rays run straight through each panel on a
+  // 0.1 m grid set 0.05 m in from every edge of the wall and of the opening.
+  const parts = new Map(contract.parts.map((candidate) => [candidate.id, candidate]));
+  const ray = new Raycaster();
+  const through = new Vector3(0, 0, 1);
+  for (const id of ['wall-3m', 'wall-3m-doorway']) {
+    const panel = part(id);
+    const mesh = new Mesh(greyboxGeometry(panel), new MeshBasicMaterial({ side: DoubleSide }));
+    mesh.updateMatrixWorld();
+    const placement = { instance: `test.${id}.1`, part: id, stop: 'test', transform: new Matrix4().toArray() };
+    const shapes = worldShapes({ placements: [placement] }, parts) as any[];
+    const disagree: string[] = [];
+    for (let i = 0; i < panel.footprint[0] * 10; i++) {
+      for (let j = 0; j < panel.height * 10; j++) {
+        const [x, y] = [(i + 0.5) / 10 - panel.footprint[0] / 2, (j + 0.5) / 10];
+        ray.set(new Vector3(x, y, -2), through);
+        const solid = ray.intersectObject(mesh).length > 0;
+        if (solid !== shapes.some((shape) => rayHitsBox([x, y, -2], [x, y, 2], shape) !== null)) {
+          disagree.push(`(${x.toFixed(2)}, ${y.toFixed(2)}) ${solid ? 'solid' : 'open'}`);
+        }
+      }
+    }
+    expect(`${id}: ${disagree.length} rays disagree ${disagree.slice(0, 3).join(' ')}`).toBe(`${id}: 0 rays disagree `);
+  }
 });
 
 test('the camera rail crosses each doorway it meets through the opening, not the frame', () => {

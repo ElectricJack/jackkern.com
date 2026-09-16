@@ -32,7 +32,9 @@ viewpoint stands too close to what it looks at, or any object swamps the frame;
 `occlusion.txt` is its output at the commit that fixed this. Both scripts and
 `tests/layout/sightlines.test.ts` share the geometry in `tools/sightlines.mjs`,
 whose stand-in shapes mirror `src/kit/greybox.ts` and whose frustum mirrors the
-`PerspectiveCamera(55, ...)` in `src/main.ts`.
+`PerspectiveCamera(55, ...)` in `src/main.ts`. A doorway wall's stand-in is its
+two jambs and lintel, cut from the same `src/kit/doorway.js` as the mesh, so a
+line of sight through an opening is clear.
 
 ## Results (2026-09-16, node v24.15.0, vite 7.3.6, three 0.180.0)
 
@@ -63,7 +65,7 @@ the walk the camera actually rides, the test found one real defect in their plac
   panel's faces the walk rises to 2.82 m up it. The opening was 2.8 m, so the 0.1 m
   near plane cut into the lintel: `doorway-crossing-before.png` is `main` at `bf1a870`,
   0.15 m short of the panel, with the lintel as a dark band across the frame.
-- `DOORWAY_OPENING` in `src/kit/greybox.ts` is now 3.2 m tall, which keeps the lintel
+- `DOORWAY_OPENING` (now in `src/kit/doorway.js`) is 3.2 m tall, which keeps the lintel
   0.38 m over the camera. `doorway-crossing.png` is the same pose afterwards.
   The test now rides `Rail(plan.rail, plan.path)`, holds the camera 0.25 m inside
   every opening, and expects no doorway missed.
