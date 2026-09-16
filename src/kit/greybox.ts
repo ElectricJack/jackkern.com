@@ -1,5 +1,6 @@
 import { BoxGeometry, BufferGeometry, Color, CylinderGeometry, ExtrudeGeometry, MeshStandardMaterial, Shape, Vector2 } from 'three';
 import type { Part } from '../types';
+import { WALL_THICKNESS, doorwayOpening } from './doorway.js';
 
 const COLORS: Record<Part['category'], number> = {
   structure: 0xd9d2c5,
@@ -9,31 +10,16 @@ const COLORS: Record<Part['category'], number> = {
   focal: 0xd08a3c,
 };
 
-const WALL_THICKNESS = 0.3;
-
-/**
- * The hole a threshold socket cuts in its wall. The camera walks through every doorway at eye
- * height (1.7 m), never more than 0.41 m off its centre, so 2 m leaves the jambs well clear.
- * The height is set by a stop sunk a level below the one before it: its entry panel stands on
- * the lower floor while the camera arrives at the upper floor's eye height, and the walk crests
- * 2.82 m up that panel on its way through. 3.2 m keeps the lintel 0.38 m over the camera, past
- * the 0.25 m that tests/kit/greybox.test.ts holds the frame to.
- */
-export const DOORWAY_OPENING = { width: 2, height: 3.2 };
-
-/** Narrowest jamb and shallowest lintel left standing when a part is too small for the full opening. */
-const MIN_FRAME = 0.3;
-
 /**
  * A wall with its threshold cut out: two jambs and a lintel, extruded as one silhouette so it
- * still instances as a single geometry. `centre` is the opening's x in the part's centred frame.
+ * still instances as a single geometry.
  */
-function doorwayGeometry(width: number, height: number, centre: number): BufferGeometry {
+function doorwayGeometry(
+  width: number,
+  height: number,
+  { left, right, head }: { left: number; right: number; head: number },
+): BufferGeometry {
   const half = width / 2;
-  const opening = Math.min(DOORWAY_OPENING.width, width - 2 * MIN_FRAME);
-  const head = Math.min(DOORWAY_OPENING.height, height - MIN_FRAME);
-  const left = Math.max(-half + MIN_FRAME, centre - opening / 2);
-  const right = Math.min(half - MIN_FRAME, centre + opening / 2);
   const outline = new Shape([
     new Vector2(-half, 0),
     new Vector2(left, 0),
@@ -73,9 +59,8 @@ export function greyboxGeometry(part: Part): BufferGeometry {
       : new CylinderGeometry(0.5, 0.8, height, 12).translate(0, height / 2, 0);
   }
   if (part.category === 'structure') {
-    // Socket coordinates are measured from the footprint corner; geometry is centred on it.
-    const threshold = part.sockets.find((socket) => socket.name === 'threshold');
-    if (threshold) return doorwayGeometry(footprintWidth, height, threshold.at[0] - footprintWidth / 2);
+    const opening = doorwayOpening(part, height);
+    if (opening) return doorwayGeometry(footprintWidth, height, opening);
     return new BoxGeometry(footprintWidth, height, WALL_THICKNESS).translate(0, height / 2, 0);
   }
 

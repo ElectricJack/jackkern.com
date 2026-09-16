@@ -18,9 +18,9 @@ const SAMPLES = 4000;
 // for nothing to clip. Raising it is a question about where fill() stands the focal piece.
 const CLEARANCE_M = 0.25;
 const DOOR_HALF_M = 0.75; // half a 3 m doorway bay: the camera keeps to the middle of the opening
-// The stand-ins in tools/sightlines.mjs are boxes, and a doorway wall's box has no opening in it,
-// so the camera has to pass through that box to use the door. The third test holds it to the
-// middle of the bay; tests/kit/greybox.test.ts holds it clear of the frame of the real opening.
+// A doorway wall's stand-in in tools/sightlines.mjs is its frame, two jambs and a lintel round
+// the opening, so the first test holds the walk clear of a doorway like any other wall. The
+// third holds it to the middle of the bay the doorway stands in.
 const DOORWAY = 'wall-3m-doorway';
 
 const parts = new Map(contract.parts.map((p) => [p.id, p]));
@@ -34,7 +34,6 @@ test('the walk never comes within 0.25 m of anything solid', () => {
   const worst = new Map<string, number>();
   for (const point of walk) {
     for (const shape of shapes) {
-      if (shape.part === DOORWAY) continue;
       const gap = boxDistance(point, shape);
       if (gap >= CLEARANCE_M) continue;
       const key = `${shape.stop} ${shape.part}`;
@@ -53,9 +52,17 @@ test('the walk stays inside the stops it links', () => {
 });
 
 test('the walk crosses every doorway through its opening', () => {
-  const doors = shapes.filter((s) => s.part === DOORWAY);
-  expect(doors.length).toBe(2 * manifest.stops.filter((s) => s.kind === 'project').length);
-  for (const door of doors) {
+  const placements = plan.placements.filter((p) => p.part === DOORWAY);
+  expect(placements.length).toBe(2 * manifest.stops.filter((s) => s.kind === 'project').length);
+  for (const { instance, stop, part } of placements) {
+    // The panel the opening is cut from: the box round every piece of the doorway's frame.
+    const frame = shapes.filter((s) => s.instance === instance);
+    const door = {
+      stop,
+      part,
+      min: [0, 1, 2].map((i) => Math.min(...frame.map((s) => s.min[i]))),
+      max: [0, 1, 2].map((i) => Math.max(...frame.map((s) => s.max[i]))),
+    };
     const centre = [0, 1, 2].map((i) => (door.min[i] + door.max[i]) / 2);
     const crossings = walk.filter((p) => boxDistance(p, door) === 0);
     // Infinity for a doorway the walk never enters, which reads as plainly wrong as it is.
