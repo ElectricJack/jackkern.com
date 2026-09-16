@@ -124,3 +124,149 @@ export function sequence(manifest, parts) {
   }
   return stops;
 }
+
+const DRESSING_BUDGET = { court: 6, gallery: 4, 'pool-hall': 4, exedra: 2, courtyard: 4, terrace: 4 };
+const DRESSING_PARTS = ['urn-small', 'planter-square', 'statue-a'];
+const COS = [1, 0, -1, 0];
+const SIN = [0, 1, 0, -1];
+
+export function worldPoint(stop, u, v, y) {
+  const fwd = fwdOf(stop.h);
+  const right = rightOf(stop.h);
+  return [
+    fix(stop.x + right[0] * u + fwd[0] * v),
+    fix(stop.level * LEVEL_HEIGHT + y),
+    fix(stop.z + right[1] * u + fwd[1] * v),
+  ];
+}
+
+/** Column-major 4x4: yaw of (stop.h + localQ) quarter turns about +y, then translate. */
+export function worldTransform(stop, u, v, y, localQ) {
+  const [x, wy, z] = worldPoint(stop, u, v, y);
+  const q = (stop.h + localQ) % 4;
+  const c = COS[q];
+  const s = SIN[q];
+  return [c, 0, -s, 0, 0, 1, 0, 0, s, 0, c, 0, x, wy, z, 1];
+}
+
+/** Local (u, v) of the exit threshold centre. */
+export function exitLocal(stop) {
+  if (stop.turn === 0) return [0, stop.d];
+  return [stop.turn === 1 ? stop.w / 2 : -stop.w / 2, stop.d / 2];
+}
+
+/** Each side yields 3 m segments as { u, v, localQ, index } in local coords. */
+function sideSegments(stop, side) {
+  const { w, d } = stop;
+  const out = [];
+  if (side === 'back' || side === 'front') {
+    const v = side === 'back' ? 0 : d;
+    for (let i = 0; i < w / 3; i++) out.push({ u: -w / 2 + 1.5 + 3 * i, v, localQ: 0, index: i });
+  } else {
+    const u = side === 'left' ? -w / 2 : w / 2;
+    for (let i = 0; i < d / 3; i++) out.push({ u, v: 1.5 + 3 * i, localQ: 1, index: i });
+  }
+  return out;
+}
+
+function sideStatus(stop) {
+  const open = stop.kind !== 'room';
+  const exitSide = !stop.hasExit ? null : stop.turn === 0 ? 'front' : stop.turn === 1 ? 'right' : 'left';
+  const status = {};
+  for (const side of ['back', 'front', 'left', 'right']) {
+    const threshold = (side === 'back' && stop.hasEntry) || side === exitSide;
+    status[side] = threshold ? 'door' : open ? 'open' : 'wall';
+  }
+  return status;
+}
+
+export function fill(stop, parts, rng) {
+  const out = [];
+  const counters = new Map();
+  const place = (partId, u, v, localQ = 0, y = 0) => {
+    if (!parts.has(partId)) throw new LayoutError('unknown_part', stop.id + ': part ' + partId + ' is not in the contract');
+    const n = (counters.get(partId) || 0) + 1;
+    counters.set(partId, n);
+    out.push({ instance: stop.id + '.' + partId + '.' + n, part: partId, stop: stop.id, transform: worldTransform(stop, u, v, y, localQ) });
+  };
+  const { w, d, archetype } = stop;
+  const columnHeight = parts.get('column-doric').height;
+  const columns = new Set();
+  const column = (u, v) => {
+    const key = u + ',' + v;
+    if (columns.has(key)) return;
+    columns.add(key);
+    place('column-doric', u, v, 0, 0);
+  };
+  const open = stop.kind !== 'room';
+
+  // Floors.
+  for (let i = 0; i < w / 3; i++) for (let j = 0; j < d / 3; j++) place('floor-slab-3x3', -w / 2 + 1.5 + 3 * i, 1.5 + 3 * j, 0, 0);
+
+  // Perimeter.
+  const status = sideStatus(stop);
+  for (const side of ['back', 'front', 'left', 'right']) {
+    const segments = sideSegments(stop, side);
+    const middle = Math.floor(segments.length / 2);
+    for (const seg of segments) {
+      if (open) {
+        // Column run with entablature; the doorway is simply the gap between columns.
+        const along = seg.localQ === 0 ? [seg.u - 1.5, seg.u + 1.5] : [seg.v - 1.5, seg.v + 1.5];
+        if (seg.localQ === 0) {
+          column(along[0], seg.v);
+          column(along[1], seg.v);
+        } else {
+          column(seg.u, along[0]);
+          column(seg.u, along[1]);
+        }
+        place('entablature-3m', seg.u, seg.v, seg.localQ, columnHeight);
+      } else if (status[side] === 'door' && seg.index === middle) {
+        place('wall-3m-doorway', seg.u, seg.v, seg.localQ, 0);
+      } else {
+        place('wall-3m', seg.u, seg.v, seg.localQ, 0);
+      }
+    }
+  }
+
+  // Interior column rows for the long rooms.
+  if (archetype === 'gallery' || archetype === 'pool-hall') {
+    for (const u of [-3, 3]) {
+      const rows = d / 3;
+      for (let j = 0; j < rows; j++) column(u, 1.5 + 3 * j);
+      for (let j = 0; j + 1 < rows; j++) place('entablature-3m', u, 3 + 3 * j, 1, columnHeight);
+    }
+  }
+
+  // Water.
+  if (archetype === 'pool-hall' || archetype === 'courtyard' || archetype === 'court') {
+    place('pool-basin-3x3', 0, d / 2, 0, 0);
+    if (archetype !== 'pool-hall') place('fountain-tiered', 0, d / 2, 0, 0);
+  }
+
+  // Stairs at the exit of a dropping courtyard.
+  if (stop.drop) {
+    const [eu, ev] = exitLocal(stop);
+    const q = stop.turn === 0 ? 0 : 1;
+    const along = stop.turn === 0 ? [0, 1.5] : [stop.turn * 1.5, 0];
+    place('stair-run-3m', eu + along[0], ev + along[1], q, 0);
+  }
+
+  // Focal object at the far wall on the rail axis.
+  if (stop.kind === 'room') place(stop.focal, 0, d - 1.5, 0, 0);
+
+  // Dressing along the side walls, away from thresholds.
+  const slots = [];
+  for (const u of [-(w / 2 - 0.75), w / 2 - 0.75]) {
+    for (let v = 1.5; v <= d - 1.5; v += 1.5) {
+      const sideIsDoor = (u < 0 && status.left === 'door') || (u > 0 && status.right === 'door');
+      if (sideIsDoor && Math.abs(v - d / 2) < 2) continue;
+      slots.push([u, v]);
+    }
+  }
+  for (let n = 0; n < DRESSING_BUDGET[archetype] && slots.length; n++) {
+    const [uu, vv] = slots.splice(int(rng, 0, slots.length - 1), 1)[0];
+    place(pick(rng, DRESSING_PARTS), uu, vv, 0, 0);
+  }
+
+  return out;
+}
