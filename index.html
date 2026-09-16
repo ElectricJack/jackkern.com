@@ -9,10 +9,12 @@
     <link rel="stylesheet" href="/src/styles.css" />
   </head>
   <body>
-    <main id="app">
-      <canvas id="villa" aria-hidden="true"></canvas>
-      <aside id="panels" aria-live="polite"><!-- panels --></aside>
+    <main id="app" data-mode="static">
+      <button id="enter-villa" class="villa-launch" type="button" hidden>Enter the villa</button>
+      <section id="fallback" aria-label="Project promenade"><!-- fallback --></section>
+      <canvas id="villa" aria-hidden="true" hidden></canvas>
+      <aside id="panels" aria-live="polite" hidden><!-- panels --></aside>
     </main>
-    <script type="module" src="/src/main.ts"></script>
+    <script type="module" src="/src/entry.ts"></script>
   </body>
 </html>

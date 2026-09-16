@@ -20,8 +20,14 @@ export function staticMarkup(content: PanelContent[], viewpoints: Viewpoint[]): 
   const shown = new Set<string>();
   let html = '';
 
-  for (const viewpoint of viewpoints) {
-    html += `<figure class="static-view"><img src="/static/${escapeHtml(viewpoint.id)}.jpg" alt="View of ${escapeHtml(viewpoint.stop)}" loading="lazy" width="1280" height="720"></figure>`;
+  for (const [index, viewpoint] of viewpoints.entries()) {
+    const image = `<img src="/static/${escapeHtml(viewpoint.id)}.jpg" alt="View of ${escapeHtml(viewpoint.stop)}" loading="${index === 0 ? 'eager' : 'lazy'}" width="1280" height="720">`;
+    // The first view gives the page a fast, useful visual. The rest remain
+    // available in the no-JS fallback without prompting the browser to fetch
+    // several full-size screenshots before the visitor asks for them.
+    html += index === 0
+      ? `<figure class="static-view">${image}</figure>`
+      : `<details class="static-view"><summary>Show view of ${escapeHtml(viewpoint.stop)}</summary>${image}</details>`;
     const panel = byStop.get(viewpoint.stop);
     if (panel && !shown.has(viewpoint.stop)) {
       shown.add(viewpoint.stop);

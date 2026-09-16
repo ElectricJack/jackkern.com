@@ -3,10 +3,8 @@ import content from 'virtual:content';
 import contract from '../kit/contract.json';
 import manifest from '../content/manifest.json';
 import { layout } from '../layout/layout.js';
-import { chooseMode } from './boot';
 import { Director } from './camera/director';
 import { Rail } from './camera/rail';
-import { prefersReducedMotion, renderStatic, supportsWebGL } from './fallback/static';
 import { bindInputs, hotspotMarkers, setActiveHotspots } from './input/bindings';
 import { GreyboxSource, KitLoader } from './kit/loader';
 import { Panels } from './panels/panels';
@@ -29,12 +27,8 @@ const startAt = Math.min(plan.rail.length - 1, Math.max(0, Number(params.get('vp
 
 const projectIds = new Set(content.map((c) => c.id));
 
-function fallback(): void {
-  canvas.remove();
-  renderStatic(panelsRoot, content, plan.rail);
-}
-
-async function boot(): Promise<void> {
+/** Start the optional WebGL scene after the lightweight static page is visible. */
+export async function boot(): Promise<void> {
   const renderer = new WebGLRenderer({ canvas, antialias: true, powerPreference: 'high-performance' });
   renderer.setPixelRatio(Math.min(devicePixelRatio, 2));
 
@@ -87,10 +81,4 @@ async function boot(): Promise<void> {
     renderer.render(scene, camera);
     if (capture && window.__villaReady === undefined) window.__villaReady = startAt;
   });
-}
-
-if (chooseMode({ webgl: supportsWebGL(), reducedMotion: prefersReducedMotion(), capture }) === 'static') {
-  fallback();
-} else {
-  boot().catch((err) => { console.error('villa: falling back to static', err); fallback(); });
 }
