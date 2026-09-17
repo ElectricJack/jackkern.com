@@ -1,0 +1,136 @@
+{
+  "snapshot": "/mnt/d/Shared With Desktop/AI/matter-engine-cpp/MatterEditor/build/asset-handoff/2026-09-16-r2",
+  "mainCheckout": "/mnt/d/Shared With Desktop/AI/matter-engine-cpp",
+  "files": [
+    {
+      "path": "projects/world_demo/scenes/architecture/villa/VillaWebsiteKit/README.md",
+      "sha256": "f8067454559eb728cf3abc2d00f586247fdddfca30e06c27b5dd26cda2808928",
+      "bytes": 360
+    },
+    {
+      "path": "projects/world_demo/scenes/architecture/villa/VillaWebsiteKit/VillaWebsiteKit.js",
+      "sha256": "6da56a91a32d75fcc37438a8899f1f1c0212077c2485011d5d4ef2e48b8afc37",
+      "bytes": 3702
+    },
+    {
+      "path": "projects/world_demo/scenes/architecture/villa/VillaWebsiteKit/objects/VillaAmphora.js",
+      "sha256": "348eed3199f8489755d5f4f119b9d878246d285993e0bac1a5f4bff4313d2b21",
+      "bytes": 344
+    },
+    {
+      "path": "projects/world_demo/scenes/architecture/villa/VillaWebsiteKit/objects/VillaBench.js",
+      "sha256": "e3e668de38bb3df8de6cc450efd94cfa6745600014276508054d2002b83b8183",
+      "bytes": 341
+    },
+    {
+      "path": "projects/world_demo/scenes/architecture/villa/VillaWebsiteKit/objects/VillaDoorway.js",
+      "sha256": "1f35b02189a762cf097387e43569adc929b7c775cc36ffe65b65df56835ba028",
+      "bytes": 350
+    },
+    {
+      "path": "projects/world_demo/scenes/architecture/villa/VillaWebsiteKit/objects/VillaEntablature.js",
+      "sha256": "82b209fceeab672024ad1c038eb05ba0078f1f173fb89afadb9a4f96aa8d04b9",
+      "bytes": 353
+    },
+    {
+      "path": "projects/world_demo/scenes/architecture/villa/VillaWebsiteKit/objects/VillaHerbs.js",
+      "sha256": "ed6c2d0f7de56d95e10c6fac1116abd06c7c746f26f069260573dd5feacd1959",
+      "bytes": 351
+    },
+    {
+      "path": "projects/world_demo/scenes/architecture/villa/VillaWebsiteKit/objects/VillaKitMarbleDetail.js",
+      "sha256": "96551ce57b377d130ba7787b7ee7f25eb19a7520d177ee0676d2b76ba0146a39",
+      "bytes": 287
+    },
+    {
+      "path": "projects/world_demo/scenes/architecture/villa/VillaWebsiteKit/objects/VillaKitMarbleSource.js",
+      "sha256": "0e4faca836f1579e7757cf12b9123d15bc32866a8c0a20c50307d575fd5c6bbe",
+      "bytes": 194
+    },
+    {
+      "path": "projects/world_demo/scenes/architecture/villa/VillaWebsiteKit/objects/VillaKitStoneDetail.js",
+      "sha256": "255c6d912e4cc0a262bd27961cc76bd262263af8fc58b1c4a8de2aa943ab488e",
+      "bytes": 233
+    },
+    {
+      "path": "projects/world_demo/scenes/architecture/villa/VillaWebsiteKit/objects/VillaMosaicVessel.js",
+      "sha256": "0c9c4a3ecdf2ea114ccdfbbdbf93bead069ca1486e0c16ddd8601dde0e4a0f15",
+      "bytes": 349
+    },
+    {
+      "path": "projects/world_demo/scenes/architecture/villa/VillaWebsiteKit/objects/VillaNetworkRelief.js",
+      "sha256": "cada42b51be086b2fe7450ff4b585cbeb33e9d819bfbff633b2c443194d9ff50",
+      "bytes": 349
+    },
+    {
+      "path": "projects/world_demo/scenes/architecture/villa/VillaWebsiteKit/objects/VillaOlive.js",
+      "sha256": "0ac89a80b7a25b8e2db79146614da4bb7a1749acc9395398db2f29ec1e444257",
+      "bytes": 344
+    },
+    {
+      "path": "projects/world_demo/scenes/architecture/villa/VillaWebsiteKit/objects/VillaPaving.js",
+      "sha256": "1979917599dec4b04bf6e061d85784c57b24d0b2217973ed1a8d6363585c100d",
+      "bytes": 348
+    },
+    {
+      "path": "projects/world_demo/scenes/architecture/villa/VillaWebsiteKit/objects/VillaPlanter.js",
+      "sha256": "52359060775ca16370d4a06a857783f678c39ab15b069760e616d4e1e8ed11ae",
+      "bytes": 349
+    },
+    {
+      "path": "projects/world_demo/scenes/architecture/villa/VillaWebsiteKit/objects/VillaPoolBasin.js",
+      "sha256": "b754127f4144278f273255d307e5c4c8b88aa8c5671d2609a9e0df2c7b4d607d",
+      "bytes": 351
+    },
+    {
+      "path": "projects/world_demo/scenes/architecture/villa/VillaWebsiteKit/objects/VillaPoolCoping.js",
+      "sha256": "c0fc665441b5f988d0573af10d5c86d7c0e7136839e4ec6aa68183970c5e7791",
+      "bytes": 356
+    },
+    {
+      "path": "projects/world_demo/scenes/architecture/villa/VillaWebsiteKit/objects/VillaPoolCorner.js",
+      "sha256": "fa35b89b21e43bbae55eba607db0255719c048306de17642c1a825e5a2531ec1",
+      "bytes": 354
+    },
+    {
+      "path": "projects/world_demo/scenes/architecture/villa/VillaWebsiteKit/objects/VillaSeedSculpture.js",
+      "sha256": "c490c1baef7d9debf9ec9e2e46d219c086f4e5b26bedaccb03ce8672025e262f",
+      "bytes": 349
+    },
+    {
+      "path": "projects/world_demo/scenes/architecture/villa/VillaWebsiteKit/objects/VillaStairs.js",
+      "sha256": "af3f9ed40689e5a969c4614be2aaa38e10d052d9c76c1b45bbc28232a79a4b4c",
+      "bytes": 346
+    },
+    {
+      "path": "projects/world_demo/scenes/architecture/villa/VillaWebsiteKit/objects/VillaStrataSculpture.js",
+      "sha256": "c9284d187edb2bb8d54bdccc05156ed312c2eba9626317668fe7eaaa99aced28",
+      "bytes": 351
+    },
+    {
+      "path": "projects/world_demo/scenes/architecture/villa/VillaWebsiteKit/objects/VillaTieredFountain.js",
+      "sha256": "98aaa2b9aaf4658d499d9c866998d34a3809d80a48d77ad5a89ecacc060fc1f7",
+      "bytes": 357
+    },
+    {
+      "path": "projects/world_demo/scenes/architecture/villa/VillaWebsiteKit/objects/VillaWallFountain.js",
+      "sha256": "2fb6e3026cc3632d9799bb613988185e1bee847230a7d642c6fe0c770bafe817",
+      "bytes": 353
+    },
+    {
+      "path": "projects/world_demo/scenes/architecture/villa/VillaWebsiteKit/objects/VillaWallMedallion.js",
+      "sha256": "a9eb306d70afedc99b0c3977f95e297d6d7e1c26685828c76829fe78d600709d",
+      "bytes": 357
+    },
+    {
+      "path": "projects/world_demo/scenes/architecture/villa/VillaWebsiteKit/objects/VillaWallPanel.js",
+      "sha256": "af6f8c81d04667258756fb3e3b6b0a4b5986d8307174e1cd415f4e4f53a19336",
+      "bytes": 344
+    },
+    {
+      "path": "projects/world_demo/shared-lib/villa_website_kit.js",
+      "sha256": "3e82db8268edcdff551a0758c3231a078006b1bc045f348b094af4c76391b1e1",
+      "bytes": 16065
+    }
+  ]
+}

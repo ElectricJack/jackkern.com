@@ -1,0 +1,112 @@
+{
+  "asset.glb": {
+    "bytes": 6914884,
+    "sha256": "ae6f91245fc09ed50eda8a3a25be55f54e1c3eb230488c60fc2a3bd80ca43ba3"
+  },
+  "asset.mtl": {
+    "bytes": 272,
+    "sha256": "05839e2239a0ab3faed37fa9cf7bbaf347c5689ab10ac4fb16e6bb9ed741e103"
+  },
+  "asset.obj": {
+    "bytes": 3111040,
+    "sha256": "08c4dbd3245ff93b13ae6330c68759b347ee61556a634bdbff0369530c22fa5b"
+  },
+  "manifest.json": {
+    "bytes": 927,
+    "sha256": "b12dcbc2b32d2508d08530eebe11807621f6ae82431188a63814a62b3dd83629"
+  },
+  "material_0-basecolor.png": {
+    "bytes": 4206194,
+    "sha256": "8d5f1173632abb334657e7291cc2971d670aff9ddd2b46689517449c83eaae0f",
+    "size": [
+      3456,
+      4096
+    ],
+    "mode": "RGB",
+    "bitDepth": 8
+  },
+  "material_0-clearcoat.png": {
+    "bytes": 424003,
+    "sha256": "f1fd1a7294bbb57f95da5f4fb516f544fbf3828067f03dc064111bff0ecc10fe",
+    "size": [
+      3456,
+      4096
+    ],
+    "mode": "RGB",
+    "bitDepth": 8
+  },
+  "material_0-height.png": {
+    "bytes": 282529,
+    "sha256": "51b4eded1512d91d2804f0c325cf58d3ddc91625a2872520fee3062fdbc64c99",
+    "size": [
+      3456,
+      4096
+    ],
+    "mode": "I;16",
+    "bitDepth": 16,
+    "range": [
+      0,
+      2
+    ]
+  },
+  "material_0-metallic.png": {
+    "bytes": 147009,
+    "sha256": "7d8066428bda8e1ae82235c2f760f6969a6522ee2ccccb4fdd2a0ca94ab123bc",
+    "size": [
+      3456,
+      4096
+    ],
+    "mode": "L",
+    "bitDepth": 8
+  },
+  "material_0-normal-obj.png": {
+    "bytes": 504740,
+    "sha256": "fea6b77d9403bae4bce49477df9106805bbdfe4af736103abf42868c894d09ad",
+    "size": [
+      3456,
+      4096
+    ],
+    "mode": "RGB",
+    "bitDepth": 8
+  },
+  "material_0-normal.png": {
+    "bytes": 504661,
+    "sha256": "1629390f65b7af57afd232209e0088dc181f914d1fd4cb080156bb0651266142",
+    "size": [
+      3456,
+      4096
+    ],
+    "mode": "RGB",
+    "bitDepth": 8
+  },
+  "material_0-occlusion.png": {
+    "bytes": 147010,
+    "sha256": "39c5f73756f1142d17d46ad30c9f2714303f936a1c7880b5d7d8608d1b2f5797",
+    "size": [
+      3456,
+      4096
+    ],
+    "mode": "L",
+    "bitDepth": 8
+  },
+  "material_0-orm.png": {
+    "bytes": 424003,
+    "sha256": "861bfb95c1efc8808f9816224a58f98a34cc323c687c1643cf52fd2472806d84",
+    "size": [
+      3456,
+      4096
+    ],
+    "mode": "RGB",
+    "bitDepth": 8
+  },
+  "material_0-roughness.png": {
+    "bytes": 147010,
+    "sha256": "578eb59f43f0ed68a45ef6726ad4282d6e86fb264d873e289c4b7286efa06dd6",
+    "size": [
+      3456,
+      4096
+    ],
+    "mode": "L",
+    "bitDepth": 8
+  }
+}

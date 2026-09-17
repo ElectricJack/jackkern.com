@@ -1,0 +1,626 @@
+{
+  "version": 1,
+  "parts": {
+    "column-doric": {
+      "bounds": {
+        "min": [
+          -0.5,
+          0,
+          -0.5
+        ],
+        "max": [
+          0.5,
+          4,
+          0.5
+        ]
+      },
+      "triangles": 8680,
+      "desktop": {
+        "url": "/assets/matter/column-doric/desktop.glb",
+        "bytes": 360452,
+        "sha256": "dffc8990674ce561c2aea619f3cb4c4f3525a0b8625508c7569b6d5c39123fcd",
+        "textureMemoryBytes": 37748747
+      },
+      "mobile": {
+        "url": "/assets/matter/column-doric/mobile.glb",
+        "bytes": 298944,
+        "sha256": "67318bf8cddfbb611e0fe8a22e5423aebef8fdc43f698044d0849526b9cf1fd7",
+        "textureMemoryBytes": 9437195
+      }
+    },
+    "wall-3m": {
+      "bounds": {
+        "min": [
+          -1.5,
+          0,
+          -0.15
+        ],
+        "max": [
+          1.5,
+          4,
+          0.15
+        ]
+      },
+      "triangles": 480,
+      "desktop": {
+        "url": "/assets/matter/wall-3m/desktop.glb",
+        "bytes": 29732,
+        "sha256": "980c227fd1c6eac7d6c6b72b818198ede3c7d1373ec0859dda98fea0646ddafe",
+        "textureMemoryBytes": 3489792
+      },
+      "mobile": {
+        "url": "/assets/matter/wall-3m/mobile.glb",
+        "bytes": 20780,
+        "sha256": "9be220817caba3a32e5bb123240fa34382f565f8f312b554d656650717d199a1",
+        "textureMemoryBytes": 872448
+      }
+    },
+    "wall-3m-doorway": {
+      "bounds": {
+        "min": [
+          -1.5,
+          0,
+          -0.154
+        ],
+        "max": [
+          1.5,
+          4,
+          0.154
+        ]
+      },
+      "triangles": 780,
+      "desktop": {
+        "url": "/assets/matter/wall-3m-doorway/desktop.glb",
+        "bytes": 39912,
+        "sha256": "2d51bb9a71459a4ca6e3dd875daeb8c7dae75a527199387c566f738861f90aa3",
+        "textureMemoryBytes": 3973120
+      },
+      "mobile": {
+        "url": "/assets/matter/wall-3m-doorway/mobile.glb",
+        "bytes": 28832,
+        "sha256": "5c892f807b13f47fc4db8bc2edea97a6b6aace49c85e7014db1a7428bbaf2bbe",
+        "textureMemoryBytes": 991232
+      }
+    },
+    "entablature-3m": {
+      "bounds": {
+        "min": [
+          -1.5,
+          0,
+          -0.47
+        ],
+        "max": [
+          1.5,
+          0.6124999999999999,
+          0.47
+        ]
+      },
+      "triangles": 1980,
+      "desktop": {
+        "url": "/assets/matter/entablature-3m/desktop.glb",
+        "bytes": 77624,
+        "sha256": "1e2145ad42a977622ee677fdfc6d55bbd38f88055967295ccb0fcebf92f741e1",
+        "textureMemoryBytes": 2676059
+      },
+      "mobile": {
+        "url": "/assets/matter/entablature-3m/mobile.glb",
+        "bytes": 60284,
+        "sha256": "874720362d6123e192628f74aa3b92f9ca20a913536a67e3ddc5c98604a534c9",
+        "textureMemoryBytes": 669019
+      }
+    },
+    "floor-slab-3x3": {
+      "bounds": {
+        "min": [
+          -1.5,
+          -0.1,
+          -1.5
+        ],
+        "max": [
+          1.5,
+          0,
+          1.5
+        ]
+      },
+      "triangles": 300,
+      "desktop": {
+        "url": "/assets/matter/floor-slab-3x3/desktop.glb",
+        "bytes": 33448,
+        "sha256": "f6b9c45ec3dc23dbbe09c8630d8341adc32af040b7f58023116165a783f6b784",
+        "textureMemoryBytes": 4194304
+      },
+      "mobile": {
+        "url": "/assets/matter/floor-slab-3x3/mobile.glb",
+        "bytes": 19152,
+        "sha256": "d6ba48696e19815cb6bbc086389302cc6e1c42f78141ee65c915a3a88bb12eb7",
+        "textureMemoryBytes": 1048576
+      }
+    },
+    "pool-basin-3x3": {
+      "bounds": {
+        "min": [
+          -1.41,
+          0,
+          -1.41
+        ],
+        "max": [
+          1.41,
+          0.3,
+          1.41
+        ]
+      },
+      "triangles": 2700,
+      "desktop": {
+        "url": "/assets/matter/pool-basin-3x3/desktop.glb",
+        "bytes": 68900,
+        "sha256": "645a6f00ef5f5b994aa1c32507d76f211e651fe5a2ee8f9d80f91ef644b13462",
+        "textureMemoryBytes": 5188267
+      },
+      "mobile": {
+        "url": "/assets/matter/pool-basin-3x3/mobile.glb",
+        "bytes": 65464,
+        "sha256": "71d130e18b760307d7aef22de2ac374c5d1c0a450cfdb2c32f764ca863d215c2",
+        "textureMemoryBytes": 1299798
+      }
+    },
+    "pool-edge-straight": {
+      "bounds": {
+        "min": [
+          -1.32,
+          0.23000000000000004,
+          -0.09
+        ],
+        "max": [
+          1.32,
+          0.32,
+          0.09
+        ]
+      },
+      "triangles": 60,
+      "desktop": {
+        "url": "/assets/matter/pool-edge-straight/desktop.glb",
+        "bytes": 14212,
+        "sha256": "3408a51f9d1b2eb95bff89adc38d9d82d3deff804e9b68f92061bde6c7b61093",
+        "textureMemoryBytes": 1998854
+      },
+      "mobile": {
+        "url": "/assets/matter/pool-edge-straight/mobile.glb",
+        "bytes": 7692,
+        "sha256": "e6a14045a2cfe55253ce81e16e7c03c8838d0c5c597d6b30d174293f818ff2d0",
+        "textureMemoryBytes": 499718
+      }
+    },
+    "pool-edge-corner": {
+      "bounds": {
+        "min": [
+          -0.09,
+          0.23000000000000004,
+          -0.09
+        ],
+        "max": [
+          0.09,
+          0.32,
+          0.09
+        ]
+      },
+      "triangles": 60,
+      "desktop": {
+        "url": "/assets/matter/pool-edge-corner/desktop.glb",
+        "bytes": 9696,
+        "sha256": "5f13017c2bca1ff8cbbe7d639d80d1f19c21ce86124e6e86f5cd6259204afeee",
+        "textureMemoryBytes": 2097158
+      },
+      "mobile": {
+        "url": "/assets/matter/pool-edge-corner/mobile.glb",
+        "bytes": 6984,
+        "sha256": "e2e558832feb6af920fef7b8e8414a72d84cbd24bce75d605c2d182b679a081a",
+        "textureMemoryBytes": 524294
+      }
+    },
+    "fountain-tiered": {
+      "bounds": {
+        "min": [
+          -0.48,
+          0,
+          -0.48
+        ],
+        "max": [
+          0.48,
+          3,
+          0.48
+        ]
+      },
+      "triangles": 4848,
+      "desktop": {
+        "url": "/assets/matter/fountain-tiered/desktop.glb",
+        "bytes": 201828,
+        "sha256": "568fa157d8a70257f4279fa13e5c418634ec0d62696af1b378b54351273f2940",
+        "textureMemoryBytes": 4194304
+      },
+      "mobile": {
+        "url": "/assets/matter/fountain-tiered/mobile.glb",
+        "bytes": 168936,
+        "sha256": "dc7664acec3751a8d317c79eceb3fa1689e8fd71e258c244ac7f77e2edf14846",
+        "textureMemoryBytes": 1048576
+      }
+    },
+    "fountain-wall": {
+      "bounds": {
+        "min": [
+          -1.45,
+          0,
+          -0.48
+        ],
+        "max": [
+          1.45,
+          3,
+          0.48
+        ]
+      },
+      "triangles": 1928,
+      "desktop": {
+        "url": "/assets/matter/fountain-wall/desktop.glb",
+        "bytes": 119640,
+        "sha256": "e883fcd912d694c12799fec14255e7f78d211d594f95cfe5695bf33060a8f7be",
+        "textureMemoryBytes": 6754304
+      },
+      "mobile": {
+        "url": "/assets/matter/fountain-wall/mobile.glb",
+        "bytes": 88468,
+        "sha256": "609eb7fedbf83ee0275246c33c5bbe46545497d15fa8700a82489a8e5da8e3e6",
+        "textureMemoryBytes": 2891776
+      }
+    },
+    "planter-square": {
+      "bounds": {
+        "min": [
+          -0.47500000000000003,
+          0,
+          -0.47500000000000003
+        ],
+        "max": [
+          0.47500000000000003,
+          0.8150000000000001,
+          0.47500000000000003
+        ]
+      },
+      "triangles": 600,
+      "desktop": {
+        "url": "/assets/matter/planter-square/desktop.glb",
+        "bytes": 43268,
+        "sha256": "24707401f3e2b6adaeab280ba250a930068b92e3be7ba0d23a8ed80e5ce38683",
+        "textureMemoryBytes": 3842048
+      },
+      "mobile": {
+        "url": "/assets/matter/planter-square/mobile.glb",
+        "bytes": 30208,
+        "sha256": "c4f3a180374d2e2cca78935e06f6b76bd48c07c50489a2b8bac53612553f355d",
+        "textureMemoryBytes": 958464
+      }
+    },
+    "stair-run-3m": {
+      "bounds": {
+        "min": [
+          -1.5,
+          -1,
+          -1.5
+        ],
+        "max": [
+          1.5,
+          0,
+          1.4999999999999996
+        ]
+      },
+      "triangles": 600,
+      "desktop": {
+        "url": "/assets/matter/stair-run-3m/desktop.glb",
+        "bytes": 40532,
+        "sha256": "74160f6e678b5e8919832f2e327d4b560d946407f211cc314c05dfd0643dc40a",
+        "textureMemoryBytes": 3792896
+      },
+      "mobile": {
+        "url": "/assets/matter/stair-run-3m/mobile.glb",
+        "bytes": 25968,
+        "sha256": "9e7c2918ab2b498e47aa3b64cb1f20353e9cddcbef2f3c05735d52c8d4616f82",
+        "textureMemoryBytes": 950272
+      }
+    },
+    "urn-small": {
+      "bounds": {
+        "min": [
+          -0.447,
+          0,
+          -0.29
+        ],
+        "max": [
+          0.447,
+          1,
+          0.29
+        ]
+      },
+      "triangles": 2656,
+      "desktop": {
+        "url": "/assets/matter/urn-small/desktop.glb",
+        "bytes": 100224,
+        "sha256": "7fb53f6c892c5b3eac2f89be88877f190e5789f29b0896d41caa6183a3dac45d",
+        "textureMemoryBytes": 3768320
+      },
+      "mobile": {
+        "url": "/assets/matter/urn-small/mobile.glb",
+        "bytes": 96208,
+        "sha256": "0462a5ea47c89c169a8f6d646db1b1918cd86f63bd30c02d38ee5192a50610f0",
+        "textureMemoryBytes": 942080
+      }
+    },
+    "statue-a": {
+      "bounds": {
+        "min": [
+          -0.39,
+          0,
+          -0.39
+        ],
+        "max": [
+          0.39,
+          2.98,
+          0.39
+        ]
+      },
+      "triangles": 2292,
+      "desktop": {
+        "url": "/assets/matter/statue-a/desktop.glb",
+        "bytes": 110512,
+        "sha256": "929ec391a089e328cac37707faa27a59ebad1143b3273f8b067260e8c27ba7ae",
+        "textureMemoryBytes": 6668288
+      },
+      "mobile": {
+        "url": "/assets/matter/statue-a/mobile.glb",
+        "bytes": 99036,
+        "sha256": "240618c37911468adf919271717493a31e7ad9ca7216044254d46472beec9c69",
+        "textureMemoryBytes": 2859008
+      }
+    },
+    "bench-3m": {
+      "bounds": {
+        "min": [
+          -1.5,
+          0,
+          -0.43
+        ],
+        "max": [
+          1.5,
+          0.7799999999999999,
+          0.43
+        ]
+      },
+      "triangles": 360,
+      "desktop": {
+        "url": "/assets/matter/bench-3m/desktop.glb",
+        "bytes": 37488,
+        "sha256": "b7b4fe811593011c8803bb37bd99b3fed78fa470f0180e6e0e131b16c01f59bf",
+        "textureMemoryBytes": 2364763
+      },
+      "mobile": {
+        "url": "/assets/matter/bench-3m/mobile.glb",
+        "bytes": 23008,
+        "sha256": "b418a8d4c633ad21769a9c093e64d84b6c24d189d0eaa2a01a23694dd565da1c",
+        "textureMemoryBytes": 592560
+      }
+    },
+    "statue-b": {
+      "bounds": {
+        "min": [
+          -0.4204654823143625,
+          0,
+          -0.415
+        ],
+        "max": [
+          0.4951111058271401,
+          3,
+          0.415
+        ]
+      },
+      "triangles": 1748,
+      "desktop": {
+        "url": "/assets/matter/statue-b/desktop.glb",
+        "bytes": 83804,
+        "sha256": "e576425652d462428a41430d50176e5ba07f18ba20c756d76145cdbbc7e91805",
+        "textureMemoryBytes": 6897665
+      },
+      "mobile": {
+        "url": "/assets/matter/statue-b/mobile.glb",
+        "bytes": 71484,
+        "sha256": "7d86727524582c8e3899227d31143decebddd85cbb50c33f43a14a6ea8e28dfd",
+        "textureMemoryBytes": 2957312
+      }
+    },
+    "relief-a": {
+      "bounds": {
+        "min": [
+          -1.5,
+          0,
+          -0.47
+        ],
+        "max": [
+          1.5,
+          3,
+          0.47
+        ]
+      },
+      "triangles": 5236,
+      "desktop": {
+        "url": "/assets/matter/relief-a/desktop.glb",
+        "bytes": 202832,
+        "sha256": "523f9f0aafa5ad34f9833bf5613d021bbc17d623e548bcadfffb1fb87f09f91c",
+        "textureMemoryBytes": 6725633
+      },
+      "mobile": {
+        "url": "/assets/matter/relief-a/mobile.glb",
+        "bytes": 188812,
+        "sha256": "d488085af467a328098e1ee14a0da800e54a86ffced3b3c87ccb03d0fa435131",
+        "textureMemoryBytes": 2883584
+      }
+    },
+    "urn-large": {
+      "bounds": {
+        "min": [
+          -0.4600054933317057,
+          0,
+          -0.4600054933317057
+        ],
+        "max": [
+          0.4600054933317057,
+          2,
+          0.4600054933317057
+        ]
+      },
+      "triangles": 3216,
+      "desktop": {
+        "url": "/assets/matter/urn-large/desktop.glb",
+        "bytes": 110248,
+        "sha256": "1ce111378f31325d7b2125ec2b6bf3fea65f4fd677c086cffa3bd1c838b88b54",
+        "textureMemoryBytes": 322230
+      },
+      "mobile": {
+        "url": "/assets/matter/urn-large/mobile.glb",
+        "bytes": 110248,
+        "sha256": "1ce111378f31325d7b2125ec2b6bf3fea65f4fd677c086cffa3bd1c838b88b54",
+        "textureMemoryBytes": 322230
+      }
+    },
+    "olive-small": {
+      "bounds": {
+        "min": [
+          -0.7821378176312328,
+          -0.004849372134790994,
+          -0.7288748018563047
+        ],
+        "max": [
+          0.8418932214145695,
+          2.44809730854569,
+          0.8715195013128878
+        ]
+      },
+      "triangles": 2422,
+      "desktop": {
+        "url": "/assets/matter/olive-small/desktop.glb",
+        "bytes": 116204,
+        "sha256": "10e81d2abb97ba74b0be3ab0671e52aecd9874c49cde71118149392ce99bc426",
+        "textureMemoryBytes": 3989504
+      },
+      "mobile": {
+        "url": "/assets/matter/olive-small/mobile.glb",
+        "bytes": 94748,
+        "sha256": "ad9029da6281580a85ad1738b6393683ae382f69a35aa8bbb87bc845dd759084",
+        "textureMemoryBytes": 995328
+      }
+    },
+    "ground-plant-clump": {
+      "bounds": {
+        "min": [
+          -0.29626064108103256,
+          0.060444816935513616,
+          -0.2922801684058494
+        ],
+        "max": [
+          0.280167481706005,
+          0.2583634322136641,
+          0.2790423445748933
+        ]
+      },
+      "triangles": 640,
+      "desktop": {
+        "url": "/assets/matter/ground-plant-clump/desktop.glb",
+        "bytes": 51848,
+        "sha256": "01c73db991a2b7c8490632505cffa8ac2d34bde0dd294b779ac927fa4abf4774",
+        "textureMemoryBytes": 4194304
+      },
+      "mobile": {
+        "url": "/assets/matter/ground-plant-clump/mobile.glb",
+        "bytes": 35840,
+        "sha256": "ef84f5cb45bd5aa7b7e200311547d8c41953ab8151a21b1b841a34f6c27b71da",
+        "textureMemoryBytes": 1048576
+      }
+    },
+    "wall-inset-panel": {
+      "bounds": {
+        "min": [
+          -0.82,
+          1.1,
+          -0.262
+        ],
+        "max": [
+          0.82,
+          2.7399999999999998,
+          0.128
+        ]
+      },
+      "triangles": 3192,
+      "desktop": {
+        "url": "/assets/matter/wall-inset-panel/desktop.glb",
+        "bytes": 167844,
+        "sha256": "55c46023c366ff0fdc824e43a86c89f1b2ef93b7ae4f89c03aa1ea6fc979ddfd",
+        "textureMemoryBytes": 3932160
+      },
+      "mobile": {
+        "url": "/assets/matter/wall-inset-panel/mobile.glb",
+        "bytes": 133020,
+        "sha256": "6ca3d47a9d1d52c00c1e838d37fa96fc0fd4262b60823ebb408798e341c1cc0c",
+        "textureMemoryBytes": 983040
+      }
+    },
+    "gold-bar": {
+      "bounds": {
+        "min": [
+          -0.21835000514984132,
+          0.0000020810015001343496,
+          -0.11910060860143175
+        ],
+        "max": [
+          0.21835000514984132,
+          0.15999791899849986,
+          0.11910060860143175
+        ]
+      },
+      "triangles": 60,
+      "desktop": {
+        "url": "/assets/matter/gold-bar/desktop.glb",
+        "bytes": 5752,
+        "sha256": "5657b50639bb2cfc56207b96d50ccfe34109d452aaa96335fabee67cfebc28d5",
+        "textureMemoryBytes": 262155
+      },
+      "mobile": {
+        "url": "/assets/matter/gold-bar/mobile.glb",
+        "bytes": 5752,
+        "sha256": "5657b50639bb2cfc56207b96d50ccfe34109d452aaa96335fabee67cfebc28d5",
+        "textureMemoryBytes": 262155
+      }
+    },
+    "gold-coin": {
+      "bounds": {
+        "min": [
+          -0.08999999761581422,
+          2.44518942685637e-7,
+          -0.08999999761581422
+        ],
+        "max": [
+          0.08999999761581422,
+          0.027999755481057313,
+          0.08999999761581422
+        ]
+      },
+      "triangles": 576,
+      "desktop": {
+        "url": "/assets/matter/gold-coin/desktop.glb",
+        "bytes": 17708,
+        "sha256": "60066a1a9d7a3d0f6165a52cd23a5a6788c4fcac7bcf401c666c1c819c5be8bd",
+        "textureMemoryBytes": 262155
+      },
+      "mobile": {
+        "url": "/assets/matter/gold-coin/mobile.glb",
+        "bytes": 17708,
+        "sha256": "60066a1a9d7a3d0f6165a52cd23a5a6788c4fcac7bcf401c666c1c819c5be8bd",
+        "textureMemoryBytes": 262155
+      }
+    }
+  }
+}

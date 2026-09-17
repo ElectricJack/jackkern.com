@@ -1,0 +1,132 @@
+{
+  "id": "ground-plant-clump",
+  "bounds": {
+    "min": [
+      -0.29626064108103256,
+      0.060444816935513616,
+      -0.2922801684058494
+    ],
+    "max": [
+      0.280167481706005,
+      0.2583634322136641,
+      0.2790423445748933
+    ]
+  },
+  "triangles": 640,
+  "geometryPolicy": "Meshopt high; 16-bit positions/UVs, 8-bit filtered normals/tangents; no simplification",
+  "texturePolicy": "WebP 92 color, lossless data after resize; exactly constant maps are 1 pixel",
+  "variants": {
+    "desktop": {
+      "bytes": 51848,
+      "gzipBytes": 44472,
+      "brotliBytes": 43004,
+      "sha256": "01c73db991a2b7c8490632505cffa8ac2d34bde0dd294b779ac927fa4abf4774",
+      "geometryBytes": 36106,
+      "textures": [
+        {
+          "size": [
+            512,
+            512
+          ],
+          "slots": [
+            "baseColorTexture"
+          ],
+          "bytes": 6028
+        },
+        {
+          "size": [
+            512,
+            512
+          ],
+          "slots": [
+            "normalTexture"
+          ],
+          "bytes": 7264
+        },
+        {
+          "size": [
+            512,
+            512
+          ],
+          "slots": [
+            "occlusionTexture",
+            "metallicRoughnessTexture"
+          ],
+          "bytes": 13232
+        }
+      ],
+      "textureMemoryBytes": 4194304,
+      "validation": {
+        "numErrors": 0,
+        "numWarnings": 0,
+        "numInfos": 1,
+        "numHints": 0,
+        "messages": [
+          {
+            "code": "UNSUPPORTED_EXTENSION",
+            "message": "Cannot validate an extension as it is not supported by the validator: 'EXT_meshopt_compression'.",
+            "severity": 2,
+            "pointer": "/extensionsUsed/0"
+          }
+        ],
+        "truncated": false
+      }
+    },
+    "mobile": {
+      "bytes": 35840,
+      "gzipBytes": 28561,
+      "brotliBytes": 27151,
+      "sha256": "ef84f5cb45bd5aa7b7e200311547d8c41953ab8151a21b1b841a34f6c27b71da",
+      "geometryBytes": 36106,
+      "textures": [
+        {
+          "size": [
+            256,
+            256
+          ],
+          "slots": [
+            "baseColorTexture"
+          ],
+          "bytes": 2206
+        },
+        {
+          "size": [
+            256,
+            256
+          ],
+          "slots": [
+            "normalTexture"
+          ],
+          "bytes": 3286
+        },
+        {
+          "size": [
+            256,
+            256
+          ],
+          "slots": [
+            "occlusionTexture",
+            "metallicRoughnessTexture"
+          ],
+          "bytes": 5020
+        }
+      ],
+      "textureMemoryBytes": 1048576,
+      "validation": {
+        "numErrors": 0,
+        "numWarnings": 0,
+        "numInfos": 1,
+        "numHints": 0,
+        "messages": [
+          {
+            "code": "UNSUPPORTED_EXTENSION",
+            "message": "Cannot validate an extension as it is not supported by the validator: 'EXT_meshopt_compression'.",
+            "severity": 2,
+            "pointer": "/extensionsUsed/0"
+          }
+        ],
+        "truncated": false
+      }
+    }
+  }
+}

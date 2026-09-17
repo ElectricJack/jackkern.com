@@ -76,7 +76,10 @@ The layout is generated from the manifest; nothing else needs editing.
 ## Deploy
 
 Pushes to `main` build and publish to GitHub Pages through `.github/workflows/deploy.yml`.
-`public/CNAME` carries the custom domain.
+The mobile test URL is **https://electricjack.github.io/jackkern.com/**. Relative URLs let the
+same build work there or at a future custom-domain root. The custom domain is controlled by
+repository Pages settings; [GitHub ignores `CNAME` files for Actions deployments](https://docs.github.com/en/pages/configuring-a-custom-domain-for-your-github-pages-site/managing-a-custom-domain-for-your-github-pages-site).
+`jackkern.com` still points to its existing host; its DNS has not been changed for this test.
 
 ### DNS for jackkern.com
 

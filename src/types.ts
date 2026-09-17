@@ -1,8 +1,8 @@
 // Shared shapes for the manifest, the kit contract and the layout document.
 export type Vec3 = [number, number, number];
 export type ManifestStop = {
-  id: string; kind: 'court' | 'project' | 'terrace'; title?: string;
-  archetype?: 'gallery' | 'pool-hall' | 'exedra'; focal?: string; panel?: string; screenshots?: string[];
+  id: string; kind: 'court' | 'project' | 'terrace'; title?: string; discipline?: string;
+  archetype?: 'gallery' | 'pool-hall' | 'exedra'; focal?: string; focalScale?: number; panel?: string; screenshots?: string[];
 };
 export type Manifest = { version: 1; seed: number; stops: ManifestStop[] };
 export type Socket = { name: string; at: Vec3; dir: '+x' | '-x' | '+y' | '-y' | '+z' | '-z' };

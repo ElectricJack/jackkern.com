@@ -17,8 +17,10 @@
           "id": { "type": "string", "pattern": "^[a-z0-9]+(-[a-z0-9]+)*$" },
           "kind": { "enum": ["court", "project", "terrace"] },
           "title": { "type": "string", "minLength": 1 },
+          "discipline": { "type": "string", "minLength": 1 },
           "archetype": { "enum": ["gallery", "pool-hall", "exedra"] },
           "focal": { "type": "string" },
+          "focalScale": { "type": "number", "exclusiveMinimum": 0, "maximum": 1 },
           "panel": { "type": "string", "pattern": "^content/.+\\.md$" },
           "screenshots": { "type": "array", "items": { "type": "string" } }
         },

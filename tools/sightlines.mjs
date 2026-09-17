@@ -10,9 +10,9 @@ import { WALL_THICKNESS, doorwayOpening } from '../src/kit/doorway.js';
 export const FOV_Y = 55; // degrees; src/main.ts: new PerspectiveCamera(55, ...)
 export const ASPECT = 1280 / 720; // the checklist runs Chromium at 1280x720
 export const NEAR = 0.1;
-// #panels is 420px wide against the right edge (src/styles.css), so the 3D is seen through
-// x < 860 of 1280. Coverage is measured over that window, the way a visitor sees it.
-export const PANEL_X = 860;
+// Floating cards do not reserve a permanent strip of the viewport. Measure the full scene;
+// responsive card placement is verified in the browser, separately from this geometry check.
+export const PANEL_X = 1280;
 const VIEW_RIGHT = (2 * PANEL_X) / 1280 - 1;
 
 const TAU = Math.PI * 2;

@@ -1,0 +1,864 @@
+[
+  {
+    "from": "entry-view",
+    "to": "matter-engine-enter",
+    "assets": {
+      "tier": "desktop",
+      "loaded": {
+        "floor-slab-3x3": "matter",
+        "column-doric": "matter",
+        "entablature-3m": "matter",
+        "pool-basin-3x3": "matter",
+        "pool-edge-straight": "matter",
+        "pool-edge-corner": "matter",
+        "fountain-tiered": "matter",
+        "planter-square": "matter",
+        "olive-small": "matter",
+        "ground-plant-clump": "matter",
+        "urn-small": "matter",
+        "stair-run-3m": "matter",
+        "wall-3m": "matter",
+        "wall-3m-doorway": "matter",
+        "fountain-wall": "matter",
+        "statue-a": "matter",
+        "wall-inset-panel": "matter"
+      }
+    },
+    "travel": {
+      "u": 0.037570102537483704,
+      "metres": 4.700388773035409,
+      "speed": 0,
+      "acceleration": 0,
+      "jerk": 0,
+      "mode": "paused",
+      "viewpoint": 0,
+      "position": [
+        -1.5401840947950722,
+        1.7,
+        5.649944224725277
+      ]
+    },
+    "render": {
+      "calls": 65,
+      "triangles": 408886,
+      "textures": 42,
+      "geometries": 36,
+      "residentStops": [
+        "entry",
+        "matter-engine",
+        "cy-1"
+      ],
+      "reflectionPasses": 1,
+      "leaves": 7020,
+      "dust": 650
+    },
+    "problems": {
+      "errors": [],
+      "warnings": [],
+      "pageErrors": [],
+      "failedRequests": [],
+      "badResponses": []
+    }
+  },
+  {
+    "from": "matter-engine-enter",
+    "to": "matter-engine-focal",
+    "assets": {
+      "tier": "desktop",
+      "loaded": {
+        "floor-slab-3x3": "matter",
+        "column-doric": "matter",
+        "entablature-3m": "matter",
+        "pool-basin-3x3": "matter",
+        "pool-edge-straight": "matter",
+        "pool-edge-corner": "matter",
+        "fountain-tiered": "matter",
+        "planter-square": "matter",
+        "olive-small": "matter",
+        "ground-plant-clump": "matter",
+        "urn-small": "matter",
+        "stair-run-3m": "matter",
+        "wall-3m": "matter",
+        "wall-3m-doorway": "matter",
+        "fountain-wall": "matter",
+        "statue-a": "matter",
+        "wall-inset-panel": "matter",
+        "statue-b": "matter"
+      }
+    },
+    "travel": {
+      "u": 0.08195387845337267,
+      "metres": 10.253234997285732,
+      "speed": 0,
+      "acceleration": 0,
+      "jerk": 0,
+      "mode": "paused",
+      "viewpoint": 1,
+      "position": [
+        0.051284886282145684,
+        1.7,
+        10.85075758630945
+      ]
+    },
+    "render": {
+      "calls": 79,
+      "triangles": 507002,
+      "textures": 46,
+      "geometries": 40,
+      "residentStops": [
+        "entry",
+        "matter-engine",
+        "cy-1",
+        "outrider-ide"
+      ],
+      "reflectionPasses": 1,
+      "leaves": 7020,
+      "dust": 650
+    },
+    "problems": {
+      "errors": [],
+      "warnings": [],
+      "pageErrors": [],
+      "failedRequests": [],
+      "badResponses": []
+    }
+  },
+  {
+    "from": "matter-engine-focal",
+    "to": "cy-1-view",
+    "assets": {
+      "tier": "desktop",
+      "loaded": {
+        "floor-slab-3x3": "matter",
+        "column-doric": "matter",
+        "entablature-3m": "matter",
+        "pool-basin-3x3": "matter",
+        "pool-edge-straight": "matter",
+        "pool-edge-corner": "matter",
+        "fountain-tiered": "matter",
+        "planter-square": "matter",
+        "olive-small": "matter",
+        "ground-plant-clump": "matter",
+        "urn-small": "matter",
+        "stair-run-3m": "matter",
+        "wall-3m": "matter",
+        "wall-3m-doorway": "matter",
+        "fountain-wall": "matter",
+        "statue-a": "matter",
+        "wall-inset-panel": "matter",
+        "statue-b": "matter"
+      }
+    },
+    "travel": {
+      "u": 0.1380975348777002,
+      "metres": 17.277357757418642,
+      "speed": 0,
+      "acceleration": 0,
+      "jerk": 0,
+      "mode": "paused",
+      "viewpoint": 3,
+      "position": [
+        -1.1353294881541514,
+        1.7,
+        17.1955070441267
+      ]
+    },
+    "render": {
+      "calls": 75,
+      "triangles": 550638,
+      "textures": 46,
+      "geometries": 35,
+      "residentStops": [
+        "entry",
+        "matter-engine",
+        "cy-1",
+        "outrider-ide",
+        "cy-2"
+      ],
+      "reflectionPasses": 1,
+      "leaves": 7020,
+      "dust": 650
+    },
+    "problems": {
+      "errors": [],
+      "warnings": [],
+      "pageErrors": [],
+      "failedRequests": [],
+      "badResponses": []
+    }
+  },
+  {
+    "from": "cy-1-view",
+    "to": "outrider-ide-enter",
+    "assets": {
+      "tier": "desktop",
+      "loaded": {
+        "floor-slab-3x3": "matter",
+        "column-doric": "matter",
+        "entablature-3m": "matter",
+        "pool-basin-3x3": "matter",
+        "pool-edge-straight": "matter",
+        "pool-edge-corner": "matter",
+        "fountain-tiered": "matter",
+        "planter-square": "matter",
+        "olive-small": "matter",
+        "ground-plant-clump": "matter",
+        "urn-small": "matter",
+        "stair-run-3m": "matter",
+        "wall-3m": "matter",
+        "wall-3m-doorway": "matter",
+        "fountain-wall": "matter",
+        "statue-a": "matter",
+        "wall-inset-panel": "matter",
+        "statue-b": "matter"
+      }
+    },
+    "travel": {
+      "u": 0.2312722858347478,
+      "metres": 28.93443409602928,
+      "speed": 0,
+      "acceleration": 0,
+      "jerk": 0,
+      "mode": "paused",
+      "viewpoint": 3,
+      "position": [
+        -2.858403512287995,
+        1.7,
+        24.881686902607218
+      ]
+    },
+    "render": {
+      "calls": 51,
+      "triangles": 378754,
+      "textures": 35,
+      "geometries": 33,
+      "residentStops": [
+        "entry",
+        "matter-engine",
+        "cy-1",
+        "outrider-ide",
+        "cy-2"
+      ],
+      "reflectionPasses": 1,
+      "leaves": 7020,
+      "dust": 650
+    },
+    "problems": {
+      "errors": [],
+      "warnings": [],
+      "pageErrors": [],
+      "failedRequests": [],
+      "badResponses": []
+    }
+  },
+  {
+    "from": "outrider-ide-enter",
+    "to": "outrider-ide-focal",
+    "assets": {
+      "tier": "desktop",
+      "loaded": {
+        "floor-slab-3x3": "matter",
+        "column-doric": "matter",
+        "entablature-3m": "matter",
+        "pool-basin-3x3": "matter",
+        "pool-edge-straight": "matter",
+        "pool-edge-corner": "matter",
+        "fountain-tiered": "matter",
+        "planter-square": "matter",
+        "olive-small": "matter",
+        "ground-plant-clump": "matter",
+        "urn-small": "matter",
+        "stair-run-3m": "matter",
+        "wall-3m": "matter",
+        "wall-3m-doorway": "matter",
+        "fountain-wall": "matter",
+        "statue-a": "matter",
+        "wall-inset-panel": "matter",
+        "statue-b": "matter",
+        "relief-a": "matter"
+      }
+    },
+    "travel": {
+      "u": 0.2939396384405765,
+      "metres": 36.774735312412844,
+      "speed": 0,
+      "acceleration": 0,
+      "jerk": 0,
+      "mode": "paused",
+      "viewpoint": 4,
+      "position": [
+        0.11325274830212313,
+        1.7,
+        30.351933095439065
+      ]
+    },
+    "render": {
+      "calls": 51,
+      "triangles": 349116,
+      "textures": 37,
+      "geometries": 35,
+      "residentStops": [
+        "entry",
+        "matter-engine",
+        "cy-1",
+        "outrider-ide",
+        "cy-2",
+        "agent-queue"
+      ],
+      "reflectionPasses": 1,
+      "leaves": 7020,
+      "dust": 650
+    },
+    "problems": {
+      "errors": [],
+      "warnings": [],
+      "pageErrors": [],
+      "failedRequests": [],
+      "badResponses": []
+    }
+  },
+  {
+    "from": "outrider-ide-focal",
+    "to": "cy-2-view",
+    "assets": {
+      "tier": "desktop",
+      "loaded": {
+        "floor-slab-3x3": "matter",
+        "column-doric": "matter",
+        "entablature-3m": "matter",
+        "pool-basin-3x3": "matter",
+        "pool-edge-straight": "matter",
+        "pool-edge-corner": "matter",
+        "fountain-tiered": "matter",
+        "planter-square": "matter",
+        "olive-small": "matter",
+        "ground-plant-clump": "matter",
+        "urn-small": "matter",
+        "stair-run-3m": "matter",
+        "wall-3m": "matter",
+        "wall-3m-doorway": "matter",
+        "fountain-wall": "matter",
+        "statue-a": "matter",
+        "wall-inset-panel": "matter",
+        "statue-b": "matter",
+        "relief-a": "matter"
+      }
+    },
+    "travel": {
+      "u": 0.3619909951776222,
+      "metres": 45.28862831756248,
+      "speed": 0,
+      "acceleration": 0,
+      "jerk": 0,
+      "mode": "paused",
+      "viewpoint": 6,
+      "position": [
+        -1.148401792486982,
+        1.7,
+        38.18780916362971
+      ]
+    },
+    "render": {
+      "calls": 37,
+      "triangles": 308620,
+      "textures": 30,
+      "geometries": 31,
+      "residentStops": [
+        "matter-engine",
+        "cy-1",
+        "outrider-ide",
+        "cy-2",
+        "agent-queue",
+        "cy-3"
+      ],
+      "reflectionPasses": 1,
+      "leaves": 7020,
+      "dust": 650
+    },
+    "problems": {
+      "errors": [],
+      "warnings": [],
+      "pageErrors": [],
+      "failedRequests": [],
+      "badResponses": []
+    }
+  },
+  {
+    "from": "cy-2-view",
+    "to": "agent-queue-enter",
+    "assets": {
+      "tier": "desktop",
+      "loaded": {
+        "floor-slab-3x3": "matter",
+        "column-doric": "matter",
+        "entablature-3m": "matter",
+        "pool-basin-3x3": "matter",
+        "pool-edge-straight": "matter",
+        "pool-edge-corner": "matter",
+        "fountain-tiered": "matter",
+        "planter-square": "matter",
+        "olive-small": "matter",
+        "ground-plant-clump": "matter",
+        "urn-small": "matter",
+        "stair-run-3m": "matter",
+        "wall-3m": "matter",
+        "wall-3m-doorway": "matter",
+        "fountain-wall": "matter",
+        "statue-a": "matter",
+        "wall-inset-panel": "matter",
+        "statue-b": "matter",
+        "relief-a": "matter"
+      }
+    },
+    "travel": {
+      "u": 0.47829720003466536,
+      "metres": 59.83967669436621,
+      "speed": 0,
+      "acceleration": 0,
+      "jerk": 0,
+      "mode": "paused",
+      "viewpoint": 6,
+      "position": [
+        0.24923582009692247,
+        1.7,
+        46.726662147264854
+      ]
+    },
+    "render": {
+      "calls": 82,
+      "triangles": 630244,
+      "textures": 42,
+      "geometries": 38,
+      "residentStops": [
+        "matter-engine",
+        "cy-1",
+        "outrider-ide",
+        "cy-2",
+        "agent-queue",
+        "cy-3"
+      ],
+      "reflectionPasses": 1,
+      "leaves": 7020,
+      "dust": 650
+    },
+    "problems": {
+      "errors": [],
+      "warnings": [],
+      "pageErrors": [],
+      "failedRequests": [],
+      "badResponses": []
+    }
+  },
+  {
+    "from": "agent-queue-enter",
+    "to": "agent-queue-focal",
+    "assets": {
+      "tier": "desktop",
+      "loaded": {
+        "floor-slab-3x3": "matter",
+        "column-doric": "matter",
+        "entablature-3m": "matter",
+        "pool-basin-3x3": "matter",
+        "pool-edge-straight": "matter",
+        "pool-edge-corner": "matter",
+        "fountain-tiered": "matter",
+        "planter-square": "matter",
+        "olive-small": "matter",
+        "ground-plant-clump": "matter",
+        "urn-small": "matter",
+        "stair-run-3m": "matter",
+        "wall-3m": "matter",
+        "wall-3m-doorway": "matter",
+        "fountain-wall": "matter",
+        "statue-a": "matter",
+        "wall-inset-panel": "matter",
+        "relief-a": "matter",
+        "statue-b": "matter",
+        "urn-large": "matter"
+      }
+    },
+    "travel": {
+      "u": 0.5527768472566229,
+      "metres": 69.15781196622098,
+      "speed": 0,
+      "acceleration": 0,
+      "jerk": 0,
+      "mode": "paused",
+      "viewpoint": 7,
+      "position": [
+        -5.967954883725371,
+        1.7,
+        42.71865245481653
+      ]
+    },
+    "render": {
+      "calls": 67,
+      "triangles": 462136,
+      "textures": 46,
+      "geometries": 37,
+      "residentStops": [
+        "matter-engine",
+        "cy-1",
+        "outrider-ide",
+        "cy-2",
+        "agent-queue",
+        "cy-3",
+        "quilt-trader"
+      ],
+      "reflectionPasses": 1,
+      "leaves": 7020,
+      "dust": 650
+    },
+    "problems": {
+      "errors": [],
+      "warnings": [],
+      "pageErrors": [],
+      "failedRequests": [],
+      "badResponses": []
+    }
+  },
+  {
+    "from": "agent-queue-focal",
+    "to": "cy-3-view",
+    "assets": {
+      "tier": "desktop",
+      "loaded": {
+        "floor-slab-3x3": "matter",
+        "column-doric": "matter",
+        "entablature-3m": "matter",
+        "pool-basin-3x3": "matter",
+        "pool-edge-straight": "matter",
+        "pool-edge-corner": "matter",
+        "fountain-tiered": "matter",
+        "planter-square": "matter",
+        "olive-small": "matter",
+        "ground-plant-clump": "matter",
+        "urn-small": "matter",
+        "stair-run-3m": "matter",
+        "wall-3m": "matter",
+        "wall-3m-doorway": "matter",
+        "fountain-wall": "matter",
+        "statue-a": "matter",
+        "wall-inset-panel": "matter",
+        "relief-a": "matter",
+        "urn-large": "matter",
+        "statue-b": "matter"
+      }
+    },
+    "travel": {
+      "u": 0.5977855807680796,
+      "metres": 74.78884652288001,
+      "speed": 0,
+      "acceleration": 0,
+      "jerk": 0,
+      "mode": "paused",
+      "viewpoint": 9,
+      "position": [
+        -10.522373949311564,
+        1.7,
+        43.498027704737325
+      ]
+    },
+    "render": {
+      "calls": 71,
+      "triangles": 480416,
+      "textures": 42,
+      "geometries": 36,
+      "residentStops": [
+        "matter-engine",
+        "cy-1",
+        "outrider-ide",
+        "cy-2",
+        "agent-queue",
+        "cy-3",
+        "quilt-trader",
+        "cy-4"
+      ],
+      "reflectionPasses": 1,
+      "leaves": 7020,
+      "dust": 650
+    },
+    "problems": {
+      "errors": [],
+      "warnings": [],
+      "pageErrors": [],
+      "failedRequests": [],
+      "badResponses": []
+    }
+  },
+  {
+    "from": "cy-3-view",
+    "to": "quilt-trader-enter",
+    "assets": {
+      "tier": "desktop",
+      "loaded": {
+        "floor-slab-3x3": "matter",
+        "column-doric": "matter",
+        "entablature-3m": "matter",
+        "pool-basin-3x3": "matter",
+        "pool-edge-straight": "matter",
+        "pool-edge-corner": "matter",
+        "fountain-tiered": "matter",
+        "planter-square": "matter",
+        "olive-small": "matter",
+        "ground-plant-clump": "matter",
+        "urn-small": "matter",
+        "stair-run-3m": "matter",
+        "wall-3m": "matter",
+        "wall-3m-doorway": "matter",
+        "fountain-wall": "matter",
+        "statue-a": "matter",
+        "wall-inset-panel": "matter",
+        "urn-large": "matter",
+        "relief-a": "matter",
+        "bench-3m": "matter"
+      }
+    },
+    "travel": {
+      "u": 0.6919170346141058,
+      "metres": 86.5656157879073,
+      "speed": 0,
+      "acceleration": 0,
+      "jerk": 0,
+      "mode": "paused",
+      "viewpoint": 10,
+      "position": [
+        -18.2705183325141,
+        1.7,
+        41.67139073021212
+      ]
+    },
+    "render": {
+      "calls": 67,
+      "triangles": 499910,
+      "textures": 42,
+      "geometries": 35,
+      "residentStops": [
+        "matter-engine",
+        "cy-1",
+        "cy-2",
+        "agent-queue",
+        "cy-3",
+        "quilt-trader",
+        "cy-4",
+        "terrace"
+      ],
+      "reflectionPasses": 1,
+      "leaves": 7020,
+      "dust": 650
+    },
+    "problems": {
+      "errors": [],
+      "warnings": [],
+      "pageErrors": [],
+      "failedRequests": [],
+      "badResponses": []
+    }
+  },
+  {
+    "from": "quilt-trader-enter",
+    "to": "quilt-trader-focal",
+    "assets": {
+      "tier": "desktop",
+      "loaded": {
+        "floor-slab-3x3": "matter",
+        "column-doric": "matter",
+        "entablature-3m": "matter",
+        "pool-basin-3x3": "matter",
+        "pool-edge-straight": "matter",
+        "pool-edge-corner": "matter",
+        "fountain-tiered": "matter",
+        "planter-square": "matter",
+        "olive-small": "matter",
+        "ground-plant-clump": "matter",
+        "urn-small": "matter",
+        "stair-run-3m": "matter",
+        "wall-3m": "matter",
+        "wall-3m-doorway": "matter",
+        "fountain-wall": "matter",
+        "statue-a": "matter",
+        "wall-inset-panel": "matter",
+        "urn-large": "matter",
+        "relief-a": "matter",
+        "bench-3m": "matter"
+      }
+    },
+    "travel": {
+      "u": 0.7616842446530158,
+      "metres": 95.29417889112793,
+      "speed": 0,
+      "acceleration": 0,
+      "jerk": 0,
+      "mode": "paused",
+      "viewpoint": 11,
+      "position": [
+        -25.152745482253565,
+        0.7,
+        43.60957742957992
+      ]
+    },
+    "render": {
+      "calls": 51,
+      "triangles": 396054,
+      "textures": 42,
+      "geometries": 34,
+      "residentStops": [
+        "matter-engine",
+        "cy-1",
+        "cy-2",
+        "agent-queue",
+        "cy-3",
+        "quilt-trader",
+        "cy-4",
+        "terrace"
+      ],
+      "reflectionPasses": 1,
+      "leaves": 7020,
+      "dust": 650
+    },
+    "problems": {
+      "errors": [],
+      "warnings": [],
+      "pageErrors": [],
+      "failedRequests": [],
+      "badResponses": []
+    }
+  },
+  {
+    "from": "quilt-trader-focal",
+    "to": "cy-4-view",
+    "assets": {
+      "tier": "desktop",
+      "loaded": {
+        "floor-slab-3x3": "matter",
+        "column-doric": "matter",
+        "entablature-3m": "matter",
+        "pool-basin-3x3": "matter",
+        "pool-edge-straight": "matter",
+        "pool-edge-corner": "matter",
+        "fountain-tiered": "matter",
+        "planter-square": "matter",
+        "olive-small": "matter",
+        "ground-plant-clump": "matter",
+        "urn-small": "matter",
+        "stair-run-3m": "matter",
+        "wall-3m": "matter",
+        "wall-3m-doorway": "matter",
+        "fountain-wall": "matter",
+        "statue-a": "matter",
+        "wall-inset-panel": "matter",
+        "urn-large": "matter",
+        "relief-a": "matter",
+        "bench-3m": "matter"
+      }
+    },
+    "travel": {
+      "u": 0.8184457681133032,
+      "metres": 102.39560288503193,
+      "speed": 0,
+      "acceleration": 0,
+      "jerk": 0,
+      "mode": "paused",
+      "viewpoint": 11,
+      "position": [
+        -31.041532732278974,
+        0.7,
+        43.00449571992601
+      ]
+    },
+    "render": {
+      "calls": 45,
+      "triangles": 384294,
+      "textures": 35,
+      "geometries": 33,
+      "residentStops": [
+        "matter-engine",
+        "cy-1",
+        "cy-2",
+        "agent-queue",
+        "cy-3",
+        "quilt-trader",
+        "cy-4",
+        "terrace"
+      ],
+      "reflectionPasses": 1,
+      "leaves": 7020,
+      "dust": 650
+    },
+    "problems": {
+      "errors": [],
+      "warnings": [],
+      "pageErrors": [],
+      "failedRequests": [],
+      "badResponses": []
+    }
+  },
+  {
+    "from": "cy-4-view",
+    "to": "terrace-view",
+    "assets": {
+      "tier": "desktop",
+      "loaded": {
+        "floor-slab-3x3": "matter",
+        "column-doric": "matter",
+        "entablature-3m": "matter",
+        "pool-basin-3x3": "matter",
+        "pool-edge-straight": "matter",
+        "pool-edge-corner": "matter",
+        "fountain-tiered": "matter",
+        "planter-square": "matter",
+        "olive-small": "matter",
+        "ground-plant-clump": "matter",
+        "urn-small": "matter",
+        "stair-run-3m": "matter",
+        "wall-3m": "matter",
+        "wall-3m-doorway": "matter",
+        "fountain-wall": "matter",
+        "statue-a": "matter",
+        "wall-inset-panel": "matter",
+        "urn-large": "matter",
+        "bench-3m": "matter",
+        "relief-a": "matter"
+      }
+    },
+    "travel": {
+      "u": 0.9309825081382551,
+      "metres": 116.47505419447509,
+      "speed": 0,
+      "acceleration": 0,
+      "jerk": 0,
+      "mode": "paused",
+      "viewpoint": 12,
+      "position": [
+        -39.229989612347886,
+        0.7,
+        43.49345727161418
+      ]
+    },
+    "render": {
+      "calls": 68,
+      "triangles": 506074,
+      "textures": 38,
+      "geometries": 35,
+      "residentStops": [
+        "matter-engine",
+        "cy-1",
+        "agent-queue",
+        "cy-3",
+        "quilt-trader",
+        "cy-4",
+        "terrace"
+      ],
+      "reflectionPasses": 1,
+      "leaves": 7020,
+      "dust": 650
+    },
+    "problems": {
+      "errors": [],
+      "warnings": [],
+      "pageErrors": [],
+      "failedRequests": [],
+      "badResponses": []
+    }
+  }
+]

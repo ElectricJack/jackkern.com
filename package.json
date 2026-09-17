@@ -13,6 +13,7 @@
     "dev": "vite",
     "build": "vite build && node tools/render-static.mjs --optional --png tmp/visual",
     "preview": "vite preview",
+    "preview:lan": "vite preview --host 0.0.0.0 --port 8000 --strictPort",
     "typecheck": "tsc --noEmit",
     "validate": "node tools/validate.mjs",
     "test": "vitest run",

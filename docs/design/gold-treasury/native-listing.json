@@ -1,0 +1,5423 @@
+{
+  "protocol": "matter-agent",
+  "version": 1,
+  "type": "result",
+  "request_id": "4344ae23-04b6-43df-947e-f7f64aa7bce7",
+  "command": "scene.list_objects",
+  "ticket_id": "7",
+  "ok": true,
+  "code": "ok",
+  "message": "",
+  "context": {
+    "session": {
+      "id": "1",
+      "generation": "1"
+    },
+    "scene": {
+      "generation": "1",
+      "revision": "2",
+      "ready": true
+    },
+    "selection": {
+      "revision": "0"
+    },
+    "frame": {
+      "id": "1809"
+    },
+    "view": {
+      "id": "1809"
+    }
+  },
+  "result": {
+    "scene_revision": "2",
+    "ordering": "kind_then_id",
+    "filter": {
+      "kinds": [
+        "entity"
+      ],
+      "name_contains": null
+    },
+    "scene_counts": {
+      "entity": 131,
+      "baked_root": 4
+    },
+    "page": {
+      "offset": 0,
+      "limit": 200,
+      "returned": 131,
+      "total_matched": 131,
+      "has_more": false,
+      "next_offset": null
+    },
+    "objects": [
+      {
+        "object": {
+          "kind": "entity",
+          "id": "1318480463349650859"
+        },
+        "kind": "entity",
+        "identity": {
+          "namespace": "scene_entity",
+          "source": "world_authored_id_hash",
+          "stability": "world_definition",
+          "classified_by": "runtime_id_bit",
+          "notes": "FNV-1a hash of the world definition's authored id string, not a Flecs handle; stable across reloads of that definition, but a different world can reuse the number, so pair it with expect.session_generation across a world switch"
+        },
+        "name": {
+          "available": true,
+          "value": "Vase body collider"
+        },
+        "path": {
+          "available": true,
+          "value": "Vase body collider"
+        },
+        "parent": null,
+        "depth": 0,
+        "child_count": 0,
+        "components": [
+          "LocalTransform",
+          "RigidBody",
+          "ConvexHullCollider"
+        ],
+        "provenance": {
+          "available": false,
+          "reason": "authored entities carry no part-graph provenance; provenance is recorded for baked roots"
+        },
+        "part_instance": {
+          "available": false,
+          "reason": "this entity has no PartInstance component in the live ECS"
+        },
+        "selected": false,
+        "primary": false
+      },
+      {
+        "object": {
+          "kind": "entity",
+          "id": "1496668569010898875"
+        },
+        "kind": "entity",
+        "identity": {
+          "namespace": "scene_entity",
+          "source": "world_authored_id_hash",
+          "stability": "world_definition",
+          "classified_by": "runtime_id_bit",
+          "notes": "FNV-1a hash of the world definition's authored id string, not a Flecs handle; stable across reloads of that definition, but a different world can reuse the number, so pair it with expect.session_generation across a world switch"
+        },
+        "name": {
+          "available": true,
+          "value": "Vase foot collider"
+        },
+        "path": {
+          "available": true,
+          "value": "Vase foot collider"
+        },
+        "parent": null,
+        "depth": 0,
+        "child_count": 0,
+        "components": [
+          "LocalTransform",
+          "RigidBody",
+          "ConvexHullCollider"
+        ],
+        "provenance": {
+          "available": false,
+          "reason": "authored entities carry no part-graph provenance; provenance is recorded for baked roots"
+        },
+        "part_instance": {
+          "available": false,
+          "reason": "this entity has no PartInstance component in the live ECS"
+        },
+        "selected": false,
+        "primary": false
+      },
+      {
+        "object": {
+          "kind": "entity",
+          "id": "4870532443177046818"
+        },
+        "kind": "entity",
+        "identity": {
+          "namespace": "scene_entity",
+          "source": "world_authored_id_hash",
+          "stability": "world_definition",
+          "classified_by": "runtime_id_bit",
+          "notes": "FNV-1a hash of the world definition's authored id string, not a Flecs handle; stable across reloads of that definition, but a different world can reuse the number, so pair it with expect.session_generation across a world switch"
+        },
+        "name": {
+          "available": true,
+          "value": "bar-9"
+        },
+        "path": {
+          "available": true,
+          "value": "bar-9"
+        },
+        "parent": null,
+        "depth": 0,
+        "child_count": 0,
+        "components": [
+          "LocalTransform",
+          "RigidBody",
+          "ConvexHullCollider",
+          "PartInstance"
+        ],
+        "provenance": {
+          "available": false,
+          "reason": "authored entities carry no part-graph provenance; provenance is recorded for baked roots"
+        },
+        "part_instance": {
+          "available": true,
+          "value": "16329643784195185580"
+        },
+        "selected": false,
+        "primary": false
+      },
+      {
+        "object": {
+          "kind": "entity",
+          "id": "4870533542688675029"
+        },
+        "kind": "entity",
+        "identity": {
+          "namespace": "scene_entity",
+          "source": "world_authored_id_hash",
+          "stability": "world_definition",
+          "classified_by": "runtime_id_bit",
+          "notes": "FNV-1a hash of the world definition's authored id string, not a Flecs handle; stable across reloads of that definition, but a different world can reuse the number, so pair it with expect.session_generation across a world switch"
+        },
+        "name": {
+          "available": true,
+          "value": "bar-8"
+        },
+        "path": {
+          "available": true,
+          "value": "bar-8"
+        },
+        "parent": null,
+        "depth": 0,
+        "child_count": 0,
+        "components": [
+          "LocalTransform",
+          "RigidBody",
+          "ConvexHullCollider",
+          "PartInstance"
+        ],
+        "provenance": {
+          "available": false,
+          "reason": "authored entities carry no part-graph provenance; provenance is recorded for baked roots"
+        },
+        "part_instance": {
+          "available": true,
+          "value": "16329643784195185580"
+        },
+        "selected": false,
+        "primary": false
+      },
+      {
+        "object": {
+          "kind": "entity",
+          "id": "4870534642200303240"
+        },
+        "kind": "entity",
+        "identity": {
+          "namespace": "scene_entity",
+          "source": "world_authored_id_hash",
+          "stability": "world_definition",
+          "classified_by": "runtime_id_bit",
+          "notes": "FNV-1a hash of the world definition's authored id string, not a Flecs handle; stable across reloads of that definition, but a different world can reuse the number, so pair it with expect.session_generation across a world switch"
+        },
+        "name": {
+          "available": true,
+          "value": "bar-7"
+        },
+        "path": {
+          "available": true,
+          "value": "bar-7"
+        },
+        "parent": null,
+        "depth": 0,
+        "child_count": 0,
+        "components": [
+          "LocalTransform",
+          "RigidBody",
+          "ConvexHullCollider",
+          "PartInstance"
+        ],
+        "provenance": {
+          "available": false,
+          "reason": "authored entities carry no part-graph provenance; provenance is recorded for baked roots"
+        },
+        "part_instance": {
+          "available": true,
+          "value": "16329643784195185580"
+        },
+        "selected": false,
+        "primary": false
+      },
+      {
+        "object": {
+          "kind": "entity",
+          "id": "4870535741711931451"
+        },
+        "kind": "entity",
+        "identity": {
+          "namespace": "scene_entity",
+          "source": "world_authored_id_hash",
+          "stability": "world_definition",
+          "classified_by": "runtime_id_bit",
+          "notes": "FNV-1a hash of the world definition's authored id string, not a Flecs handle; stable across reloads of that definition, but a different world can reuse the number, so pair it with expect.session_generation across a world switch"
+        },
+        "name": {
+          "available": true,
+          "value": "bar-6"
+        },
+        "path": {
+          "available": true,
+          "value": "bar-6"
+        },
+        "parent": null,
+        "depth": 0,
+        "child_count": 0,
+        "components": [
+          "LocalTransform",
+          "RigidBody",
+          "ConvexHullCollider",
+          "PartInstance"
+        ],
+        "provenance": {
+          "available": false,
+          "reason": "authored entities carry no part-graph provenance; provenance is recorded for baked roots"
+        },
+        "part_instance": {
+          "available": true,
+          "value": "16329643784195185580"
+        },
+        "selected": false,
+        "primary": false
+      },
+      {
+        "object": {
+          "kind": "entity",
+          "id": "4870536841223559662"
+        },
+        "kind": "entity",
+        "identity": {
+          "namespace": "scene_entity",
+          "source": "world_authored_id_hash",
+          "stability": "world_definition",
+          "classified_by": "runtime_id_bit",
+          "notes": "FNV-1a hash of the world definition's authored id string, not a Flecs handle; stable across reloads of that definition, but a different world can reuse the number, so pair it with expect.session_generation across a world switch"
+        },
+        "name": {
+          "available": true,
+          "value": "bar-5"
+        },
+        "path": {
+          "available": true,
+          "value": "bar-5"
+        },
+        "parent": null,
+        "depth": 0,
+        "child_count": 0,
+        "components": [
+          "LocalTransform",
+          "RigidBody",
+          "ConvexHullCollider",
+          "PartInstance"
+        ],
+        "provenance": {
+          "available": false,
+          "reason": "authored entities carry no part-graph provenance; provenance is recorded for baked roots"
+        },
+        "part_instance": {
+          "available": true,
+          "value": "16329643784195185580"
+        },
+        "selected": false,
+        "primary": false
+      },
+      {
+        "object": {
+          "kind": "entity",
+          "id": "4870537940735187873"
+        },
+        "kind": "entity",
+        "identity": {
+          "namespace": "scene_entity",
+          "source": "world_authored_id_hash",
+          "stability": "world_definition",
+          "classified_by": "runtime_id_bit",
+          "notes": "FNV-1a hash of the world definition's authored id string, not a Flecs handle; stable across reloads of that definition, but a different world can reuse the number, so pair it with expect.session_generation across a world switch"
+        },
+        "name": {
+          "available": true,
+          "value": "bar-4"
+        },
+        "path": {
+          "available": true,
+          "value": "bar-4"
+        },
+        "parent": null,
+        "depth": 0,
+        "child_count": 0,
+        "components": [
+          "LocalTransform",
+          "RigidBody",
+          "ConvexHullCollider",
+          "PartInstance"
+        ],
+        "provenance": {
+          "available": false,
+          "reason": "authored entities carry no part-graph provenance; provenance is recorded for baked roots"
+        },
+        "part_instance": {
+          "available": true,
+          "value": "16329643784195185580"
+        },
+        "selected": false,
+        "primary": false
+      },
+      {
+        "object": {
+          "kind": "entity",
+          "id": "4870539040246816084"
+        },
+        "kind": "entity",
+        "identity": {
+          "namespace": "scene_entity",
+          "source": "world_authored_id_hash",
+          "stability": "world_definition",
+          "classified_by": "runtime_id_bit",
+          "notes": "FNV-1a hash of the world definition's authored id string, not a Flecs handle; stable across reloads of that definition, but a different world can reuse the number, so pair it with expect.session_generation across a world switch"
+        },
+        "name": {
+          "available": true,
+          "value": "bar-3"
+        },
+        "path": {
+          "available": true,
+          "value": "bar-3"
+        },
+        "parent": null,
+        "depth": 0,
+        "child_count": 0,
+        "components": [
+          "LocalTransform",
+          "RigidBody",
+          "ConvexHullCollider",
+          "PartInstance"
+        ],
+        "provenance": {
+          "available": false,
+          "reason": "authored entities carry no part-graph provenance; provenance is recorded for baked roots"
+        },
+        "part_instance": {
+          "available": true,
+          "value": "16329643784195185580"
+        },
+        "selected": false,
+        "primary": false
+      },
+      {
+        "object": {
+          "kind": "entity",
+          "id": "4870540139758444295"
+        },
+        "kind": "entity",
+        "identity": {
+          "namespace": "scene_entity",
+          "source": "world_authored_id_hash",
+          "stability": "world_definition",
+          "classified_by": "runtime_id_bit",
+          "notes": "FNV-1a hash of the world definition's authored id string, not a Flecs handle; stable across reloads of that definition, but a different world can reuse the number, so pair it with expect.session_generation across a world switch"
+        },
+        "name": {
+          "available": true,
+          "value": "bar-2"
+        },
+        "path": {
+          "available": true,
+          "value": "bar-2"
+        },
+        "parent": null,
+        "depth": 0,
+        "child_count": 0,
+        "components": [
+          "LocalTransform",
+          "RigidBody",
+          "ConvexHullCollider",
+          "PartInstance"
+        ],
+        "provenance": {
+          "available": false,
+          "reason": "authored entities carry no part-graph provenance; provenance is recorded for baked roots"
+        },
+        "part_instance": {
+          "available": true,
+          "value": "16329643784195185580"
+        },
+        "selected": false,
+        "primary": false
+      },
+      {
+        "object": {
+          "kind": "entity",
+          "id": "4870541239270072506"
+        },
+        "kind": "entity",
+        "identity": {
+          "namespace": "scene_entity",
+          "source": "world_authored_id_hash",
+          "stability": "world_definition",
+          "classified_by": "runtime_id_bit",
+          "notes": "FNV-1a hash of the world definition's authored id string, not a Flecs handle; stable across reloads of that definition, but a different world can reuse the number, so pair it with expect.session_generation across a world switch"
+        },
+        "name": {
+          "available": true,
+          "value": "bar-1"
+        },
+        "path": {
+          "available": true,
+          "value": "bar-1"
+        },
+        "parent": null,
+        "depth": 0,
+        "child_count": 0,
+        "components": [
+          "LocalTransform",
+          "RigidBody",
+          "ConvexHullCollider",
+          "PartInstance"
+        ],
+        "provenance": {
+          "available": false,
+          "reason": "authored entities carry no part-graph provenance; provenance is recorded for baked roots"
+        },
+        "part_instance": {
+          "available": true,
+          "value": "16329643784195185580"
+        },
+        "selected": false,
+        "primary": false
+      },
+      {
+        "object": {
+          "kind": "entity",
+          "id": "4870542338781700717"
+        },
+        "kind": "entity",
+        "identity": {
+          "namespace": "scene_entity",
+          "source": "world_authored_id_hash",
+          "stability": "world_definition",
+          "classified_by": "runtime_id_bit",
+          "notes": "FNV-1a hash of the world definition's authored id string, not a Flecs handle; stable across reloads of that definition, but a different world can reuse the number, so pair it with expect.session_generation across a world switch"
+        },
+        "name": {
+          "available": true,
+          "value": "bar-0"
+        },
+        "path": {
+          "available": true,
+          "value": "bar-0"
+        },
+        "parent": null,
+        "depth": 0,
+        "child_count": 0,
+        "components": [
+          "LocalTransform",
+          "RigidBody",
+          "ConvexHullCollider",
+          "PartInstance"
+        ],
+        "provenance": {
+          "available": false,
+          "reason": "authored entities carry no part-graph provenance; provenance is recorded for baked roots"
+        },
+        "part_instance": {
+          "available": true,
+          "value": "16329643784195185580"
+        },
+        "selected": false,
+        "primary": false
+      },
+      {
+        "object": {
+          "kind": "entity",
+          "id": "5714297521745333712"
+        },
+        "kind": "entity",
+        "identity": {
+          "namespace": "scene_entity",
+          "source": "world_authored_id_hash",
+          "stability": "world_definition",
+          "classified_by": "runtime_id_bit",
+          "notes": "FNV-1a hash of the world definition's authored id string, not a Flecs handle; stable across reloads of that definition, but a different world can reuse the number, so pair it with expect.session_generation across a world switch"
+        },
+        "name": {
+          "available": true,
+          "value": "coin-50"
+        },
+        "path": {
+          "available": true,
+          "value": "coin-50"
+        },
+        "parent": null,
+        "depth": 0,
+        "child_count": 0,
+        "components": [
+          "LocalTransform",
+          "RigidBody",
+          "ConvexHullCollider",
+          "PartInstance"
+        ],
+        "provenance": {
+          "available": false,
+          "reason": "authored entities carry no part-graph provenance; provenance is recorded for baked roots"
+        },
+        "part_instance": {
+          "available": true,
+          "value": "8793112039383506649"
+        },
+        "selected": false,
+        "primary": false
+      },
+      {
+        "object": {
+          "kind": "entity",
+          "id": "5714298621256961923"
+        },
+        "kind": "entity",
+        "identity": {
+          "namespace": "scene_entity",
+          "source": "world_authored_id_hash",
+          "stability": "world_definition",
+          "classified_by": "runtime_id_bit",
+          "notes": "FNV-1a hash of the world definition's authored id string, not a Flecs handle; stable across reloads of that definition, but a different world can reuse the number, so pair it with expect.session_generation across a world switch"
+        },
+        "name": {
+          "available": true,
+          "value": "coin-51"
+        },
+        "path": {
+          "available": true,
+          "value": "coin-51"
+        },
+        "parent": null,
+        "depth": 0,
+        "child_count": 0,
+        "components": [
+          "LocalTransform",
+          "RigidBody",
+          "ConvexHullCollider",
+          "PartInstance"
+        ],
+        "provenance": {
+          "available": false,
+          "reason": "authored entities carry no part-graph provenance; provenance is recorded for baked roots"
+        },
+        "part_instance": {
+          "available": true,
+          "value": "8793112039383506649"
+        },
+        "selected": false,
+        "primary": false
+      },
+      {
+        "object": {
+          "kind": "entity",
+          "id": "5714299720768590134"
+        },
+        "kind": "entity",
+        "identity": {
+          "namespace": "scene_entity",
+          "source": "world_authored_id_hash",
+          "stability": "world_definition",
+          "classified_by": "runtime_id_bit",
+          "notes": "FNV-1a hash of the world definition's authored id string, not a Flecs handle; stable across reloads of that definition, but a different world can reuse the number, so pair it with expect.session_generation across a world switch"
+        },
+        "name": {
+          "available": true,
+          "value": "coin-52"
+        },
+        "path": {
+          "available": true,
+          "value": "coin-52"
+        },
+        "parent": null,
+        "depth": 0,
+        "child_count": 0,
+        "components": [
+          "LocalTransform",
+          "RigidBody",
+          "ConvexHullCollider",
+          "PartInstance"
+        ],
+        "provenance": {
+          "available": false,
+          "reason": "authored entities carry no part-graph provenance; provenance is recorded for baked roots"
+        },
+        "part_instance": {
+          "available": true,
+          "value": "8793112039383506649"
+        },
+        "selected": false,
+        "primary": false
+      },
+      {
+        "object": {
+          "kind": "entity",
+          "id": "5714300820280218345"
+        },
+        "kind": "entity",
+        "identity": {
+          "namespace": "scene_entity",
+          "source": "world_authored_id_hash",
+          "stability": "world_definition",
+          "classified_by": "runtime_id_bit",
+          "notes": "FNV-1a hash of the world definition's authored id string, not a Flecs handle; stable across reloads of that definition, but a different world can reuse the number, so pair it with expect.session_generation across a world switch"
+        },
+        "name": {
+          "available": true,
+          "value": "coin-53"
+        },
+        "path": {
+          "available": true,
+          "value": "coin-53"
+        },
+        "parent": null,
+        "depth": 0,
+        "child_count": 0,
+        "components": [
+          "LocalTransform",
+          "RigidBody",
+          "ConvexHullCollider",
+          "PartInstance"
+        ],
+        "provenance": {
+          "available": false,
+          "reason": "authored entities carry no part-graph provenance; provenance is recorded for baked roots"
+        },
+        "part_instance": {
+          "available": true,
+          "value": "8793112039383506649"
+        },
+        "selected": false,
+        "primary": false
+      },
+      {
+        "object": {
+          "kind": "entity",
+          "id": "5714301919791846556"
+        },
+        "kind": "entity",
+        "identity": {
+          "namespace": "scene_entity",
+          "source": "world_authored_id_hash",
+          "stability": "world_definition",
+          "classified_by": "runtime_id_bit",
+          "notes": "FNV-1a hash of the world definition's authored id string, not a Flecs handle; stable across reloads of that definition, but a different world can reuse the number, so pair it with expect.session_generation across a world switch"
+        },
+        "name": {
+          "available": true,
+          "value": "coin-54"
+        },
+        "path": {
+          "available": true,
+          "value": "coin-54"
+        },
+        "parent": null,
+        "depth": 0,
+        "child_count": 0,
+        "components": [
+          "LocalTransform",
+          "RigidBody",
+          "ConvexHullCollider",
+          "PartInstance"
+        ],
+        "provenance": {
+          "available": false,
+          "reason": "authored entities carry no part-graph provenance; provenance is recorded for baked roots"
+        },
+        "part_instance": {
+          "available": true,
+          "value": "8793112039383506649"
+        },
+        "selected": false,
+        "primary": false
+      },
+      {
+        "object": {
+          "kind": "entity",
+          "id": "5714303019303474767"
+        },
+        "kind": "entity",
+        "identity": {
+          "namespace": "scene_entity",
+          "source": "world_authored_id_hash",
+          "stability": "world_definition",
+          "classified_by": "runtime_id_bit",
+          "notes": "FNV-1a hash of the world definition's authored id string, not a Flecs handle; stable across reloads of that definition, but a different world can reuse the number, so pair it with expect.session_generation across a world switch"
+        },
+        "name": {
+          "available": true,
+          "value": "coin-55"
+        },
+        "path": {
+          "available": true,
+          "value": "coin-55"
+        },
+        "parent": null,
+        "depth": 0,
+        "child_count": 0,
+        "components": [
+          "LocalTransform",
+          "RigidBody",
+          "ConvexHullCollider",
+          "PartInstance"
+        ],
+        "provenance": {
+          "available": false,
+          "reason": "authored entities carry no part-graph provenance; provenance is recorded for baked roots"
+        },
+        "part_instance": {
+          "available": true,
+          "value": "8793112039383506649"
+        },
+        "selected": false,
+        "primary": false
+      },
+      {
+        "object": {
+          "kind": "entity",
+          "id": "5714304118815102978"
+        },
+        "kind": "entity",
+        "identity": {
+          "namespace": "scene_entity",
+          "source": "world_authored_id_hash",
+          "stability": "world_definition",
+          "classified_by": "runtime_id_bit",
+          "notes": "FNV-1a hash of the world definition's authored id string, not a Flecs handle; stable across reloads of that definition, but a different world can reuse the number, so pair it with expect.session_generation across a world switch"
+        },
+        "name": {
+          "available": true,
+          "value": "coin-56"
+        },
+        "path": {
+          "available": true,
+          "value": "coin-56"
+        },
+        "parent": null,
+        "depth": 0,
+        "child_count": 0,
+        "components": [
+          "LocalTransform",
+          "RigidBody",
+          "ConvexHullCollider",
+          "PartInstance"
+        ],
+        "provenance": {
+          "available": false,
+          "reason": "authored entities carry no part-graph provenance; provenance is recorded for baked roots"
+        },
+        "part_instance": {
+          "available": true,
+          "value": "8793112039383506649"
+        },
+        "selected": false,
+        "primary": false
+      },
+      {
+        "object": {
+          "kind": "entity",
+          "id": "5714305218326731189"
+        },
+        "kind": "entity",
+        "identity": {
+          "namespace": "scene_entity",
+          "source": "world_authored_id_hash",
+          "stability": "world_definition",
+          "classified_by": "runtime_id_bit",
+          "notes": "FNV-1a hash of the world definition's authored id string, not a Flecs handle; stable across reloads of that definition, but a different world can reuse the number, so pair it with expect.session_generation across a world switch"
+        },
+        "name": {
+          "available": true,
+          "value": "coin-57"
+        },
+        "path": {
+          "available": true,
+          "value": "coin-57"
+        },
+        "parent": null,
+        "depth": 0,
+        "child_count": 0,
+        "components": [
+          "LocalTransform",
+          "RigidBody",
+          "ConvexHullCollider",
+          "PartInstance"
+        ],
+        "provenance": {
+          "available": false,
+          "reason": "authored entities carry no part-graph provenance; provenance is recorded for baked roots"
+        },
+        "part_instance": {
+          "available": true,
+          "value": "8793112039383506649"
+        },
+        "selected": false,
+        "primary": false
+      },
+      {
+        "object": {
+          "kind": "entity",
+          "id": "5714306317838359400"
+        },
+        "kind": "entity",
+        "identity": {
+          "namespace": "scene_entity",
+          "source": "world_authored_id_hash",
+          "stability": "world_definition",
+          "classified_by": "runtime_id_bit",
+          "notes": "FNV-1a hash of the world definition's authored id string, not a Flecs handle; stable across reloads of that definition, but a different world can reuse the number, so pair it with expect.session_generation across a world switch"
+        },
+        "name": {
+          "available": true,
+          "value": "coin-58"
+        },
+        "path": {
+          "available": true,
+          "value": "coin-58"
+        },
+        "parent": null,
+        "depth": 0,
+        "child_count": 0,
+        "components": [
+          "LocalTransform",
+          "RigidBody",
+          "ConvexHullCollider",
+          "PartInstance"
+        ],
+        "provenance": {
+          "available": false,
+          "reason": "authored entities carry no part-graph provenance; provenance is recorded for baked roots"
+        },
+        "part_instance": {
+          "available": true,
+          "value": "8793112039383506649"
+        },
+        "selected": false,
+        "primary": false
+      },
+      {
+        "object": {
+          "kind": "entity",
+          "id": "5714307417349987611"
+        },
+        "kind": "entity",
+        "identity": {
+          "namespace": "scene_entity",
+          "source": "world_authored_id_hash",
+          "stability": "world_definition",
+          "classified_by": "runtime_id_bit",
+          "notes": "FNV-1a hash of the world definition's authored id string, not a Flecs handle; stable across reloads of that definition, but a different world can reuse the number, so pair it with expect.session_generation across a world switch"
+        },
+        "name": {
+          "available": true,
+          "value": "coin-59"
+        },
+        "path": {
+          "available": true,
+          "value": "coin-59"
+        },
+        "parent": null,
+        "depth": 0,
+        "child_count": 0,
+        "components": [
+          "LocalTransform",
+          "RigidBody",
+          "ConvexHullCollider",
+          "PartInstance"
+        ],
+        "provenance": {
+          "available": false,
+          "reason": "authored entities carry no part-graph provenance; provenance is recorded for baked roots"
+        },
+        "part_instance": {
+          "available": true,
+          "value": "8793112039383506649"
+        },
+        "selected": false,
+        "primary": false
+      },
+      {
+        "object": {
+          "kind": "entity",
+          "id": "5715145245210495168"
+        },
+        "kind": "entity",
+        "identity": {
+          "namespace": "scene_entity",
+          "source": "world_authored_id_hash",
+          "stability": "world_definition",
+          "classified_by": "runtime_id_bit",
+          "notes": "FNV-1a hash of the world definition's authored id string, not a Flecs handle; stable across reloads of that definition, but a different world can reuse the number, so pair it with expect.session_generation across a world switch"
+        },
+        "name": {
+          "available": true,
+          "value": "coin-43"
+        },
+        "path": {
+          "available": true,
+          "value": "coin-43"
+        },
+        "parent": null,
+        "depth": 0,
+        "child_count": 0,
+        "components": [
+          "LocalTransform",
+          "RigidBody",
+          "ConvexHullCollider",
+          "PartInstance"
+        ],
+        "provenance": {
+          "available": false,
+          "reason": "authored entities carry no part-graph provenance; provenance is recorded for baked roots"
+        },
+        "part_instance": {
+          "available": true,
+          "value": "8793112039383506649"
+        },
+        "selected": false,
+        "primary": false
+      },
+      {
+        "object": {
+          "kind": "entity",
+          "id": "5715146344722123379"
+        },
+        "kind": "entity",
+        "identity": {
+          "namespace": "scene_entity",
+          "source": "world_authored_id_hash",
+          "stability": "world_definition",
+          "classified_by": "runtime_id_bit",
+          "notes": "FNV-1a hash of the world definition's authored id string, not a Flecs handle; stable across reloads of that definition, but a different world can reuse the number, so pair it with expect.session_generation across a world switch"
+        },
+        "name": {
+          "available": true,
+          "value": "coin-42"
+        },
+        "path": {
+          "available": true,
+          "value": "coin-42"
+        },
+        "parent": null,
+        "depth": 0,
+        "child_count": 0,
+        "components": [
+          "LocalTransform",
+          "RigidBody",
+          "ConvexHullCollider",
+          "PartInstance"
+        ],
+        "provenance": {
+          "available": false,
+          "reason": "authored entities carry no part-graph provenance; provenance is recorded for baked roots"
+        },
+        "part_instance": {
+          "available": true,
+          "value": "8793112039383506649"
+        },
+        "selected": false,
+        "primary": false
+      },
+      {
+        "object": {
+          "kind": "entity",
+          "id": "5715147444233751590"
+        },
+        "kind": "entity",
+        "identity": {
+          "namespace": "scene_entity",
+          "source": "world_authored_id_hash",
+          "stability": "world_definition",
+          "classified_by": "runtime_id_bit",
+          "notes": "FNV-1a hash of the world definition's authored id string, not a Flecs handle; stable across reloads of that definition, but a different world can reuse the number, so pair it with expect.session_generation across a world switch"
+        },
+        "name": {
+          "available": true,
+          "value": "coin-41"
+        },
+        "path": {
+          "available": true,
+          "value": "coin-41"
+        },
+        "parent": null,
+        "depth": 0,
+        "child_count": 0,
+        "components": [
+          "LocalTransform",
+          "RigidBody",
+          "ConvexHullCollider",
+          "PartInstance"
+        ],
+        "provenance": {
+          "available": false,
+          "reason": "authored entities carry no part-graph provenance; provenance is recorded for baked roots"
+        },
+        "part_instance": {
+          "available": true,
+          "value": "8793112039383506649"
+        },
+        "selected": false,
+        "primary": false
+      },
+      {
+        "object": {
+          "kind": "entity",
+          "id": "5715148543745379801"
+        },
+        "kind": "entity",
+        "identity": {
+          "namespace": "scene_entity",
+          "source": "world_authored_id_hash",
+          "stability": "world_definition",
+          "classified_by": "runtime_id_bit",
+          "notes": "FNV-1a hash of the world definition's authored id string, not a Flecs handle; stable across reloads of that definition, but a different world can reuse the number, so pair it with expect.session_generation across a world switch"
+        },
+        "name": {
+          "available": true,
+          "value": "coin-40"
+        },
+        "path": {
+          "available": true,
+          "value": "coin-40"
+        },
+        "parent": null,
+        "depth": 0,
+        "child_count": 0,
+        "components": [
+          "LocalTransform",
+          "RigidBody",
+          "ConvexHullCollider",
+          "PartInstance"
+        ],
+        "provenance": {
+          "available": false,
+          "reason": "authored entities carry no part-graph provenance; provenance is recorded for baked roots"
+        },
+        "part_instance": {
+          "available": true,
+          "value": "8793112039383506649"
+        },
+        "selected": false,
+        "primary": false
+      },
+      {
+        "object": {
+          "kind": "entity",
+          "id": "5715149643257008012"
+        },
+        "kind": "entity",
+        "identity": {
+          "namespace": "scene_entity",
+          "source": "world_authored_id_hash",
+          "stability": "world_definition",
+          "classified_by": "runtime_id_bit",
+          "notes": "FNV-1a hash of the world definition's authored id string, not a Flecs handle; stable across reloads of that definition, but a different world can reuse the number, so pair it with expect.session_generation across a world switch"
+        },
+        "name": {
+          "available": true,
+          "value": "coin-47"
+        },
+        "path": {
+          "available": true,
+          "value": "coin-47"
+        },
+        "parent": null,
+        "depth": 0,
+        "child_count": 0,
+        "components": [
+          "LocalTransform",
+          "RigidBody",
+          "ConvexHullCollider",
+          "PartInstance"
+        ],
+        "provenance": {
+          "available": false,
+          "reason": "authored entities carry no part-graph provenance; provenance is recorded for baked roots"
+        },
+        "part_instance": {
+          "available": true,
+          "value": "8793112039383506649"
+        },
+        "selected": false,
+        "primary": false
+      },
+      {
+        "object": {
+          "kind": "entity",
+          "id": "5715150742768636223"
+        },
+        "kind": "entity",
+        "identity": {
+          "namespace": "scene_entity",
+          "source": "world_authored_id_hash",
+          "stability": "world_definition",
+          "classified_by": "runtime_id_bit",
+          "notes": "FNV-1a hash of the world definition's authored id string, not a Flecs handle; stable across reloads of that definition, but a different world can reuse the number, so pair it with expect.session_generation across a world switch"
+        },
+        "name": {
+          "available": true,
+          "value": "coin-46"
+        },
+        "path": {
+          "available": true,
+          "value": "coin-46"
+        },
+        "parent": null,
+        "depth": 0,
+        "child_count": 0,
+        "components": [
+          "LocalTransform",
+          "RigidBody",
+          "ConvexHullCollider",
+          "PartInstance"
+        ],
+        "provenance": {
+          "available": false,
+          "reason": "authored entities carry no part-graph provenance; provenance is recorded for baked roots"
+        },
+        "part_instance": {
+          "available": true,
+          "value": "8793112039383506649"
+        },
+        "selected": false,
+        "primary": false
+      },
+      {
+        "object": {
+          "kind": "entity",
+          "id": "5715151842280264434"
+        },
+        "kind": "entity",
+        "identity": {
+          "namespace": "scene_entity",
+          "source": "world_authored_id_hash",
+          "stability": "world_definition",
+          "classified_by": "runtime_id_bit",
+          "notes": "FNV-1a hash of the world definition's authored id string, not a Flecs handle; stable across reloads of that definition, but a different world can reuse the number, so pair it with expect.session_generation across a world switch"
+        },
+        "name": {
+          "available": true,
+          "value": "coin-45"
+        },
+        "path": {
+          "available": true,
+          "value": "coin-45"
+        },
+        "parent": null,
+        "depth": 0,
+        "child_count": 0,
+        "components": [
+          "LocalTransform",
+          "RigidBody",
+          "ConvexHullCollider",
+          "PartInstance"
+        ],
+        "provenance": {
+          "available": false,
+          "reason": "authored entities carry no part-graph provenance; provenance is recorded for baked roots"
+        },
+        "part_instance": {
+          "available": true,
+          "value": "8793112039383506649"
+        },
+        "selected": false,
+        "primary": false
+      },
+      {
+        "object": {
+          "kind": "entity",
+          "id": "5715152941791892645"
+        },
+        "kind": "entity",
+        "identity": {
+          "namespace": "scene_entity",
+          "source": "world_authored_id_hash",
+          "stability": "world_definition",
+          "classified_by": "runtime_id_bit",
+          "notes": "FNV-1a hash of the world definition's authored id string, not a Flecs handle; stable across reloads of that definition, but a different world can reuse the number, so pair it with expect.session_generation across a world switch"
+        },
+        "name": {
+          "available": true,
+          "value": "coin-44"
+        },
+        "path": {
+          "available": true,
+          "value": "coin-44"
+        },
+        "parent": null,
+        "depth": 0,
+        "child_count": 0,
+        "components": [
+          "LocalTransform",
+          "RigidBody",
+          "ConvexHullCollider",
+          "PartInstance"
+        ],
+        "provenance": {
+          "available": false,
+          "reason": "authored entities carry no part-graph provenance; provenance is recorded for baked roots"
+        },
+        "part_instance": {
+          "available": true,
+          "value": "8793112039383506649"
+        },
+        "selected": false,
+        "primary": false
+      },
+      {
+        "object": {
+          "kind": "entity",
+          "id": "5715156240326777278"
+        },
+        "kind": "entity",
+        "identity": {
+          "namespace": "scene_entity",
+          "source": "world_authored_id_hash",
+          "stability": "world_definition",
+          "classified_by": "runtime_id_bit",
+          "notes": "FNV-1a hash of the world definition's authored id string, not a Flecs handle; stable across reloads of that definition, but a different world can reuse the number, so pair it with expect.session_generation across a world switch"
+        },
+        "name": {
+          "available": true,
+          "value": "coin-49"
+        },
+        "path": {
+          "available": true,
+          "value": "coin-49"
+        },
+        "parent": null,
+        "depth": 0,
+        "child_count": 0,
+        "components": [
+          "LocalTransform",
+          "RigidBody",
+          "ConvexHullCollider",
+          "PartInstance"
+        ],
+        "provenance": {
+          "available": false,
+          "reason": "authored entities carry no part-graph provenance; provenance is recorded for baked roots"
+        },
+        "part_instance": {
+          "available": true,
+          "value": "8793112039383506649"
+        },
+        "selected": false,
+        "primary": false
+      },
+      {
+        "object": {
+          "kind": "entity",
+          "id": "5715157339838405489"
+        },
+        "kind": "entity",
+        "identity": {
+          "namespace": "scene_entity",
+          "source": "world_authored_id_hash",
+          "stability": "world_definition",
+          "classified_by": "runtime_id_bit",
+          "notes": "FNV-1a hash of the world definition's authored id string, not a Flecs handle; stable across reloads of that definition, but a different world can reuse the number, so pair it with expect.session_generation across a world switch"
+        },
+        "name": {
+          "available": true,
+          "value": "coin-48"
+        },
+        "path": {
+          "available": true,
+          "value": "coin-48"
+        },
+        "parent": null,
+        "depth": 0,
+        "child_count": 0,
+        "components": [
+          "LocalTransform",
+          "RigidBody",
+          "ConvexHullCollider",
+          "PartInstance"
+        ],
+        "provenance": {
+          "available": false,
+          "reason": "authored entities carry no part-graph provenance; provenance is recorded for baked roots"
+        },
+        "part_instance": {
+          "available": true,
+          "value": "8793112039383506649"
+        },
+        "selected": false,
+        "primary": false
+      },
+      {
+        "object": {
+          "kind": "entity",
+          "id": "5716133706164067632"
+        },
+        "kind": "entity",
+        "identity": {
+          "namespace": "scene_entity",
+          "source": "world_authored_id_hash",
+          "stability": "world_definition",
+          "classified_by": "runtime_id_bit",
+          "notes": "FNV-1a hash of the world definition's authored id string, not a Flecs handle; stable across reloads of that definition, but a different world can reuse the number, so pair it with expect.session_generation across a world switch"
+        },
+        "name": {
+          "available": true,
+          "value": "coin-76"
+        },
+        "path": {
+          "available": true,
+          "value": "coin-76"
+        },
+        "parent": null,
+        "depth": 0,
+        "child_count": 0,
+        "components": [
+          "LocalTransform",
+          "RigidBody",
+          "ConvexHullCollider",
+          "PartInstance"
+        ],
+        "provenance": {
+          "available": false,
+          "reason": "authored entities carry no part-graph provenance; provenance is recorded for baked roots"
+        },
+        "part_instance": {
+          "available": true,
+          "value": "8793112039383506649"
+        },
+        "selected": false,
+        "primary": false
+      },
+      {
+        "object": {
+          "kind": "entity",
+          "id": "5716134805675695843"
+        },
+        "kind": "entity",
+        "identity": {
+          "namespace": "scene_entity",
+          "source": "world_authored_id_hash",
+          "stability": "world_definition",
+          "classified_by": "runtime_id_bit",
+          "notes": "FNV-1a hash of the world definition's authored id string, not a Flecs handle; stable across reloads of that definition, but a different world can reuse the number, so pair it with expect.session_generation across a world switch"
+        },
+        "name": {
+          "available": true,
+          "value": "coin-77"
+        },
+        "path": {
+          "available": true,
+          "value": "coin-77"
+        },
+        "parent": null,
+        "depth": 0,
+        "child_count": 0,
+        "components": [
+          "LocalTransform",
+          "RigidBody",
+          "ConvexHullCollider",
+          "PartInstance"
+        ],
+        "provenance": {
+          "available": false,
+          "reason": "authored entities carry no part-graph provenance; provenance is recorded for baked roots"
+        },
+        "part_instance": {
+          "available": true,
+          "value": "8793112039383506649"
+        },
+        "selected": false,
+        "primary": false
+      },
+      {
+        "object": {
+          "kind": "entity",
+          "id": "5716135905187324054"
+        },
+        "kind": "entity",
+        "identity": {
+          "namespace": "scene_entity",
+          "source": "world_authored_id_hash",
+          "stability": "world_definition",
+          "classified_by": "runtime_id_bit",
+          "notes": "FNV-1a hash of the world definition's authored id string, not a Flecs handle; stable across reloads of that definition, but a different world can reuse the number, so pair it with expect.session_generation across a world switch"
+        },
+        "name": {
+          "available": true,
+          "value": "coin-74"
+        },
+        "path": {
+          "available": true,
+          "value": "coin-74"
+        },
+        "parent": null,
+        "depth": 0,
+        "child_count": 0,
+        "components": [
+          "LocalTransform",
+          "RigidBody",
+          "ConvexHullCollider",
+          "PartInstance"
+        ],
+        "provenance": {
+          "available": false,
+          "reason": "authored entities carry no part-graph provenance; provenance is recorded for baked roots"
+        },
+        "part_instance": {
+          "available": true,
+          "value": "8793112039383506649"
+        },
+        "selected": false,
+        "primary": false
+      },
+      {
+        "object": {
+          "kind": "entity",
+          "id": "5716137004698952265"
+        },
+        "kind": "entity",
+        "identity": {
+          "namespace": "scene_entity",
+          "source": "world_authored_id_hash",
+          "stability": "world_definition",
+          "classified_by": "runtime_id_bit",
+          "notes": "FNV-1a hash of the world definition's authored id string, not a Flecs handle; stable across reloads of that definition, but a different world can reuse the number, so pair it with expect.session_generation across a world switch"
+        },
+        "name": {
+          "available": true,
+          "value": "coin-75"
+        },
+        "path": {
+          "available": true,
+          "value": "coin-75"
+        },
+        "parent": null,
+        "depth": 0,
+        "child_count": 0,
+        "components": [
+          "LocalTransform",
+          "RigidBody",
+          "ConvexHullCollider",
+          "PartInstance"
+        ],
+        "provenance": {
+          "available": false,
+          "reason": "authored entities carry no part-graph provenance; provenance is recorded for baked roots"
+        },
+        "part_instance": {
+          "available": true,
+          "value": "8793112039383506649"
+        },
+        "selected": false,
+        "primary": false
+      },
+      {
+        "object": {
+          "kind": "entity",
+          "id": "5716138104210580476"
+        },
+        "kind": "entity",
+        "identity": {
+          "namespace": "scene_entity",
+          "source": "world_authored_id_hash",
+          "stability": "world_definition",
+          "classified_by": "runtime_id_bit",
+          "notes": "FNV-1a hash of the world definition's authored id string, not a Flecs handle; stable across reloads of that definition, but a different world can reuse the number, so pair it with expect.session_generation across a world switch"
+        },
+        "name": {
+          "available": true,
+          "value": "coin-72"
+        },
+        "path": {
+          "available": true,
+          "value": "coin-72"
+        },
+        "parent": null,
+        "depth": 0,
+        "child_count": 0,
+        "components": [
+          "LocalTransform",
+          "RigidBody",
+          "ConvexHullCollider",
+          "PartInstance"
+        ],
+        "provenance": {
+          "available": false,
+          "reason": "authored entities carry no part-graph provenance; provenance is recorded for baked roots"
+        },
+        "part_instance": {
+          "available": true,
+          "value": "8793112039383506649"
+        },
+        "selected": false,
+        "primary": false
+      },
+      {
+        "object": {
+          "kind": "entity",
+          "id": "5716139203722208687"
+        },
+        "kind": "entity",
+        "identity": {
+          "namespace": "scene_entity",
+          "source": "world_authored_id_hash",
+          "stability": "world_definition",
+          "classified_by": "runtime_id_bit",
+          "notes": "FNV-1a hash of the world definition's authored id string, not a Flecs handle; stable across reloads of that definition, but a different world can reuse the number, so pair it with expect.session_generation across a world switch"
+        },
+        "name": {
+          "available": true,
+          "value": "coin-73"
+        },
+        "path": {
+          "available": true,
+          "value": "coin-73"
+        },
+        "parent": null,
+        "depth": 0,
+        "child_count": 0,
+        "components": [
+          "LocalTransform",
+          "RigidBody",
+          "ConvexHullCollider",
+          "PartInstance"
+        ],
+        "provenance": {
+          "available": false,
+          "reason": "authored entities carry no part-graph provenance; provenance is recorded for baked roots"
+        },
+        "part_instance": {
+          "available": true,
+          "value": "8793112039383506649"
+        },
+        "selected": false,
+        "primary": false
+      },
+      {
+        "object": {
+          "kind": "entity",
+          "id": "5716140303233836898"
+        },
+        "kind": "entity",
+        "identity": {
+          "namespace": "scene_entity",
+          "source": "world_authored_id_hash",
+          "stability": "world_definition",
+          "classified_by": "runtime_id_bit",
+          "notes": "FNV-1a hash of the world definition's authored id string, not a Flecs handle; stable across reloads of that definition, but a different world can reuse the number, so pair it with expect.session_generation across a world switch"
+        },
+        "name": {
+          "available": true,
+          "value": "coin-70"
+        },
+        "path": {
+          "available": true,
+          "value": "coin-70"
+        },
+        "parent": null,
+        "depth": 0,
+        "child_count": 0,
+        "components": [
+          "LocalTransform",
+          "RigidBody",
+          "ConvexHullCollider",
+          "PartInstance"
+        ],
+        "provenance": {
+          "available": false,
+          "reason": "authored entities carry no part-graph provenance; provenance is recorded for baked roots"
+        },
+        "part_instance": {
+          "available": true,
+          "value": "8793112039383506649"
+        },
+        "selected": false,
+        "primary": false
+      },
+      {
+        "object": {
+          "kind": "entity",
+          "id": "5716141402745465109"
+        },
+        "kind": "entity",
+        "identity": {
+          "namespace": "scene_entity",
+          "source": "world_authored_id_hash",
+          "stability": "world_definition",
+          "classified_by": "runtime_id_bit",
+          "notes": "FNV-1a hash of the world definition's authored id string, not a Flecs handle; stable across reloads of that definition, but a different world can reuse the number, so pair it with expect.session_generation across a world switch"
+        },
+        "name": {
+          "available": true,
+          "value": "coin-71"
+        },
+        "path": {
+          "available": true,
+          "value": "coin-71"
+        },
+        "parent": null,
+        "depth": 0,
+        "child_count": 0,
+        "components": [
+          "LocalTransform",
+          "RigidBody",
+          "ConvexHullCollider",
+          "PartInstance"
+        ],
+        "provenance": {
+          "available": false,
+          "reason": "authored entities carry no part-graph provenance; provenance is recorded for baked roots"
+        },
+        "part_instance": {
+          "available": true,
+          "value": "8793112039383506649"
+        },
+        "selected": false,
+        "primary": false
+      },
+      {
+        "object": {
+          "kind": "entity",
+          "id": "5716149099326862586"
+        },
+        "kind": "entity",
+        "identity": {
+          "namespace": "scene_entity",
+          "source": "world_authored_id_hash",
+          "stability": "world_definition",
+          "classified_by": "runtime_id_bit",
+          "notes": "FNV-1a hash of the world definition's authored id string, not a Flecs handle; stable across reloads of that definition, but a different world can reuse the number, so pair it with expect.session_generation across a world switch"
+        },
+        "name": {
+          "available": true,
+          "value": "coin-78"
+        },
+        "path": {
+          "available": true,
+          "value": "coin-78"
+        },
+        "parent": null,
+        "depth": 0,
+        "child_count": 0,
+        "components": [
+          "LocalTransform",
+          "RigidBody",
+          "ConvexHullCollider",
+          "PartInstance"
+        ],
+        "provenance": {
+          "available": false,
+          "reason": "authored entities carry no part-graph provenance; provenance is recorded for baked roots"
+        },
+        "part_instance": {
+          "available": true,
+          "value": "8793112039383506649"
+        },
+        "selected": false,
+        "primary": false
+      },
+      {
+        "object": {
+          "kind": "entity",
+          "id": "5716150198838490797"
+        },
+        "kind": "entity",
+        "identity": {
+          "namespace": "scene_entity",
+          "source": "world_authored_id_hash",
+          "stability": "world_definition",
+          "classified_by": "runtime_id_bit",
+          "notes": "FNV-1a hash of the world definition's authored id string, not a Flecs handle; stable across reloads of that definition, but a different world can reuse the number, so pair it with expect.session_generation across a world switch"
+        },
+        "name": {
+          "available": true,
+          "value": "coin-79"
+        },
+        "path": {
+          "available": true,
+          "value": "coin-79"
+        },
+        "parent": null,
+        "depth": 0,
+        "child_count": 0,
+        "components": [
+          "LocalTransform",
+          "RigidBody",
+          "ConvexHullCollider",
+          "PartInstance"
+        ],
+        "provenance": {
+          "available": false,
+          "reason": "authored entities carry no part-graph provenance; provenance is recorded for baked roots"
+        },
+        "part_instance": {
+          "available": true,
+          "value": "8793112039383506649"
+        },
+        "selected": false,
+        "primary": false
+      },
+      {
+        "object": {
+          "kind": "entity",
+          "id": "5717122167117640096"
+        },
+        "kind": "entity",
+        "identity": {
+          "namespace": "scene_entity",
+          "source": "world_authored_id_hash",
+          "stability": "world_definition",
+          "classified_by": "runtime_id_bit",
+          "notes": "FNV-1a hash of the world definition's authored id string, not a Flecs handle; stable across reloads of that definition, but a different world can reuse the number, so pair it with expect.session_generation across a world switch"
+        },
+        "name": {
+          "available": true,
+          "value": "coin-69"
+        },
+        "path": {
+          "available": true,
+          "value": "coin-69"
+        },
+        "parent": null,
+        "depth": 0,
+        "child_count": 0,
+        "components": [
+          "LocalTransform",
+          "RigidBody",
+          "ConvexHullCollider",
+          "PartInstance"
+        ],
+        "provenance": {
+          "available": false,
+          "reason": "authored entities carry no part-graph provenance; provenance is recorded for baked roots"
+        },
+        "part_instance": {
+          "available": true,
+          "value": "8793112039383506649"
+        },
+        "selected": false,
+        "primary": false
+      },
+      {
+        "object": {
+          "kind": "entity",
+          "id": "5717123266629268307"
+        },
+        "kind": "entity",
+        "identity": {
+          "namespace": "scene_entity",
+          "source": "world_authored_id_hash",
+          "stability": "world_definition",
+          "classified_by": "runtime_id_bit",
+          "notes": "FNV-1a hash of the world definition's authored id string, not a Flecs handle; stable across reloads of that definition, but a different world can reuse the number, so pair it with expect.session_generation across a world switch"
+        },
+        "name": {
+          "available": true,
+          "value": "coin-68"
+        },
+        "path": {
+          "available": true,
+          "value": "coin-68"
+        },
+        "parent": null,
+        "depth": 0,
+        "child_count": 0,
+        "components": [
+          "LocalTransform",
+          "RigidBody",
+          "ConvexHullCollider",
+          "PartInstance"
+        ],
+        "provenance": {
+          "available": false,
+          "reason": "authored entities carry no part-graph provenance; provenance is recorded for baked roots"
+        },
+        "part_instance": {
+          "available": true,
+          "value": "8793112039383506649"
+        },
+        "selected": false,
+        "primary": false
+      },
+      {
+        "object": {
+          "kind": "entity",
+          "id": "5717130963210665784"
+        },
+        "kind": "entity",
+        "identity": {
+          "namespace": "scene_entity",
+          "source": "world_authored_id_hash",
+          "stability": "world_definition",
+          "classified_by": "runtime_id_bit",
+          "notes": "FNV-1a hash of the world definition's authored id string, not a Flecs handle; stable across reloads of that definition, but a different world can reuse the number, so pair it with expect.session_generation across a world switch"
+        },
+        "name": {
+          "available": true,
+          "value": "coin-61"
+        },
+        "path": {
+          "available": true,
+          "value": "coin-61"
+        },
+        "parent": null,
+        "depth": 0,
+        "child_count": 0,
+        "components": [
+          "LocalTransform",
+          "RigidBody",
+          "ConvexHullCollider",
+          "PartInstance"
+        ],
+        "provenance": {
+          "available": false,
+          "reason": "authored entities carry no part-graph provenance; provenance is recorded for baked roots"
+        },
+        "part_instance": {
+          "available": true,
+          "value": "8793112039383506649"
+        },
+        "selected": false,
+        "primary": false
+      },
+      {
+        "object": {
+          "kind": "entity",
+          "id": "5717132062722293995"
+        },
+        "kind": "entity",
+        "identity": {
+          "namespace": "scene_entity",
+          "source": "world_authored_id_hash",
+          "stability": "world_definition",
+          "classified_by": "runtime_id_bit",
+          "notes": "FNV-1a hash of the world definition's authored id string, not a Flecs handle; stable across reloads of that definition, but a different world can reuse the number, so pair it with expect.session_generation across a world switch"
+        },
+        "name": {
+          "available": true,
+          "value": "coin-60"
+        },
+        "path": {
+          "available": true,
+          "value": "coin-60"
+        },
+        "parent": null,
+        "depth": 0,
+        "child_count": 0,
+        "components": [
+          "LocalTransform",
+          "RigidBody",
+          "ConvexHullCollider",
+          "PartInstance"
+        ],
+        "provenance": {
+          "available": false,
+          "reason": "authored entities carry no part-graph provenance; provenance is recorded for baked roots"
+        },
+        "part_instance": {
+          "available": true,
+          "value": "8793112039383506649"
+        },
+        "selected": false,
+        "primary": false
+      },
+      {
+        "object": {
+          "kind": "entity",
+          "id": "5717133162233922206"
+        },
+        "kind": "entity",
+        "identity": {
+          "namespace": "scene_entity",
+          "source": "world_authored_id_hash",
+          "stability": "world_definition",
+          "classified_by": "runtime_id_bit",
+          "notes": "FNV-1a hash of the world definition's authored id string, not a Flecs handle; stable across reloads of that definition, but a different world can reuse the number, so pair it with expect.session_generation across a world switch"
+        },
+        "name": {
+          "available": true,
+          "value": "coin-63"
+        },
+        "path": {
+          "available": true,
+          "value": "coin-63"
+        },
+        "parent": null,
+        "depth": 0,
+        "child_count": 0,
+        "components": [
+          "LocalTransform",
+          "RigidBody",
+          "ConvexHullCollider",
+          "PartInstance"
+        ],
+        "provenance": {
+          "available": false,
+          "reason": "authored entities carry no part-graph provenance; provenance is recorded for baked roots"
+        },
+        "part_instance": {
+          "available": true,
+          "value": "8793112039383506649"
+        },
+        "selected": false,
+        "primary": false
+      },
+      {
+        "object": {
+          "kind": "entity",
+          "id": "5717134261745550417"
+        },
+        "kind": "entity",
+        "identity": {
+          "namespace": "scene_entity",
+          "source": "world_authored_id_hash",
+          "stability": "world_definition",
+          "classified_by": "runtime_id_bit",
+          "notes": "FNV-1a hash of the world definition's authored id string, not a Flecs handle; stable across reloads of that definition, but a different world can reuse the number, so pair it with expect.session_generation across a world switch"
+        },
+        "name": {
+          "available": true,
+          "value": "coin-62"
+        },
+        "path": {
+          "available": true,
+          "value": "coin-62"
+        },
+        "parent": null,
+        "depth": 0,
+        "child_count": 0,
+        "components": [
+          "LocalTransform",
+          "RigidBody",
+          "ConvexHullCollider",
+          "PartInstance"
+        ],
+        "provenance": {
+          "available": false,
+          "reason": "authored entities carry no part-graph provenance; provenance is recorded for baked roots"
+        },
+        "part_instance": {
+          "available": true,
+          "value": "8793112039383506649"
+        },
+        "selected": false,
+        "primary": false
+      },
+      {
+        "object": {
+          "kind": "entity",
+          "id": "5717135361257178628"
+        },
+        "kind": "entity",
+        "identity": {
+          "namespace": "scene_entity",
+          "source": "world_authored_id_hash",
+          "stability": "world_definition",
+          "classified_by": "runtime_id_bit",
+          "notes": "FNV-1a hash of the world definition's authored id string, not a Flecs handle; stable across reloads of that definition, but a different world can reuse the number, so pair it with expect.session_generation across a world switch"
+        },
+        "name": {
+          "available": true,
+          "value": "coin-65"
+        },
+        "path": {
+          "available": true,
+          "value": "coin-65"
+        },
+        "parent": null,
+        "depth": 0,
+        "child_count": 0,
+        "components": [
+          "LocalTransform",
+          "RigidBody",
+          "ConvexHullCollider",
+          "PartInstance"
+        ],
+        "provenance": {
+          "available": false,
+          "reason": "authored entities carry no part-graph provenance; provenance is recorded for baked roots"
+        },
+        "part_instance": {
+          "available": true,
+          "value": "8793112039383506649"
+        },
+        "selected": false,
+        "primary": false
+      },
+      {
+        "object": {
+          "kind": "entity",
+          "id": "5717136460768806839"
+        },
+        "kind": "entity",
+        "identity": {
+          "namespace": "scene_entity",
+          "source": "world_authored_id_hash",
+          "stability": "world_definition",
+          "classified_by": "runtime_id_bit",
+          "notes": "FNV-1a hash of the world definition's authored id string, not a Flecs handle; stable across reloads of that definition, but a different world can reuse the number, so pair it with expect.session_generation across a world switch"
+        },
+        "name": {
+          "available": true,
+          "value": "coin-64"
+        },
+        "path": {
+          "available": true,
+          "value": "coin-64"
+        },
+        "parent": null,
+        "depth": 0,
+        "child_count": 0,
+        "components": [
+          "LocalTransform",
+          "RigidBody",
+          "ConvexHullCollider",
+          "PartInstance"
+        ],
+        "provenance": {
+          "available": false,
+          "reason": "authored entities carry no part-graph provenance; provenance is recorded for baked roots"
+        },
+        "part_instance": {
+          "available": true,
+          "value": "8793112039383506649"
+        },
+        "selected": false,
+        "primary": false
+      },
+      {
+        "object": {
+          "kind": "entity",
+          "id": "5717137560280435050"
+        },
+        "kind": "entity",
+        "identity": {
+          "namespace": "scene_entity",
+          "source": "world_authored_id_hash",
+          "stability": "world_definition",
+          "classified_by": "runtime_id_bit",
+          "notes": "FNV-1a hash of the world definition's authored id string, not a Flecs handle; stable across reloads of that definition, but a different world can reuse the number, so pair it with expect.session_generation across a world switch"
+        },
+        "name": {
+          "available": true,
+          "value": "coin-67"
+        },
+        "path": {
+          "available": true,
+          "value": "coin-67"
+        },
+        "parent": null,
+        "depth": 0,
+        "child_count": 0,
+        "components": [
+          "LocalTransform",
+          "RigidBody",
+          "ConvexHullCollider",
+          "PartInstance"
+        ],
+        "provenance": {
+          "available": false,
+          "reason": "authored entities carry no part-graph provenance; provenance is recorded for baked roots"
+        },
+        "part_instance": {
+          "available": true,
+          "value": "8793112039383506649"
+        },
+        "selected": false,
+        "primary": false
+      },
+      {
+        "object": {
+          "kind": "entity",
+          "id": "5717138659792063261"
+        },
+        "kind": "entity",
+        "identity": {
+          "namespace": "scene_entity",
+          "source": "world_authored_id_hash",
+          "stability": "world_definition",
+          "classified_by": "runtime_id_bit",
+          "notes": "FNV-1a hash of the world definition's authored id string, not a Flecs handle; stable across reloads of that definition, but a different world can reuse the number, so pair it with expect.session_generation across a world switch"
+        },
+        "name": {
+          "available": true,
+          "value": "coin-66"
+        },
+        "path": {
+          "available": true,
+          "value": "coin-66"
+        },
+        "parent": null,
+        "depth": 0,
+        "child_count": 0,
+        "components": [
+          "LocalTransform",
+          "RigidBody",
+          "ConvexHullCollider",
+          "PartInstance"
+        ],
+        "provenance": {
+          "available": false,
+          "reason": "authored entities carry no part-graph provenance; provenance is recorded for baked roots"
+        },
+        "part_instance": {
+          "available": true,
+          "value": "8793112039383506649"
+        },
+        "selected": false,
+        "primary": false
+      },
+      {
+        "object": {
+          "kind": "entity",
+          "id": "5719929220303895104"
+        },
+        "kind": "entity",
+        "identity": {
+          "namespace": "scene_entity",
+          "source": "world_authored_id_hash",
+          "stability": "world_definition",
+          "classified_by": "runtime_id_bit",
+          "notes": "FNV-1a hash of the world definition's authored id string, not a Flecs handle; stable across reloads of that definition, but a different world can reuse the number, so pair it with expect.session_generation across a world switch"
+        },
+        "name": {
+          "available": true,
+          "value": "coin-32"
+        },
+        "path": {
+          "available": true,
+          "value": "coin-32"
+        },
+        "parent": null,
+        "depth": 0,
+        "child_count": 0,
+        "components": [
+          "LocalTransform",
+          "RigidBody",
+          "ConvexHullCollider",
+          "PartInstance"
+        ],
+        "provenance": {
+          "available": false,
+          "reason": "authored entities carry no part-graph provenance; provenance is recorded for baked roots"
+        },
+        "part_instance": {
+          "available": true,
+          "value": "8793112039383506649"
+        },
+        "selected": false,
+        "primary": false
+      },
+      {
+        "object": {
+          "kind": "entity",
+          "id": "5719930319815523315"
+        },
+        "kind": "entity",
+        "identity": {
+          "namespace": "scene_entity",
+          "source": "world_authored_id_hash",
+          "stability": "world_definition",
+          "classified_by": "runtime_id_bit",
+          "notes": "FNV-1a hash of the world definition's authored id string, not a Flecs handle; stable across reloads of that definition, but a different world can reuse the number, so pair it with expect.session_generation across a world switch"
+        },
+        "name": {
+          "available": true,
+          "value": "coin-33"
+        },
+        "path": {
+          "available": true,
+          "value": "coin-33"
+        },
+        "parent": null,
+        "depth": 0,
+        "child_count": 0,
+        "components": [
+          "LocalTransform",
+          "RigidBody",
+          "ConvexHullCollider",
+          "PartInstance"
+        ],
+        "provenance": {
+          "available": false,
+          "reason": "authored entities carry no part-graph provenance; provenance is recorded for baked roots"
+        },
+        "part_instance": {
+          "available": true,
+          "value": "8793112039383506649"
+        },
+        "selected": false,
+        "primary": false
+      },
+      {
+        "object": {
+          "kind": "entity",
+          "id": "5719931419327151526"
+        },
+        "kind": "entity",
+        "identity": {
+          "namespace": "scene_entity",
+          "source": "world_authored_id_hash",
+          "stability": "world_definition",
+          "classified_by": "runtime_id_bit",
+          "notes": "FNV-1a hash of the world definition's authored id string, not a Flecs handle; stable across reloads of that definition, but a different world can reuse the number, so pair it with expect.session_generation across a world switch"
+        },
+        "name": {
+          "available": true,
+          "value": "coin-30"
+        },
+        "path": {
+          "available": true,
+          "value": "coin-30"
+        },
+        "parent": null,
+        "depth": 0,
+        "child_count": 0,
+        "components": [
+          "LocalTransform",
+          "RigidBody",
+          "ConvexHullCollider",
+          "PartInstance"
+        ],
+        "provenance": {
+          "available": false,
+          "reason": "authored entities carry no part-graph provenance; provenance is recorded for baked roots"
+        },
+        "part_instance": {
+          "available": true,
+          "value": "8793112039383506649"
+        },
+        "selected": false,
+        "primary": false
+      },
+      {
+        "object": {
+          "kind": "entity",
+          "id": "5719932518838779737"
+        },
+        "kind": "entity",
+        "identity": {
+          "namespace": "scene_entity",
+          "source": "world_authored_id_hash",
+          "stability": "world_definition",
+          "classified_by": "runtime_id_bit",
+          "notes": "FNV-1a hash of the world definition's authored id string, not a Flecs handle; stable across reloads of that definition, but a different world can reuse the number, so pair it with expect.session_generation across a world switch"
+        },
+        "name": {
+          "available": true,
+          "value": "coin-31"
+        },
+        "path": {
+          "available": true,
+          "value": "coin-31"
+        },
+        "parent": null,
+        "depth": 0,
+        "child_count": 0,
+        "components": [
+          "LocalTransform",
+          "RigidBody",
+          "ConvexHullCollider",
+          "PartInstance"
+        ],
+        "provenance": {
+          "available": false,
+          "reason": "authored entities carry no part-graph provenance; provenance is recorded for baked roots"
+        },
+        "part_instance": {
+          "available": true,
+          "value": "8793112039383506649"
+        },
+        "selected": false,
+        "primary": false
+      },
+      {
+        "object": {
+          "kind": "entity",
+          "id": "5719933618350407948"
+        },
+        "kind": "entity",
+        "identity": {
+          "namespace": "scene_entity",
+          "source": "world_authored_id_hash",
+          "stability": "world_definition",
+          "classified_by": "runtime_id_bit",
+          "notes": "FNV-1a hash of the world definition's authored id string, not a Flecs handle; stable across reloads of that definition, but a different world can reuse the number, so pair it with expect.session_generation across a world switch"
+        },
+        "name": {
+          "available": true,
+          "value": "coin-36"
+        },
+        "path": {
+          "available": true,
+          "value": "coin-36"
+        },
+        "parent": null,
+        "depth": 0,
+        "child_count": 0,
+        "components": [
+          "LocalTransform",
+          "RigidBody",
+          "ConvexHullCollider",
+          "PartInstance"
+        ],
+        "provenance": {
+          "available": false,
+          "reason": "authored entities carry no part-graph provenance; provenance is recorded for baked roots"
+        },
+        "part_instance": {
+          "available": true,
+          "value": "8793112039383506649"
+        },
+        "selected": false,
+        "primary": false
+      },
+      {
+        "object": {
+          "kind": "entity",
+          "id": "5719934717862036159"
+        },
+        "kind": "entity",
+        "identity": {
+          "namespace": "scene_entity",
+          "source": "world_authored_id_hash",
+          "stability": "world_definition",
+          "classified_by": "runtime_id_bit",
+          "notes": "FNV-1a hash of the world definition's authored id string, not a Flecs handle; stable across reloads of that definition, but a different world can reuse the number, so pair it with expect.session_generation across a world switch"
+        },
+        "name": {
+          "available": true,
+          "value": "coin-37"
+        },
+        "path": {
+          "available": true,
+          "value": "coin-37"
+        },
+        "parent": null,
+        "depth": 0,
+        "child_count": 0,
+        "components": [
+          "LocalTransform",
+          "RigidBody",
+          "ConvexHullCollider",
+          "PartInstance"
+        ],
+        "provenance": {
+          "available": false,
+          "reason": "authored entities carry no part-graph provenance; provenance is recorded for baked roots"
+        },
+        "part_instance": {
+          "available": true,
+          "value": "8793112039383506649"
+        },
+        "selected": false,
+        "primary": false
+      },
+      {
+        "object": {
+          "kind": "entity",
+          "id": "5719935817373664370"
+        },
+        "kind": "entity",
+        "identity": {
+          "namespace": "scene_entity",
+          "source": "world_authored_id_hash",
+          "stability": "world_definition",
+          "classified_by": "runtime_id_bit",
+          "notes": "FNV-1a hash of the world definition's authored id string, not a Flecs handle; stable across reloads of that definition, but a different world can reuse the number, so pair it with expect.session_generation across a world switch"
+        },
+        "name": {
+          "available": true,
+          "value": "coin-34"
+        },
+        "path": {
+          "available": true,
+          "value": "coin-34"
+        },
+        "parent": null,
+        "depth": 0,
+        "child_count": 0,
+        "components": [
+          "LocalTransform",
+          "RigidBody",
+          "ConvexHullCollider",
+          "PartInstance"
+        ],
+        "provenance": {
+          "available": false,
+          "reason": "authored entities carry no part-graph provenance; provenance is recorded for baked roots"
+        },
+        "part_instance": {
+          "available": true,
+          "value": "8793112039383506649"
+        },
+        "selected": false,
+        "primary": false
+      },
+      {
+        "object": {
+          "kind": "entity",
+          "id": "5719936916885292581"
+        },
+        "kind": "entity",
+        "identity": {
+          "namespace": "scene_entity",
+          "source": "world_authored_id_hash",
+          "stability": "world_definition",
+          "classified_by": "runtime_id_bit",
+          "notes": "FNV-1a hash of the world definition's authored id string, not a Flecs handle; stable across reloads of that definition, but a different world can reuse the number, so pair it with expect.session_generation across a world switch"
+        },
+        "name": {
+          "available": true,
+          "value": "coin-35"
+        },
+        "path": {
+          "available": true,
+          "value": "coin-35"
+        },
+        "parent": null,
+        "depth": 0,
+        "child_count": 0,
+        "components": [
+          "LocalTransform",
+          "RigidBody",
+          "ConvexHullCollider",
+          "PartInstance"
+        ],
+        "provenance": {
+          "available": false,
+          "reason": "authored entities carry no part-graph provenance; provenance is recorded for baked roots"
+        },
+        "part_instance": {
+          "available": true,
+          "value": "8793112039383506649"
+        },
+        "selected": false,
+        "primary": false
+      },
+      {
+        "object": {
+          "kind": "entity",
+          "id": "5719940215420177214"
+        },
+        "kind": "entity",
+        "identity": {
+          "namespace": "scene_entity",
+          "source": "world_authored_id_hash",
+          "stability": "world_definition",
+          "classified_by": "runtime_id_bit",
+          "notes": "FNV-1a hash of the world definition's authored id string, not a Flecs handle; stable across reloads of that definition, but a different world can reuse the number, so pair it with expect.session_generation across a world switch"
+        },
+        "name": {
+          "available": true,
+          "value": "coin-38"
+        },
+        "path": {
+          "available": true,
+          "value": "coin-38"
+        },
+        "parent": null,
+        "depth": 0,
+        "child_count": 0,
+        "components": [
+          "LocalTransform",
+          "RigidBody",
+          "ConvexHullCollider",
+          "PartInstance"
+        ],
+        "provenance": {
+          "available": false,
+          "reason": "authored entities carry no part-graph provenance; provenance is recorded for baked roots"
+        },
+        "part_instance": {
+          "available": true,
+          "value": "8793112039383506649"
+        },
+        "selected": false,
+        "primary": false
+      },
+      {
+        "object": {
+          "kind": "entity",
+          "id": "5719941314931805425"
+        },
+        "kind": "entity",
+        "identity": {
+          "namespace": "scene_entity",
+          "source": "world_authored_id_hash",
+          "stability": "world_definition",
+          "classified_by": "runtime_id_bit",
+          "notes": "FNV-1a hash of the world definition's authored id string, not a Flecs handle; stable across reloads of that definition, but a different world can reuse the number, so pair it with expect.session_generation across a world switch"
+        },
+        "name": {
+          "available": true,
+          "value": "coin-39"
+        },
+        "path": {
+          "available": true,
+          "value": "coin-39"
+        },
+        "parent": null,
+        "depth": 0,
+        "child_count": 0,
+        "components": [
+          "LocalTransform",
+          "RigidBody",
+          "ConvexHullCollider",
+          "PartInstance"
+        ],
+        "provenance": {
+          "available": false,
+          "reason": "authored entities carry no part-graph provenance; provenance is recorded for baked roots"
+        },
+        "part_instance": {
+          "available": true,
+          "value": "8793112039383506649"
+        },
+        "selected": false,
+        "primary": false
+      },
+      {
+        "object": {
+          "kind": "entity",
+          "id": "5720919880280723990"
+        },
+        "kind": "entity",
+        "identity": {
+          "namespace": "scene_entity",
+          "source": "world_authored_id_hash",
+          "stability": "world_definition",
+          "classified_by": "runtime_id_bit",
+          "notes": "FNV-1a hash of the world definition's authored id string, not a Flecs handle; stable across reloads of that definition, but a different world can reuse the number, so pair it with expect.session_generation across a world switch"
+        },
+        "name": {
+          "available": true,
+          "value": "coin-27"
+        },
+        "path": {
+          "available": true,
+          "value": "coin-27"
+        },
+        "parent": null,
+        "depth": 0,
+        "child_count": 0,
+        "components": [
+          "LocalTransform",
+          "RigidBody",
+          "ConvexHullCollider",
+          "PartInstance"
+        ],
+        "provenance": {
+          "available": false,
+          "reason": "authored entities carry no part-graph provenance; provenance is recorded for baked roots"
+        },
+        "part_instance": {
+          "available": true,
+          "value": "8793112039383506649"
+        },
+        "selected": false,
+        "primary": false
+      },
+      {
+        "object": {
+          "kind": "entity",
+          "id": "5720920979792352201"
+        },
+        "kind": "entity",
+        "identity": {
+          "namespace": "scene_entity",
+          "source": "world_authored_id_hash",
+          "stability": "world_definition",
+          "classified_by": "runtime_id_bit",
+          "notes": "FNV-1a hash of the world definition's authored id string, not a Flecs handle; stable across reloads of that definition, but a different world can reuse the number, so pair it with expect.session_generation across a world switch"
+        },
+        "name": {
+          "available": true,
+          "value": "coin-26"
+        },
+        "path": {
+          "available": true,
+          "value": "coin-26"
+        },
+        "parent": null,
+        "depth": 0,
+        "child_count": 0,
+        "components": [
+          "LocalTransform",
+          "RigidBody",
+          "ConvexHullCollider",
+          "PartInstance"
+        ],
+        "provenance": {
+          "available": false,
+          "reason": "authored entities carry no part-graph provenance; provenance is recorded for baked roots"
+        },
+        "part_instance": {
+          "available": true,
+          "value": "8793112039383506649"
+        },
+        "selected": false,
+        "primary": false
+      },
+      {
+        "object": {
+          "kind": "entity",
+          "id": "5720930875397006100"
+        },
+        "kind": "entity",
+        "identity": {
+          "namespace": "scene_entity",
+          "source": "world_authored_id_hash",
+          "stability": "world_definition",
+          "classified_by": "runtime_id_bit",
+          "notes": "FNV-1a hash of the world definition's authored id string, not a Flecs handle; stable across reloads of that definition, but a different world can reuse the number, so pair it with expect.session_generation across a world switch"
+        },
+        "name": {
+          "available": true,
+          "value": "coin-29"
+        },
+        "path": {
+          "available": true,
+          "value": "coin-29"
+        },
+        "parent": null,
+        "depth": 0,
+        "child_count": 0,
+        "components": [
+          "LocalTransform",
+          "RigidBody",
+          "ConvexHullCollider",
+          "PartInstance"
+        ],
+        "provenance": {
+          "available": false,
+          "reason": "authored entities carry no part-graph provenance; provenance is recorded for baked roots"
+        },
+        "part_instance": {
+          "available": true,
+          "value": "8793112039383506649"
+        },
+        "selected": false,
+        "primary": false
+      },
+      {
+        "object": {
+          "kind": "entity",
+          "id": "5720931974908634311"
+        },
+        "kind": "entity",
+        "identity": {
+          "namespace": "scene_entity",
+          "source": "world_authored_id_hash",
+          "stability": "world_definition",
+          "classified_by": "runtime_id_bit",
+          "notes": "FNV-1a hash of the world definition's authored id string, not a Flecs handle; stable across reloads of that definition, but a different world can reuse the number, so pair it with expect.session_generation across a world switch"
+        },
+        "name": {
+          "available": true,
+          "value": "coin-28"
+        },
+        "path": {
+          "available": true,
+          "value": "coin-28"
+        },
+        "parent": null,
+        "depth": 0,
+        "child_count": 0,
+        "components": [
+          "LocalTransform",
+          "RigidBody",
+          "ConvexHullCollider",
+          "PartInstance"
+        ],
+        "provenance": {
+          "available": false,
+          "reason": "authored entities carry no part-graph provenance; provenance is recorded for baked roots"
+        },
+        "part_instance": {
+          "available": true,
+          "value": "8793112039383506649"
+        },
+        "selected": false,
+        "primary": false
+      },
+      {
+        "object": {
+          "kind": "entity",
+          "id": "5725701656350867504"
+        },
+        "kind": "entity",
+        "identity": {
+          "namespace": "scene_entity",
+          "source": "world_authored_id_hash",
+          "stability": "world_definition",
+          "classified_by": "runtime_id_bit",
+          "notes": "FNV-1a hash of the world definition's authored id string, not a Flecs handle; stable across reloads of that definition, but a different world can reuse the number, so pair it with expect.session_generation across a world switch"
+        },
+        "name": {
+          "available": true,
+          "value": "coin-94"
+        },
+        "path": {
+          "available": true,
+          "value": "coin-94"
+        },
+        "parent": null,
+        "depth": 0,
+        "child_count": 0,
+        "components": [
+          "LocalTransform",
+          "RigidBody",
+          "ConvexHullCollider",
+          "PartInstance"
+        ],
+        "provenance": {
+          "available": false,
+          "reason": "authored entities carry no part-graph provenance; provenance is recorded for baked roots"
+        },
+        "part_instance": {
+          "available": true,
+          "value": "8793112039383506649"
+        },
+        "selected": false,
+        "primary": false
+      },
+      {
+        "object": {
+          "kind": "entity",
+          "id": "5725702755862495715"
+        },
+        "kind": "entity",
+        "identity": {
+          "namespace": "scene_entity",
+          "source": "world_authored_id_hash",
+          "stability": "world_definition",
+          "classified_by": "runtime_id_bit",
+          "notes": "FNV-1a hash of the world definition's authored id string, not a Flecs handle; stable across reloads of that definition, but a different world can reuse the number, so pair it with expect.session_generation across a world switch"
+        },
+        "name": {
+          "available": true,
+          "value": "coin-95"
+        },
+        "path": {
+          "available": true,
+          "value": "coin-95"
+        },
+        "parent": null,
+        "depth": 0,
+        "child_count": 0,
+        "components": [
+          "LocalTransform",
+          "RigidBody",
+          "ConvexHullCollider",
+          "PartInstance"
+        ],
+        "provenance": {
+          "available": false,
+          "reason": "authored entities carry no part-graph provenance; provenance is recorded for baked roots"
+        },
+        "part_instance": {
+          "available": true,
+          "value": "8793112039383506649"
+        },
+        "selected": false,
+        "primary": false
+      },
+      {
+        "object": {
+          "kind": "entity",
+          "id": "5725703855374123926"
+        },
+        "kind": "entity",
+        "identity": {
+          "namespace": "scene_entity",
+          "source": "world_authored_id_hash",
+          "stability": "world_definition",
+          "classified_by": "runtime_id_bit",
+          "notes": "FNV-1a hash of the world definition's authored id string, not a Flecs handle; stable across reloads of that definition, but a different world can reuse the number, so pair it with expect.session_generation across a world switch"
+        },
+        "name": {
+          "available": true,
+          "value": "coin-96"
+        },
+        "path": {
+          "available": true,
+          "value": "coin-96"
+        },
+        "parent": null,
+        "depth": 0,
+        "child_count": 0,
+        "components": [
+          "LocalTransform",
+          "RigidBody",
+          "ConvexHullCollider",
+          "PartInstance"
+        ],
+        "provenance": {
+          "available": false,
+          "reason": "authored entities carry no part-graph provenance; provenance is recorded for baked roots"
+        },
+        "part_instance": {
+          "available": true,
+          "value": "8793112039383506649"
+        },
+        "selected": false,
+        "primary": false
+      },
+      {
+        "object": {
+          "kind": "entity",
+          "id": "5725704954885752137"
+        },
+        "kind": "entity",
+        "identity": {
+          "namespace": "scene_entity",
+          "source": "world_authored_id_hash",
+          "stability": "world_definition",
+          "classified_by": "runtime_id_bit",
+          "notes": "FNV-1a hash of the world definition's authored id string, not a Flecs handle; stable across reloads of that definition, but a different world can reuse the number, so pair it with expect.session_generation across a world switch"
+        },
+        "name": {
+          "available": true,
+          "value": "coin-97"
+        },
+        "path": {
+          "available": true,
+          "value": "coin-97"
+        },
+        "parent": null,
+        "depth": 0,
+        "child_count": 0,
+        "components": [
+          "LocalTransform",
+          "RigidBody",
+          "ConvexHullCollider",
+          "PartInstance"
+        ],
+        "provenance": {
+          "available": false,
+          "reason": "authored entities carry no part-graph provenance; provenance is recorded for baked roots"
+        },
+        "part_instance": {
+          "available": true,
+          "value": "8793112039383506649"
+        },
+        "selected": false,
+        "primary": false
+      },
+      {
+        "object": {
+          "kind": "entity",
+          "id": "5725706054397380348"
+        },
+        "kind": "entity",
+        "identity": {
+          "namespace": "scene_entity",
+          "source": "world_authored_id_hash",
+          "stability": "world_definition",
+          "classified_by": "runtime_id_bit",
+          "notes": "FNV-1a hash of the world definition's authored id string, not a Flecs handle; stable across reloads of that definition, but a different world can reuse the number, so pair it with expect.session_generation across a world switch"
+        },
+        "name": {
+          "available": true,
+          "value": "coin-90"
+        },
+        "path": {
+          "available": true,
+          "value": "coin-90"
+        },
+        "parent": null,
+        "depth": 0,
+        "child_count": 0,
+        "components": [
+          "LocalTransform",
+          "RigidBody",
+          "ConvexHullCollider",
+          "PartInstance"
+        ],
+        "provenance": {
+          "available": false,
+          "reason": "authored entities carry no part-graph provenance; provenance is recorded for baked roots"
+        },
+        "part_instance": {
+          "available": true,
+          "value": "8793112039383506649"
+        },
+        "selected": false,
+        "primary": false
+      },
+      {
+        "object": {
+          "kind": "entity",
+          "id": "5725707153909008559"
+        },
+        "kind": "entity",
+        "identity": {
+          "namespace": "scene_entity",
+          "source": "world_authored_id_hash",
+          "stability": "world_definition",
+          "classified_by": "runtime_id_bit",
+          "notes": "FNV-1a hash of the world definition's authored id string, not a Flecs handle; stable across reloads of that definition, but a different world can reuse the number, so pair it with expect.session_generation across a world switch"
+        },
+        "name": {
+          "available": true,
+          "value": "coin-91"
+        },
+        "path": {
+          "available": true,
+          "value": "coin-91"
+        },
+        "parent": null,
+        "depth": 0,
+        "child_count": 0,
+        "components": [
+          "LocalTransform",
+          "RigidBody",
+          "ConvexHullCollider",
+          "PartInstance"
+        ],
+        "provenance": {
+          "available": false,
+          "reason": "authored entities carry no part-graph provenance; provenance is recorded for baked roots"
+        },
+        "part_instance": {
+          "available": true,
+          "value": "8793112039383506649"
+        },
+        "selected": false,
+        "primary": false
+      },
+      {
+        "object": {
+          "kind": "entity",
+          "id": "5725708253420636770"
+        },
+        "kind": "entity",
+        "identity": {
+          "namespace": "scene_entity",
+          "source": "world_authored_id_hash",
+          "stability": "world_definition",
+          "classified_by": "runtime_id_bit",
+          "notes": "FNV-1a hash of the world definition's authored id string, not a Flecs handle; stable across reloads of that definition, but a different world can reuse the number, so pair it with expect.session_generation across a world switch"
+        },
+        "name": {
+          "available": true,
+          "value": "coin-92"
+        },
+        "path": {
+          "available": true,
+          "value": "coin-92"
+        },
+        "parent": null,
+        "depth": 0,
+        "child_count": 0,
+        "components": [
+          "LocalTransform",
+          "RigidBody",
+          "ConvexHullCollider",
+          "PartInstance"
+        ],
+        "provenance": {
+          "available": false,
+          "reason": "authored entities carry no part-graph provenance; provenance is recorded for baked roots"
+        },
+        "part_instance": {
+          "available": true,
+          "value": "8793112039383506649"
+        },
+        "selected": false,
+        "primary": false
+      },
+      {
+        "object": {
+          "kind": "entity",
+          "id": "5725709352932264981"
+        },
+        "kind": "entity",
+        "identity": {
+          "namespace": "scene_entity",
+          "source": "world_authored_id_hash",
+          "stability": "world_definition",
+          "classified_by": "runtime_id_bit",
+          "notes": "FNV-1a hash of the world definition's authored id string, not a Flecs handle; stable across reloads of that definition, but a different world can reuse the number, so pair it with expect.session_generation across a world switch"
+        },
+        "name": {
+          "available": true,
+          "value": "coin-93"
+        },
+        "path": {
+          "available": true,
+          "value": "coin-93"
+        },
+        "parent": null,
+        "depth": 0,
+        "child_count": 0,
+        "components": [
+          "LocalTransform",
+          "RigidBody",
+          "ConvexHullCollider",
+          "PartInstance"
+        ],
+        "provenance": {
+          "available": false,
+          "reason": "authored entities carry no part-graph provenance; provenance is recorded for baked roots"
+        },
+        "part_instance": {
+          "available": true,
+          "value": "8793112039383506649"
+        },
+        "selected": false,
+        "primary": false
+      },
+      {
+        "object": {
+          "kind": "entity",
+          "id": "5725714850490406036"
+        },
+        "kind": "entity",
+        "identity": {
+          "namespace": "scene_entity",
+          "source": "world_authored_id_hash",
+          "stability": "world_definition",
+          "classified_by": "runtime_id_bit",
+          "notes": "FNV-1a hash of the world definition's authored id string, not a Flecs handle; stable across reloads of that definition, but a different world can reuse the number, so pair it with expect.session_generation across a world switch"
+        },
+        "name": {
+          "available": true,
+          "value": "coin-98"
+        },
+        "path": {
+          "available": true,
+          "value": "coin-98"
+        },
+        "parent": null,
+        "depth": 0,
+        "child_count": 0,
+        "components": [
+          "LocalTransform",
+          "RigidBody",
+          "ConvexHullCollider",
+          "PartInstance"
+        ],
+        "provenance": {
+          "available": false,
+          "reason": "authored entities carry no part-graph provenance; provenance is recorded for baked roots"
+        },
+        "part_instance": {
+          "available": true,
+          "value": "8793112039383506649"
+        },
+        "selected": false,
+        "primary": false
+      },
+      {
+        "object": {
+          "kind": "entity",
+          "id": "5725715950002034247"
+        },
+        "kind": "entity",
+        "identity": {
+          "namespace": "scene_entity",
+          "source": "world_authored_id_hash",
+          "stability": "world_definition",
+          "classified_by": "runtime_id_bit",
+          "notes": "FNV-1a hash of the world definition's authored id string, not a Flecs handle; stable across reloads of that definition, but a different world can reuse the number, so pair it with expect.session_generation across a world switch"
+        },
+        "name": {
+          "available": true,
+          "value": "coin-99"
+        },
+        "path": {
+          "available": true,
+          "value": "coin-99"
+        },
+        "parent": null,
+        "depth": 0,
+        "child_count": 0,
+        "components": [
+          "LocalTransform",
+          "RigidBody",
+          "ConvexHullCollider",
+          "PartInstance"
+        ],
+        "provenance": {
+          "available": false,
+          "reason": "authored entities carry no part-graph provenance; provenance is recorded for baked roots"
+        },
+        "part_instance": {
+          "available": true,
+          "value": "8793112039383506649"
+        },
+        "selected": false,
+        "primary": false
+      },
+      {
+        "object": {
+          "kind": "entity",
+          "id": "5726690117304439968"
+        },
+        "kind": "entity",
+        "identity": {
+          "namespace": "scene_entity",
+          "source": "world_authored_id_hash",
+          "stability": "world_definition",
+          "classified_by": "runtime_id_bit",
+          "notes": "FNV-1a hash of the world definition's authored id string, not a Flecs handle; stable across reloads of that definition, but a different world can reuse the number, so pair it with expect.session_generation across a world switch"
+        },
+        "name": {
+          "available": true,
+          "value": "coin-87"
+        },
+        "path": {
+          "available": true,
+          "value": "coin-87"
+        },
+        "parent": null,
+        "depth": 0,
+        "child_count": 0,
+        "components": [
+          "LocalTransform",
+          "RigidBody",
+          "ConvexHullCollider",
+          "PartInstance"
+        ],
+        "provenance": {
+          "available": false,
+          "reason": "authored entities carry no part-graph provenance; provenance is recorded for baked roots"
+        },
+        "part_instance": {
+          "available": true,
+          "value": "8793112039383506649"
+        },
+        "selected": false,
+        "primary": false
+      },
+      {
+        "object": {
+          "kind": "entity",
+          "id": "5726691216816068179"
+        },
+        "kind": "entity",
+        "identity": {
+          "namespace": "scene_entity",
+          "source": "world_authored_id_hash",
+          "stability": "world_definition",
+          "classified_by": "runtime_id_bit",
+          "notes": "FNV-1a hash of the world definition's authored id string, not a Flecs handle; stable across reloads of that definition, but a different world can reuse the number, so pair it with expect.session_generation across a world switch"
+        },
+        "name": {
+          "available": true,
+          "value": "coin-86"
+        },
+        "path": {
+          "available": true,
+          "value": "coin-86"
+        },
+        "parent": null,
+        "depth": 0,
+        "child_count": 0,
+        "components": [
+          "LocalTransform",
+          "RigidBody",
+          "ConvexHullCollider",
+          "PartInstance"
+        ],
+        "provenance": {
+          "available": false,
+          "reason": "authored entities carry no part-graph provenance; provenance is recorded for baked roots"
+        },
+        "part_instance": {
+          "available": true,
+          "value": "8793112039383506649"
+        },
+        "selected": false,
+        "primary": false
+      },
+      {
+        "object": {
+          "kind": "entity",
+          "id": "5726692316327696390"
+        },
+        "kind": "entity",
+        "identity": {
+          "namespace": "scene_entity",
+          "source": "world_authored_id_hash",
+          "stability": "world_definition",
+          "classified_by": "runtime_id_bit",
+          "notes": "FNV-1a hash of the world definition's authored id string, not a Flecs handle; stable across reloads of that definition, but a different world can reuse the number, so pair it with expect.session_generation across a world switch"
+        },
+        "name": {
+          "available": true,
+          "value": "coin-85"
+        },
+        "path": {
+          "available": true,
+          "value": "coin-85"
+        },
+        "parent": null,
+        "depth": 0,
+        "child_count": 0,
+        "components": [
+          "LocalTransform",
+          "RigidBody",
+          "ConvexHullCollider",
+          "PartInstance"
+        ],
+        "provenance": {
+          "available": false,
+          "reason": "authored entities carry no part-graph provenance; provenance is recorded for baked roots"
+        },
+        "part_instance": {
+          "available": true,
+          "value": "8793112039383506649"
+        },
+        "selected": false,
+        "primary": false
+      },
+      {
+        "object": {
+          "kind": "entity",
+          "id": "5726693415839324601"
+        },
+        "kind": "entity",
+        "identity": {
+          "namespace": "scene_entity",
+          "source": "world_authored_id_hash",
+          "stability": "world_definition",
+          "classified_by": "runtime_id_bit",
+          "notes": "FNV-1a hash of the world definition's authored id string, not a Flecs handle; stable across reloads of that definition, but a different world can reuse the number, so pair it with expect.session_generation across a world switch"
+        },
+        "name": {
+          "available": true,
+          "value": "coin-84"
+        },
+        "path": {
+          "available": true,
+          "value": "coin-84"
+        },
+        "parent": null,
+        "depth": 0,
+        "child_count": 0,
+        "components": [
+          "LocalTransform",
+          "RigidBody",
+          "ConvexHullCollider",
+          "PartInstance"
+        ],
+        "provenance": {
+          "available": false,
+          "reason": "authored entities carry no part-graph provenance; provenance is recorded for baked roots"
+        },
+        "part_instance": {
+          "available": true,
+          "value": "8793112039383506649"
+        },
+        "selected": false,
+        "primary": false
+      },
+      {
+        "object": {
+          "kind": "entity",
+          "id": "5726694515350952812"
+        },
+        "kind": "entity",
+        "identity": {
+          "namespace": "scene_entity",
+          "source": "world_authored_id_hash",
+          "stability": "world_definition",
+          "classified_by": "runtime_id_bit",
+          "notes": "FNV-1a hash of the world definition's authored id string, not a Flecs handle; stable across reloads of that definition, but a different world can reuse the number, so pair it with expect.session_generation across a world switch"
+        },
+        "name": {
+          "available": true,
+          "value": "coin-83"
+        },
+        "path": {
+          "available": true,
+          "value": "coin-83"
+        },
+        "parent": null,
+        "depth": 0,
+        "child_count": 0,
+        "components": [
+          "LocalTransform",
+          "RigidBody",
+          "ConvexHullCollider",
+          "PartInstance"
+        ],
+        "provenance": {
+          "available": false,
+          "reason": "authored entities carry no part-graph provenance; provenance is recorded for baked roots"
+        },
+        "part_instance": {
+          "available": true,
+          "value": "8793112039383506649"
+        },
+        "selected": false,
+        "primary": false
+      },
+      {
+        "object": {
+          "kind": "entity",
+          "id": "5726695614862581023"
+        },
+        "kind": "entity",
+        "identity": {
+          "namespace": "scene_entity",
+          "source": "world_authored_id_hash",
+          "stability": "world_definition",
+          "classified_by": "runtime_id_bit",
+          "notes": "FNV-1a hash of the world definition's authored id string, not a Flecs handle; stable across reloads of that definition, but a different world can reuse the number, so pair it with expect.session_generation across a world switch"
+        },
+        "name": {
+          "available": true,
+          "value": "coin-82"
+        },
+        "path": {
+          "available": true,
+          "value": "coin-82"
+        },
+        "parent": null,
+        "depth": 0,
+        "child_count": 0,
+        "components": [
+          "LocalTransform",
+          "RigidBody",
+          "ConvexHullCollider",
+          "PartInstance"
+        ],
+        "provenance": {
+          "available": false,
+          "reason": "authored entities carry no part-graph provenance; provenance is recorded for baked roots"
+        },
+        "part_instance": {
+          "available": true,
+          "value": "8793112039383506649"
+        },
+        "selected": false,
+        "primary": false
+      },
+      {
+        "object": {
+          "kind": "entity",
+          "id": "5726696714374209234"
+        },
+        "kind": "entity",
+        "identity": {
+          "namespace": "scene_entity",
+          "source": "world_authored_id_hash",
+          "stability": "world_definition",
+          "classified_by": "runtime_id_bit",
+          "notes": "FNV-1a hash of the world definition's authored id string, not a Flecs handle; stable across reloads of that definition, but a different world can reuse the number, so pair it with expect.session_generation across a world switch"
+        },
+        "name": {
+          "available": true,
+          "value": "coin-81"
+        },
+        "path": {
+          "available": true,
+          "value": "coin-81"
+        },
+        "parent": null,
+        "depth": 0,
+        "child_count": 0,
+        "components": [
+          "LocalTransform",
+          "RigidBody",
+          "ConvexHullCollider",
+          "PartInstance"
+        ],
+        "provenance": {
+          "available": false,
+          "reason": "authored entities carry no part-graph provenance; provenance is recorded for baked roots"
+        },
+        "part_instance": {
+          "available": true,
+          "value": "8793112039383506649"
+        },
+        "selected": false,
+        "primary": false
+      },
+      {
+        "object": {
+          "kind": "entity",
+          "id": "5726697813885837445"
+        },
+        "kind": "entity",
+        "identity": {
+          "namespace": "scene_entity",
+          "source": "world_authored_id_hash",
+          "stability": "world_definition",
+          "classified_by": "runtime_id_bit",
+          "notes": "FNV-1a hash of the world definition's authored id string, not a Flecs handle; stable across reloads of that definition, but a different world can reuse the number, so pair it with expect.session_generation across a world switch"
+        },
+        "name": {
+          "available": true,
+          "value": "coin-80"
+        },
+        "path": {
+          "available": true,
+          "value": "coin-80"
+        },
+        "parent": null,
+        "depth": 0,
+        "child_count": 0,
+        "components": [
+          "LocalTransform",
+          "RigidBody",
+          "ConvexHullCollider",
+          "PartInstance"
+        ],
+        "provenance": {
+          "available": false,
+          "reason": "authored entities carry no part-graph provenance; provenance is recorded for baked roots"
+        },
+        "part_instance": {
+          "available": true,
+          "value": "8793112039383506649"
+        },
+        "selected": false,
+        "primary": false
+      },
+      {
+        "object": {
+          "kind": "entity",
+          "id": "5726705510467234922"
+        },
+        "kind": "entity",
+        "identity": {
+          "namespace": "scene_entity",
+          "source": "world_authored_id_hash",
+          "stability": "world_definition",
+          "classified_by": "runtime_id_bit",
+          "notes": "FNV-1a hash of the world definition's authored id string, not a Flecs handle; stable across reloads of that definition, but a different world can reuse the number, so pair it with expect.session_generation across a world switch"
+        },
+        "name": {
+          "available": true,
+          "value": "coin-89"
+        },
+        "path": {
+          "available": true,
+          "value": "coin-89"
+        },
+        "parent": null,
+        "depth": 0,
+        "child_count": 0,
+        "components": [
+          "LocalTransform",
+          "RigidBody",
+          "ConvexHullCollider",
+          "PartInstance"
+        ],
+        "provenance": {
+          "available": false,
+          "reason": "authored entities carry no part-graph provenance; provenance is recorded for baked roots"
+        },
+        "part_instance": {
+          "available": true,
+          "value": "8793112039383506649"
+        },
+        "selected": false,
+        "primary": false
+      },
+      {
+        "object": {
+          "kind": "entity",
+          "id": "5726706609978863133"
+        },
+        "kind": "entity",
+        "identity": {
+          "namespace": "scene_entity",
+          "source": "world_authored_id_hash",
+          "stability": "world_definition",
+          "classified_by": "runtime_id_bit",
+          "notes": "FNV-1a hash of the world definition's authored id string, not a Flecs handle; stable across reloads of that definition, but a different world can reuse the number, so pair it with expect.session_generation across a world switch"
+        },
+        "name": {
+          "available": true,
+          "value": "coin-88"
+        },
+        "path": {
+          "available": true,
+          "value": "coin-88"
+        },
+        "parent": null,
+        "depth": 0,
+        "child_count": 0,
+        "components": [
+          "LocalTransform",
+          "RigidBody",
+          "ConvexHullCollider",
+          "PartInstance"
+        ],
+        "provenance": {
+          "available": false,
+          "reason": "authored entities carry no part-graph provenance; provenance is recorded for baked roots"
+        },
+        "part_instance": {
+          "available": true,
+          "value": "8793112039383506649"
+        },
+        "selected": false,
+        "primary": false
+      },
+      {
+        "object": {
+          "kind": "entity",
+          "id": "7601210158563367616"
+        },
+        "kind": "entity",
+        "identity": {
+          "namespace": "scene_entity",
+          "source": "world_authored_id_hash",
+          "stability": "world_definition",
+          "classified_by": "runtime_id_bit",
+          "notes": "FNV-1a hash of the world definition's authored id string, not a Flecs handle; stable across reloads of that definition, but a different world can reuse the number, so pair it with expect.session_generation across a world switch"
+        },
+        "name": {
+          "available": true,
+          "value": "coin-104"
+        },
+        "path": {
+          "available": true,
+          "value": "coin-104"
+        },
+        "parent": null,
+        "depth": 0,
+        "child_count": 0,
+        "components": [
+          "LocalTransform",
+          "RigidBody",
+          "ConvexHullCollider",
+          "PartInstance"
+        ],
+        "provenance": {
+          "available": false,
+          "reason": "authored entities carry no part-graph provenance; provenance is recorded for baked roots"
+        },
+        "part_instance": {
+          "available": true,
+          "value": "8793112039383506649"
+        },
+        "selected": false,
+        "primary": false
+      },
+      {
+        "object": {
+          "kind": "entity",
+          "id": "7601211258074995827"
+        },
+        "kind": "entity",
+        "identity": {
+          "namespace": "scene_entity",
+          "source": "world_authored_id_hash",
+          "stability": "world_definition",
+          "classified_by": "runtime_id_bit",
+          "notes": "FNV-1a hash of the world definition's authored id string, not a Flecs handle; stable across reloads of that definition, but a different world can reuse the number, so pair it with expect.session_generation across a world switch"
+        },
+        "name": {
+          "available": true,
+          "value": "coin-105"
+        },
+        "path": {
+          "available": true,
+          "value": "coin-105"
+        },
+        "parent": null,
+        "depth": 0,
+        "child_count": 0,
+        "components": [
+          "LocalTransform",
+          "RigidBody",
+          "ConvexHullCollider",
+          "PartInstance"
+        ],
+        "provenance": {
+          "available": false,
+          "reason": "authored entities carry no part-graph provenance; provenance is recorded for baked roots"
+        },
+        "part_instance": {
+          "available": true,
+          "value": "8793112039383506649"
+        },
+        "selected": false,
+        "primary": false
+      },
+      {
+        "object": {
+          "kind": "entity",
+          "id": "7601212357586624038"
+        },
+        "kind": "entity",
+        "identity": {
+          "namespace": "scene_entity",
+          "source": "world_authored_id_hash",
+          "stability": "world_definition",
+          "classified_by": "runtime_id_bit",
+          "notes": "FNV-1a hash of the world definition's authored id string, not a Flecs handle; stable across reloads of that definition, but a different world can reuse the number, so pair it with expect.session_generation across a world switch"
+        },
+        "name": {
+          "available": true,
+          "value": "coin-106"
+        },
+        "path": {
+          "available": true,
+          "value": "coin-106"
+        },
+        "parent": null,
+        "depth": 0,
+        "child_count": 0,
+        "components": [
+          "LocalTransform",
+          "RigidBody",
+          "ConvexHullCollider",
+          "PartInstance"
+        ],
+        "provenance": {
+          "available": false,
+          "reason": "authored entities carry no part-graph provenance; provenance is recorded for baked roots"
+        },
+        "part_instance": {
+          "available": true,
+          "value": "8793112039383506649"
+        },
+        "selected": false,
+        "primary": false
+      },
+      {
+        "object": {
+          "kind": "entity",
+          "id": "7601213457098252249"
+        },
+        "kind": "entity",
+        "identity": {
+          "namespace": "scene_entity",
+          "source": "world_authored_id_hash",
+          "stability": "world_definition",
+          "classified_by": "runtime_id_bit",
+          "notes": "FNV-1a hash of the world definition's authored id string, not a Flecs handle; stable across reloads of that definition, but a different world can reuse the number, so pair it with expect.session_generation across a world switch"
+        },
+        "name": {
+          "available": true,
+          "value": "coin-107"
+        },
+        "path": {
+          "available": true,
+          "value": "coin-107"
+        },
+        "parent": null,
+        "depth": 0,
+        "child_count": 0,
+        "components": [
+          "LocalTransform",
+          "RigidBody",
+          "ConvexHullCollider",
+          "PartInstance"
+        ],
+        "provenance": {
+          "available": false,
+          "reason": "authored entities carry no part-graph provenance; provenance is recorded for baked roots"
+        },
+        "part_instance": {
+          "available": true,
+          "value": "8793112039383506649"
+        },
+        "selected": false,
+        "primary": false
+      },
+      {
+        "object": {
+          "kind": "entity",
+          "id": "7601214556609880460"
+        },
+        "kind": "entity",
+        "identity": {
+          "namespace": "scene_entity",
+          "source": "world_authored_id_hash",
+          "stability": "world_definition",
+          "classified_by": "runtime_id_bit",
+          "notes": "FNV-1a hash of the world definition's authored id string, not a Flecs handle; stable across reloads of that definition, but a different world can reuse the number, so pair it with expect.session_generation across a world switch"
+        },
+        "name": {
+          "available": true,
+          "value": "coin-100"
+        },
+        "path": {
+          "available": true,
+          "value": "coin-100"
+        },
+        "parent": null,
+        "depth": 0,
+        "child_count": 0,
+        "components": [
+          "LocalTransform",
+          "RigidBody",
+          "ConvexHullCollider",
+          "PartInstance"
+        ],
+        "provenance": {
+          "available": false,
+          "reason": "authored entities carry no part-graph provenance; provenance is recorded for baked roots"
+        },
+        "part_instance": {
+          "available": true,
+          "value": "8793112039383506649"
+        },
+        "selected": false,
+        "primary": false
+      },
+      {
+        "object": {
+          "kind": "entity",
+          "id": "7601215656121508671"
+        },
+        "kind": "entity",
+        "identity": {
+          "namespace": "scene_entity",
+          "source": "world_authored_id_hash",
+          "stability": "world_definition",
+          "classified_by": "runtime_id_bit",
+          "notes": "FNV-1a hash of the world definition's authored id string, not a Flecs handle; stable across reloads of that definition, but a different world can reuse the number, so pair it with expect.session_generation across a world switch"
+        },
+        "name": {
+          "available": true,
+          "value": "coin-101"
+        },
+        "path": {
+          "available": true,
+          "value": "coin-101"
+        },
+        "parent": null,
+        "depth": 0,
+        "child_count": 0,
+        "components": [
+          "LocalTransform",
+          "RigidBody",
+          "ConvexHullCollider",
+          "PartInstance"
+        ],
+        "provenance": {
+          "available": false,
+          "reason": "authored entities carry no part-graph provenance; provenance is recorded for baked roots"
+        },
+        "part_instance": {
+          "available": true,
+          "value": "8793112039383506649"
+        },
+        "selected": false,
+        "primary": false
+      },
+      {
+        "object": {
+          "kind": "entity",
+          "id": "7601216755633136882"
+        },
+        "kind": "entity",
+        "identity": {
+          "namespace": "scene_entity",
+          "source": "world_authored_id_hash",
+          "stability": "world_definition",
+          "classified_by": "runtime_id_bit",
+          "notes": "FNV-1a hash of the world definition's authored id string, not a Flecs handle; stable across reloads of that definition, but a different world can reuse the number, so pair it with expect.session_generation across a world switch"
+        },
+        "name": {
+          "available": true,
+          "value": "coin-102"
+        },
+        "path": {
+          "available": true,
+          "value": "coin-102"
+        },
+        "parent": null,
+        "depth": 0,
+        "child_count": 0,
+        "components": [
+          "LocalTransform",
+          "RigidBody",
+          "ConvexHullCollider",
+          "PartInstance"
+        ],
+        "provenance": {
+          "available": false,
+          "reason": "authored entities carry no part-graph provenance; provenance is recorded for baked roots"
+        },
+        "part_instance": {
+          "available": true,
+          "value": "8793112039383506649"
+        },
+        "selected": false,
+        "primary": false
+      },
+      {
+        "object": {
+          "kind": "entity",
+          "id": "7601217855144765093"
+        },
+        "kind": "entity",
+        "identity": {
+          "namespace": "scene_entity",
+          "source": "world_authored_id_hash",
+          "stability": "world_definition",
+          "classified_by": "runtime_id_bit",
+          "notes": "FNV-1a hash of the world definition's authored id string, not a Flecs handle; stable across reloads of that definition, but a different world can reuse the number, so pair it with expect.session_generation across a world switch"
+        },
+        "name": {
+          "available": true,
+          "value": "coin-103"
+        },
+        "path": {
+          "available": true,
+          "value": "coin-103"
+        },
+        "parent": null,
+        "depth": 0,
+        "child_count": 0,
+        "components": [
+          "LocalTransform",
+          "RigidBody",
+          "ConvexHullCollider",
+          "PartInstance"
+        ],
+        "provenance": {
+          "available": false,
+          "reason": "authored entities carry no part-graph provenance; provenance is recorded for baked roots"
+        },
+        "part_instance": {
+          "available": true,
+          "value": "8793112039383506649"
+        },
+        "selected": false,
+        "primary": false
+      },
+      {
+        "object": {
+          "kind": "entity",
+          "id": "7601223352702906148"
+        },
+        "kind": "entity",
+        "identity": {
+          "namespace": "scene_entity",
+          "source": "world_authored_id_hash",
+          "stability": "world_definition",
+          "classified_by": "runtime_id_bit",
+          "notes": "FNV-1a hash of the world definition's authored id string, not a Flecs handle; stable across reloads of that definition, but a different world can reuse the number, so pair it with expect.session_generation across a world switch"
+        },
+        "name": {
+          "available": true,
+          "value": "coin-108"
+        },
+        "path": {
+          "available": true,
+          "value": "coin-108"
+        },
+        "parent": null,
+        "depth": 0,
+        "child_count": 0,
+        "components": [
+          "LocalTransform",
+          "RigidBody",
+          "ConvexHullCollider",
+          "PartInstance"
+        ],
+        "provenance": {
+          "available": false,
+          "reason": "authored entities carry no part-graph provenance; provenance is recorded for baked roots"
+        },
+        "part_instance": {
+          "available": true,
+          "value": "8793112039383506649"
+        },
+        "selected": false,
+        "primary": false
+      },
+      {
+        "object": {
+          "kind": "entity",
+          "id": "7601224452214534359"
+        },
+        "kind": "entity",
+        "identity": {
+          "namespace": "scene_entity",
+          "source": "world_authored_id_hash",
+          "stability": "world_definition",
+          "classified_by": "runtime_id_bit",
+          "notes": "FNV-1a hash of the world definition's authored id string, not a Flecs handle; stable across reloads of that definition, but a different world can reuse the number, so pair it with expect.session_generation across a world switch"
+        },
+        "name": {
+          "available": true,
+          "value": "coin-109"
+        },
+        "path": {
+          "available": true,
+          "value": "coin-109"
+        },
+        "parent": null,
+        "depth": 0,
+        "child_count": 0,
+        "components": [
+          "LocalTransform",
+          "RigidBody",
+          "ConvexHullCollider",
+          "PartInstance"
+        ],
+        "provenance": {
+          "available": false,
+          "reason": "authored entities carry no part-graph provenance; provenance is recorded for baked roots"
+        },
+        "part_instance": {
+          "available": true,
+          "value": "8793112039383506649"
+        },
+        "selected": false,
+        "primary": false
+      },
+      {
+        "object": {
+          "kind": "entity",
+          "id": "7602198619516940080"
+        },
+        "kind": "entity",
+        "identity": {
+          "namespace": "scene_entity",
+          "source": "world_authored_id_hash",
+          "stability": "world_definition",
+          "classified_by": "runtime_id_bit",
+          "notes": "FNV-1a hash of the world definition's authored id string, not a Flecs handle; stable across reloads of that definition, but a different world can reuse the number, so pair it with expect.session_generation across a world switch"
+        },
+        "name": {
+          "available": true,
+          "value": "coin-117"
+        },
+        "path": {
+          "available": true,
+          "value": "coin-117"
+        },
+        "parent": null,
+        "depth": 0,
+        "child_count": 0,
+        "components": [
+          "LocalTransform",
+          "RigidBody",
+          "ConvexHullCollider",
+          "PartInstance"
+        ],
+        "provenance": {
+          "available": false,
+          "reason": "authored entities carry no part-graph provenance; provenance is recorded for baked roots"
+        },
+        "part_instance": {
+          "available": true,
+          "value": "8793112039383506649"
+        },
+        "selected": false,
+        "primary": false
+      },
+      {
+        "object": {
+          "kind": "entity",
+          "id": "7602199719028568291"
+        },
+        "kind": "entity",
+        "identity": {
+          "namespace": "scene_entity",
+          "source": "world_authored_id_hash",
+          "stability": "world_definition",
+          "classified_by": "runtime_id_bit",
+          "notes": "FNV-1a hash of the world definition's authored id string, not a Flecs handle; stable across reloads of that definition, but a different world can reuse the number, so pair it with expect.session_generation across a world switch"
+        },
+        "name": {
+          "available": true,
+          "value": "coin-116"
+        },
+        "path": {
+          "available": true,
+          "value": "coin-116"
+        },
+        "parent": null,
+        "depth": 0,
+        "child_count": 0,
+        "components": [
+          "LocalTransform",
+          "RigidBody",
+          "ConvexHullCollider",
+          "PartInstance"
+        ],
+        "provenance": {
+          "available": false,
+          "reason": "authored entities carry no part-graph provenance; provenance is recorded for baked roots"
+        },
+        "part_instance": {
+          "available": true,
+          "value": "8793112039383506649"
+        },
+        "selected": false,
+        "primary": false
+      },
+      {
+        "object": {
+          "kind": "entity",
+          "id": "7602200818540196502"
+        },
+        "kind": "entity",
+        "identity": {
+          "namespace": "scene_entity",
+          "source": "world_authored_id_hash",
+          "stability": "world_definition",
+          "classified_by": "runtime_id_bit",
+          "notes": "FNV-1a hash of the world definition's authored id string, not a Flecs handle; stable across reloads of that definition, but a different world can reuse the number, so pair it with expect.session_generation across a world switch"
+        },
+        "name": {
+          "available": true,
+          "value": "coin-115"
+        },
+        "path": {
+          "available": true,
+          "value": "coin-115"
+        },
+        "parent": null,
+        "depth": 0,
+        "child_count": 0,
+        "components": [
+          "LocalTransform",
+          "RigidBody",
+          "ConvexHullCollider",
+          "PartInstance"
+        ],
+        "provenance": {
+          "available": false,
+          "reason": "authored entities carry no part-graph provenance; provenance is recorded for baked roots"
+        },
+        "part_instance": {
+          "available": true,
+          "value": "8793112039383506649"
+        },
+        "selected": false,
+        "primary": false
+      },
+      {
+        "object": {
+          "kind": "entity",
+          "id": "7602201918051824713"
+        },
+        "kind": "entity",
+        "identity": {
+          "namespace": "scene_entity",
+          "source": "world_authored_id_hash",
+          "stability": "world_definition",
+          "classified_by": "runtime_id_bit",
+          "notes": "FNV-1a hash of the world definition's authored id string, not a Flecs handle; stable across reloads of that definition, but a different world can reuse the number, so pair it with expect.session_generation across a world switch"
+        },
+        "name": {
+          "available": true,
+          "value": "coin-114"
+        },
+        "path": {
+          "available": true,
+          "value": "coin-114"
+        },
+        "parent": null,
+        "depth": 0,
+        "child_count": 0,
+        "components": [
+          "LocalTransform",
+          "RigidBody",
+          "ConvexHullCollider",
+          "PartInstance"
+        ],
+        "provenance": {
+          "available": false,
+          "reason": "authored entities carry no part-graph provenance; provenance is recorded for baked roots"
+        },
+        "part_instance": {
+          "available": true,
+          "value": "8793112039383506649"
+        },
+        "selected": false,
+        "primary": false
+      },
+      {
+        "object": {
+          "kind": "entity",
+          "id": "7602203017563452924"
+        },
+        "kind": "entity",
+        "identity": {
+          "namespace": "scene_entity",
+          "source": "world_authored_id_hash",
+          "stability": "world_definition",
+          "classified_by": "runtime_id_bit",
+          "notes": "FNV-1a hash of the world definition's authored id string, not a Flecs handle; stable across reloads of that definition, but a different world can reuse the number, so pair it with expect.session_generation across a world switch"
+        },
+        "name": {
+          "available": true,
+          "value": "coin-113"
+        },
+        "path": {
+          "available": true,
+          "value": "coin-113"
+        },
+        "parent": null,
+        "depth": 0,
+        "child_count": 0,
+        "components": [
+          "LocalTransform",
+          "RigidBody",
+          "ConvexHullCollider",
+          "PartInstance"
+        ],
+        "provenance": {
+          "available": false,
+          "reason": "authored entities carry no part-graph provenance; provenance is recorded for baked roots"
+        },
+        "part_instance": {
+          "available": true,
+          "value": "8793112039383506649"
+        },
+        "selected": false,
+        "primary": false
+      },
+      {
+        "object": {
+          "kind": "entity",
+          "id": "7602204117075081135"
+        },
+        "kind": "entity",
+        "identity": {
+          "namespace": "scene_entity",
+          "source": "world_authored_id_hash",
+          "stability": "world_definition",
+          "classified_by": "runtime_id_bit",
+          "notes": "FNV-1a hash of the world definition's authored id string, not a Flecs handle; stable across reloads of that definition, but a different world can reuse the number, so pair it with expect.session_generation across a world switch"
+        },
+        "name": {
+          "available": true,
+          "value": "coin-112"
+        },
+        "path": {
+          "available": true,
+          "value": "coin-112"
+        },
+        "parent": null,
+        "depth": 0,
+        "child_count": 0,
+        "components": [
+          "LocalTransform",
+          "RigidBody",
+          "ConvexHullCollider",
+          "PartInstance"
+        ],
+        "provenance": {
+          "available": false,
+          "reason": "authored entities carry no part-graph provenance; provenance is recorded for baked roots"
+        },
+        "part_instance": {
+          "available": true,
+          "value": "8793112039383506649"
+        },
+        "selected": false,
+        "primary": false
+      },
+      {
+        "object": {
+          "kind": "entity",
+          "id": "7602205216586709346"
+        },
+        "kind": "entity",
+        "identity": {
+          "namespace": "scene_entity",
+          "source": "world_authored_id_hash",
+          "stability": "world_definition",
+          "classified_by": "runtime_id_bit",
+          "notes": "FNV-1a hash of the world definition's authored id string, not a Flecs handle; stable across reloads of that definition, but a different world can reuse the number, so pair it with expect.session_generation across a world switch"
+        },
+        "name": {
+          "available": true,
+          "value": "coin-111"
+        },
+        "path": {
+          "available": true,
+          "value": "coin-111"
+        },
+        "parent": null,
+        "depth": 0,
+        "child_count": 0,
+        "components": [
+          "LocalTransform",
+          "RigidBody",
+          "ConvexHullCollider",
+          "PartInstance"
+        ],
+        "provenance": {
+          "available": false,
+          "reason": "authored entities carry no part-graph provenance; provenance is recorded for baked roots"
+        },
+        "part_instance": {
+          "available": true,
+          "value": "8793112039383506649"
+        },
+        "selected": false,
+        "primary": false
+      },
+      {
+        "object": {
+          "kind": "entity",
+          "id": "7602206316098337557"
+        },
+        "kind": "entity",
+        "identity": {
+          "namespace": "scene_entity",
+          "source": "world_authored_id_hash",
+          "stability": "world_definition",
+          "classified_by": "runtime_id_bit",
+          "notes": "FNV-1a hash of the world definition's authored id string, not a Flecs handle; stable across reloads of that definition, but a different world can reuse the number, so pair it with expect.session_generation across a world switch"
+        },
+        "name": {
+          "available": true,
+          "value": "coin-110"
+        },
+        "path": {
+          "available": true,
+          "value": "coin-110"
+        },
+        "parent": null,
+        "depth": 0,
+        "child_count": 0,
+        "components": [
+          "LocalTransform",
+          "RigidBody",
+          "ConvexHullCollider",
+          "PartInstance"
+        ],
+        "provenance": {
+          "available": false,
+          "reason": "authored entities carry no part-graph provenance; provenance is recorded for baked roots"
+        },
+        "part_instance": {
+          "available": true,
+          "value": "8793112039383506649"
+        },
+        "selected": false,
+        "primary": false
+      },
+      {
+        "object": {
+          "kind": "entity",
+          "id": "7602214012679735034"
+        },
+        "kind": "entity",
+        "identity": {
+          "namespace": "scene_entity",
+          "source": "world_authored_id_hash",
+          "stability": "world_definition",
+          "classified_by": "runtime_id_bit",
+          "notes": "FNV-1a hash of the world definition's authored id string, not a Flecs handle; stable across reloads of that definition, but a different world can reuse the number, so pair it with expect.session_generation across a world switch"
+        },
+        "name": {
+          "available": true,
+          "value": "coin-119"
+        },
+        "path": {
+          "available": true,
+          "value": "coin-119"
+        },
+        "parent": null,
+        "depth": 0,
+        "child_count": 0,
+        "components": [
+          "LocalTransform",
+          "RigidBody",
+          "ConvexHullCollider",
+          "PartInstance"
+        ],
+        "provenance": {
+          "available": false,
+          "reason": "authored entities carry no part-graph provenance; provenance is recorded for baked roots"
+        },
+        "part_instance": {
+          "available": true,
+          "value": "8793112039383506649"
+        },
+        "selected": false,
+        "primary": false
+      },
+      {
+        "object": {
+          "kind": "entity",
+          "id": "7602215112191363245"
+        },
+        "kind": "entity",
+        "identity": {
+          "namespace": "scene_entity",
+          "source": "world_authored_id_hash",
+          "stability": "world_definition",
+          "classified_by": "runtime_id_bit",
+          "notes": "FNV-1a hash of the world definition's authored id string, not a Flecs handle; stable across reloads of that definition, but a different world can reuse the number, so pair it with expect.session_generation across a world switch"
+        },
+        "name": {
+          "available": true,
+          "value": "coin-118"
+        },
+        "path": {
+          "available": true,
+          "value": "coin-118"
+        },
+        "parent": null,
+        "depth": 0,
+        "child_count": 0,
+        "components": [
+          "LocalTransform",
+          "RigidBody",
+          "ConvexHullCollider",
+          "PartInstance"
+        ],
+        "provenance": {
+          "available": false,
+          "reason": "authored entities carry no part-graph provenance; provenance is recorded for baked roots"
+        },
+        "part_instance": {
+          "available": true,
+          "value": "8793112039383506649"
+        },
+        "selected": false,
+        "primary": false
+      },
+      {
+        "object": {
+          "kind": "entity",
+          "id": "7603195876563538232"
+        },
+        "kind": "entity",
+        "identity": {
+          "namespace": "scene_entity",
+          "source": "world_authored_id_hash",
+          "stability": "world_definition",
+          "classified_by": "runtime_id_bit",
+          "notes": "FNV-1a hash of the world definition's authored id string, not a Flecs handle; stable across reloads of that definition, but a different world can reuse the number, so pair it with expect.session_generation across a world switch"
+        },
+        "name": {
+          "available": true,
+          "value": "coin-122"
+        },
+        "path": {
+          "available": true,
+          "value": "coin-122"
+        },
+        "parent": null,
+        "depth": 0,
+        "child_count": 0,
+        "components": [
+          "LocalTransform",
+          "RigidBody",
+          "ConvexHullCollider",
+          "PartInstance"
+        ],
+        "provenance": {
+          "available": false,
+          "reason": "authored entities carry no part-graph provenance; provenance is recorded for baked roots"
+        },
+        "part_instance": {
+          "available": true,
+          "value": "8793112039383506649"
+        },
+        "selected": false,
+        "primary": false
+      },
+      {
+        "object": {
+          "kind": "entity",
+          "id": "7603196976075166443"
+        },
+        "kind": "entity",
+        "identity": {
+          "namespace": "scene_entity",
+          "source": "world_authored_id_hash",
+          "stability": "world_definition",
+          "classified_by": "runtime_id_bit",
+          "notes": "FNV-1a hash of the world definition's authored id string, not a Flecs handle; stable across reloads of that definition, but a different world can reuse the number, so pair it with expect.session_generation across a world switch"
+        },
+        "name": {
+          "available": true,
+          "value": "coin-123"
+        },
+        "path": {
+          "available": true,
+          "value": "coin-123"
+        },
+        "parent": null,
+        "depth": 0,
+        "child_count": 0,
+        "components": [
+          "LocalTransform",
+          "RigidBody",
+          "ConvexHullCollider",
+          "PartInstance"
+        ],
+        "provenance": {
+          "available": false,
+          "reason": "authored entities carry no part-graph provenance; provenance is recorded for baked roots"
+        },
+        "part_instance": {
+          "available": true,
+          "value": "8793112039383506649"
+        },
+        "selected": false,
+        "primary": false
+      },
+      {
+        "object": {
+          "kind": "entity",
+          "id": "7603198075586794654"
+        },
+        "kind": "entity",
+        "identity": {
+          "namespace": "scene_entity",
+          "source": "world_authored_id_hash",
+          "stability": "world_definition",
+          "classified_by": "runtime_id_bit",
+          "notes": "FNV-1a hash of the world definition's authored id string, not a Flecs handle; stable across reloads of that definition, but a different world can reuse the number, so pair it with expect.session_generation across a world switch"
+        },
+        "name": {
+          "available": true,
+          "value": "coin-120"
+        },
+        "path": {
+          "available": true,
+          "value": "coin-120"
+        },
+        "parent": null,
+        "depth": 0,
+        "child_count": 0,
+        "components": [
+          "LocalTransform",
+          "RigidBody",
+          "ConvexHullCollider",
+          "PartInstance"
+        ],
+        "provenance": {
+          "available": false,
+          "reason": "authored entities carry no part-graph provenance; provenance is recorded for baked roots"
+        },
+        "part_instance": {
+          "available": true,
+          "value": "8793112039383506649"
+        },
+        "selected": false,
+        "primary": false
+      },
+      {
+        "object": {
+          "kind": "entity",
+          "id": "7603199175098422865"
+        },
+        "kind": "entity",
+        "identity": {
+          "namespace": "scene_entity",
+          "source": "world_authored_id_hash",
+          "stability": "world_definition",
+          "classified_by": "runtime_id_bit",
+          "notes": "FNV-1a hash of the world definition's authored id string, not a Flecs handle; stable across reloads of that definition, but a different world can reuse the number, so pair it with expect.session_generation across a world switch"
+        },
+        "name": {
+          "available": true,
+          "value": "coin-121"
+        },
+        "path": {
+          "available": true,
+          "value": "coin-121"
+        },
+        "parent": null,
+        "depth": 0,
+        "child_count": 0,
+        "components": [
+          "LocalTransform",
+          "RigidBody",
+          "ConvexHullCollider",
+          "PartInstance"
+        ],
+        "provenance": {
+          "available": false,
+          "reason": "authored entities carry no part-graph provenance; provenance is recorded for baked roots"
+        },
+        "part_instance": {
+          "available": true,
+          "value": "8793112039383506649"
+        },
+        "selected": false,
+        "primary": false
+      },
+      {
+        "object": {
+          "kind": "entity",
+          "id": "7603200274610051076"
+        },
+        "kind": "entity",
+        "identity": {
+          "namespace": "scene_entity",
+          "source": "world_authored_id_hash",
+          "stability": "world_definition",
+          "classified_by": "runtime_id_bit",
+          "notes": "FNV-1a hash of the world definition's authored id string, not a Flecs handle; stable across reloads of that definition, but a different world can reuse the number, so pair it with expect.session_generation across a world switch"
+        },
+        "name": {
+          "available": true,
+          "value": "coin-126"
+        },
+        "path": {
+          "available": true,
+          "value": "coin-126"
+        },
+        "parent": null,
+        "depth": 0,
+        "child_count": 0,
+        "components": [
+          "LocalTransform",
+          "RigidBody",
+          "ConvexHullCollider",
+          "PartInstance"
+        ],
+        "provenance": {
+          "available": false,
+          "reason": "authored entities carry no part-graph provenance; provenance is recorded for baked roots"
+        },
+        "part_instance": {
+          "available": true,
+          "value": "8793112039383506649"
+        },
+        "selected": false,
+        "primary": false
+      },
+      {
+        "object": {
+          "kind": "entity",
+          "id": "7603201374121679287"
+        },
+        "kind": "entity",
+        "identity": {
+          "namespace": "scene_entity",
+          "source": "world_authored_id_hash",
+          "stability": "world_definition",
+          "classified_by": "runtime_id_bit",
+          "notes": "FNV-1a hash of the world definition's authored id string, not a Flecs handle; stable across reloads of that definition, but a different world can reuse the number, so pair it with expect.session_generation across a world switch"
+        },
+        "name": {
+          "available": true,
+          "value": "coin-127"
+        },
+        "path": {
+          "available": true,
+          "value": "coin-127"
+        },
+        "parent": null,
+        "depth": 0,
+        "child_count": 0,
+        "components": [
+          "LocalTransform",
+          "RigidBody",
+          "ConvexHullCollider",
+          "PartInstance"
+        ],
+        "provenance": {
+          "available": false,
+          "reason": "authored entities carry no part-graph provenance; provenance is recorded for baked roots"
+        },
+        "part_instance": {
+          "available": true,
+          "value": "8793112039383506649"
+        },
+        "selected": false,
+        "primary": false
+      },
+      {
+        "object": {
+          "kind": "entity",
+          "id": "7603202473633307498"
+        },
+        "kind": "entity",
+        "identity": {
+          "namespace": "scene_entity",
+          "source": "world_authored_id_hash",
+          "stability": "world_definition",
+          "classified_by": "runtime_id_bit",
+          "notes": "FNV-1a hash of the world definition's authored id string, not a Flecs handle; stable across reloads of that definition, but a different world can reuse the number, so pair it with expect.session_generation across a world switch"
+        },
+        "name": {
+          "available": true,
+          "value": "coin-124"
+        },
+        "path": {
+          "available": true,
+          "value": "coin-124"
+        },
+        "parent": null,
+        "depth": 0,
+        "child_count": 0,
+        "components": [
+          "LocalTransform",
+          "RigidBody",
+          "ConvexHullCollider",
+          "PartInstance"
+        ],
+        "provenance": {
+          "available": false,
+          "reason": "authored entities carry no part-graph provenance; provenance is recorded for baked roots"
+        },
+        "part_instance": {
+          "available": true,
+          "value": "8793112039383506649"
+        },
+        "selected": false,
+        "primary": false
+      },
+      {
+        "object": {
+          "kind": "entity",
+          "id": "7603203573144935709"
+        },
+        "kind": "entity",
+        "identity": {
+          "namespace": "scene_entity",
+          "source": "world_authored_id_hash",
+          "stability": "world_definition",
+          "classified_by": "runtime_id_bit",
+          "notes": "FNV-1a hash of the world definition's authored id string, not a Flecs handle; stable across reloads of that definition, but a different world can reuse the number, so pair it with expect.session_generation across a world switch"
+        },
+        "name": {
+          "available": true,
+          "value": "coin-125"
+        },
+        "path": {
+          "available": true,
+          "value": "coin-125"
+        },
+        "parent": null,
+        "depth": 0,
+        "child_count": 0,
+        "components": [
+          "LocalTransform",
+          "RigidBody",
+          "ConvexHullCollider",
+          "PartInstance"
+        ],
+        "provenance": {
+          "available": false,
+          "reason": "authored entities carry no part-graph provenance; provenance is recorded for baked roots"
+        },
+        "part_instance": {
+          "available": true,
+          "value": "8793112039383506649"
+        },
+        "selected": false,
+        "primary": false
+      },
+      {
+        "object": {
+          "kind": "entity",
+          "id": "7684222202301532091"
+        },
+        "kind": "entity",
+        "identity": {
+          "namespace": "scene_entity",
+          "source": "world_authored_id_hash",
+          "stability": "world_definition",
+          "classified_by": "runtime_id_bit",
+          "notes": "FNV-1a hash of the world definition's authored id string, not a Flecs handle; stable across reloads of that definition, but a different world can reuse the number, so pair it with expect.session_generation across a world switch"
+        },
+        "name": {
+          "available": true,
+          "value": "Treasury floor"
+        },
+        "path": {
+          "available": true,
+          "value": "Treasury floor"
+        },
+        "parent": null,
+        "depth": 0,
+        "child_count": 0,
+        "components": [
+          "LocalTransform",
+          "RigidBody",
+          "BoxCollider"
+        ],
+        "provenance": {
+          "available": false,
+          "reason": "authored entities carry no part-graph provenance; provenance is recorded for baked roots"
+        },
+        "part_instance": {
+          "available": false,
+          "reason": "this entity has no PartInstance component in the live ECS"
+        },
+        "selected": false,
+        "primary": false
+      },
+      {
+        "object": {
+          "kind": "entity",
+          "id": "8072768928345014774"
+        },
+        "kind": "entity",
+        "identity": {
+          "namespace": "scene_entity",
+          "source": "world_authored_id_hash",
+          "stability": "world_definition",
+          "classified_by": "runtime_id_bit",
+          "notes": "FNV-1a hash of the world definition's authored id string, not a Flecs handle; stable across reloads of that definition, but a different world can reuse the number, so pair it with expect.session_generation across a world switch"
+        },
+        "name": {
+          "available": true,
+          "value": "bar-25"
+        },
+        "path": {
+          "available": true,
+          "value": "bar-25"
+        },
+        "parent": null,
+        "depth": 0,
+        "child_count": 0,
+        "components": [
+          "LocalTransform",
+          "RigidBody",
+          "ConvexHullCollider",
+          "PartInstance"
+        ],
+        "provenance": {
+          "available": false,
+          "reason": "authored entities carry no part-graph provenance; provenance is recorded for baked roots"
+        },
+        "part_instance": {
+          "available": true,
+          "value": "16329643784195185580"
+        },
+        "selected": false,
+        "primary": false
+      },
+      {
+        "object": {
+          "kind": "entity",
+          "id": "8072770027856642985"
+        },
+        "kind": "entity",
+        "identity": {
+          "namespace": "scene_entity",
+          "source": "world_authored_id_hash",
+          "stability": "world_definition",
+          "classified_by": "runtime_id_bit",
+          "notes": "FNV-1a hash of the world definition's authored id string, not a Flecs handle; stable across reloads of that definition, but a different world can reuse the number, so pair it with expect.session_generation across a world switch"
+        },
+        "name": {
+          "available": true,
+          "value": "bar-24"
+        },
+        "path": {
+          "available": true,
+          "value": "bar-24"
+        },
+        "parent": null,
+        "depth": 0,
+        "child_count": 0,
+        "components": [
+          "LocalTransform",
+          "RigidBody",
+          "ConvexHullCollider",
+          "PartInstance"
+        ],
+        "provenance": {
+          "available": false,
+          "reason": "authored entities carry no part-graph provenance; provenance is recorded for baked roots"
+        },
+        "part_instance": {
+          "available": true,
+          "value": "16329643784195185580"
+        },
+        "selected": false,
+        "primary": false
+      },
+      {
+        "object": {
+          "kind": "entity",
+          "id": "8072771127368271196"
+        },
+        "kind": "entity",
+        "identity": {
+          "namespace": "scene_entity",
+          "source": "world_authored_id_hash",
+          "stability": "world_definition",
+          "classified_by": "runtime_id_bit",
+          "notes": "FNV-1a hash of the world definition's authored id string, not a Flecs handle; stable across reloads of that definition, but a different world can reuse the number, so pair it with expect.session_generation across a world switch"
+        },
+        "name": {
+          "available": true,
+          "value": "bar-23"
+        },
+        "path": {
+          "available": true,
+          "value": "bar-23"
+        },
+        "parent": null,
+        "depth": 0,
+        "child_count": 0,
+        "components": [
+          "LocalTransform",
+          "RigidBody",
+          "ConvexHullCollider",
+          "PartInstance"
+        ],
+        "provenance": {
+          "available": false,
+          "reason": "authored entities carry no part-graph provenance; provenance is recorded for baked roots"
+        },
+        "part_instance": {
+          "available": true,
+          "value": "16329643784195185580"
+        },
+        "selected": false,
+        "primary": false
+      },
+      {
+        "object": {
+          "kind": "entity",
+          "id": "8072772226879899407"
+        },
+        "kind": "entity",
+        "identity": {
+          "namespace": "scene_entity",
+          "source": "world_authored_id_hash",
+          "stability": "world_definition",
+          "classified_by": "runtime_id_bit",
+          "notes": "FNV-1a hash of the world definition's authored id string, not a Flecs handle; stable across reloads of that definition, but a different world can reuse the number, so pair it with expect.session_generation across a world switch"
+        },
+        "name": {
+          "available": true,
+          "value": "bar-22"
+        },
+        "path": {
+          "available": true,
+          "value": "bar-22"
+        },
+        "parent": null,
+        "depth": 0,
+        "child_count": 0,
+        "components": [
+          "LocalTransform",
+          "RigidBody",
+          "ConvexHullCollider",
+          "PartInstance"
+        ],
+        "provenance": {
+          "available": false,
+          "reason": "authored entities carry no part-graph provenance; provenance is recorded for baked roots"
+        },
+        "part_instance": {
+          "available": true,
+          "value": "16329643784195185580"
+        },
+        "selected": false,
+        "primary": false
+      },
+      {
+        "object": {
+          "kind": "entity",
+          "id": "8072773326391527618"
+        },
+        "kind": "entity",
+        "identity": {
+          "namespace": "scene_entity",
+          "source": "world_authored_id_hash",
+          "stability": "world_definition",
+          "classified_by": "runtime_id_bit",
+          "notes": "FNV-1a hash of the world definition's authored id string, not a Flecs handle; stable across reloads of that definition, but a different world can reuse the number, so pair it with expect.session_generation across a world switch"
+        },
+        "name": {
+          "available": true,
+          "value": "bar-21"
+        },
+        "path": {
+          "available": true,
+          "value": "bar-21"
+        },
+        "parent": null,
+        "depth": 0,
+        "child_count": 0,
+        "components": [
+          "LocalTransform",
+          "RigidBody",
+          "ConvexHullCollider",
+          "PartInstance"
+        ],
+        "provenance": {
+          "available": false,
+          "reason": "authored entities carry no part-graph provenance; provenance is recorded for baked roots"
+        },
+        "part_instance": {
+          "available": true,
+          "value": "16329643784195185580"
+        },
+        "selected": false,
+        "primary": false
+      },
+      {
+        "object": {
+          "kind": "entity",
+          "id": "8072774425903155829"
+        },
+        "kind": "entity",
+        "identity": {
+          "namespace": "scene_entity",
+          "source": "world_authored_id_hash",
+          "stability": "world_definition",
+          "classified_by": "runtime_id_bit",
+          "notes": "FNV-1a hash of the world definition's authored id string, not a Flecs handle; stable across reloads of that definition, but a different world can reuse the number, so pair it with expect.session_generation across a world switch"
+        },
+        "name": {
+          "available": true,
+          "value": "bar-20"
+        },
+        "path": {
+          "available": true,
+          "value": "bar-20"
+        },
+        "parent": null,
+        "depth": 0,
+        "child_count": 0,
+        "components": [
+          "LocalTransform",
+          "RigidBody",
+          "ConvexHullCollider",
+          "PartInstance"
+        ],
+        "provenance": {
+          "available": false,
+          "reason": "authored entities carry no part-graph provenance; provenance is recorded for baked roots"
+        },
+        "part_instance": {
+          "available": true,
+          "value": "16329643784195185580"
+        },
+        "selected": false,
+        "primary": false
+      },
+      {
+        "object": {
+          "kind": "entity",
+          "id": "8073616651810176230"
+        },
+        "kind": "entity",
+        "identity": {
+          "namespace": "scene_entity",
+          "source": "world_authored_id_hash",
+          "stability": "world_definition",
+          "classified_by": "runtime_id_bit",
+          "notes": "FNV-1a hash of the world definition's authored id string, not a Flecs handle; stable across reloads of that definition, but a different world can reuse the number, so pair it with expect.session_generation across a world switch"
+        },
+        "name": {
+          "available": true,
+          "value": "bar-18"
+        },
+        "path": {
+          "available": true,
+          "value": "bar-18"
+        },
+        "parent": null,
+        "depth": 0,
+        "child_count": 0,
+        "components": [
+          "LocalTransform",
+          "RigidBody",
+          "ConvexHullCollider",
+          "PartInstance"
+        ],
+        "provenance": {
+          "available": false,
+          "reason": "authored entities carry no part-graph provenance; provenance is recorded for baked roots"
+        },
+        "part_instance": {
+          "available": true,
+          "value": "16329643784195185580"
+        },
+        "selected": false,
+        "primary": false
+      },
+      {
+        "object": {
+          "kind": "entity",
+          "id": "8073617751321804441"
+        },
+        "kind": "entity",
+        "identity": {
+          "namespace": "scene_entity",
+          "source": "world_authored_id_hash",
+          "stability": "world_definition",
+          "classified_by": "runtime_id_bit",
+          "notes": "FNV-1a hash of the world definition's authored id string, not a Flecs handle; stable across reloads of that definition, but a different world can reuse the number, so pair it with expect.session_generation across a world switch"
+        },
+        "name": {
+          "available": true,
+          "value": "bar-19"
+        },
+        "path": {
+          "available": true,
+          "value": "bar-19"
+        },
+        "parent": null,
+        "depth": 0,
+        "child_count": 0,
+        "components": [
+          "LocalTransform",
+          "RigidBody",
+          "ConvexHullCollider",
+          "PartInstance"
+        ],
+        "provenance": {
+          "available": false,
+          "reason": "authored entities carry no part-graph provenance; provenance is recorded for baked roots"
+        },
+        "part_instance": {
+          "available": true,
+          "value": "16329643784195185580"
+        },
+        "selected": false,
+        "primary": false
+      },
+      {
+        "object": {
+          "kind": "entity",
+          "id": "8073623248879945496"
+        },
+        "kind": "entity",
+        "identity": {
+          "namespace": "scene_entity",
+          "source": "world_authored_id_hash",
+          "stability": "world_definition",
+          "classified_by": "runtime_id_bit",
+          "notes": "FNV-1a hash of the world definition's authored id string, not a Flecs handle; stable across reloads of that definition, but a different world can reuse the number, so pair it with expect.session_generation across a world switch"
+        },
+        "name": {
+          "available": true,
+          "value": "bar-12"
+        },
+        "path": {
+          "available": true,
+          "value": "bar-12"
+        },
+        "parent": null,
+        "depth": 0,
+        "child_count": 0,
+        "components": [
+          "LocalTransform",
+          "RigidBody",
+          "ConvexHullCollider",
+          "PartInstance"
+        ],
+        "provenance": {
+          "available": false,
+          "reason": "authored entities carry no part-graph provenance; provenance is recorded for baked roots"
+        },
+        "part_instance": {
+          "available": true,
+          "value": "16329643784195185580"
+        },
+        "selected": false,
+        "primary": false
+      },
+      {
+        "object": {
+          "kind": "entity",
+          "id": "8073624348391573707"
+        },
+        "kind": "entity",
+        "identity": {
+          "namespace": "scene_entity",
+          "source": "world_authored_id_hash",
+          "stability": "world_definition",
+          "classified_by": "runtime_id_bit",
+          "notes": "FNV-1a hash of the world definition's authored id string, not a Flecs handle; stable across reloads of that definition, but a different world can reuse the number, so pair it with expect.session_generation across a world switch"
+        },
+        "name": {
+          "available": true,
+          "value": "bar-13"
+        },
+        "path": {
+          "available": true,
+          "value": "bar-13"
+        },
+        "parent": null,
+        "depth": 0,
+        "child_count": 0,
+        "components": [
+          "LocalTransform",
+          "RigidBody",
+          "ConvexHullCollider",
+          "PartInstance"
+        ],
+        "provenance": {
+          "available": false,
+          "reason": "authored entities carry no part-graph provenance; provenance is recorded for baked roots"
+        },
+        "part_instance": {
+          "available": true,
+          "value": "16329643784195185580"
+        },
+        "selected": false,
+        "primary": false
+      },
+      {
+        "object": {
+          "kind": "entity",
+          "id": "8073625447903201918"
+        },
+        "kind": "entity",
+        "identity": {
+          "namespace": "scene_entity",
+          "source": "world_authored_id_hash",
+          "stability": "world_definition",
+          "classified_by": "runtime_id_bit",
+          "notes": "FNV-1a hash of the world definition's authored id string, not a Flecs handle; stable across reloads of that definition, but a different world can reuse the number, so pair it with expect.session_generation across a world switch"
+        },
+        "name": {
+          "available": true,
+          "value": "bar-10"
+        },
+        "path": {
+          "available": true,
+          "value": "bar-10"
+        },
+        "parent": null,
+        "depth": 0,
+        "child_count": 0,
+        "components": [
+          "LocalTransform",
+          "RigidBody",
+          "ConvexHullCollider",
+          "PartInstance"
+        ],
+        "provenance": {
+          "available": false,
+          "reason": "authored entities carry no part-graph provenance; provenance is recorded for baked roots"
+        },
+        "part_instance": {
+          "available": true,
+          "value": "16329643784195185580"
+        },
+        "selected": false,
+        "primary": false
+      },
+      {
+        "object": {
+          "kind": "entity",
+          "id": "8073626547414830129"
+        },
+        "kind": "entity",
+        "identity": {
+          "namespace": "scene_entity",
+          "source": "world_authored_id_hash",
+          "stability": "world_definition",
+          "classified_by": "runtime_id_bit",
+          "notes": "FNV-1a hash of the world definition's authored id string, not a Flecs handle; stable across reloads of that definition, but a different world can reuse the number, so pair it with expect.session_generation across a world switch"
+        },
+        "name": {
+          "available": true,
+          "value": "bar-11"
+        },
+        "path": {
+          "available": true,
+          "value": "bar-11"
+        },
+        "parent": null,
+        "depth": 0,
+        "child_count": 0,
+        "components": [
+          "LocalTransform",
+          "RigidBody",
+          "ConvexHullCollider",
+          "PartInstance"
+        ],
+        "provenance": {
+          "available": false,
+          "reason": "authored entities carry no part-graph provenance; provenance is recorded for baked roots"
+        },
+        "part_instance": {
+          "available": true,
+          "value": "16329643784195185580"
+        },
+        "selected": false,
+        "primary": false
+      },
+      {
+        "object": {
+          "kind": "entity",
+          "id": "8073627646926458340"
+        },
+        "kind": "entity",
+        "identity": {
+          "namespace": "scene_entity",
+          "source": "world_authored_id_hash",
+          "stability": "world_definition",
+          "classified_by": "runtime_id_bit",
+          "notes": "FNV-1a hash of the world definition's authored id string, not a Flecs handle; stable across reloads of that definition, but a different world can reuse the number, so pair it with expect.session_generation across a world switch"
+        },
+        "name": {
+          "available": true,
+          "value": "bar-16"
+        },
+        "path": {
+          "available": true,
+          "value": "bar-16"
+        },
+        "parent": null,
+        "depth": 0,
+        "child_count": 0,
+        "components": [
+          "LocalTransform",
+          "RigidBody",
+          "ConvexHullCollider",
+          "PartInstance"
+        ],
+        "provenance": {
+          "available": false,
+          "reason": "authored entities carry no part-graph provenance; provenance is recorded for baked roots"
+        },
+        "part_instance": {
+          "available": true,
+          "value": "16329643784195185580"
+        },
+        "selected": false,
+        "primary": false
+      },
+      {
+        "object": {
+          "kind": "entity",
+          "id": "8073628746438086551"
+        },
+        "kind": "entity",
+        "identity": {
+          "namespace": "scene_entity",
+          "source": "world_authored_id_hash",
+          "stability": "world_definition",
+          "classified_by": "runtime_id_bit",
+          "notes": "FNV-1a hash of the world definition's authored id string, not a Flecs handle; stable across reloads of that definition, but a different world can reuse the number, so pair it with expect.session_generation across a world switch"
+        },
+        "name": {
+          "available": true,
+          "value": "bar-17"
+        },
+        "path": {
+          "available": true,
+          "value": "bar-17"
+        },
+        "parent": null,
+        "depth": 0,
+        "child_count": 0,
+        "components": [
+          "LocalTransform",
+          "RigidBody",
+          "ConvexHullCollider",
+          "PartInstance"
+        ],
+        "provenance": {
+          "available": false,
+          "reason": "authored entities carry no part-graph provenance; provenance is recorded for baked roots"
+        },
+        "part_instance": {
+          "available": true,
+          "value": "16329643784195185580"
+        },
+        "selected": false,
+        "primary": false
+      },
+      {
+        "object": {
+          "kind": "entity",
+          "id": "8073629845949714762"
+        },
+        "kind": "entity",
+        "identity": {
+          "namespace": "scene_entity",
+          "source": "world_authored_id_hash",
+          "stability": "world_definition",
+          "classified_by": "runtime_id_bit",
+          "notes": "FNV-1a hash of the world definition's authored id string, not a Flecs handle; stable across reloads of that definition, but a different world can reuse the number, so pair it with expect.session_generation across a world switch"
+        },
+        "name": {
+          "available": true,
+          "value": "bar-14"
+        },
+        "path": {
+          "available": true,
+          "value": "bar-14"
+        },
+        "parent": null,
+        "depth": 0,
+        "child_count": 0,
+        "components": [
+          "LocalTransform",
+          "RigidBody",
+          "ConvexHullCollider",
+          "PartInstance"
+        ],
+        "provenance": {
+          "available": false,
+          "reason": "authored entities carry no part-graph provenance; provenance is recorded for baked roots"
+        },
+        "part_instance": {
+          "available": true,
+          "value": "16329643784195185580"
+        },
+        "selected": false,
+        "primary": false
+      },
+      {
+        "object": {
+          "kind": "entity",
+          "id": "8073630945461342973"
+        },
+        "kind": "entity",
+        "identity": {
+          "namespace": "scene_entity",
+          "source": "world_authored_id_hash",
+          "stability": "world_definition",
+          "classified_by": "runtime_id_bit",
+          "notes": "FNV-1a hash of the world definition's authored id string, not a Flecs handle; stable across reloads of that definition, but a different world can reuse the number, so pair it with expect.session_generation across a world switch"
+        },
+        "name": {
+          "available": true,
+          "value": "bar-15"
+        },
+        "path": {
+          "available": true,
+          "value": "bar-15"
+        },
+        "parent": null,
+        "depth": 0,
+        "child_count": 0,
+        "components": [
+          "LocalTransform",
+          "RigidBody",
+          "ConvexHullCollider",
+          "PartInstance"
+        ],
+        "provenance": {
+          "available": false,
+          "reason": "authored entities carry no part-graph provenance; provenance is recorded for baked roots"
+        },
+        "part_instance": {
+          "available": true,
+          "value": "16329643784195185580"
+        },
+        "selected": false,
+        "primary": false
+      }
+    ]
+  }
+}

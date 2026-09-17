@@ -1,0 +1,86 @@
+{
+  "tests": {
+    "files": 30,
+    "passed": 113
+  },
+  "finalGeometry": {
+    "lengthMetres": 125.1098201913564,
+    "maxViewTurnDegreesPerMetre": 22.550688554603838,
+    "maxViewDirectionSlopeChange": 0.7919208727501924,
+    "maxCurvature": 3.8476928081114186
+  },
+  "sightlines": {
+    "quarterMetreSamples": 501,
+    "blankWallSamples": 0,
+    "wallDominatedSamples": 0
+  },
+  "browser": {
+    "forward": {
+      "frames": 4224,
+      "seconds": 109.04560000000001,
+      "order": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13
+      ],
+      "cruiseFrames": 3901,
+      "cruiseSpeed": 1.2
+    },
+    "reverse": {
+      "frames": 4188,
+      "seconds": 108.7789,
+      "order": [
+        13,
+        12,
+        11,
+        10,
+        9,
+        8,
+        7,
+        6,
+        5,
+        4,
+        3,
+        2,
+        1,
+        0
+      ],
+      "cruiseFrames": 3812,
+      "cruiseSpeed": -1.2
+    },
+    "desktopProblems": {
+      "errors": [],
+      "warnings": [],
+      "pageErrors": [],
+      "failedRequests": [],
+      "badResponses": []
+    },
+    "mobile": {
+      "touchCruise": true,
+      "pauseStable": true,
+      "resume": true,
+      "spacePause": true,
+      "projectNavigation": true,
+      "readingStable": true,
+      "noOverflow": true,
+      "problems": {
+        "errors": [],
+        "warnings": [],
+        "pageErrors": [],
+        "failedRequests": [],
+        "badResponses": []
+      }
+    }
+  }
+}

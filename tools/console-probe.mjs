@@ -125,7 +125,7 @@ async function interact(page, found) {
   const box = await page.locator('#villa').boundingBox();
   await page.mouse.move(box.x + box.width * 0.3, box.y + box.height / 2);
   for (let notch = 0; notch < 6; notch++) {
-    await page.mouse.wheel(0, 100);
+    await page.mouse.wheel(0, -100);
     await page.waitForTimeout(150);
   }
   await page.waitForTimeout(1_000);

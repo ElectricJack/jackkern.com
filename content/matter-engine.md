@@ -1,7 +1,7 @@
-A prototype C and C++ engine for procedural generation and ray-traced rendering of voxel and particle "matter". The long-term target is real-time rendering of billions of meshed static particles with level of detail, plus a dynamic particle-physics layer for thermal, electrical, chemical and bonding interactions.
+A procedural world, built from the material up. An experimental C++ engine for generating geometry and rendering voxel and particle matter.
 
-It is a monorepo of independently buildable sub-projects: memory managers, spatial queries and BVH structures, a canonical math library, particle flow simulation, the marching-cubes cluster and cell meshing that feeds the ray tracer, UV charting, a content-addressed asset store, an always-on profiler, the MatterEngine3 kernel with its QuickJS script host and Vulkan renderer, and the MatterEditor.
+Matter Engine brings together meshing, spatial queries, simulation, and a Vulkan renderer, with a QuickJS host for scripting. It explores how detailed worlds can emerge from smaller, reusable systems.
 
-The stone, water and light in this villa are baked by it.
+This villa is a work in progress. Its simple forms will eventually give way to geometry, materials, and baked light authored in Matter Engine.
 
-[Source on GitHub](https://github.com/ElectricJack/matter-engine)
+[Explore the source](https://github.com/ElectricJack/matter-engine)

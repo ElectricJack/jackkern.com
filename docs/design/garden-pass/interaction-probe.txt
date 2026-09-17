@@ -1,0 +1,4 @@
+ok   swiftshader /        errors 0, page errors 0, failed requests 0, >=400 0, broken images 0, warnings 0
+     renderer: ANGLE (Google, Vulkan 1.3.0 (SwiftShader Device (Subzero) (0x0000C0DE)), SwiftShader driver)
+     steps: scene → wheel → ArrowDown → context loss static -> scene → hotspot 0->0 (aimed at 1)
+console-probe: clean

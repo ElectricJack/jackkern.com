@@ -3,18 +3,46 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>Jack Kern</title>
-    <meta name="description" content="Jack Kern's projects, laid out as the rooms of a sunlit villa." />
+    <title>Jack Kern — A collection of things I build</title>
+    <meta name="description" content="Engines, developer tools, and systems for working with AI. Explore Jack Kern's projects through the rooms of a sunlit villa." />
+    <meta name="theme-color" content="#f1eee5" />
     <link rel="icon" href="/favicon.svg" />
     <link rel="stylesheet" href="/src/styles.css" />
   </head>
   <body>
     <main id="app" data-mode="boot">
-      <div id="loading" role="progressbar" aria-label="Loading the villa" aria-valuemin="0" aria-valuemax="100"><span></span></div>
+      <a class="skip-link" href="#fallback">Skip to project list</a>
+      <header class="site-header" data-ui>
+        <a class="wordmark" href="./" aria-label="Jack Kern, home"><span class="monogram" aria-hidden="true">jk</span><span>Jack Kern<small>Engines, tools &amp; other explorations</small></span></a>
+        <nav aria-label="Main navigation"><a href="#work-index" id="index-toggle">Projects <span aria-hidden="true">↗</span></a><a class="contact-link" href="mailto:jack.w.kern@gmail.com">Say hello <span aria-hidden="true">↗</span></a></nav>
+      </header>
+      <div id="loading" role="progressbar" aria-label="Loading the villa" aria-valuemin="0" aria-valuemax="100"><span></span><p>Opening the courtyard</p></div>
       <section id="fallback" aria-label="Project promenade"><!-- fallback --></section>
       <canvas id="villa" aria-hidden="true" hidden></canvas>
-      <aside id="panels" aria-live="polite" hidden><!-- panels --></aside>
+      <div class="scene-shade" aria-hidden="true"></div>
+      <section id="welcome" class="journey-note" data-ui hidden>
+        <p class="eyebrow"><span></span> A personal collection</p>
+        <h1>A place for<br>things I <em>build.</em></h1>
+        <p class="intro-copy">Engines, developer tools, and systems for working with AI. A few ongoing explorations, gathered under one roof.</p>
+        <button class="text-button" id="begin-walk">Explore the projects <span aria-hidden="true">↗</span></button>
+      </section>
+      <aside id="panels" aria-label="Project details" data-ui hidden><!-- panels --></aside>
+      <section id="farewell" class="journey-note" data-ui hidden>
+        <p class="eyebrow">The terrace</p><h2>Always something<br><em>in the making.</em></h2>
+        <p class="intro-copy">Have a question about a project, or something you’d like to build together? I’d like to hear about it.</p>
+        <a class="text-button" href="mailto:jack.w.kern@gmail.com">Let’s talk <span aria-hidden="true">↗</span></a>
+      </section>
+      <footer class="journey-footer" data-ui>
+        <div class="travel-hint"><span class="scroll-symbol" aria-hidden="true">↓</span><span><span id="travel-instruction">Scroll to begin</span><small>space to pause · arrows to change direction</small></span></div>
+        <div class="journey-position"><span id="room-name">The courtyard</span><span class="position-track"><span id="walk-progress"></span></span><span id="walk-percent">00</span></div>
+        <div class="journey-actions"><a href="./?view=list">Read as a page</a><button id="next-space" aria-label="Begin the flight">Begin <span aria-hidden="true">→</span></button></div>
+      </footer>
     </main>
+    <dialog id="project-dialog" aria-labelledby="index-title">
+      <div class="index-header"><p class="eyebrow">Take a closer look</p><button id="index-close" aria-label="Close project index">×</button></div>
+      <h2 id="index-title">Selected <em>work.</em></h2><nav class="project-index" aria-label="Choose a project"><!-- index --></nav>
+      <a class="index-page-link" href="./?view=list">Prefer a simple page? <span aria-hidden="true">↗</span></a>
+    </dialog>
     <script type="module" src="/src/entry.ts"></script>
   </body>
 </html>

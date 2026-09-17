@@ -2,6 +2,7 @@ import contract from '../../kit/contract.json';
 import manifest from '../../content/manifest.json';
 import { layout } from '../../layout/layout.js';
 import { Rail } from '../../src/camera/rail';
+import { architecturalDetails } from './detail-shapes';
 // @ts-expect-error -- plain JS geometry helper, shared with tests/layout/sightlines.test.ts
 import { boxDistance, worldShapes } from '../../tools/sightlines.mjs';
 
@@ -49,6 +50,13 @@ test('the walk stays inside the stops it links', () => {
     (p) => !boxes.some((b) => [0, 1, 2].every((i) => p[i] >= b.min[i] - 1e-6 && p[i] <= b.max[i] + 1e-6)),
   );
   expect(outside.slice(0, 5).map((p) => p.map((v) => v.toFixed(2)).join(', '))).toEqual([]);
+});
+
+test('new arches, stone courses and stair balustrades leave the camera clear', () => {
+  const details = architecturalDetails(plan);
+  let nearest = Infinity;
+  for (const point of walk) for (const detail of details) nearest = Math.min(nearest, boxDistance(point, detail));
+  expect(nearest).toBeGreaterThanOrEqual(CLEARANCE_M);
 });
 
 test('the walk crosses every doorway through its opening', () => {

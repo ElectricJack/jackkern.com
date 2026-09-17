@@ -1,11 +1,12 @@
-// layout/layout.js — pure and deterministic. Imports only from ./hash.js and ./rng.js.
+// layout/layout.js — pure and deterministic, including the native baked treasury poses.
 import { canonical, fnv1a64 } from './hash.js';
 import { mulberry32, int, pick } from './rng.js';
+import { treasuryPlacements } from './treasury.js';
 
 export const LAYOUT_VERSION = 1;
 export const LEVEL_HEIGHT = 1; // metres dropped per stair run
 export const EYE_HEIGHT = 1.7;
-export const SIZES = { court: [9, 9], gallery: [9, 12], 'pool-hall': [9, 9], exedra: [6, 6], courtyard: [9, 6], terrace: [9, 6] };
+export const SIZES = { court: [9, 9], gallery: [9, 12], 'pool-hall': [9, 9], exedra: [6, 6], courtyard: [9, 9], terrace: [9, 6] };
 export const HEADINGS = [[0, 1], [1, 0], [0, -1], [-1, 0]]; // dx, dz for heading 0:+z 1:+x 2:-z 3:-x
 
 // Where a visitor stands, and where the markers float. A viewpoint frames its stop from the
@@ -100,7 +101,9 @@ function expand(manifest, parts) {
       if (!focal || focal.category !== 'focal') throw new LayoutError('unknown_focal', m.id + ': ' + m.focal + ' is not a focal part');
       const last = entries[entries.length - 1];
       if (last && last.kind === 'room') entries.push({ id: 'cy-' + ++courtyards, kind: 'courtyard', archetype: 'courtyard', centreHeight: centrepieceHeight(parts) });
-      entries.push({ id: m.id, kind: 'room', archetype: m.archetype, focal: m.focal, centreHeight: focal.height, title: m.title });
+      const focalScale = m.focalScale ?? 1;
+      if (!Number.isFinite(focalScale) || focalScale <= 0 || focalScale > 1) throw new LayoutError('focal_scale', m.id + ': focalScale must be in (0, 1]');
+      entries.push({ id: m.id, kind: 'room', archetype: m.archetype, focal: m.focal, focalScale, centreHeight: focal.height * focalScale, title: m.title });
     } else if (m.kind === 'terrace') {
       entries.push({ id: 'cy-' + ++courtyards, kind: 'courtyard', archetype: 'courtyard', centreHeight: centrepieceHeight(parts) });
       entries.push({ id: m.id, kind: 'terrace', archetype: 'terrace' });
@@ -242,14 +245,16 @@ function viewLocals(stop) {
     // stepping into the side aisle away from the turn ahead, looking across the water.
     const want = FRAME_PER_METRE * stop.centreHeight;
     const axial = stop.d / 2 - OPEN_EDGE;
-    const aside = Math.min(stop.w / 2 - AISLE, Math.sqrt(Math.max(0, want * want - axial * axial)));
+    const aside = Math.min(stop.w / 2 - (stop.kind === 'courtyard' ? 1.4 : AISLE), Math.sqrt(Math.max(0, want * want - axial * axial)));
     return [[fix(keepSide(stop) * aside), OPEN_EDGE]];
   }
   const focalV = focalLocal(stop)[1];
   const framed = focalV - FRAME_PER_METRE * stop.centreHeight;
   // Far enough back to frame the piece, but always inside the room and ahead of the entry.
   const enter = near + EDGE_STANDOFF;
-  return [[0, enter], [0, fix(Math.max(enter + 1, Math.min(focalV - 1.5, framed)))]];
+  // Stay on the doorway's line before gently approaching the focal axis. For an offset
+  // entrance, forcing the first view onto the axis created two tight right-angle turns.
+  return [[entryLocal(stop)[0], enter], [0, fix(Math.max(enter + 1, Math.min(focalV - 1.5, framed)))]];
 }
 
 /** Local (u, v) of the marker that leads out: short of the threshold, clear of the focal piece. */
@@ -257,7 +262,7 @@ function thresholdLocal(stop) {
   const [eu, ev] = exitLocal(stop);
   // Turning out of a courtyard, the water in the middle stands between the visitor and the far
   // end of the exit side, so the marker keeps to the visitor's own depth, beside the threshold.
-  if (stop.turn !== 0) return [eu - stop.turn * MARKER_INSET, Math.min(ev - MARKER_INSET, OPEN_EDGE)];
+  if (stop.turn !== 0) return [eu - stop.turn * MARKER_INSET, Math.min(ev - MARKER_INSET, OPEN_EDGE + 0.75)];
   // Straight ahead, the focal piece stands on the axis at the far wall: step aside from it, onto
   // the doorway's own line where the doorway is already off the axis.
   return [eu === 0 ? keepSide(stop) * MARKER_INSET : eu, ev - MARKER_INSET];
@@ -291,47 +296,56 @@ function walkOut(stop) {
   if (!stop.hasExit) return [];
   const [eu, ev] = exitLocal(stop);
   const door = ['door', eu, ev];
+  const alongside = stop.kind === 'courtyard'
+    ? [['along', keepSide(stop) * (stop.w / 2 - PASS_INSET), stop.d / 2 + 0.8]] : [];
   // Turning out of a court or courtyard, the water in the middle stands between the visitor
-  // and the exit: keep to the near aisle across to the exit side, then square up and go
+  // and the exit: keep to the far aisle across to the exit side, then square up and go
   // straight out, rather than cutting the corner into the column that ends the run.
   if (stop.turn !== 0) {
     const aside = eu - stop.turn * PASS_INSET;
-    return [['turn', aside, OPEN_EDGE], ['square', aside, ev], door];
+    // Continue around the fountain from the arrival side. Crossing the near aisle back past
+    // the viewpoint made two courtyard paths reverse by 180 degrees and stall at the cusp.
+    const arrival = keepSide(stop) * (stop.w / 2 - PASS_INSET);
+    return [...alongside, ['round', arrival, stop.d - PASS_INSET], ['far', aside, stop.d - PASS_INSET], ['head', eu - stop.turn * 1.5, ev], door];
   }
   // Straight on out of a stop that drops a level, the doorway is the head of a stair run: square
   // up to it EDGE_STANDOFF short, as the viewpoint below stands that far past the foot, so the
   // walk comes onto the stairs straight and level rather than already on its way down.
-  if (stop.kind !== 'room') return stop.drop ? [['head', eu, ev - EDGE_STANDOFF], door] : [door];
+  if (stop.kind !== 'room') {
+    const round = stop.kind === 'courtyard' ? [['round', keepSide(stop) * (stop.w / 2 - PASS_INSET), stop.d - 1.5]] : [];
+    return [...alongside, ...round, ...(stop.drop || round.length ? [['head', eu, ev - EDGE_STANDOFF]] : []), door];
+  }
   // Straight on out of a room, the focal piece stands on the axis at the far wall, between
   // the last viewpoint and the doorway: pass it on the doorway's own side of the axis.
   return [['pass', (eu === 0 ? keepSide(stop) : Math.sign(eu)) * PASS_INSET, focalLocal(stop)[1]], door];
 }
 
 /**
- * A walk point looks where the viewpoints on either side of it look, blended by how far
- * along it is between them. The detour is in the positions only: the look direction still
- * runs viewpoint to viewpoint, the way it did when the two were joined by a straight line.
+ * Guide the gaze between visible subjects, using the opening itself before looking into
+ * the next room. Blending distant room targets alone aims through the wall beside a door.
+ * Courtyards hold their fountain before handing the view to the next opening.
  */
-function aimWalk(path) {
-  const gap = (a, b) => {
-    const d = [0, 1, 2].map((i) => b.position[i] - a.position[i]);
-    return Math.sqrt(d[0] * d[0] + d[1] * d[1] + d[2] * d[2]);
-  };
-  for (let i = 0; i < path.length; i++) {
-    if (path[i].target) continue;
-    // Filled in order, so the point before this one is already aimed; the first and last of
-    // the path are viewpoints, so there is always one to reach on either side.
-    const before = i - 1;
-    let after = i + 1;
-    while (!path[after].target) after++;
-    let run = 0;
-    let reached = 0;
-    for (let k = before; k < after; k++) {
-      run += gap(path[k], path[k + 1]);
-      if (k === i - 1) reached = run;
+function aimWalk(path, stops) {
+  const subject = (stop) => stop.kind === 'room'
+    ? worldPoint(stop, ...focalLocal(stop), Math.min(1.5, stop.centreHeight / 2))
+    : lookFor(stop);
+  for (const point of path) {
+    if (!point.target) {
+      const index = stops.findIndex((stop) => stop.id === point.stop);
+      const stop = stops[index], next = stops[index + 1];
+      const name = point.id.slice(stop.id.length + 1);
+      const [eu, ev] = exitLocal(stop);
+      const opening = worldPoint(stop, eu + stop.turn * 0.5, ev + (stop.turn === 0 ? 0.5 : 0), 1.5);
+      if (name === 'door' || name === 'head') point.target = next ? subject(next) : lookFor(stop);
+      else if (name === 'along') point.target = subject(stop).map((v, i) => fix(v * 0.75 + opening[i] * 0.25));
+      else if (name === 'round' || name === 'pass' || name === 'far') point.target = opening;
+      else point.target = subject(stop);
     }
-    const t = run ? reached / run : 0;
-    path[i].target = path[before].target.map((v, k) => fix(v + (path[after].target[k] - v) * t));
+    // Give every gaze ray the same reach. Interpolating a nearby doorway with a distant
+    // subject otherwise delays most of the turn until the very end of the transition.
+    const delta = point.target.map((v, i) => v - point.position[i]);
+    const distance = Math.hypot(...delta);
+    point.target = point.position.map((v, i) => fix(v + delta[i] * 8 / distance));
   }
 }
 
@@ -431,6 +445,11 @@ export function fill(stop, parts, rng) {
   // Water.
   if (archetype === 'pool-hall' || archetype === 'courtyard' || archetype === 'court') {
     place('pool-basin-3x3', 0, d / 2, 0, 0);
+    for (const side of [-1, 1]) {
+      place('pool-edge-straight', 0, d / 2 + side * 1.41, 0, .07);
+      place('pool-edge-straight', side * 1.41, d / 2, 1, .07);
+      for (const other of [-1, 1]) place('pool-edge-corner', side * 1.41, d / 2 + other * 1.41, 0, .07);
+    }
     if (archetype !== 'pool-hall') place(CENTREPIECE, 0, d / 2, 0, 0);
   }
 
@@ -444,7 +463,11 @@ export function fill(stop, parts, rng) {
   }
 
   // Focal object at the far wall on the rail axis.
-  if (stop.kind === 'room') place(stop.focal, ...focalLocal(stop), 0, 0);
+  if (stop.kind === 'room') {
+    place(stop.focal, ...focalLocal(stop), 0, 0);
+    const transform = out[out.length - 1].transform;
+    for (const i of [0, 1, 2, 4, 5, 6, 8, 9, 10]) transform[i] = fix(transform[i] * stop.focalScale);
+  }
 
   // Dressing along the side walls, away from thresholds and out of the camera's way. The
   // camera rides the whole walk, not only the viewpoints, so an urn on the line it takes
@@ -455,25 +478,86 @@ export function fill(stop, parts, rng) {
     for (let v = 1.5; v <= d - 1.5; v += 1.5) {
       const sideIsDoor = (u < 0 && status.left === 'door') || (u > 0 && status.right === 'door');
       if (sideIsDoor && Math.abs(v - d / 2) < 2) continue;
-      if (walk.some(([wu, wv]) => Math.hypot(u - wu, v - wv) < VIEW_CLEARANCE)) continue;
+      if (walk.some(([wu, wv], i) => {
+        const [nu, nv] = walk[i + 1] || [wu, wv];
+        const du = nu - wu, dv = nv - wv, length2 = du * du + dv * dv;
+        const t = length2 ? Math.max(0, Math.min(1, ((u - wu) * du + (v - wv) * dv) / length2)) : 0;
+        return Math.hypot(u - wu - t * du, v - wv - t * dv) < VIEW_CLEARANCE;
+      })) continue;
       slots.push([u, v]);
     }
   }
   for (let n = 0; n < DRESSING_BUDGET[archetype] && slots.length; n++) {
     const [uu, vv] = slots.splice(int(rng, 0, slots.length - 1), 1)[0];
-    place(pick(rng, DRESSING_PARTS), uu, vv, 0, 0);
+    const dressing = pick(rng, DRESSING_PARTS);
+    place(dressing, uu, vv, 0, 0);
+    if (dressing === 'planter-square') {
+      place('olive-small', uu, vv, 0, .69);
+      // Narrow the crown for a pot without widening the camera-clearance envelope.
+      const tree = out[out.length - 1].transform;
+      for (const i of [0, 1, 2, 8, 9, 10]) tree[i] = fix(tree[i] * .70);
+      place('ground-plant-clump', uu, vv, 0, .69);
+    }
+  }
+
+  // A second, deliberately planted layer uses the same clearance-filtered slots.
+  // Keep the original art placements stable while making the gardens less sparse.
+  for (let n = 0; n < (open ? 3 : 1) && slots.length; n++) {
+    const [u, v] = slots.splice((n * 3 + stop.id.length) % slots.length, 1)[0];
+    place('planter-square', u, v);
+    place('olive-small', u, v, n % 4, .69);
+    const tree = out[out.length - 1].transform;
+    for (const i of [0, 1, 2, 8, 9, 10]) tree[i] = fix(tree[i] * .70);
+    place('ground-plant-clump', u, v, 0, .69);
+  }
+
+  // A broad arrival stair gives the raised villa a connection to the garden.
+  if (stop.kind === 'court' && !stop.hasEntry) {
+    for (const u of [-3, 0, 3]) place('stair-run-3m', u, -2.15, 2);
+  }
+
+  // Reliefs face inward, high on the wall; their bases are authored at 1.1 m.
+  if (stop.kind === 'room') {
+    const v = Math.min(d - 1.5, d / 2);
+    if (status.left !== 'door') place('wall-inset-panel', -w / 2 + .31, v, 3);
+    if (status.right !== 'door') place('wall-inset-panel', w / 2 - .31, v, 1);
+    for (const side of ['back', 'front']) for (const seg of sideSegments(stop, side)) {
+      if (status[side] === 'door' && seg.u === thresholdAlong(stop, side)) continue;
+      // Both faces of the end walls are seen during the flight.
+      for (const face of [-1, 1]) place('wall-inset-panel', seg.u, seg.v + face * .18, face < 0 ? 0 : 2);
+    }
+  }
+  if (archetype === 'terrace') {
+    for (const u of [-3.35, 3.35]) place('bench-3m', u, d / 2, 1);
   }
 
   return out;
 }
 
-/** Where a non-room stop looks: on through the exit, or out past the far edge at the end. */
+/** Neighboring stops share boundaries, not duplicate structural members. Walls
+ * carry the cornice at a room/court join; a round column must not sit inside them. */
+export function joinArchitecture(placements) {
+  const walls = placements.filter((p) => p.part === 'wall-3m' || p.part === 'wall-3m-doorway');
+  const seen = new Set();
+  return placements.filter((p) => {
+    if (p.part === 'column-doric' && walls.some((wall) => {
+      const m=p.transform,w=wall.transform,dx=m[12]-w[12],dz=m[14]-w[14];
+      const x=w[0]*dx+w[2]*dz,z=w[8]*dx+w[10]*dz;
+      return m[13]<w[13]+4 && m[13]+4>w[13] && Math.abs(x)<2 && Math.abs(z)<.66;
+    })) return false;
+    if (p.part !== 'column-doric' && p.part !== 'entablature-3m') return true;
+    const m = p.transform;
+    const key = p.part + ':' + m.slice(12, 15).join(',') + (p.part === 'entablature-3m' ? ':' + Math.abs(m[0]) : '');
+    if (seen.has(key)) return false;
+    seen.add(key);
+    return true;
+  });
+}
+
+/** Open spaces look across their fountain; the final terrace opens onto the horizon. */
 function lookFor(stop) {
-  const { w, d } = stop;
-  if (!stop.hasExit) return worldPoint(stop, 0, d + 6, 1.5);
-  const [eu, ev] = exitLocal(stop);
-  if (stop.turn === 0) return worldPoint(stop, eu, d + 3, 1.5);
-  return worldPoint(stop, stop.turn * (w / 2 + 3), ev, 1.5);
+  if (!stop.centreHeight) return worldPoint(stop, 0, stop.d + 6, 1.5);
+  return worldPoint(stop, 0, stop.d / 2, stop.centreHeight / 2);
 }
 
 /** Camera rail in stop order, the walk that joins it, plus one hotspot per consecutive pair. */
@@ -488,7 +572,7 @@ export function railFor(stops) {
     }
     if (stop.kind === 'room') {
       const [fu, fv] = focalLocal(stop);
-      const target = worldPoint(stop, fu, fv, 1.5); // mid-height of the piece, not its feet
+      const target = worldPoint(stop, fu, fv, Math.min(1.5, stop.centreHeight / 2));
       const [enter, focal] = views;
       stand({ id: stop.id + '-enter', stop: stop.id, position: worldPoint(stop, ...enter, EYE_HEIGHT), target });
       stand({ id: stop.id + '-focal', stop: stop.id, position: worldPoint(stop, ...focal, EYE_HEIGHT), target });
@@ -499,7 +583,7 @@ export function railFor(stops) {
       path.push({ id: stop.id + '-' + name, stop: stop.id, position: worldPoint(stop, u, v, EYE_HEIGHT) });
     }
   }
-  aimWalk(path);
+  aimWalk(path, stops);
   const hotspots = [];
   for (let i = 0; i + 1 < rail.length; i++) {
     const a = rail[i], b = rail[i + 1];
@@ -535,8 +619,10 @@ export function layout(manifest, contract, seed) {
   const stops = sequence(manifest, parts);
   const placements = [];
   for (const stop of stops) placements.push(...fill(stop, parts, rng));
+  const treasury = placements.find(p => p.stop === 'quilt-trader' && p.part === 'urn-large');
+  if (treasury && parts.has('gold-bar') && parts.has('gold-coin')) placements.push(...treasuryPlacements(treasury));
   const { rail, hotspots, path } = railFor(stops);
   const bounds = boundsFor(stops);
-  const body = { version: LAYOUT_VERSION, placements, rail, path, hotspots, bounds };
+  const body = { version: LAYOUT_VERSION, placements: joinArchitecture(placements), rail, path, hotspots, bounds };
   return { ...body, hash: fnv1a64(canonical(body)) };
 }

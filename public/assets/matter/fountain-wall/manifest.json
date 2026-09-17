@@ -1,0 +1,204 @@
+{
+  "id": "fountain-wall",
+  "bounds": {
+    "min": [
+      -1.45,
+      0,
+      -0.48
+    ],
+    "max": [
+      1.45,
+      3,
+      0.48
+    ]
+  },
+  "triangles": 1928,
+  "geometryPolicy": "Meshopt high; 16-bit positions/UVs, 8-bit filtered normals/tangents; no simplification",
+  "texturePolicy": "WebP 92 color, lossless data after resize; exactly constant maps are 1 pixel",
+  "variants": {
+    "desktop": {
+      "bytes": 119640,
+      "gzipBytes": 102613,
+      "brotliBytes": 99644,
+      "sha256": "e883fcd912d694c12799fec14255e7f78d211d594f95cfe5695bf33060a8f7be",
+      "geometryBytes": 105272,
+      "textures": [
+        {
+          "size": [
+            707,
+            768
+          ],
+          "slots": [
+            "baseColorTexture"
+          ],
+          "bytes": 6692
+        },
+        {
+          "size": [
+            471,
+            512
+          ],
+          "slots": [
+            "normalTexture",
+            "clearcoatNormalTexture"
+          ],
+          "bytes": 30356
+        },
+        {
+          "size": [
+            471,
+            512
+          ],
+          "slots": [
+            "occlusionTexture",
+            "metallicRoughnessTexture"
+          ],
+          "bytes": 19424
+        },
+        {
+          "size": [
+            471,
+            512
+          ],
+          "slots": [
+            "clearcoatTexture",
+            "clearcoatRoughnessTexture"
+          ],
+          "bytes": 1940
+        }
+      ],
+      "textureMemoryBytes": 6754304,
+      "validation": {
+        "numErrors": 0,
+        "numWarnings": 0,
+        "numInfos": 5,
+        "numHints": 0,
+        "messages": [
+          {
+            "code": "UNSUPPORTED_EXTENSION",
+            "message": "Cannot validate an extension as it is not supported by the validator: 'EXT_meshopt_compression'.",
+            "severity": 2,
+            "pointer": "/extensionsUsed/0"
+          },
+          {
+            "code": "IMAGE_NPOT_DIMENSIONS",
+            "message": "Image has non-power-of-two dimensions: 707x768.",
+            "severity": 2,
+            "pointer": "/images/0"
+          },
+          {
+            "code": "IMAGE_NPOT_DIMENSIONS",
+            "message": "Image has non-power-of-two dimensions: 471x512.",
+            "severity": 2,
+            "pointer": "/images/1"
+          },
+          {
+            "code": "IMAGE_NPOT_DIMENSIONS",
+            "message": "Image has non-power-of-two dimensions: 471x512.",
+            "severity": 2,
+            "pointer": "/images/2"
+          },
+          {
+            "code": "IMAGE_NPOT_DIMENSIONS",
+            "message": "Image has non-power-of-two dimensions: 471x512.",
+            "severity": 2,
+            "pointer": "/images/3"
+          }
+        ],
+        "truncated": false
+      }
+    },
+    "mobile": {
+      "bytes": 88468,
+      "gzipBytes": 72010,
+      "brotliBytes": 69052,
+      "sha256": "609eb7fedbf83ee0275246c33c5bbe46545497d15fa8700a82489a8e5da8e3e6",
+      "geometryBytes": 105272,
+      "textures": [
+        {
+          "size": [
+            353,
+            384
+          ],
+          "slots": [
+            "baseColorTexture"
+          ],
+          "bytes": 3150
+        },
+        {
+          "size": [
+            353,
+            384
+          ],
+          "slots": [
+            "normalTexture",
+            "clearcoatNormalTexture"
+          ],
+          "bytes": 16772
+        },
+        {
+          "size": [
+            353,
+            384
+          ],
+          "slots": [
+            "occlusionTexture",
+            "metallicRoughnessTexture"
+          ],
+          "bytes": 5834
+        },
+        {
+          "size": [
+            353,
+            384
+          ],
+          "slots": [
+            "clearcoatTexture",
+            "clearcoatRoughnessTexture"
+          ],
+          "bytes": 1484
+        }
+      ],
+      "textureMemoryBytes": 2891776,
+      "validation": {
+        "numErrors": 0,
+        "numWarnings": 0,
+        "numInfos": 5,
+        "numHints": 0,
+        "messages": [
+          {
+            "code": "UNSUPPORTED_EXTENSION",
+            "message": "Cannot validate an extension as it is not supported by the validator: 'EXT_meshopt_compression'.",
+            "severity": 2,
+            "pointer": "/extensionsUsed/0"
+          },
+          {
+            "code": "IMAGE_NPOT_DIMENSIONS",
+            "message": "Image has non-power-of-two dimensions: 353x384.",
+            "severity": 2,
+            "pointer": "/images/0"
+          },
+          {
+            "code": "IMAGE_NPOT_DIMENSIONS",
+            "message": "Image has non-power-of-two dimensions: 353x384.",
+            "severity": 2,
+            "pointer": "/images/1"
+          },
+          {
+            "code": "IMAGE_NPOT_DIMENSIONS",
+            "message": "Image has non-power-of-two dimensions: 353x384.",
+            "severity": 2,
+            "pointer": "/images/2"
+          },
+          {
+            "code": "IMAGE_NPOT_DIMENSIONS",
+            "message": "Image has non-power-of-two dimensions: 353x384.",
+            "severity": 2,
+            "pointer": "/images/3"
+          }
+        ],
+        "truncated": false
+      }
+    }
+  }
+}

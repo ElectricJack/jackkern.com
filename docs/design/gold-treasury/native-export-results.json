@@ -1,0 +1,161 @@
+[
+  {
+    "protocol": "matter-agent",
+    "version": 1,
+    "type": "result",
+    "request_id": "9a290d3a-1338-479f-8674-de4c67324177",
+    "command": "asset.export",
+    "ticket_id": "4",
+    "ok": true,
+    "code": "ok",
+    "message": "",
+    "context": {
+      "session": {
+        "id": "1",
+        "generation": "1"
+      },
+      "scene": {
+        "generation": "1",
+        "revision": "2",
+        "ready": true
+      },
+      "selection": {
+        "revision": "0"
+      },
+      "frame": {
+        "id": "1220"
+      },
+      "view": {
+        "id": "1220"
+      }
+    },
+    "result": {
+      "directory": "C:\\tmp\\villa-gold-treasury-20260916\\masters\\gold-bar",
+      "source_hash": "16329643784195185580",
+      "lod": 0,
+      "triangles": 60,
+      "vertices": 180,
+      "materials": 1,
+      "files": [
+        "material_0-basecolor.png",
+        "material_0-normal.png",
+        "material_0-orm.png",
+        "material_0-normal-obj.png",
+        "material_0-occlusion.png",
+        "material_0-roughness.png",
+        "material_0-metallic.png",
+        "material_0-height.png",
+        "asset.obj",
+        "asset.mtl",
+        "asset.glb",
+        "manifest.json"
+      ]
+    }
+  },
+  {
+    "protocol": "matter-agent",
+    "version": 1,
+    "type": "result",
+    "request_id": "7fdda78b-f8bf-44ea-9427-31041c3f38f0",
+    "command": "asset.export",
+    "ticket_id": "5",
+    "ok": true,
+    "code": "ok",
+    "message": "",
+    "context": {
+      "session": {
+        "id": "1",
+        "generation": "1"
+      },
+      "scene": {
+        "generation": "1",
+        "revision": "2",
+        "ready": true
+      },
+      "selection": {
+        "revision": "0"
+      },
+      "frame": {
+        "id": "1733"
+      },
+      "view": {
+        "id": "1733"
+      }
+    },
+    "result": {
+      "directory": "C:\\tmp\\villa-gold-treasury-20260916\\masters\\gold-coin",
+      "source_hash": "8793112039383506649",
+      "lod": 0,
+      "triangles": 576,
+      "vertices": 1728,
+      "materials": 1,
+      "files": [
+        "material_0-basecolor.png",
+        "material_0-normal.png",
+        "material_0-orm.png",
+        "material_0-normal-obj.png",
+        "material_0-occlusion.png",
+        "material_0-roughness.png",
+        "material_0-metallic.png",
+        "material_0-height.png",
+        "asset.obj",
+        "asset.mtl",
+        "asset.glb",
+        "manifest.json"
+      ]
+    }
+  },
+  {
+    "protocol": "matter-agent",
+    "version": 1,
+    "type": "result",
+    "request_id": "0b93ef10-0b8e-46c9-b857-fe7c9de5f766",
+    "command": "asset.export",
+    "ticket_id": "6",
+    "ok": true,
+    "code": "ok",
+    "message": "",
+    "context": {
+      "session": {
+        "id": "1",
+        "generation": "1"
+      },
+      "scene": {
+        "generation": "1",
+        "revision": "2",
+        "ready": true
+      },
+      "selection": {
+        "revision": "0"
+      },
+      "frame": {
+        "id": "1743"
+      },
+      "view": {
+        "id": "1743"
+      }
+    },
+    "result": {
+      "directory": "C:\\tmp\\villa-gold-treasury-20260916\\masters\\urn-large",
+      "source_hash": "13755049737701154148",
+      "lod": 0,
+      "triangles": 3216,
+      "vertices": 9648,
+      "materials": 1,
+      "files": [
+        "material_0-basecolor.png",
+        "material_0-normal.png",
+        "material_0-orm.png",
+        "material_0-normal-obj.png",
+        "material_0-occlusion.png",
+        "material_0-roughness.png",
+        "material_0-metallic.png",
+        "material_0-height.png",
+        "asset.obj",
+        "asset.mtl",
+        "asset.glb",
+        "manifest.json"
+      ]
+    }
+  }
+]

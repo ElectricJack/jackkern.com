@@ -1,4 +1,6 @@
-export type PanelContent = { id: string; title: string; html: string; screenshots: string[] };
+import type { Viewpoint } from '../types';
+
+export type PanelContent = { id: string; title: string; html: string; screenshots: string[]; discipline?: string; summary?: string; details?: string; links?: string };
 
 export function escapeHtml(s: string): string {
   return s.replace(/[&<>"]/g, (c) => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' })[c]!);
@@ -7,17 +9,20 @@ export function escapeHtml(s: string): string {
 /** Build-time and runtime share this so the served HTML already contains every panel. */
 export function panelMarkup(content: PanelContent[]): string {
   return content
-    .map((c) => {
+    .map((c, index) => {
       const shots = c.screenshots
         .map((s) => `<img src="${escapeHtml(s)}" alt="${escapeHtml(c.title)} screenshot" loading="lazy">`)
         .join('');
-      return `<section class="panel" data-stop="${escapeHtml(c.id)}" hidden><h2>${escapeHtml(c.title)}</h2>${shots}<div class="panel-body">${c.html}</div></section>`;
+      const more = c.details || shots
+        ? `<details class="project-details"><summary>Behind the project <span aria-hidden="true">+</span></summary><div class="details-body">${shots}${c.details ?? ''}</div></details>` : '';
+      return `<section class="panel" data-stop="${escapeHtml(c.id)}" hidden><div class="panel-meta"><span>${String(index + 1).padStart(2, '0')} / SELECTED WORK</span><span class="panel-mark" aria-hidden="true">↗</span></div><h2>${escapeHtml(c.title)}</h2><p class="discipline">${escapeHtml(c.discipline ?? 'Selected project')}</p><div class="panel-body">${c.summary ?? c.html}</div>${more}<div class="project-links">${c.links ?? ''}</div></section>`;
     })
     .join('\n');
 }
 
 export class Panels {
   private sections: Map<string, HTMLElement>;
+  private windows: { id: string; start: number; end: number; fade: number }[] = [];
 
   constructor(root: HTMLElement, content: PanelContent[]) {
     if (!root.querySelector('section.panel')) root.innerHTML = panelMarkup(content);
@@ -26,7 +31,42 @@ export class Panels {
     );
   }
 
-  show(stopId: string | null): void {
-    for (const [id, section] of this.sections) section.hidden = id !== stopId;
+  setRoute(viewpoints: Viewpoint[], fractions: number[], length: number): void {
+    this.windows = [...this.sections.keys()].flatMap((id) => {
+      const indices = viewpoints.flatMap((v, i) => v.stop === id ? [i] : []);
+      if (!indices.length) return [];
+      const first = indices[0], last = indices[indices.length - 1];
+      return [{ id, start: fractions[first], end: fractions[last], fade: 1.8 / length }];
+    });
   }
+
+  update(u: number): void {
+    const current = this.windows.map((w) => ({ id: w.id, opacity: paneVisibility(u, w.start, w.end, w.fade) }))
+      .find((w) => w.opacity > 0);
+    this.show(current?.id ?? null, current?.opacity ?? 0);
+  }
+
+  show(stopId: string | null, opacity = 1): void {
+    // Keep a card readable while someone is using its links or expanded details. Moving the
+    // camera must never silently remove keyboard focus; leaving the card releases it.
+    const focused = [...this.sections.entries()].find(([, section]) => section.contains(document.activeElement));
+    if (focused) { stopId = focused[0]; opacity = 1; }
+    for (const [id, section] of this.sections) {
+      const visible = id === stopId && opacity > 0.001;
+      section.hidden = !visible;
+      section.style.setProperty('--pane-opacity', visible ? opacity.toFixed(3) : '0');
+      section.inert = !visible || opacity < 0.15;
+      if (!visible) section.querySelectorAll('details[open]').forEach((details) => details.removeAttribute('open'));
+    }
+  }
+}
+
+/** Distance-based fades work identically when travelling forwards or backwards. */
+export function paneVisibility(u: number, start: number, end: number, fade: number): number {
+  const t = Math.max(0, Math.min(1, (u - start + fade) / fade, (end + fade - u) / fade));
+  return t * t * (3 - 2 * t);
+}
+
+export function projectIndexMarkup(content: PanelContent[]): string {
+  return content.map((c, i) => `<a href="#project-${escapeHtml(c.id)}" data-project="${escapeHtml(c.id)}"><span class="index-number">${String(i + 1).padStart(2, '0')}</span><span>${escapeHtml(c.title)}<small>${escapeHtml(c.discipline ?? 'Selected project')}</small></span><span aria-hidden="true">↗</span></a>`).join('\n');
 }

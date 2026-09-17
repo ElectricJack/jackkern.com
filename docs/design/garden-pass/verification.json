@@ -1,0 +1,96 @@
+{
+  "date": "2026-09-16",
+  "layoutHash": "d17f5335b3c24cdb",
+  "placements": 457,
+  "uniqueMatterParts": 21,
+  "tests": {
+    "files": 32,
+    "passed": 121,
+    "finalClearanceRecheck": 4
+  },
+  "typecheck": "pass",
+  "manifestValidation": "pass",
+  "build": "pass; final runtime rebuilt, with all 14 regenerated static captures retained. Subsequent runtime changes affect resize invalidation and suspension of the hidden canvas, not captured views.",
+  "budgets": [
+    {
+      "tier": "desktop",
+      "shell": 752359,
+      "firstLoad": 2338235,
+      "stopBytes": {
+        "entry": 1118236,
+        "matter-engine": 1243292,
+        "cy-1": 1188216,
+        "outrider-ide": 1214872,
+        "cy-2": 866384,
+        "agent-queue": 584280,
+        "cy-3": 1118236,
+        "quilt-trader": 1256632,
+        "cy-4": 866384,
+        "terrace": 931068
+      },
+      "largestTexture": 95990,
+      "assets": 3823644,
+      "total": 5815375,
+      "violations": []
+    },
+    {
+      "tier": "mobile",
+      "shell": 752359,
+      "firstLoad": 2032923,
+      "stopBytes": {
+        "entry": 910428,
+        "matter-engine": 989452,
+        "cy-1": 983496,
+        "outrider-ide": 988536,
+        "cy-2": 723664,
+        "agent-queue": 489632,
+        "cy-3": 910428,
+        "quilt-trader": 1037060,
+        "cy-4": 723664,
+        "terrace": 757428
+      },
+      "largestTexture": 95990,
+      "assets": 3823644,
+      "total": 5815375,
+      "violations": []
+    }
+  ],
+  "localLinkCheck": "pass",
+  "gitDiffCheck": "pass",
+  "browserReview": {
+    "backend": "Chromium SwiftShader; mobile viewport emulation",
+    "landmarks": 28,
+    "betweenLandmarks": 13,
+    "errors": 0,
+    "unexpectedWarnings": 0,
+    "unexpectedFallbacks": 0
+  },
+  "limitations": [
+    "Chromium SwiftShader and mobile viewport emulation, not physical-phone GPU performance",
+    "GLB atlas files still contain unused marble atlases; texture disposal saves GPU memory, not transfer bytes",
+    "A planar reflection covers the active pool level, not every fountain bowl"
+  ],
+  "ambient": {
+    "cases": 4,
+    "pausedCameraStable": true,
+    "reducedMotionStill": true,
+    "idleReflectionReused": true,
+    "resizeReflectionUpdated": true
+  },
+  "contextRecovery": {
+    "changedPixels": 0
+  },
+  "continuousCruise": "pass",
+  "missingAssetFallback": "pass",
+  "staticPage3DRequests": 0,
+  "visualBaselines": "14 reviewed and updated; comparison passes",
+  "interactiveProbe": "pass; wheel, keyboard, live context loss and hotspot interaction; no errors or warnings",
+  "readingGpuCheck": {
+    "status": "pass",
+    "activeDraws": 1474,
+    "readingDraws": 0,
+    "liveGraphicsRecovery": "pass"
+  },
+  "preview": "http://localhost:4321/",
+  "completed": true
+}

@@ -16,27 +16,35 @@ const loading = document.getElementById('loading') as HTMLElement;
 const fallback = document.getElementById('fallback') as HTMLElement;
 const canvas = document.getElementById('villa') as HTMLCanvasElement;
 const panels = document.getElementById('panels') as HTMLElement;
-const capture = new URLSearchParams(location.search).has('capture');
+const params = new URLSearchParams(location.search);
+const capture = params.has('capture');
+const webgl = supportsWebGL();
+const reducedMotion = prefersReducedMotion();
+const notice = document.getElementById('view-notice') as HTMLElement;
 
 const mode = chooseMode({
-  webgl: supportsWebGL(),
-  reducedMotion: prefersReducedMotion(),
+  webgl,
+  reducedMotion,
   capture,
+  view: params.get('view'),
 });
 
 /** The scene has drawn a frame, so the context coming back should show it again. */
 let running = false;
 let lost = false;
+let readingPage = false;
 
 /**
  * `loading` and `scene` differ only in the loading overlay: it covers the canvas until the
  * first frame is drawn, then fades (styles.css).
  */
-function show(next: 'loading' | 'scene' | 'static'): void {
+function show(next: 'loading' | 'scene' | 'static', reason = ''): void {
   app.dataset.mode = next;
   fallback.hidden = next !== 'static';
   canvas.hidden = next === 'static';
   panels.hidden = next === 'static';
+  notice.hidden = next !== 'static' || !reason;
+  notice.textContent = reason;
 }
 
 /** Moves the progress line to `fraction`, taking `seconds` to get there. */
@@ -60,11 +68,11 @@ async function startScene(): Promise<void> {
       progress(0.8 + 0.2 * fraction);
       if (fraction < 1) return;
       running = true;
-      if (!lost) show('scene');
+      if (!lost && !readingPage) show('scene');
     });
   } catch (error) {
     console.error('villa: falling back to static', error);
-    show('static');
+    show('static', 'The 3D villa couldn’t start in this browser. You can try opening it again, or read every project here.');
   }
 }
 
@@ -74,15 +82,26 @@ async function startScene(): Promise<void> {
 canvas.addEventListener('webglcontextlost', () => {
   console.warn('villa: WebGL context lost; showing the static page until it is restored');
   lost = true;
-  show('static');
+  show('static', 'The 3D view is temporarily unavailable. You can read the projects while it recovers.');
 });
 canvas.addEventListener('webglcontextrestored', () => {
   lost = false;
-  if (running) show('scene');
+  if (running && !readingPage) show('scene');
 });
 
 // The capture tool screenshots the first frame; a fading overlay would be in it.
 if (capture) app.dataset.capture = '';
 
 if (mode === 'scene') void startScene();
-else show('static');
+else show('static', !webgl
+  ? 'This browser isn’t providing 3D rendering. You can read every project here, or try the villa in a browser with graphics acceleration enabled.'
+  : params.get('view') === 'list'
+    ? 'You’re viewing the reading version. The full portfolio is also a 3D villa you can explore.'
+    : 'Your reduced-motion setting opened the reading version. You can choose to explore the 3D villa below.');
+
+document.querySelector('.skip-link')?.addEventListener('click', () => {
+  readingPage = true;
+  show('static', 'You’re viewing the reading version. The full portfolio is also a 3D villa you can explore.');
+  fallback.tabIndex = -1;
+  fallback.focus();
+});

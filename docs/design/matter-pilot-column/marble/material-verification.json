@@ -1,0 +1,16 @@
+{
+  "maxSeam": 1.0547118733938987e-14,
+  "minAlbedo": 0.24540938793141726,
+  "maxAlbedo": 0.8273298115645764,
+  "minHeight": -3.992661192188844e-06,
+  "maxHeight": 3.984877505354993e-06,
+  "tile": {
+    "size": 1.28,
+    "texelsPerMeter": 400,
+    "seed": 91627
+  },
+  "recipeBytes": 3114,
+  "recipeGzipBytes": 1536,
+  "columnTriangles": 8680,
+  "nativeAtlasBytes": 9107085
+}

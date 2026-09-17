@@ -1,124 +1,146 @@
 import { TRAVEL, Travel, wheelPixels } from '../../src/camera/travel';
 
-/** Runs the model at `hz` for `seconds`, returning the metres covered. */
 const run = (travel: Travel, seconds: number, hz = 60) => {
-  let metres = 0;
-  for (let i = 0; i < Math.round(seconds * hz); i++) metres += travel.advance(1 / hz);
-  return metres;
+  for (let i = 0; i < Math.round(seconds * hz); i++) travel.advance(1 / hz);
 };
+const sample = (travel: Travel) => [travel.position, travel.velocity, travel.acceleration, travel.jerk];
 
-test('one mouse-wheel notch travels about half a metre and then stops', () => {
-  const travel = new Travel();
-  travel.push(100); // Chrome, Edge and Safari report a notch as 100 px
-  expect(travel.velocity).toBeGreaterThan(0);
-  const metres = run(travel, 2);
-  expect(metres).toBeGreaterThan(0.45);
-  expect(metres).toBeLessThan(0.55);
-  expect(travel.velocity).toBe(0);
+test('a single start cruises the whole path, with ramps only at its ends', () => {
+  const travel = new Travel(100);
+  travel.start();
+  expect(sample(travel)).toEqual([0, 0, 0, 0]);
+  run(travel, 5);
+  for (let i = 0; i < Math.floor(100 / TRAVEL.cruiseSpeed) - 6; i++) {
+    expect(travel.velocity).toBe(TRAVEL.cruiseSpeed);
+    expect(travel.acceleration).toBe(0);
+    expect(travel.jerk).toBe(0);
+    travel.advance(1);
+  }
+  run(travel, 20);
+  expect(sample(travel)).toEqual([100, 0, 0, 0]);
+  expect(travel.idle).toBe(true);
 });
 
-test('a push is spread over many frames, each shorter than the last, rather than taken in one step', () => {
-  const travel = new Travel();
-  travel.push(100);
-  const first = travel.advance(1 / 60);
-  const total = first + run(travel, 2);
-  // Most of a notch is still to come after the first frame, and each frame covers less than the one before.
-  expect(first).toBeLessThan(total * 0.1);
-  let last = Infinity;
-  const fresh = new Travel();
-  fresh.push(100);
-  for (let i = 0; i < 30; i++) {
-    const step = fresh.advance(1 / 60);
-    expect(step).toBeLessThanOrEqual(last);
-    last = step;
+test('repeated start commands do not change position, speed, acceleration or jerk', () => {
+  const once = new Travel(100), repeated = new Travel(100);
+  once.start();
+  for (let i = 0; i < 900; i++) {
+    repeated.start();
+    once.advance(1 / 60);
+    repeated.advance(1 / 60);
+    expect(sample(repeated)).toEqual(sample(once));
   }
 });
 
-test('a hard trackpad flick coasts to a stop within a second of the last event', () => {
-  const travel = new Travel();
-  // A flick as a trackpad reports it: a quick burst of pixel deltas, one per frame.
-  for (const px of [6, 18, 40, 70, 90, 90, 70, 45, 25, 10]) {
-    travel.push(px);
-    travel.advance(1 / 60);
+test('the takeoff, cruise and arrival seams have continuous velocity, acceleration and jerk', () => {
+  const offset = TRAVEL.controlSeconds / 2;
+  const length = 100;
+  for (const time of [0, TRAVEL.controlSeconds, TRAVEL.rampSeconds + offset, length / TRAVEL.cruiseSpeed + offset, length / TRAVEL.cruiseSpeed + TRAVEL.rampSeconds + offset]) {
+    const left = new Travel(length), right = new Travel(length);
+    left.start(); right.start();
+    left.advance(Math.max(0, time - 1e-6)); right.advance(time + 1e-6);
+    for (let k = 1; k < 4; k++) expect(Math.abs(sample(left)[k] - sample(right)[k])).toBeLessThan(1e-5);
   }
-  expect(travel.velocity).toBeGreaterThan(0);
-  expect(run(travel, 0.4)).toBeGreaterThan(0);
-  expect(travel.velocity).toBeGreaterThan(0); // still coasting, not cut off
-  run(travel, 0.6);
-  expect(travel.velocity).toBe(0);
 });
 
-test('from top speed the camera stops within a second', () => {
-  const travel = new Travel();
-  for (let i = 0; i < 20; i++) travel.push(TRAVEL.maxEventPx);
-  expect(travel.velocity).toBe(TRAVEL.maxSpeed);
-  run(travel, 1);
-  expect(travel.velocity).toBe(0);
-});
-
-test('speed is capped, so however fast the wheel spins no frame moves further than top speed allows', () => {
-  const travel = new Travel();
-  const dt = 1 / 60;
-  let worst = 0;
-  for (let frame = 0; frame < 120; frame++) {
-    for (let event = 0; event < 8; event++) travel.push(120);
-    worst = Math.max(worst, travel.advance(dt));
-  }
-  expect(travel.velocity).toBeLessThanOrEqual(TRAVEL.maxSpeed);
-  expect(worst).toBeLessThanOrEqual(TRAVEL.maxSpeed * dt + 1e-12);
-  // And the excess is dropped rather than banked: letting go stops it within a second.
-  run(travel, 1);
-  expect(travel.velocity).toBe(0);
-});
-
-test('a single event contributes at most maxEventPx', () => {
-  const huge = new Travel();
-  huge.push(100_000);
-  const capped = new Travel();
-  capped.push(TRAVEL.maxEventPx);
-  const back = new Travel();
-  back.push(-100_000);
-  expect(huge.velocity).toBe(capped.velocity);
-  expect(back.velocity).toBe(-capped.velocity);
-  expect(run(huge, 2)).toBeCloseTo(run(capped, 2), 9);
-});
-
-test('pushing the other way brakes before it reverses', () => {
-  const travel = new Travel();
-  travel.push(100);
+test('explicit pause and reversal preserve all three derivatives, including quick repeated commands', () => {
+  const travel = new Travel(100);
+  travel.reset(50);
+  travel.start(); run(travel, 3);
+  const before = sample(travel);
+  travel.pause();
+  expect(sample(travel)).toEqual(before);
+  run(travel, 0.5);
+  const pausing = sample(travel);
+  travel.start(-1);
+  expect(sample(travel)).toEqual(pausing);
+  // The pause finishes before the queued reversal begins, with no derivative reset.
+  run(travel, TRAVEL.controlSeconds - 0.5 - 1 / 60);
+  const lastJerk = travel.jerk;
   travel.advance(1 / 60);
-  const onward = travel.velocity;
-  travel.push(-50);
-  expect(travel.velocity).toBeGreaterThan(0);
-  expect(travel.velocity).toBeLessThan(onward);
-  travel.push(-150);
-  expect(travel.velocity).toBeLessThan(0);
+  expect(travel.velocity).toBeCloseTo(0, 9);
+  expect(travel.acceleration).toBeCloseTo(0, 9);
+  expect(travel.jerk).toBeCloseTo(0, 9);
+  expect(Math.abs(lastJerk)).toBeLessThan(0.25);
+  run(travel, 3);
+  expect(travel.velocity).toBe(-TRAVEL.cruiseSpeed);
+  travel.pause(); run(travel, 2);
+  const resting = sample(travel);
+  expect(resting.slice(1)).toEqual([0, 0, 0]);
+  run(travel, 5);
+  expect(sample(travel)).toEqual(resting);
 });
 
-test('the distance a push covers does not depend on the frame rate', () => {
-  const at = (hz: number) => {
-    const travel = new Travel();
-    travel.push(100);
-    let metres = run(travel, 0.25, hz);
-    travel.push(60);
-    metres += run(travel, 2, hz);
-    return metres;
-  };
-  expect(Math.abs(at(144) - at(60))).toBeLessThan(0.01);
-  expect(Math.abs(at(30) - at(60))).toBeLessThan(0.01);
-});
-
-test('stop drops the velocity at once', () => {
-  const travel = new Travel();
-  travel.push(100);
-  travel.stop();
+test('pause/resume inside the arrival ramp is continuous and never overshoots the endpoint', () => {
+  const travel = new Travel(100);
+  travel.reset(99);
+  travel.start(); run(travel, 0.5);
+  const before = sample(travel);
+  travel.pause(); expect(sample(travel)).toEqual(before);
+  run(travel, 4);
+  expect(travel.position).toBeLessThanOrEqual(100);
   expect(travel.velocity).toBe(0);
-  expect(travel.advance(1 / 60)).toBe(0);
+  travel.start(); run(travel, 10);
+  expect(sample(travel)).toEqual([100, 0, 0, 0]);
+});
+
+test('flight and control transitions are independent of frame rate', () => {
+  const at = (hz: number) => {
+    const travel = new Travel(100);
+    travel.start(); run(travel, 8, hz);
+    travel.pause(); run(travel, 0.5, hz);
+    travel.start(-1); run(travel, 4, hz);
+    return sample(travel);
+  };
+  const baseline = at(60);
+  for (const hz of [30, 144]) at(hz).forEach((value, i) => expect(value).toBeCloseTo(baseline[i], 9));
+});
+
+test('short visits lower peak speed and reverse flights arrive at exact endpoints', () => {
+  for (const length of [0, 0.01, 1, 100]) {
+    const travel = new Travel(length);
+    travel.start(); run(travel, 100);
+    expect(sample(travel)).toEqual([length, 0, 0, 0]);
+    travel.start(-1); run(travel, 100);
+    expect(sample(travel)).toEqual([0, 0, 0, 0]);
+  }
 });
 
 test('wheelPixels normalises pixel, line and page deltas', () => {
   expect(wheelPixels({ deltaY: 100, deltaMode: 0 })).toBe(100);
-  // Firefox reports a mouse-wheel notch as 3 lines; it should travel as far as Chrome's 100 px.
   expect(wheelPixels({ deltaY: 3, deltaMode: 1 })).toBeCloseTo(100, 9);
   expect(wheelPixels({ deltaY: -1, deltaMode: 2 })).toBe(-TRAVEL.pageHeightPx);
+});
+
+test('speed changes preserve all derivatives and settle at the selected pace without new input', () => {
+  const travel = new Travel(100); travel.start(); run(travel, 5);
+  for (const speed of [TRAVEL.maxSpeed, TRAVEL.minSpeed, TRAVEL.cruiseSpeed]) {
+    const before = sample(travel); travel.start(1, speed);
+    expect(sample(travel)).toEqual(before);
+    const left = new Travel(100), right = new Travel(100);
+    for (const t of [left, right]) { t.start(); t.advance(5); t.start(1, speed); }
+    left.advance(TRAVEL.controlSeconds - 1e-6); right.advance(TRAVEL.controlSeconds + 1e-6);
+    for (let k = 1; k < 4; k++) expect(Math.abs(sample(left)[k] - sample(right)[k])).toBeLessThan(1e-4);
+    run(travel, 3);
+    expect(travel.velocity).toBeCloseTo(speed, 10);
+    run(travel, 2);
+    expect(travel.velocity).toBeCloseTo(speed, 10);
+    expect(travel.acceleration).toBe(0); expect(travel.jerk).toBe(0);
+  }
+});
+
+test('queued pace changes are frame-rate independent and always finish at rest on the destination', () => {
+  const at = (hz: number) => {
+    const t = new Travel(100); t.start(); run(t, 6, hz);
+    t.start(1, TRAVEL.maxSpeed); run(t, .5, hz);
+    t.start(1, TRAVEL.minSpeed); run(t, 4, hz);
+    return sample(t);
+  };
+  const baseline = at(60);
+  for (const hz of [30, 144]) at(hz).forEach((v, i) => expect(v).toBeCloseTo(baseline[i], 9));
+  for (const length of [.01, 1, 100]) {
+    const t = new Travel(length); t.start(1, TRAVEL.maxSpeed); run(t, .5);
+    t.start(1, TRAVEL.minSpeed); run(t, 1); t.start(1, TRAVEL.maxSpeed);
+    run(t, 150); expect(sample(t)).toEqual([length, 0, 0, 0]);
+  }
 });

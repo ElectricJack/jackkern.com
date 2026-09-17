@@ -1,0 +1,70 @@
+{
+  "date": "2026-09-16",
+  "layoutHash": "cab488ae03b88a17",
+  "tests": {
+    "passed": 133,
+    "files": 35
+  },
+  "typecheck": "pass",
+  "build": "pass; actual dist rebuilt after scroll-direction change (main-D-MNmM0e.js), confirmed through LAN production browser checks; retained 14 reviewed static fallback views",
+  "visualReferences": "14 match",
+  "budgets": [
+    {
+      "tier": "desktop",
+      "shell": 756087,
+      "firstLoad": 2341963,
+      "stopBytes": {
+        "entry": 1118236,
+        "matter-engine": 1243292,
+        "cy-1": 1188216,
+        "outrider-ide": 1214872,
+        "cy-2": 866384,
+        "agent-queue": 584280,
+        "cy-3": 1118236,
+        "quilt-trader": 1256632,
+        "cy-4": 866384,
+        "terrace": 931068
+      },
+      "largestTexture": 95990,
+      "assets": 3823644,
+      "total": 5816098,
+      "violations": []
+    },
+    {
+      "tier": "mobile",
+      "shell": 756087,
+      "firstLoad": 2036651,
+      "stopBytes": {
+        "entry": 910428,
+        "matter-engine": 989452,
+        "cy-1": 983496,
+        "outrider-ide": 988536,
+        "cy-2": 723664,
+        "agent-queue": 489632,
+        "cy-3": 910428,
+        "quilt-trader": 1037060,
+        "cy-4": 723664,
+        "terrace": 757428
+      },
+      "largestTexture": 95990,
+      "assets": 3823644,
+      "total": 5816098,
+      "violations": []
+    }
+  ],
+  "localLinks": "pass",
+  "manifestValidation": "pass",
+  "lan": {
+    "url": "http://192.168.1.69:8000/",
+    "bind": "0.0.0.0:8000",
+    "windowsPortForward": "0.0.0.0:8000 to 172.29.55.82:8000 (existing)",
+    "firewall": "existing enabled inbound TCP 8000 allowance",
+    "httpChecks": {
+      "fromWindows": 200,
+      "fromWSL": 200
+    },
+    "localPreview": "http://localhost:4321/"
+  },
+  "completed": true,
+  "browser": "pass; 4 desktop project pauses, mobile swipe, Continue, sustained slow/default/fast pace and reverse wheel; greybox for behavior, full Matter assets in separately reviewed static captures"
+}

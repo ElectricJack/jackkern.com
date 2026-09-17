@@ -1,0 +1,646 @@
+{
+  "errors": [],
+  "report": [
+    {
+      "view": {
+        "name": "entry-platform",
+        "eye": [
+          9,
+          4,
+          -6
+        ],
+        "target": [
+          0,
+          1.4,
+          2
+        ]
+      },
+      "state": {
+        "assets": {
+          "floor-slab-3x3": "matter",
+          "wall-3m": "matter",
+          "entablature-3m": "matter",
+          "wall-3m-doorway": "matter",
+          "column-doric": "matter",
+          "relief-a": "matter",
+          "pool-basin-3x3": "matter",
+          "statue-a": "matter",
+          "statue-b": "matter",
+          "urn-large": "matter",
+          "pool-edge-straight": "matter",
+          "urn-small": "matter",
+          "wall-inset-panel": "matter",
+          "planter-square": "matter",
+          "pool-edge-corner": "matter",
+          "olive-small": "matter",
+          "fountain-tiered": "matter",
+          "ground-plant-clump": "matter",
+          "fountain-wall": "matter",
+          "bench-3m": "matter",
+          "stair-run-3m": "matter"
+        },
+        "calls": 176,
+        "triangles": 1261656
+      }
+    },
+    {
+      "view": {
+        "name": "column-beam",
+        "eye": [
+          7,
+          4.7,
+          1.2
+        ],
+        "target": [
+          4.5,
+          3.8,
+          3
+        ]
+      },
+      "state": {
+        "assets": {
+          "floor-slab-3x3": "matter",
+          "wall-3m": "matter",
+          "entablature-3m": "matter",
+          "wall-3m-doorway": "matter",
+          "column-doric": "matter",
+          "relief-a": "matter",
+          "pool-basin-3x3": "matter",
+          "statue-a": "matter",
+          "statue-b": "matter",
+          "urn-large": "matter",
+          "pool-edge-straight": "matter",
+          "urn-small": "matter",
+          "wall-inset-panel": "matter",
+          "planter-square": "matter",
+          "pool-edge-corner": "matter",
+          "olive-small": "matter",
+          "fountain-tiered": "matter",
+          "ground-plant-clump": "matter",
+          "fountain-wall": "matter",
+          "bench-3m": "matter",
+          "stair-run-3m": "matter"
+        },
+        "calls": 162,
+        "triangles": 1189228
+      }
+    },
+    {
+      "view": {
+        "name": "door-front",
+        "eye": [
+          2,
+          2.7,
+          5.4
+        ],
+        "target": [
+          0,
+          2,
+          9
+        ],
+        "stop": "matter-engine"
+      },
+      "state": {
+        "assets": {
+          "floor-slab-3x3": "matter",
+          "wall-3m": "matter",
+          "entablature-3m": "matter",
+          "wall-3m-doorway": "matter",
+          "column-doric": "matter",
+          "relief-a": "matter",
+          "pool-basin-3x3": "matter",
+          "statue-a": "matter",
+          "statue-b": "matter",
+          "urn-large": "matter",
+          "pool-edge-straight": "matter",
+          "urn-small": "matter",
+          "wall-inset-panel": "matter",
+          "planter-square": "matter",
+          "pool-edge-corner": "matter",
+          "olive-small": "matter",
+          "fountain-tiered": "matter",
+          "ground-plant-clump": "matter",
+          "fountain-wall": "matter",
+          "bench-3m": "matter",
+          "stair-run-3m": "matter"
+        },
+        "calls": 176,
+        "triangles": 1262450
+      }
+    },
+    {
+      "view": {
+        "name": "door-reveal",
+        "eye": [
+          0.2,
+          1.8,
+          8.3
+        ],
+        "target": [
+          -0.7,
+          2.6,
+          9
+        ],
+        "stop": "matter-engine"
+      },
+      "state": {
+        "assets": {
+          "floor-slab-3x3": "matter",
+          "wall-3m": "matter",
+          "entablature-3m": "matter",
+          "wall-3m-doorway": "matter",
+          "column-doric": "matter",
+          "relief-a": "matter",
+          "pool-basin-3x3": "matter",
+          "statue-a": "matter",
+          "statue-b": "matter",
+          "urn-large": "matter",
+          "pool-edge-straight": "matter",
+          "urn-small": "matter",
+          "wall-inset-panel": "matter",
+          "planter-square": "matter",
+          "pool-edge-corner": "matter",
+          "olive-small": "matter",
+          "fountain-tiered": "matter",
+          "ground-plant-clump": "matter",
+          "fountain-wall": "matter",
+          "bench-3m": "matter",
+          "stair-run-3m": "matter"
+        },
+        "calls": 81,
+        "triangles": 832450
+      }
+    },
+    {
+      "view": {
+        "name": "wall-corner",
+        "eye": [
+          7,
+          2.7,
+          6
+        ],
+        "target": [
+          4.5,
+          1.9,
+          9
+        ],
+        "stop": "matter-engine"
+      },
+      "state": {
+        "assets": {
+          "floor-slab-3x3": "matter",
+          "wall-3m": "matter",
+          "entablature-3m": "matter",
+          "wall-3m-doorway": "matter",
+          "column-doric": "matter",
+          "relief-a": "matter",
+          "pool-basin-3x3": "matter",
+          "statue-a": "matter",
+          "statue-b": "matter",
+          "urn-large": "matter",
+          "pool-edge-straight": "matter",
+          "urn-small": "matter",
+          "wall-inset-panel": "matter",
+          "planter-square": "matter",
+          "pool-edge-corner": "matter",
+          "olive-small": "matter",
+          "fountain-tiered": "matter",
+          "ground-plant-clump": "matter",
+          "fountain-wall": "matter",
+          "bench-3m": "matter",
+          "stair-run-3m": "matter"
+        },
+        "calls": 173,
+        "triangles": 1257322
+      }
+    },
+    {
+      "view": {
+        "name": "pool-edge",
+        "eye": [
+          2.3,
+          1.1,
+          22
+        ],
+        "target": [
+          0,
+          0.2,
+          22.5
+        ],
+        "stop": "cy-1"
+      },
+      "state": {
+        "assets": {
+          "floor-slab-3x3": "matter",
+          "wall-3m": "matter",
+          "entablature-3m": "matter",
+          "wall-3m-doorway": "matter",
+          "column-doric": "matter",
+          "relief-a": "matter",
+          "pool-basin-3x3": "matter",
+          "statue-a": "matter",
+          "statue-b": "matter",
+          "urn-large": "matter",
+          "pool-edge-straight": "matter",
+          "urn-small": "matter",
+          "wall-inset-panel": "matter",
+          "planter-square": "matter",
+          "pool-edge-corner": "matter",
+          "olive-small": "matter",
+          "fountain-tiered": "matter",
+          "ground-plant-clump": "matter",
+          "fountain-wall": "matter",
+          "bench-3m": "matter",
+          "stair-run-3m": "matter"
+        },
+        "calls": 109,
+        "triangles": 888898
+      }
+    },
+    {
+      "view": {
+        "name": "lower-transition",
+        "eye": [
+          -17,
+          3,
+          39
+        ],
+        "target": [
+          -20,
+          1,
+          42
+        ],
+        "stop": "quilt-trader"
+      },
+      "state": {
+        "assets": {
+          "floor-slab-3x3": "matter",
+          "wall-3m": "matter",
+          "entablature-3m": "matter",
+          "wall-3m-doorway": "matter",
+          "column-doric": "matter",
+          "relief-a": "matter",
+          "pool-basin-3x3": "matter",
+          "statue-a": "matter",
+          "statue-b": "matter",
+          "urn-large": "matter",
+          "pool-edge-straight": "matter",
+          "urn-small": "matter",
+          "wall-inset-panel": "matter",
+          "planter-square": "matter",
+          "pool-edge-corner": "matter",
+          "olive-small": "matter",
+          "fountain-tiered": "matter",
+          "ground-plant-clump": "matter",
+          "fountain-wall": "matter",
+          "bench-3m": "matter",
+          "stair-run-3m": "matter"
+        },
+        "calls": 71,
+        "triangles": 503548
+      }
+    },
+    {
+      "view": {
+        "name": "column-beam",
+        "eye": [
+          6.82,
+          4.7,
+          1.2
+        ],
+        "target": [
+          4.5,
+          3.8,
+          3
+        ]
+      },
+      "state": {
+        "assets": {
+          "floor-slab-3x3": "matter",
+          "wall-3m": "matter",
+          "entablature-3m": "matter",
+          "wall-3m-doorway": "matter",
+          "column-doric": "matter",
+          "relief-a": "matter",
+          "pool-basin-3x3": "matter",
+          "statue-a": "matter",
+          "statue-b": "matter",
+          "urn-large": "matter",
+          "pool-edge-straight": "matter",
+          "urn-small": "matter",
+          "wall-inset-panel": "matter",
+          "planter-square": "matter",
+          "pool-edge-corner": "matter",
+          "olive-small": "matter",
+          "fountain-tiered": "matter",
+          "ground-plant-clump": "matter",
+          "fountain-wall": "matter",
+          "bench-3m": "matter",
+          "stair-run-3m": "matter"
+        },
+        "calls": 167,
+        "triangles": 1245692
+      }
+    },
+    {
+      "view": {
+        "name": "column-beam",
+        "eye": [
+          7.18,
+          4.7,
+          1.2
+        ],
+        "target": [
+          4.5,
+          3.8,
+          3
+        ]
+      },
+      "state": {
+        "assets": {
+          "floor-slab-3x3": "matter",
+          "wall-3m": "matter",
+          "entablature-3m": "matter",
+          "wall-3m-doorway": "matter",
+          "column-doric": "matter",
+          "relief-a": "matter",
+          "pool-basin-3x3": "matter",
+          "statue-a": "matter",
+          "statue-b": "matter",
+          "urn-large": "matter",
+          "pool-edge-straight": "matter",
+          "urn-small": "matter",
+          "wall-inset-panel": "matter",
+          "planter-square": "matter",
+          "pool-edge-corner": "matter",
+          "olive-small": "matter",
+          "fountain-tiered": "matter",
+          "ground-plant-clump": "matter",
+          "fountain-wall": "matter",
+          "bench-3m": "matter",
+          "stair-run-3m": "matter"
+        },
+        "calls": 161,
+        "triangles": 1187308
+      }
+    },
+    {
+      "view": {
+        "name": "door-front",
+        "eye": [
+          1.82,
+          2.7,
+          5.4
+        ],
+        "target": [
+          0,
+          2,
+          9
+        ],
+        "stop": "matter-engine"
+      },
+      "state": {
+        "assets": {
+          "floor-slab-3x3": "matter",
+          "wall-3m": "matter",
+          "entablature-3m": "matter",
+          "wall-3m-doorway": "matter",
+          "column-doric": "matter",
+          "relief-a": "matter",
+          "pool-basin-3x3": "matter",
+          "statue-a": "matter",
+          "statue-b": "matter",
+          "urn-large": "matter",
+          "pool-edge-straight": "matter",
+          "urn-small": "matter",
+          "wall-inset-panel": "matter",
+          "planter-square": "matter",
+          "pool-edge-corner": "matter",
+          "olive-small": "matter",
+          "fountain-tiered": "matter",
+          "ground-plant-clump": "matter",
+          "fountain-wall": "matter",
+          "bench-3m": "matter",
+          "stair-run-3m": "matter"
+        },
+        "calls": 176,
+        "triangles": 1262450
+      }
+    },
+    {
+      "view": {
+        "name": "door-front",
+        "eye": [
+          2.18,
+          2.7,
+          5.4
+        ],
+        "target": [
+          0,
+          2,
+          9
+        ],
+        "stop": "matter-engine"
+      },
+      "state": {
+        "assets": {
+          "floor-slab-3x3": "matter",
+          "wall-3m": "matter",
+          "entablature-3m": "matter",
+          "wall-3m-doorway": "matter",
+          "column-doric": "matter",
+          "relief-a": "matter",
+          "pool-basin-3x3": "matter",
+          "statue-a": "matter",
+          "statue-b": "matter",
+          "urn-large": "matter",
+          "pool-edge-straight": "matter",
+          "urn-small": "matter",
+          "wall-inset-panel": "matter",
+          "planter-square": "matter",
+          "pool-edge-corner": "matter",
+          "olive-small": "matter",
+          "fountain-tiered": "matter",
+          "ground-plant-clump": "matter",
+          "fountain-wall": "matter",
+          "bench-3m": "matter",
+          "stair-run-3m": "matter"
+        },
+        "calls": 175,
+        "triangles": 1260262
+      }
+    },
+    {
+      "view": {
+        "name": "door-reveal",
+        "eye": [
+          0.020000000000000018,
+          1.8,
+          8.3
+        ],
+        "target": [
+          -0.7,
+          2.6,
+          9
+        ],
+        "stop": "matter-engine"
+      },
+      "state": {
+        "assets": {
+          "floor-slab-3x3": "matter",
+          "wall-3m": "matter",
+          "entablature-3m": "matter",
+          "wall-3m-doorway": "matter",
+          "column-doric": "matter",
+          "relief-a": "matter",
+          "pool-basin-3x3": "matter",
+          "statue-a": "matter",
+          "statue-b": "matter",
+          "urn-large": "matter",
+          "pool-edge-straight": "matter",
+          "urn-small": "matter",
+          "wall-inset-panel": "matter",
+          "planter-square": "matter",
+          "pool-edge-corner": "matter",
+          "olive-small": "matter",
+          "fountain-tiered": "matter",
+          "ground-plant-clump": "matter",
+          "fountain-wall": "matter",
+          "bench-3m": "matter",
+          "stair-run-3m": "matter"
+        },
+        "calls": 70,
+        "triangles": 658398
+      }
+    },
+    {
+      "view": {
+        "name": "door-reveal",
+        "eye": [
+          0.38,
+          1.8,
+          8.3
+        ],
+        "target": [
+          -0.7,
+          2.6,
+          9
+        ],
+        "stop": "matter-engine"
+      },
+      "state": {
+        "assets": {
+          "floor-slab-3x3": "matter",
+          "wall-3m": "matter",
+          "entablature-3m": "matter",
+          "wall-3m-doorway": "matter",
+          "column-doric": "matter",
+          "relief-a": "matter",
+          "pool-basin-3x3": "matter",
+          "statue-a": "matter",
+          "statue-b": "matter",
+          "urn-large": "matter",
+          "pool-edge-straight": "matter",
+          "urn-small": "matter",
+          "wall-inset-panel": "matter",
+          "planter-square": "matter",
+          "pool-edge-corner": "matter",
+          "olive-small": "matter",
+          "fountain-tiered": "matter",
+          "ground-plant-clump": "matter",
+          "fountain-wall": "matter",
+          "bench-3m": "matter",
+          "stair-run-3m": "matter"
+        },
+        "calls": 84,
+        "triangles": 873594
+      }
+    },
+    {
+      "view": {
+        "name": "pool-edge",
+        "eye": [
+          2.1199999999999997,
+          1.1,
+          22
+        ],
+        "target": [
+          0,
+          0.2,
+          22.5
+        ],
+        "stop": "cy-1"
+      },
+      "state": {
+        "assets": {
+          "floor-slab-3x3": "matter",
+          "wall-3m": "matter",
+          "entablature-3m": "matter",
+          "wall-3m-doorway": "matter",
+          "column-doric": "matter",
+          "relief-a": "matter",
+          "pool-basin-3x3": "matter",
+          "statue-a": "matter",
+          "statue-b": "matter",
+          "urn-large": "matter",
+          "pool-edge-straight": "matter",
+          "urn-small": "matter",
+          "wall-inset-panel": "matter",
+          "planter-square": "matter",
+          "pool-edge-corner": "matter",
+          "olive-small": "matter",
+          "fountain-tiered": "matter",
+          "ground-plant-clump": "matter",
+          "fountain-wall": "matter",
+          "bench-3m": "matter",
+          "stair-run-3m": "matter"
+        },
+        "calls": 106,
+        "triangles": 853126
+      }
+    },
+    {
+      "view": {
+        "name": "pool-edge",
+        "eye": [
+          2.48,
+          1.1,
+          22
+        ],
+        "target": [
+          0,
+          0.2,
+          22.5
+        ],
+        "stop": "cy-1"
+      },
+      "state": {
+        "assets": {
+          "floor-slab-3x3": "matter",
+          "wall-3m": "matter",
+          "entablature-3m": "matter",
+          "wall-3m-doorway": "matter",
+          "column-doric": "matter",
+          "relief-a": "matter",
+          "pool-basin-3x3": "matter",
+          "statue-a": "matter",
+          "statue-b": "matter",
+          "urn-large": "matter",
+          "pool-edge-straight": "matter",
+          "urn-small": "matter",
+          "wall-inset-panel": "matter",
+          "planter-square": "matter",
+          "pool-edge-corner": "matter",
+          "olive-small": "matter",
+          "fountain-tiered": "matter",
+          "ground-plant-clump": "matter",
+          "fountain-wall": "matter",
+          "bench-3m": "matter",
+          "stair-run-3m": "matter"
+        },
+        "calls": 109,
+        "triangles": 888898
+      }
+    }
+  ]
+}

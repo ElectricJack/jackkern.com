@@ -2,22 +2,288 @@
   "version": 1,
   "module_m": 1,
   "parts": [
-    { "id": "column-doric", "category": "structure", "footprint": [1, 1], "height": 4, "sockets": [{ "name": "top", "at": [0.5, 4, 0.5], "dir": "+y" }], "tier": "full" },
-    { "id": "wall-3m", "category": "structure", "footprint": [3, 1], "height": 4, "sockets": [], "tier": "full" },
-    { "id": "wall-3m-doorway", "category": "structure", "footprint": [3, 1], "height": 4, "sockets": [{ "name": "threshold", "at": [1.5, 0, 0.5], "dir": "+z" }], "tier": "full" },
-    { "id": "entablature-3m", "category": "structure", "footprint": [3, 1], "height": 1, "sockets": [{ "name": "bottom", "at": [1.5, 0, 0.5], "dir": "-y" }], "tier": "full" },
-    { "id": "stair-run-3m", "category": "structure", "footprint": [3, 3], "height": 1, "sockets": [], "tier": "full" },
-    { "id": "floor-slab-3x3", "category": "floor", "footprint": [3, 3], "height": 0, "sockets": [], "tier": "full" },
-    { "id": "pool-basin-3x3", "category": "water", "footprint": [3, 3], "height": 0, "sockets": [], "tier": "half" },
-    { "id": "pool-edge-straight", "category": "water", "footprint": [3, 1], "height": 0, "sockets": [], "tier": "half" },
-    { "id": "fountain-tiered", "category": "water", "footprint": [1, 1], "height": 3, "sockets": [], "tier": "half" },
-    { "id": "urn-small", "category": "dressing", "footprint": [1, 1], "height": 1, "sockets": [], "tier": "skip" },
-    { "id": "planter-square", "category": "dressing", "footprint": [1, 1], "height": 1, "sockets": [], "tier": "skip" },
-    { "id": "statue-a", "category": "dressing", "footprint": [1, 1], "height": 3, "sockets": [], "tier": "skip" },
-    { "id": "bench-3m", "category": "dressing", "footprint": [3, 1], "height": 1, "sockets": [], "tier": "skip" },
-    { "id": "relief-a", "category": "focal", "footprint": [3, 1], "height": 3, "sockets": [], "tier": "full" },
-    { "id": "urn-large", "category": "focal", "footprint": [1, 1], "height": 2, "sockets": [], "tier": "full" },
-    { "id": "statue-b", "category": "focal", "footprint": [1, 1], "height": 3, "sockets": [], "tier": "full" },
-    { "id": "fountain-wall", "category": "focal", "footprint": [3, 1], "height": 3, "sockets": [], "tier": "full" }
+    {
+      "id": "column-doric",
+      "category": "structure",
+      "footprint": [
+        1,
+        1
+      ],
+      "height": 4,
+      "sockets": [
+        {
+          "name": "top",
+          "at": [
+            0.5,
+            4,
+            0.5
+          ],
+          "dir": "+y"
+        }
+      ],
+      "tier": "full"
+    },
+    {
+      "id": "wall-3m",
+      "category": "structure",
+      "footprint": [
+        3,
+        1
+      ],
+      "height": 4,
+      "sockets": [],
+      "tier": "full"
+    },
+    {
+      "id": "wall-3m-doorway",
+      "category": "structure",
+      "footprint": [
+        3,
+        1
+      ],
+      "height": 4,
+      "sockets": [
+        {
+          "name": "threshold",
+          "at": [
+            1.5,
+            0,
+            0.5
+          ],
+          "dir": "+z"
+        }
+      ],
+      "tier": "full"
+    },
+    {
+      "id": "entablature-3m",
+      "category": "structure",
+      "footprint": [
+        3,
+        1
+      ],
+      "height": 1,
+      "sockets": [
+        {
+          "name": "bottom",
+          "at": [
+            1.5,
+            0,
+            0.5
+          ],
+          "dir": "-y"
+        }
+      ],
+      "tier": "full"
+    },
+    {
+      "id": "stair-run-3m",
+      "category": "structure",
+      "footprint": [
+        3,
+        3
+      ],
+      "height": 1,
+      "sockets": [],
+      "tier": "full"
+    },
+    {
+      "id": "floor-slab-3x3",
+      "category": "floor",
+      "footprint": [
+        3,
+        3
+      ],
+      "height": 0,
+      "sockets": [],
+      "tier": "full"
+    },
+    {
+      "id": "pool-basin-3x3",
+      "category": "water",
+      "footprint": [
+        3,
+        3
+      ],
+      "height": 0,
+      "sockets": [],
+      "tier": "half"
+    },
+    {
+      "id": "pool-edge-straight",
+      "category": "water",
+      "footprint": [
+        3,
+        1
+      ],
+      "height": 0,
+      "sockets": [],
+      "tier": "half"
+    },
+    {
+      "id": "fountain-tiered",
+      "category": "water",
+      "footprint": [
+        1,
+        1
+      ],
+      "height": 3,
+      "sockets": [],
+      "tier": "half"
+    },
+    {
+      "id": "urn-small",
+      "category": "dressing",
+      "footprint": [
+        1,
+        1
+      ],
+      "height": 1,
+      "sockets": [],
+      "tier": "skip"
+    },
+    {
+      "id": "planter-square",
+      "category": "dressing",
+      "footprint": [
+        1,
+        1
+      ],
+      "height": 1,
+      "sockets": [],
+      "tier": "skip"
+    },
+    {
+      "id": "statue-a",
+      "category": "dressing",
+      "footprint": [
+        1,
+        1
+      ],
+      "height": 3,
+      "sockets": [],
+      "tier": "skip"
+    },
+    {
+      "id": "bench-3m",
+      "category": "dressing",
+      "footprint": [
+        3,
+        1
+      ],
+      "height": 1,
+      "sockets": [],
+      "tier": "skip"
+    },
+    {
+      "id": "relief-a",
+      "category": "focal",
+      "footprint": [
+        3,
+        1
+      ],
+      "height": 3,
+      "sockets": [],
+      "tier": "full"
+    },
+    {
+      "id": "urn-large",
+      "category": "focal",
+      "footprint": [
+        1,
+        1
+      ],
+      "height": 2,
+      "sockets": [],
+      "tier": "full"
+    },
+    {
+      "id": "statue-b",
+      "category": "focal",
+      "footprint": [
+        1,
+        1
+      ],
+      "height": 3,
+      "sockets": [],
+      "tier": "full"
+    },
+    {
+      "id": "fountain-wall",
+      "category": "focal",
+      "footprint": [
+        3,
+        1
+      ],
+      "height": 3,
+      "sockets": [],
+      "tier": "full"
+    },
+    {
+      "id": "pool-edge-corner",
+      "category": "water",
+      "footprint": [
+        0.18,
+        0.18
+      ],
+      "height": 0.32,
+      "sockets": [],
+      "tier": "full"
+    },
+    {
+      "id": "olive-small",
+      "category": "dressing",
+      "footprint": [
+        1.8,
+        1.8
+      ],
+      "height": 2.5,
+      "sockets": [],
+      "tier": "full"
+    },
+    {
+      "id": "ground-plant-clump",
+      "category": "dressing",
+      "footprint": [
+        0.6,
+        0.6
+      ],
+      "height": 0.3,
+      "sockets": [],
+      "tier": "full"
+    },
+    {
+      "id": "wall-inset-panel",
+      "category": "dressing",
+      "footprint": [
+        1.64,
+        0.6
+      ],
+      "height": 2.74,
+      "sockets": [],
+      "tier": "full"
+    },
+    {
+      "id": "gold-bar",
+      "category": "dressing",
+      "footprint": [
+        0.44,
+        0.24
+      ],
+      "height": 0.16,
+      "sockets": [],
+      "tier": "full"
+    },
+    {
+      "id": "gold-coin",
+      "category": "dressing",
+      "footprint": [
+        0.18,
+        0.18
+      ],
+      "height": 0.028,
+      "sockets": [],
+      "tier": "full"
+    }
   ]
 }

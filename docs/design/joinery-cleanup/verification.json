@@ -1,0 +1,78 @@
+{
+  "date": "2026-09-16",
+  "layoutHash": "cab488ae03b88a17",
+  "placements": 457,
+  "uniqueMatterParts": 21,
+  "tests": {
+    "files": 33,
+    "passed": 124
+  },
+  "typecheck": "pass",
+  "manifestValidation": "pass",
+  "build": "pass; all 14 static fallback views regenerated",
+  "budgets": [
+    {
+      "tier": "desktop",
+      "shell": 754080,
+      "firstLoad": 2339956,
+      "stopBytes": {
+        "entry": 1118236,
+        "matter-engine": 1243292,
+        "cy-1": 1188216,
+        "outrider-ide": 1214872,
+        "cy-2": 866384,
+        "agent-queue": 584280,
+        "cy-3": 1118236,
+        "quilt-trader": 1256632,
+        "cy-4": 866384,
+        "terrace": 931068
+      },
+      "largestTexture": 95990,
+      "assets": 3823644,
+      "total": 5813121,
+      "violations": []
+    },
+    {
+      "tier": "mobile",
+      "shell": 754080,
+      "firstLoad": 2034644,
+      "stopBytes": {
+        "entry": 910428,
+        "matter-engine": 989452,
+        "cy-1": 983496,
+        "outrider-ide": 988536,
+        "cy-2": 723664,
+        "agent-queue": 489632,
+        "cy-3": 910428,
+        "quilt-trader": 1037060,
+        "cy-4": 723664,
+        "terrace": 757428
+      },
+      "largestTexture": 95990,
+      "assets": 3823644,
+      "total": 5813121,
+      "violations": []
+    }
+  ],
+  "localLinkCheck": "pass",
+  "visualBaselines": "14 updated; comparison passes",
+  "preview": "http://localhost:4321/",
+  "completed": true,
+  "browserReview": {
+    "backend": "Chromium SwiftShader; mobile viewport emulation",
+    "landmarks": 28,
+    "problems": 0,
+    "unexpectedFallbacks": 0
+  },
+  "contextRecovery": {
+    "changedPixels": 0
+  },
+  "continuousCruise": "pass",
+  "missingAssetFallback": "pass",
+  "staticPage3DRequests": 0,
+  "gitDiffCheck": "pass",
+  "closeups": {
+    "views": 15,
+    "errors": 0
+  }
+}

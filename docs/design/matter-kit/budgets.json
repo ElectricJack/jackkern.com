@@ -1,0 +1,44 @@
+{
+  "desktop": {
+    "tier": "desktop",
+    "shell": 730286,
+    "firstLoad": 2275630,
+    "stopBytes": {
+      "entry": 1077704,
+      "matter-engine": 1243292,
+      "cy-1": 1188216,
+      "outrider-ide": 1214872,
+      "cy-2": 866384,
+      "agent-queue": 584280,
+      "cy-3": 1118236,
+      "quilt-trader": 1256632,
+      "cy-4": 866384,
+      "terrace": 931068
+    },
+    "largestTexture": 95990,
+    "assets": 3823644,
+    "total": 5648517,
+    "violations": []
+  },
+  "mobile": {
+    "tier": "mobile",
+    "shell": 730286,
+    "firstLoad": 1984882,
+    "stopBytes": {
+      "entry": 884460,
+      "matter-engine": 989452,
+      "cy-1": 983496,
+      "outrider-ide": 988536,
+      "cy-2": 723664,
+      "agent-queue": 489632,
+      "cy-3": 910428,
+      "quilt-trader": 1037060,
+      "cy-4": 723664,
+      "terrace": 757428
+    },
+    "largestTexture": 95990,
+    "assets": 3823644,
+    "total": 5648517,
+    "violations": []
+  }
+}

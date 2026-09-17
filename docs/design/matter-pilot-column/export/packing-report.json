@@ -1,0 +1,253 @@
+{
+  "source": {
+    "directory": "/mnt/d/Shared With Desktop/AI/matter-engine-cpp/MatterEditor/build/asset-handoff/2026-09-16-r2/pilot-output/villa-column-export-20260916-201713/export-master",
+    "bytes": 6914884,
+    "gzipBytes": 4734390,
+    "brotliBytes": 4448518,
+    "sha256": "ae6f91245fc09ed50eda8a3a25be55f54e1c3eb230488c60fc2a3bd80ca43ba3",
+    "manifest": {
+      "version": 1,
+      "source_hash": "85fcd70c56f6283f",
+      "lod": 0,
+      "units": "metres",
+      "up": "+Y",
+      "handedness": "right",
+      "triangles": 8680,
+      "vertices": 26040,
+      "basecolor_space": "sRGB",
+      "data_map_space": "linear",
+      "normal_convention": "UV tangent +Y; OBJ map flips green to match OBJ V flip",
+      "height_decode": "metres = min_m + range_m * unsigned16 / 65535",
+      "materials": [
+        {
+          "name": "material_0",
+          "width": 3456,
+          "height": 4096,
+          "min_m": -0.547860026,
+          "range_m": 0.547860026,
+          "height_png": "material_0-height.png",
+          "source_density_min": 512,
+          "source_density_max": 512,
+          "clearcoat_png": "material_0-clearcoat.png"
+        }
+      ],
+      "mesh_sources": [
+        "85fcd70c56f6283f"
+      ],
+      "files": [
+        "material_0-basecolor.png",
+        "material_0-normal.png",
+        "material_0-orm.png",
+        "material_0-clearcoat.png",
+        "material_0-normal-obj.png",
+        "material_0-occlusion.png",
+        "material_0-roughness.png",
+        "material_0-metallic.png",
+        "material_0-height.png",
+        "asset.obj",
+        "asset.mtl",
+        "asset.glb"
+      ]
+    }
+  },
+  "pipeline": {
+    "mesh": "EXT_meshopt_compression, 16-bit positions/UVs, 14-bit normals; no simplification",
+    "color": "WebP quality 92",
+    "data": "lossless WebP after resize; exactly uniform maps reduced to 1 pixel",
+    "height": "16-bit master retained separately; POM not enabled",
+    "transfer": "gzip/Brotli values are offline estimates, not measured HTTP transfer",
+    "textureMemory": "RGBA8 including mipmaps estimate; WebP does not remain GPU-compressed"
+  },
+  "variants": {
+    "desktop": {
+      "file": "desktop.glb",
+      "bytes": 520540,
+      "gzipBytes": 357079,
+      "brotliBytes": 333429,
+      "sha256": "61521769a372dfa43c355e1009ba7093a520f6948e2fd6d96acfe9ba25a17e24",
+      "bounds": {
+        "min": [
+          -0.500015259254738,
+          0,
+          -0.500015259254738
+        ],
+        "max": [
+          0.500015259254738,
+          4,
+          0.500015259254738
+        ]
+      },
+      "triangles": 8680,
+      "vertices": 25194,
+      "textures": [
+        {
+          "size": [
+            1728,
+            2048
+          ],
+          "slots": [
+            "baseColorTexture"
+          ],
+          "bytes": 95990
+        },
+        {
+          "size": [
+            1728,
+            2048
+          ],
+          "slots": [
+            "normalTexture",
+            "clearcoatNormalTexture"
+          ],
+          "bytes": 16250
+        },
+        {
+          "size": [
+            1,
+            1
+          ],
+          "slots": [
+            "occlusionTexture",
+            "metallicRoughnessTexture"
+          ],
+          "bytes": 36
+        },
+        {
+          "size": [
+            1,
+            1
+          ],
+          "slots": [
+            "clearcoatTexture",
+            "clearcoatRoughnessTexture"
+          ],
+          "bytes": 36
+        }
+      ],
+      "constantMaps": [
+        {
+          "slots": [
+            "occlusionTexture",
+            "metallicRoughnessTexture"
+          ],
+          "values": [
+            254,
+            56,
+            0
+          ]
+        },
+        {
+          "slots": [
+            "clearcoatTexture",
+            "clearcoatRoughnessTexture"
+          ],
+          "values": [
+            20,
+            38,
+            0
+          ]
+        }
+      ],
+      "textureMemoryBytes": 37748747,
+      "validation": {
+        "errors": 0,
+        "warnings": 0
+      }
+    },
+    "mobile": {
+      "file": "mobile.glb",
+      "bytes": 459032,
+      "gzipBytes": 295638,
+      "brotliBytes": 272067,
+      "sha256": "ae79febf9f7a0dd1d23f2e0d4c6cd2fd2dbc63466b41bc1594c55f4115139f75",
+      "bounds": {
+        "min": [
+          -0.500015259254738,
+          0,
+          -0.500015259254738
+        ],
+        "max": [
+          0.500015259254738,
+          4,
+          0.500015259254738
+        ]
+      },
+      "triangles": 8680,
+      "vertices": 25194,
+      "textures": [
+        {
+          "size": [
+            864,
+            1024
+          ],
+          "slots": [
+            "baseColorTexture"
+          ],
+          "bytes": 43002
+        },
+        {
+          "size": [
+            864,
+            1024
+          ],
+          "slots": [
+            "normalTexture",
+            "clearcoatNormalTexture"
+          ],
+          "bytes": 7730
+        },
+        {
+          "size": [
+            1,
+            1
+          ],
+          "slots": [
+            "occlusionTexture",
+            "metallicRoughnessTexture"
+          ],
+          "bytes": 36
+        },
+        {
+          "size": [
+            1,
+            1
+          ],
+          "slots": [
+            "clearcoatTexture",
+            "clearcoatRoughnessTexture"
+          ],
+          "bytes": 36
+        }
+      ],
+      "constantMaps": [
+        {
+          "slots": [
+            "occlusionTexture",
+            "metallicRoughnessTexture"
+          ],
+          "values": [
+            254,
+            56,
+            0
+          ]
+        },
+        {
+          "slots": [
+            "clearcoatTexture",
+            "clearcoatRoughnessTexture"
+          ],
+          "values": [
+            20,
+            38,
+            0
+          ]
+        }
+      ],
+      "textureMemoryBytes": 9437195,
+      "validation": {
+        "errors": 0,
+        "warnings": 0
+      }
+    }
+  }
+}

@@ -1,0 +1,71 @@
+{
+  "date": "2026-09-16",
+  "completed": true,
+  "layoutHash": "47a26b0dcbf515a1",
+  "placementCount": 585,
+  "uniqueParts": 23,
+  "nativePhysics": {
+    "bodies": 128,
+    "movedBodies": 128,
+    "maxMatrixChange": 0
+  },
+  "tests": {
+    "passed": 133,
+    "files": 35
+  },
+  "typecheck": "pass",
+  "manifestValidation": "pass",
+  "nativeAndPackedGLBs": "pass: zero errors/warnings; decoded triangle counts and bounds verified",
+  "browser": "pass: desktop/mobile room entry and reading stop; SwiftShader viewport emulation",
+  "staticCaptures": 14,
+  "visualReferences": "pass; only two Quilt Trader views changed; both reviewed and updated",
+  "budgets": [
+    {
+      "tier": "desktop",
+      "shell": 772815,
+      "firstLoad": 2358691,
+      "stopBytes": {
+        "entry": 1118236,
+        "matter-engine": 1243292,
+        "cy-1": 1188216,
+        "outrider-ide": 1214872,
+        "cy-2": 866384,
+        "agent-queue": 584280,
+        "cy-3": 1118236,
+        "quilt-trader": 1264776,
+        "cy-4": 866384,
+        "terrace": 931068
+      },
+      "largestTexture": 95990,
+      "assets": 3845515,
+      "total": 5865975
+    },
+    {
+      "tier": "mobile",
+      "shell": 772815,
+      "firstLoad": 2053379,
+      "stopBytes": {
+        "entry": 910428,
+        "matter-engine": 989452,
+        "cy-1": 983496,
+        "outrider-ide": 988536,
+        "cy-2": 723664,
+        "agent-queue": 489632,
+        "cy-3": 910428,
+        "quilt-trader": 1050760,
+        "cy-4": 723664,
+        "terrace": 757428
+      },
+      "largestTexture": 95990,
+      "assets": 3845515,
+      "total": 5865975
+    }
+  ],
+  "localLinks": "pass",
+  "poses": {
+    "raw": 16336,
+    "gzip": 5856
+  },
+  "lan": "http://192.168.1.69:8000/",
+  "local": "http://localhost:4321/"
+}

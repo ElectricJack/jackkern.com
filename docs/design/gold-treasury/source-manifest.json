@@ -1,0 +1,26 @@
+[
+  {
+    "path": "projects/world_demo/scenes/architecture/villa/VillaGoldTreasury/VillaGoldTreasury.js",
+    "sha256": "fd3aecb07e69336c55e95a6335460a7e8f7b4d4649117febd3afb12a8d242ae0"
+  },
+  {
+    "path": "projects/world_demo/scenes/architecture/villa/VillaGoldTreasury/objects/VillaGoldBar.js",
+    "sha256": "0b570316b30758fa0571ca6208befc8efe84d1b18d272907b100526723a37e38"
+  },
+  {
+    "path": "projects/world_demo/scenes/architecture/villa/VillaGoldTreasury/objects/VillaGoldCoin.js",
+    "sha256": "78e841c7f2eecf1663a9c0d1fe2b89f5b95029529aae326aafa0af26a073cb05"
+  },
+  {
+    "path": "projects/world_demo/scenes/architecture/villa/VillaGoldTreasury/objects/VillaGoldVessel.js",
+    "sha256": "db7899549c02a2c28d63f2fbb2d4f3ee957e59566e532fdfdc205310fd435b12"
+  },
+  {
+    "path": "projects/world_demo/shared-lib/villa_gold_treasury.js",
+    "sha256": "658bbee8ccc3afc710e29d3f22853c9bbc29dd2200a60ac8e8712137f4735725"
+  },
+  {
+    "path": "projects/world_demo/shared-lib/villa_website_kit.js",
+    "sha256": "3e82db8268edcdff551a0758c3231a078006b1bc045f348b094af4c76391b1e1"
+  }
+]

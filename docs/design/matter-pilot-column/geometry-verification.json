@@ -1,0 +1,64 @@
+{
+  "geometry": [
+    {
+      "quality": 0,
+      "triangles": 8680,
+      "bounds": {
+        "min": [
+          -0.5,
+          0,
+          -0.5
+        ],
+        "max": [
+          0.5,
+          4,
+          0.5
+        ]
+      },
+      "closedComponents": true
+    },
+    {
+      "quality": 1,
+      "triangles": 5440,
+      "bounds": {
+        "min": [
+          -0.5,
+          0,
+          -0.5
+        ],
+        "max": [
+          0.5,
+          4,
+          0.5
+        ]
+      },
+      "closedComponents": true
+    },
+    {
+      "quality": 2,
+      "triangles": 3440,
+      "bounds": {
+        "min": [
+          -0.5,
+          0,
+          -0.5
+        ],
+        "max": [
+          0.5,
+          4,
+          0.5
+        ]
+      },
+      "closedComponents": true
+    }
+  ],
+  "heightTile": {
+    "sizeMeters": 0.5,
+    "texelsPerMeter": 512,
+    "maxSeam": 2.2849560785132006e-17,
+    "minHeight": -0.0006674460307628026,
+    "maxHeight": 0.00020376621840166728
+  },
+  "recipeBytes": 6068,
+  "recipeGzipBytes": 2684
+}

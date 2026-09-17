@@ -16,7 +16,7 @@
         "properties": {
           "id": { "type": "string", "pattern": "^[a-z0-9]+(-[a-z0-9]+)*$" },
           "category": { "enum": ["structure", "floor", "water", "dressing", "focal"] },
-          "footprint": { "type": "array", "minItems": 2, "maxItems": 2, "items": { "type": "integer", "minimum": 1 } },
+          "footprint": { "type": "array", "minItems": 2, "maxItems": 2, "items": { "type": "number", "exclusiveMinimum": 0 } },
           "height": { "type": "number", "minimum": 0 },
           "sockets": {
             "type": "array",

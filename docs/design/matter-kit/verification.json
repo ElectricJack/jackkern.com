@@ -1,0 +1,319 @@
+{
+  "date": "2026-09-17T04:21:07.226Z",
+  "preview": "http://localhost:4321/",
+  "assets": 21,
+  "placements": 441,
+  "uniqueTriangles": 44778,
+  "productionFiles": [
+    {
+      "url": "/assets/matter/column-doric/desktop.glb",
+      "match": true
+    },
+    {
+      "url": "/assets/matter/column-doric/mobile.glb",
+      "match": true
+    },
+    {
+      "url": "/assets/matter/wall-3m/desktop.glb",
+      "match": true
+    },
+    {
+      "url": "/assets/matter/wall-3m/mobile.glb",
+      "match": true
+    },
+    {
+      "url": "/assets/matter/wall-3m-doorway/desktop.glb",
+      "match": true
+    },
+    {
+      "url": "/assets/matter/wall-3m-doorway/mobile.glb",
+      "match": true
+    },
+    {
+      "url": "/assets/matter/entablature-3m/desktop.glb",
+      "match": true
+    },
+    {
+      "url": "/assets/matter/entablature-3m/mobile.glb",
+      "match": true
+    },
+    {
+      "url": "/assets/matter/floor-slab-3x3/desktop.glb",
+      "match": true
+    },
+    {
+      "url": "/assets/matter/floor-slab-3x3/mobile.glb",
+      "match": true
+    },
+    {
+      "url": "/assets/matter/pool-basin-3x3/desktop.glb",
+      "match": true
+    },
+    {
+      "url": "/assets/matter/pool-basin-3x3/mobile.glb",
+      "match": true
+    },
+    {
+      "url": "/assets/matter/pool-edge-straight/desktop.glb",
+      "match": true
+    },
+    {
+      "url": "/assets/matter/pool-edge-straight/mobile.glb",
+      "match": true
+    },
+    {
+      "url": "/assets/matter/pool-edge-corner/desktop.glb",
+      "match": true
+    },
+    {
+      "url": "/assets/matter/pool-edge-corner/mobile.glb",
+      "match": true
+    },
+    {
+      "url": "/assets/matter/fountain-tiered/desktop.glb",
+      "match": true
+    },
+    {
+      "url": "/assets/matter/fountain-tiered/mobile.glb",
+      "match": true
+    },
+    {
+      "url": "/assets/matter/fountain-wall/desktop.glb",
+      "match": true
+    },
+    {
+      "url": "/assets/matter/fountain-wall/mobile.glb",
+      "match": true
+    },
+    {
+      "url": "/assets/matter/planter-square/desktop.glb",
+      "match": true
+    },
+    {
+      "url": "/assets/matter/planter-square/mobile.glb",
+      "match": true
+    },
+    {
+      "url": "/assets/matter/stair-run-3m/desktop.glb",
+      "match": true
+    },
+    {
+      "url": "/assets/matter/stair-run-3m/mobile.glb",
+      "match": true
+    },
+    {
+      "url": "/assets/matter/urn-small/desktop.glb",
+      "match": true
+    },
+    {
+      "url": "/assets/matter/urn-small/mobile.glb",
+      "match": true
+    },
+    {
+      "url": "/assets/matter/statue-a/desktop.glb",
+      "match": true
+    },
+    {
+      "url": "/assets/matter/statue-a/mobile.glb",
+      "match": true
+    },
+    {
+      "url": "/assets/matter/bench-3m/desktop.glb",
+      "match": true
+    },
+    {
+      "url": "/assets/matter/bench-3m/mobile.glb",
+      "match": true
+    },
+    {
+      "url": "/assets/matter/statue-b/desktop.glb",
+      "match": true
+    },
+    {
+      "url": "/assets/matter/statue-b/mobile.glb",
+      "match": true
+    },
+    {
+      "url": "/assets/matter/relief-a/desktop.glb",
+      "match": true
+    },
+    {
+      "url": "/assets/matter/relief-a/mobile.glb",
+      "match": true
+    },
+    {
+      "url": "/assets/matter/urn-large/desktop.glb",
+      "match": true
+    },
+    {
+      "url": "/assets/matter/urn-large/mobile.glb",
+      "match": true
+    },
+    {
+      "url": "/assets/matter/olive-small/desktop.glb",
+      "match": true
+    },
+    {
+      "url": "/assets/matter/olive-small/mobile.glb",
+      "match": true
+    },
+    {
+      "url": "/assets/matter/ground-plant-clump/desktop.glb",
+      "match": true
+    },
+    {
+      "url": "/assets/matter/ground-plant-clump/mobile.glb",
+      "match": true
+    },
+    {
+      "url": "/assets/matter/wall-inset-panel/desktop.glb",
+      "match": true
+    },
+    {
+      "url": "/assets/matter/wall-inset-panel/mobile.glb",
+      "match": true
+    }
+  ],
+  "typecheck": "pass",
+  "validation": "pass",
+  "tests": {
+    "files": 31,
+    "tests": 118,
+    "status": "pass"
+  },
+  "focusedPostFixTests": {
+    "files": 2,
+    "tests": 7,
+    "status": "pass"
+  },
+  "build": {
+    "status": "pass",
+    "staticCaptures": 14
+  },
+  "visuals": {
+    "landmarkCaptures": 28,
+    "betweenLandmarkCaptures": 13,
+    "baselines": "14 regenerated and visually reviewed for new assets"
+  },
+  "behavior": {
+    "backend": "Chromium SwiftShader; behavior checks, not physical device performance",
+    "context": {
+      "during": "static",
+      "after": "scene",
+      "changedPixels": 0,
+      "totalPixels": 921600,
+      "changedRatio": 0,
+      "problems": {
+        "errors": [],
+        "warnings": [],
+        "pageErrors": [],
+        "failedRequests": [],
+        "badResponses": []
+      }
+    },
+    "cruise": {
+      "start": {
+        "u": 0.003528716177443914,
+        "metres": 0.44147704646633856,
+        "speed": 0.7721736430198897,
+        "acceleration": 0.714152962824686,
+        "jerk": -0.3035417718299275,
+        "mode": "flight",
+        "viewpoint": 0,
+        "position": [
+          -3.5475406238496383,
+          1.7,
+          1.893848441363369
+        ]
+      },
+      "end": {
+        "u": 0.007254283815771354,
+        "metres": 0.907582143808221,
+        "speed": 1.06863162110164,
+        "acceleration": 0.43435145987268514,
+        "jerk": -0.7440642399780746,
+        "mode": "flight",
+        "viewpoint": 0,
+        "position": [
+          -3.3331646729014714,
+          1.7,
+          2.307727353294971
+        ]
+      }
+    },
+    "fallback": {
+      "mode": "scene",
+      "assets": {
+        "tier": "desktop",
+        "loaded": {
+          "floor-slab-3x3": "matter",
+          "column-doric": "fallback",
+          "entablature-3m": "matter",
+          "pool-basin-3x3": "matter",
+          "pool-edge-straight": "matter",
+          "pool-edge-corner": "matter",
+          "fountain-tiered": "matter",
+          "planter-square": "matter",
+          "olive-small": "matter",
+          "ground-plant-clump": "matter",
+          "urn-small": "matter",
+          "wall-3m": "matter",
+          "wall-3m-doorway": "matter",
+          "fountain-wall": "matter",
+          "statue-a": "matter",
+          "wall-inset-panel": "matter"
+        }
+      }
+    },
+    "static": {
+      "mode": "static",
+      "glbRequests": 0
+    }
+  },
+  "linkCheck": "pass; external links skipped",
+  "budgets": {
+    "desktop": {
+      "tier": "desktop",
+      "shell": 730286,
+      "firstLoad": 2275630,
+      "stopBytes": {
+        "entry": 1077704,
+        "matter-engine": 1243292,
+        "cy-1": 1188216,
+        "outrider-ide": 1214872,
+        "cy-2": 866384,
+        "agent-queue": 584280,
+        "cy-3": 1118236,
+        "quilt-trader": 1256632,
+        "cy-4": 866384,
+        "terrace": 931068
+      },
+      "largestTexture": 95990,
+      "assets": 3823644,
+      "total": 5648517,
+      "violations": []
+    },
+    "mobile": {
+      "tier": "mobile",
+      "shell": 730286,
+      "firstLoad": 1984882,
+      "stopBytes": {
+        "entry": 884460,
+        "matter-engine": 989452,
+        "cy-1": 983496,
+        "outrider-ide": 988536,
+        "cy-2": 723664,
+        "agent-queue": 489632,
+        "cy-3": 910428,
+        "quilt-trader": 1037060,
+        "cy-4": 723664,
+        "terrace": 757428
+      },
+      "largestTexture": 95990,
+      "assets": 3823644,
+      "total": 5648517,
+      "violations": []
+    }
+  },
+  "limits": "Browser checks use software rendering and mobile viewport emulation; no physical-phone frame-rate claim."
+}

@@ -1,0 +1,20 @@
+[
+  {
+    "view": "overview",
+    "changedPixels": 0,
+    "pixels": 810000,
+    "ratio": 0
+  },
+  {
+    "view": "capital",
+    "changedPixels": 0,
+    "pixels": 810000,
+    "ratio": 0
+  },
+  {
+    "view": "base",
+    "changedPixels": 0,
+    "pixels": 810000,
+    "ratio": 0
+  }
+]

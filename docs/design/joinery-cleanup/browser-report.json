@@ -1,0 +1,4472 @@
+{
+  "backend": "Chromium SwiftShader; mobile viewport emulation",
+  "layoutHash": "cab488ae03b88a17",
+  "placements": 457,
+  "parts": [
+    "floor-slab-3x3",
+    "column-doric",
+    "entablature-3m",
+    "pool-basin-3x3",
+    "pool-edge-straight",
+    "pool-edge-corner",
+    "fountain-tiered",
+    "planter-square",
+    "olive-small",
+    "ground-plant-clump",
+    "urn-small",
+    "stair-run-3m",
+    "wall-3m",
+    "wall-3m-doorway",
+    "fountain-wall",
+    "statue-a",
+    "wall-inset-panel",
+    "statue-b",
+    "relief-a",
+    "urn-large",
+    "bench-3m"
+  ],
+  "views": [
+    {
+      "name": "desktop-entry-view",
+      "assets": {
+        "tier": "desktop",
+        "loaded": {
+          "floor-slab-3x3": "matter",
+          "column-doric": "matter",
+          "entablature-3m": "matter",
+          "pool-basin-3x3": "matter",
+          "pool-edge-straight": "matter",
+          "pool-edge-corner": "matter",
+          "fountain-tiered": "matter",
+          "planter-square": "matter",
+          "olive-small": "matter",
+          "ground-plant-clump": "matter",
+          "urn-small": "matter",
+          "stair-run-3m": "matter",
+          "wall-3m": "matter",
+          "wall-3m-doorway": "matter",
+          "fountain-wall": "matter",
+          "statue-a": "matter",
+          "wall-inset-panel": "matter"
+        }
+      },
+      "render": {
+        "calls": 67,
+        "triangles": 412034,
+        "textures": 42,
+        "geometries": 33,
+        "residentStops": [
+          "entry",
+          "matter-engine",
+          "cy-1"
+        ],
+        "reflectionPasses": 1,
+        "leaves": 7020,
+        "dust": 650
+      },
+      "travel": {
+        "u": 0,
+        "metres": 0,
+        "speed": 0,
+        "acceleration": 0,
+        "jerk": 0,
+        "mode": "paused",
+        "viewpoint": 0,
+        "position": [
+          -3.746999,
+          1.7,
+          1.5
+        ]
+      },
+      "requests": [
+        {
+          "url": "http://127.0.0.1:4321/assets/matter/floor-slab-3x3/desktop.glb",
+          "bytes": 33448,
+          "transferBytes": 33748
+        },
+        {
+          "url": "http://127.0.0.1:4321/assets/matter/column-doric/desktop.glb",
+          "bytes": 360452,
+          "transferBytes": 360752
+        },
+        {
+          "url": "http://127.0.0.1:4321/assets/matter/entablature-3m/desktop.glb",
+          "bytes": 77624,
+          "transferBytes": 77924
+        },
+        {
+          "url": "http://127.0.0.1:4321/assets/matter/pool-basin-3x3/desktop.glb",
+          "bytes": 68900,
+          "transferBytes": 69200
+        },
+        {
+          "url": "http://127.0.0.1:4321/assets/matter/pool-edge-straight/desktop.glb",
+          "bytes": 14212,
+          "transferBytes": 14512
+        },
+        {
+          "url": "http://127.0.0.1:4321/assets/matter/pool-edge-corner/desktop.glb",
+          "bytes": 9696,
+          "transferBytes": 9996
+        },
+        {
+          "url": "http://127.0.0.1:4321/assets/matter/fountain-tiered/desktop.glb",
+          "bytes": 201828,
+          "transferBytes": 202128
+        },
+        {
+          "url": "http://127.0.0.1:4321/assets/matter/planter-square/desktop.glb",
+          "bytes": 43268,
+          "transferBytes": 43568
+        },
+        {
+          "url": "http://127.0.0.1:4321/assets/matter/olive-small/desktop.glb",
+          "bytes": 116204,
+          "transferBytes": 116504
+        },
+        {
+          "url": "http://127.0.0.1:4321/assets/matter/ground-plant-clump/desktop.glb",
+          "bytes": 51848,
+          "transferBytes": 52148
+        },
+        {
+          "url": "http://127.0.0.1:4321/assets/matter/urn-small/desktop.glb",
+          "bytes": 100224,
+          "transferBytes": 100524
+        },
+        {
+          "url": "http://127.0.0.1:4321/assets/matter/stair-run-3m/desktop.glb",
+          "bytes": 40532,
+          "transferBytes": 40832
+        },
+        {
+          "url": "http://127.0.0.1:4321/assets/matter/wall-3m/desktop.glb",
+          "bytes": 29732,
+          "transferBytes": 30032
+        },
+        {
+          "url": "http://127.0.0.1:4321/assets/matter/wall-3m-doorway/desktop.glb",
+          "bytes": 39912,
+          "transferBytes": 40212
+        },
+        {
+          "url": "http://127.0.0.1:4321/assets/matter/fountain-wall/desktop.glb",
+          "bytes": 119640,
+          "transferBytes": 119940
+        },
+        {
+          "url": "http://127.0.0.1:4321/assets/matter/statue-a/desktop.glb",
+          "bytes": 110512,
+          "transferBytes": 110812
+        },
+        {
+          "url": "http://127.0.0.1:4321/assets/matter/wall-inset-panel/desktop.glb",
+          "bytes": 167844,
+          "transferBytes": 168144
+        }
+      ],
+      "problems": {
+        "errors": [],
+        "warnings": [],
+        "pageErrors": [],
+        "failedRequests": [],
+        "badResponses": []
+      }
+    },
+    {
+      "name": "desktop-matter-engine-enter",
+      "assets": {
+        "tier": "desktop",
+        "loaded": {
+          "floor-slab-3x3": "matter",
+          "wall-3m": "matter",
+          "wall-3m-doorway": "matter",
+          "column-doric": "matter",
+          "entablature-3m": "matter",
+          "pool-basin-3x3": "matter",
+          "pool-edge-straight": "matter",
+          "pool-edge-corner": "matter",
+          "fountain-wall": "matter",
+          "planter-square": "matter",
+          "olive-small": "matter",
+          "ground-plant-clump": "matter",
+          "statue-a": "matter",
+          "wall-inset-panel": "matter",
+          "fountain-tiered": "matter",
+          "urn-small": "matter",
+          "stair-run-3m": "matter",
+          "statue-b": "matter"
+        }
+      },
+      "render": {
+        "calls": 78,
+        "triangles": 579656,
+        "textures": 46,
+        "geometries": 34,
+        "residentStops": [
+          "entry",
+          "matter-engine",
+          "cy-1",
+          "outrider-ide"
+        ],
+        "reflectionPasses": 1,
+        "leaves": 7020,
+        "dust": 650
+      },
+      "travel": {
+        "u": 0.07514020507496869,
+        "metres": 9.400777546070978,
+        "speed": 0,
+        "acceleration": 0,
+        "jerk": 0,
+        "mode": "paused",
+        "viewpoint": 1,
+        "position": [
+          1.9652501400187674e-26,
+          1.7,
+          10.000000000000302
+        ]
+      },
+      "requests": [
+        {
+          "url": "http://127.0.0.1:4321/assets/matter/floor-slab-3x3/desktop.glb",
+          "bytes": 33448,
+          "transferBytes": 300
+        },
+        {
+          "url": "http://127.0.0.1:4321/assets/matter/wall-3m/desktop.glb",
+          "bytes": 29732,
+          "transferBytes": 300
+        },
+        {
+          "url": "http://127.0.0.1:4321/assets/matter/wall-3m-doorway/desktop.glb",
+          "bytes": 39912,
+          "transferBytes": 300
+        },
+        {
+          "url": "http://127.0.0.1:4321/assets/matter/column-doric/desktop.glb",
+          "bytes": 360452,
+          "transferBytes": 300
+        },
+        {
+          "url": "http://127.0.0.1:4321/assets/matter/entablature-3m/desktop.glb",
+          "bytes": 77624,
+          "transferBytes": 300
+        },
+        {
+          "url": "http://127.0.0.1:4321/assets/matter/pool-basin-3x3/desktop.glb",
+          "bytes": 68900,
+          "transferBytes": 300
+        },
+        {
+          "url": "http://127.0.0.1:4321/assets/matter/pool-edge-straight/desktop.glb",
+          "bytes": 14212,
+          "transferBytes": 300
+        },
+        {
+          "url": "http://127.0.0.1:4321/assets/matter/pool-edge-corner/desktop.glb",
+          "bytes": 9696,
+          "transferBytes": 300
+        },
+        {
+          "url": "http://127.0.0.1:4321/assets/matter/fountain-wall/desktop.glb",
+          "bytes": 119640,
+          "transferBytes": 300
+        },
+        {
+          "url": "http://127.0.0.1:4321/assets/matter/planter-square/desktop.glb",
+          "bytes": 43268,
+          "transferBytes": 300
+        },
+        {
+          "url": "http://127.0.0.1:4321/assets/matter/olive-small/desktop.glb",
+          "bytes": 116204,
+          "transferBytes": 300
+        },
+        {
+          "url": "http://127.0.0.1:4321/assets/matter/ground-plant-clump/desktop.glb",
+          "bytes": 51848,
+          "transferBytes": 300
+        },
+        {
+          "url": "http://127.0.0.1:4321/assets/matter/statue-a/desktop.glb",
+          "bytes": 110512,
+          "transferBytes": 300
+        },
+        {
+          "url": "http://127.0.0.1:4321/assets/matter/wall-inset-panel/desktop.glb",
+          "bytes": 167844,
+          "transferBytes": 300
+        },
+        {
+          "url": "http://127.0.0.1:4321/assets/matter/fountain-tiered/desktop.glb",
+          "bytes": 201828,
+          "transferBytes": 300
+        },
+        {
+          "url": "http://127.0.0.1:4321/assets/matter/urn-small/desktop.glb",
+          "bytes": 100224,
+          "transferBytes": 300
+        },
+        {
+          "url": "http://127.0.0.1:4321/assets/matter/stair-run-3m/desktop.glb",
+          "bytes": 40532,
+          "transferBytes": 300
+        },
+        {
+          "url": "http://127.0.0.1:4321/assets/matter/statue-b/desktop.glb",
+          "bytes": 83804,
+          "transferBytes": 84104
+        }
+      ],
+      "problems": {
+        "errors": [],
+        "warnings": [],
+        "pageErrors": [],
+        "failedRequests": [],
+        "badResponses": []
+      }
+    },
+    {
+      "name": "desktop-matter-engine-focal",
+      "assets": {
+        "tier": "desktop",
+        "loaded": {
+          "floor-slab-3x3": "matter",
+          "wall-3m": "matter",
+          "wall-3m-doorway": "matter",
+          "column-doric": "matter",
+          "entablature-3m": "matter",
+          "pool-basin-3x3": "matter",
+          "pool-edge-straight": "matter",
+          "pool-edge-corner": "matter",
+          "fountain-wall": "matter",
+          "planter-square": "matter",
+          "olive-small": "matter",
+          "ground-plant-clump": "matter",
+          "statue-a": "matter",
+          "wall-inset-panel": "matter",
+          "fountain-tiered": "matter",
+          "urn-small": "matter",
+          "stair-run-3m": "matter",
+          "statue-b": "matter"
+        }
+      },
+      "render": {
+        "calls": 73,
+        "triangles": 470428,
+        "textures": 46,
+        "geometries": 34,
+        "residentStops": [
+          "entry",
+          "matter-engine",
+          "cy-1",
+          "outrider-ide"
+        ],
+        "reflectionPasses": 1,
+        "leaves": 7020,
+        "dust": 650
+      },
+      "travel": {
+        "u": 0.08876755183177847,
+        "metres": 11.105692448500713,
+        "speed": 0,
+        "acceleration": 0,
+        "jerk": 0,
+        "mode": "paused",
+        "viewpoint": 2,
+        "position": [
+          8.38889194167974e-15,
+          1.7,
+          11.699999999999953
+        ]
+      },
+      "requests": [
+        {
+          "url": "http://127.0.0.1:4321/assets/matter/floor-slab-3x3/desktop.glb",
+          "bytes": 33448,
+          "transferBytes": 300
+        },
+        {
+          "url": "http://127.0.0.1:4321/assets/matter/wall-3m/desktop.glb",
+          "bytes": 29732,
+          "transferBytes": 300
+        },
+        {
+          "url": "http://127.0.0.1:4321/assets/matter/wall-3m-doorway/desktop.glb",
+          "bytes": 39912,
+          "transferBytes": 300
+        },
+        {
+          "url": "http://127.0.0.1:4321/assets/matter/column-doric/desktop.glb",
+          "bytes": 360452,
+          "transferBytes": 300
+        },
+        {
+          "url": "http://127.0.0.1:4321/assets/matter/entablature-3m/desktop.glb",
+          "bytes": 77624,
+          "transferBytes": 300
+        },
+        {
+          "url": "http://127.0.0.1:4321/assets/matter/pool-basin-3x3/desktop.glb",
+          "bytes": 68900,
+          "transferBytes": 300
+        },
+        {
+          "url": "http://127.0.0.1:4321/assets/matter/pool-edge-straight/desktop.glb",
+          "bytes": 14212,
+          "transferBytes": 300
+        },
+        {
+          "url": "http://127.0.0.1:4321/assets/matter/pool-edge-corner/desktop.glb",
+          "bytes": 9696,
+          "transferBytes": 300
+        },
+        {
+          "url": "http://127.0.0.1:4321/assets/matter/fountain-wall/desktop.glb",
+          "bytes": 119640,
+          "transferBytes": 300
+        },
+        {
+          "url": "http://127.0.0.1:4321/assets/matter/planter-square/desktop.glb",
+          "bytes": 43268,
+          "transferBytes": 300
+        },
+        {
+          "url": "http://127.0.0.1:4321/assets/matter/olive-small/desktop.glb",
+          "bytes": 116204,
+          "transferBytes": 300
+        },
+        {
+          "url": "http://127.0.0.1:4321/assets/matter/ground-plant-clump/desktop.glb",
+          "bytes": 51848,
+          "transferBytes": 300
+        },
+        {
+          "url": "http://127.0.0.1:4321/assets/matter/statue-a/desktop.glb",
+          "bytes": 110512,
+          "transferBytes": 300
+        },
+        {
+          "url": "http://127.0.0.1:4321/assets/matter/wall-inset-panel/desktop.glb",
+          "bytes": 167844,
+          "transferBytes": 300
+        },
+        {
+          "url": "http://127.0.0.1:4321/assets/matter/fountain-tiered/desktop.glb",
+          "bytes": 201828,
+          "transferBytes": 300
+        },
+        {
+          "url": "http://127.0.0.1:4321/assets/matter/urn-small/desktop.glb",
+          "bytes": 100224,
+          "transferBytes": 300
+        },
+        {
+          "url": "http://127.0.0.1:4321/assets/matter/stair-run-3m/desktop.glb",
+          "bytes": 40532,
+          "transferBytes": 300
+        },
+        {
+          "url": "http://127.0.0.1:4321/assets/matter/statue-b/desktop.glb",
+          "bytes": 83804,
+          "transferBytes": 300
+        }
+      ],
+      "problems": {
+        "errors": [],
+        "warnings": [],
+        "pageErrors": [],
+        "failedRequests": [],
+        "badResponses": []
+      }
+    },
+    {
+      "name": "desktop-cy-1-view",
+      "assets": {
+        "tier": "desktop",
+        "loaded": {
+          "floor-slab-3x3": "matter",
+          "entablature-3m": "matter",
+          "column-doric": "matter",
+          "pool-basin-3x3": "matter",
+          "pool-edge-straight": "matter",
+          "pool-edge-corner": "matter",
+          "fountain-tiered": "matter",
+          "statue-a": "matter",
+          "urn-small": "matter",
+          "planter-square": "matter",
+          "olive-small": "matter",
+          "ground-plant-clump": "matter",
+          "wall-3m": "matter",
+          "wall-3m-doorway": "matter",
+          "fountain-wall": "matter",
+          "wall-inset-panel": "matter",
+          "statue-b": "matter",
+          "stair-run-3m": "matter"
+        }
+      },
+      "render": {
+        "calls": 67,
+        "triangles": 511008,
+        "textures": 42,
+        "geometries": 34,
+        "residentStops": [
+          "entry",
+          "matter-engine",
+          "cy-1",
+          "outrider-ide",
+          "cy-2"
+        ],
+        "reflectionPasses": 1,
+        "leaves": 7020,
+        "dust": 650
+      },
+      "travel": {
+        "u": 0.1874275179236218,
+        "metres": 23.449023066336554,
+        "speed": 0,
+        "acceleration": 0,
+        "jerk": 0,
+        "mode": "paused",
+        "viewpoint": 3,
+        "position": [
+          -3.1000000000000694,
+          1.7,
+          19.500000000000078
+        ]
+      },
+      "requests": [
+        {
+          "url": "http://127.0.0.1:4321/assets/matter/floor-slab-3x3/desktop.glb",
+          "bytes": 33448,
+          "transferBytes": 300
+        },
+        {
+          "url": "http://127.0.0.1:4321/assets/matter/entablature-3m/desktop.glb",
+          "bytes": 77624,
+          "transferBytes": 300
+        },
+        {
+          "url": "http://127.0.0.1:4321/assets/matter/column-doric/desktop.glb",
+          "bytes": 360452,
+          "transferBytes": 300
+        },
+        {
+          "url": "http://127.0.0.1:4321/assets/matter/pool-basin-3x3/desktop.glb",
+          "bytes": 68900,
+          "transferBytes": 300
+        },
+        {
+          "url": "http://127.0.0.1:4321/assets/matter/pool-edge-straight/desktop.glb",
+          "bytes": 14212,
+          "transferBytes": 300
+        },
+        {
+          "url": "http://127.0.0.1:4321/assets/matter/pool-edge-corner/desktop.glb",
+          "bytes": 9696,
+          "transferBytes": 300
+        },
+        {
+          "url": "http://127.0.0.1:4321/assets/matter/fountain-tiered/desktop.glb",
+          "bytes": 201828,
+          "transferBytes": 300
+        },
+        {
+          "url": "http://127.0.0.1:4321/assets/matter/statue-a/desktop.glb",
+          "bytes": 110512,
+          "transferBytes": 300
+        },
+        {
+          "url": "http://127.0.0.1:4321/assets/matter/urn-small/desktop.glb",
+          "bytes": 100224,
+          "transferBytes": 300
+        },
+        {
+          "url": "http://127.0.0.1:4321/assets/matter/planter-square/desktop.glb",
+          "bytes": 43268,
+          "transferBytes": 300
+        },
+        {
+          "url": "http://127.0.0.1:4321/assets/matter/olive-small/desktop.glb",
+          "bytes": 116204,
+          "transferBytes": 300
+        },
+        {
+          "url": "http://127.0.0.1:4321/assets/matter/ground-plant-clump/desktop.glb",
+          "bytes": 51848,
+          "transferBytes": 300
+        },
+        {
+          "url": "http://127.0.0.1:4321/assets/matter/wall-3m/desktop.glb",
+          "bytes": 29732,
+          "transferBytes": 300
+        },
+        {
+          "url": "http://127.0.0.1:4321/assets/matter/wall-3m-doorway/desktop.glb",
+          "bytes": 39912,
+          "transferBytes": 300
+        },
+        {
+          "url": "http://127.0.0.1:4321/assets/matter/fountain-wall/desktop.glb",
+          "bytes": 119640,
+          "transferBytes": 300
+        },
+        {
+          "url": "http://127.0.0.1:4321/assets/matter/wall-inset-panel/desktop.glb",
+          "bytes": 167844,
+          "transferBytes": 300
+        },
+        {
+          "url": "http://127.0.0.1:4321/assets/matter/statue-b/desktop.glb",
+          "bytes": 83804,
+          "transferBytes": 300
+        },
+        {
+          "url": "http://127.0.0.1:4321/assets/matter/stair-run-3m/desktop.glb",
+          "bytes": 40532,
+          "transferBytes": 300
+        }
+      ],
+      "problems": {
+        "errors": [],
+        "warnings": [],
+        "pageErrors": [],
+        "failedRequests": [],
+        "badResponses": []
+      }
+    },
+    {
+      "name": "desktop-outrider-ide-enter",
+      "assets": {
+        "tier": "desktop",
+        "loaded": {
+          "floor-slab-3x3": "matter",
+          "wall-3m": "matter",
+          "wall-3m-doorway": "matter",
+          "column-doric": "matter",
+          "entablature-3m": "matter",
+          "statue-b": "matter",
+          "planter-square": "matter",
+          "olive-small": "matter",
+          "ground-plant-clump": "matter",
+          "statue-a": "matter",
+          "urn-small": "matter",
+          "wall-inset-panel": "matter",
+          "pool-basin-3x3": "matter",
+          "pool-edge-straight": "matter",
+          "pool-edge-corner": "matter",
+          "fountain-tiered": "matter",
+          "fountain-wall": "matter",
+          "relief-a": "matter",
+          "stair-run-3m": "matter"
+        }
+      },
+      "render": {
+        "calls": 61,
+        "triangles": 415514,
+        "textures": 43,
+        "geometries": 34,
+        "residentStops": [
+          "entry",
+          "matter-engine",
+          "cy-1",
+          "outrider-ide",
+          "cy-2",
+          "agent-queue"
+        ],
+        "reflectionPasses": 1,
+        "leaves": 7020,
+        "dust": 650
+      },
+      "travel": {
+        "u": 0.2751170537458755,
+        "metres": 34.41984512572222,
+        "speed": 0,
+        "acceleration": 0,
+        "jerk": 0,
+        "mode": "paused",
+        "viewpoint": 4,
+        "position": [
+          3.43914609769695e-29,
+          1.7,
+          27.999999999999968
+        ]
+      },
+      "requests": [
+        {
+          "url": "http://127.0.0.1:4321/assets/matter/floor-slab-3x3/desktop.glb",
+          "bytes": 33448,
+          "transferBytes": 300
+        },
+        {
+          "url": "http://127.0.0.1:4321/assets/matter/wall-3m/desktop.glb",
+          "bytes": 29732,
+          "transferBytes": 300
+        },
+        {
+          "url": "http://127.0.0.1:4321/assets/matter/wall-3m-doorway/desktop.glb",
+          "bytes": 39912,
+          "transferBytes": 300
+        },
+        {
+          "url": "http://127.0.0.1:4321/assets/matter/column-doric/desktop.glb",
+          "bytes": 360452,
+          "transferBytes": 300
+        },
+        {
+          "url": "http://127.0.0.1:4321/assets/matter/entablature-3m/desktop.glb",
+          "bytes": 77624,
+          "transferBytes": 300
+        },
+        {
+          "url": "http://127.0.0.1:4321/assets/matter/statue-b/desktop.glb",
+          "bytes": 83804,
+          "transferBytes": 300
+        },
+        {
+          "url": "http://127.0.0.1:4321/assets/matter/planter-square/desktop.glb",
+          "bytes": 43268,
+          "transferBytes": 300
+        },
+        {
+          "url": "http://127.0.0.1:4321/assets/matter/olive-small/desktop.glb",
+          "bytes": 116204,
+          "transferBytes": 300
+        },
+        {
+          "url": "http://127.0.0.1:4321/assets/matter/ground-plant-clump/desktop.glb",
+          "bytes": 51848,
+          "transferBytes": 300
+        },
+        {
+          "url": "http://127.0.0.1:4321/assets/matter/statue-a/desktop.glb",
+          "bytes": 110512,
+          "transferBytes": 300
+        },
+        {
+          "url": "http://127.0.0.1:4321/assets/matter/urn-small/desktop.glb",
+          "bytes": 100224,
+          "transferBytes": 300
+        },
+        {
+          "url": "http://127.0.0.1:4321/assets/matter/wall-inset-panel/desktop.glb",
+          "bytes": 167844,
+          "transferBytes": 300
+        },
+        {
+          "url": "http://127.0.0.1:4321/assets/matter/pool-basin-3x3/desktop.glb",
+          "bytes": 68900,
+          "transferBytes": 300
+        },
+        {
+          "url": "http://127.0.0.1:4321/assets/matter/pool-edge-straight/desktop.glb",
+          "bytes": 14212,
+          "transferBytes": 300
+        },
+        {
+          "url": "http://127.0.0.1:4321/assets/matter/pool-edge-corner/desktop.glb",
+          "bytes": 9696,
+          "transferBytes": 300
+        },
+        {
+          "url": "http://127.0.0.1:4321/assets/matter/fountain-tiered/desktop.glb",
+          "bytes": 201828,
+          "transferBytes": 300
+        },
+        {
+          "url": "http://127.0.0.1:4321/assets/matter/fountain-wall/desktop.glb",
+          "bytes": 119640,
+          "transferBytes": 300
+        },
+        {
+          "url": "http://127.0.0.1:4321/assets/matter/relief-a/desktop.glb",
+          "bytes": 202832,
+          "transferBytes": 203132
+        },
+        {
+          "url": "http://127.0.0.1:4321/assets/matter/stair-run-3m/desktop.glb",
+          "bytes": 40532,
+          "transferBytes": 300
+        }
+      ],
+      "problems": {
+        "errors": [],
+        "warnings": [],
+        "pageErrors": [],
+        "failedRequests": [],
+        "badResponses": []
+      }
+    },
+    {
+      "name": "desktop-outrider-ide-focal",
+      "assets": {
+        "tier": "desktop",
+        "loaded": {
+          "floor-slab-3x3": "matter",
+          "wall-3m": "matter",
+          "wall-3m-doorway": "matter",
+          "column-doric": "matter",
+          "entablature-3m": "matter",
+          "statue-b": "matter",
+          "planter-square": "matter",
+          "olive-small": "matter",
+          "ground-plant-clump": "matter",
+          "statue-a": "matter",
+          "urn-small": "matter",
+          "wall-inset-panel": "matter",
+          "pool-basin-3x3": "matter",
+          "pool-edge-straight": "matter",
+          "pool-edge-corner": "matter",
+          "fountain-tiered": "matter",
+          "fountain-wall": "matter",
+          "relief-a": "matter",
+          "stair-run-3m": "matter"
+        }
+      },
+      "render": {
+        "calls": 48,
+        "triangles": 328118,
+        "textures": 37,
+        "geometries": 34,
+        "residentStops": [
+          "entry",
+          "matter-engine",
+          "cy-1",
+          "outrider-ide",
+          "cy-2",
+          "agent-queue"
+        ],
+        "reflectionPasses": 1,
+        "leaves": 7020,
+        "dust": 650
+      },
+      "travel": {
+        "u": 0.3127622231352774,
+        "metres": 39.12962549910345,
+        "speed": 0,
+        "acceleration": 0,
+        "jerk": 0,
+        "mode": "paused",
+        "viewpoint": 5,
+        "position": [
+          4.646508729945138e-15,
+          1.7,
+          32.699999999999974
+        ]
+      },
+      "requests": [
+        {
+          "url": "http://127.0.0.1:4321/assets/matter/floor-slab-3x3/desktop.glb",
+          "bytes": 33448,
+          "transferBytes": 300
+        },
+        {
+          "url": "http://127.0.0.1:4321/assets/matter/wall-3m/desktop.glb",
+          "bytes": 29732,
+          "transferBytes": 300
+        },
+        {
+          "url": "http://127.0.0.1:4321/assets/matter/wall-3m-doorway/desktop.glb",
+          "bytes": 39912,
+          "transferBytes": 300
+        },
+        {
+          "url": "http://127.0.0.1:4321/assets/matter/column-doric/desktop.glb",
+          "bytes": 360452,
+          "transferBytes": 300
+        },
+        {
+          "url": "http://127.0.0.1:4321/assets/matter/entablature-3m/desktop.glb",
+          "bytes": 77624,
+          "transferBytes": 300
+        },
+        {
+          "url": "http://127.0.0.1:4321/assets/matter/statue-b/desktop.glb",
+          "bytes": 83804,
+          "transferBytes": 300
+        },
+        {
+          "url": "http://127.0.0.1:4321/assets/matter/planter-square/desktop.glb",
+          "bytes": 43268,
+          "transferBytes": 300
+        },
+        {
+          "url": "http://127.0.0.1:4321/assets/matter/olive-small/desktop.glb",
+          "bytes": 116204,
+          "transferBytes": 300
+        },
+        {
+          "url": "http://127.0.0.1:4321/assets/matter/ground-plant-clump/desktop.glb",
+          "bytes": 51848,
+          "transferBytes": 300
+        },
+        {
+          "url": "http://127.0.0.1:4321/assets/matter/statue-a/desktop.glb",
+          "bytes": 110512,
+          "transferBytes": 300
+        },
+        {
+          "url": "http://127.0.0.1:4321/assets/matter/urn-small/desktop.glb",
+          "bytes": 100224,
+          "transferBytes": 300
+        },
+        {
+          "url": "http://127.0.0.1:4321/assets/matter/wall-inset-panel/desktop.glb",
+          "bytes": 167844,
+          "transferBytes": 300
+        },
+        {
+          "url": "http://127.0.0.1:4321/assets/matter/pool-basin-3x3/desktop.glb",
+          "bytes": 68900,
+          "transferBytes": 300
+        },
+        {
+          "url": "http://127.0.0.1:4321/assets/matter/pool-edge-straight/desktop.glb",
+          "bytes": 14212,
+          "transferBytes": 300
+        },
+        {
+          "url": "http://127.0.0.1:4321/assets/matter/pool-edge-corner/desktop.glb",
+          "bytes": 9696,
+          "transferBytes": 300
+        },
+        {
+          "url": "http://127.0.0.1:4321/assets/matter/fountain-tiered/desktop.glb",
+          "bytes": 201828,
+          "transferBytes": 300
+        },
+        {
+          "url": "http://127.0.0.1:4321/assets/matter/fountain-wall/desktop.glb",
+          "bytes": 119640,
+          "transferBytes": 300
+        },
+        {
+          "url": "http://127.0.0.1:4321/assets/matter/relief-a/desktop.glb",
+          "bytes": 202832,
+          "transferBytes": 300
+        },
+        {
+          "url": "http://127.0.0.1:4321/assets/matter/stair-run-3m/desktop.glb",
+          "bytes": 40532,
+          "transferBytes": 300
+        }
+      ],
+      "problems": {
+        "errors": [],
+        "warnings": [],
+        "pageErrors": [],
+        "failedRequests": [],
+        "badResponses": []
+      }
+    },
+    {
+      "name": "desktop-cy-2-view",
+      "assets": {
+        "tier": "desktop",
+        "loaded": {
+          "floor-slab-3x3": "matter",
+          "entablature-3m": "matter",
+          "column-doric": "matter",
+          "pool-basin-3x3": "matter",
+          "pool-edge-straight": "matter",
+          "pool-edge-corner": "matter",
+          "fountain-tiered": "matter",
+          "urn-small": "matter",
+          "wall-3m": "matter",
+          "wall-3m-doorway": "matter",
+          "statue-b": "matter",
+          "planter-square": "matter",
+          "olive-small": "matter",
+          "ground-plant-clump": "matter",
+          "statue-a": "matter",
+          "wall-inset-panel": "matter",
+          "relief-a": "matter",
+          "stair-run-3m": "matter",
+          "fountain-wall": "matter"
+        }
+      },
+      "render": {
+        "calls": 62,
+        "triangles": 426790,
+        "textures": 42,
+        "geometries": 34,
+        "residentStops": [
+          "matter-engine",
+          "cy-1",
+          "outrider-ide",
+          "cy-2",
+          "agent-queue",
+          "cy-3"
+        ],
+        "reflectionPasses": 1,
+        "leaves": 7020,
+        "dust": 650
+      },
+      "travel": {
+        "u": 0.4112197672199669,
+        "metres": 51.44763113602149,
+        "speed": 0,
+        "acceleration": 0,
+        "jerk": 0,
+        "mode": "paused",
+        "viewpoint": 6,
+        "position": [
+          3.1000000000000396,
+          1.7,
+          40.50000000000004
+        ]
+      },
+      "requests": [
+        {
+          "url": "http://127.0.0.1:4321/assets/matter/floor-slab-3x3/desktop.glb",
+          "bytes": 33448,
+          "transferBytes": 300
+        },
+        {
+          "url": "http://127.0.0.1:4321/assets/matter/entablature-3m/desktop.glb",
+          "bytes": 77624,
+          "transferBytes": 300
+        },
+        {
+          "url": "http://127.0.0.1:4321/assets/matter/column-doric/desktop.glb",
+          "bytes": 360452,
+          "transferBytes": 300
+        },
+        {
+          "url": "http://127.0.0.1:4321/assets/matter/pool-basin-3x3/desktop.glb",
+          "bytes": 68900,
+          "transferBytes": 300
+        },
+        {
+          "url": "http://127.0.0.1:4321/assets/matter/pool-edge-straight/desktop.glb",
+          "bytes": 14212,
+          "transferBytes": 300
+        },
+        {
+          "url": "http://127.0.0.1:4321/assets/matter/pool-edge-corner/desktop.glb",
+          "bytes": 9696,
+          "transferBytes": 300
+        },
+        {
+          "url": "http://127.0.0.1:4321/assets/matter/fountain-tiered/desktop.glb",
+          "bytes": 201828,
+          "transferBytes": 300
+        },
+        {
+          "url": "http://127.0.0.1:4321/assets/matter/urn-small/desktop.glb",
+          "bytes": 100224,
+          "transferBytes": 300
+        },
+        {
+          "url": "http://127.0.0.1:4321/assets/matter/wall-3m/desktop.glb",
+          "bytes": 29732,
+          "transferBytes": 300
+        },
+        {
+          "url": "http://127.0.0.1:4321/assets/matter/wall-3m-doorway/desktop.glb",
+          "bytes": 39912,
+          "transferBytes": 300
+        },
+        {
+          "url": "http://127.0.0.1:4321/assets/matter/statue-b/desktop.glb",
+          "bytes": 83804,
+          "transferBytes": 300
+        },
+        {
+          "url": "http://127.0.0.1:4321/assets/matter/planter-square/desktop.glb",
+          "bytes": 43268,
+          "transferBytes": 300
+        },
+        {
+          "url": "http://127.0.0.1:4321/assets/matter/olive-small/desktop.glb",
+          "bytes": 116204,
+          "transferBytes": 300
+        },
+        {
+          "url": "http://127.0.0.1:4321/assets/matter/ground-plant-clump/desktop.glb",
+          "bytes": 51848,
+          "transferBytes": 300
+        },
+        {
+          "url": "http://127.0.0.1:4321/assets/matter/statue-a/desktop.glb",
+          "bytes": 110512,
+          "transferBytes": 300
+        },
+        {
+          "url": "http://127.0.0.1:4321/assets/matter/wall-inset-panel/desktop.glb",
+          "bytes": 167844,
+          "transferBytes": 300
+        },
+        {
+          "url": "http://127.0.0.1:4321/assets/matter/relief-a/desktop.glb",
+          "bytes": 202832,
+          "transferBytes": 300
+        },
+        {
+          "url": "http://127.0.0.1:4321/assets/matter/stair-run-3m/desktop.glb",
+          "bytes": 40532,
+          "transferBytes": 300
+        },
+        {
+          "url": "http://127.0.0.1:4321/assets/matter/fountain-wall/desktop.glb",
+          "bytes": 119640,
+          "transferBytes": 300
+        }
+      ],
+      "problems": {
+        "errors": [],
+        "warnings": [],
+        "pageErrors": [],
+        "failedRequests": [],
+        "badResponses": []
+      }
+    },
+    {
+      "name": "desktop-agent-queue-enter",
+      "assets": {
+        "tier": "desktop",
+        "loaded": {
+          "floor-slab-3x3": "matter",
+          "wall-3m": "matter",
+          "wall-3m-doorway": "matter",
+          "relief-a": "matter",
+          "statue-a": "matter",
+          "wall-inset-panel": "matter",
+          "entablature-3m": "matter",
+          "column-doric": "matter",
+          "pool-basin-3x3": "matter",
+          "pool-edge-straight": "matter",
+          "pool-edge-corner": "matter",
+          "fountain-tiered": "matter",
+          "urn-small": "matter",
+          "stair-run-3m": "matter",
+          "planter-square": "matter",
+          "olive-small": "matter",
+          "ground-plant-clump": "matter",
+          "statue-b": "matter",
+          "urn-large": "matter"
+        }
+      },
+      "render": {
+        "calls": 75,
+        "triangles": 563318,
+        "textures": 46,
+        "geometries": 35,
+        "residentStops": [
+          "cy-1",
+          "outrider-ide",
+          "cy-2",
+          "agent-queue",
+          "cy-3",
+          "quilt-trader"
+        ],
+        "reflectionPasses": 1,
+        "leaves": 7020,
+        "dust": 650
+      },
+      "travel": {
+        "u": 0.5453746328493648,
+        "metres": 68.23172225271105,
+        "speed": 0,
+        "acceleration": 0,
+        "jerk": 0,
+        "mode": "paused",
+        "viewpoint": 7,
+        "position": [
+          -5.49999999999995,
+          1.7,
+          43.50000000000003
+        ]
+      },
+      "requests": [
+        {
+          "url": "http://127.0.0.1:4321/assets/matter/floor-slab-3x3/desktop.glb",
+          "bytes": 33448,
+          "transferBytes": 300
+        },
+        {
+          "url": "http://127.0.0.1:4321/assets/matter/wall-3m/desktop.glb",
+          "bytes": 29732,
+          "transferBytes": 300
+        },
+        {
+          "url": "http://127.0.0.1:4321/assets/matter/wall-3m-doorway/desktop.glb",
+          "bytes": 39912,
+          "transferBytes": 300
+        },
+        {
+          "url": "http://127.0.0.1:4321/assets/matter/relief-a/desktop.glb",
+          "bytes": 202832,
+          "transferBytes": 300
+        },
+        {
+          "url": "http://127.0.0.1:4321/assets/matter/statue-a/desktop.glb",
+          "bytes": 110512,
+          "transferBytes": 300
+        },
+        {
+          "url": "http://127.0.0.1:4321/assets/matter/wall-inset-panel/desktop.glb",
+          "bytes": 167844,
+          "transferBytes": 300
+        },
+        {
+          "url": "http://127.0.0.1:4321/assets/matter/entablature-3m/desktop.glb",
+          "bytes": 77624,
+          "transferBytes": 300
+        },
+        {
+          "url": "http://127.0.0.1:4321/assets/matter/column-doric/desktop.glb",
+          "bytes": 360452,
+          "transferBytes": 300
+        },
+        {
+          "url": "http://127.0.0.1:4321/assets/matter/pool-basin-3x3/desktop.glb",
+          "bytes": 68900,
+          "transferBytes": 300
+        },
+        {
+          "url": "http://127.0.0.1:4321/assets/matter/pool-edge-straight/desktop.glb",
+          "bytes": 14212,
+          "transferBytes": 300
+        },
+        {
+          "url": "http://127.0.0.1:4321/assets/matter/pool-edge-corner/desktop.glb",
+          "bytes": 9696,
+          "transferBytes": 300
+        },
+        {
+          "url": "http://127.0.0.1:4321/assets/matter/fountain-tiered/desktop.glb",
+          "bytes": 201828,
+          "transferBytes": 300
+        },
+        {
+          "url": "http://127.0.0.1:4321/assets/matter/urn-small/desktop.glb",
+          "bytes": 100224,
+          "transferBytes": 300
+        },
+        {
+          "url": "http://127.0.0.1:4321/assets/matter/stair-run-3m/desktop.glb",
+          "bytes": 40532,
+          "transferBytes": 300
+        },
+        {
+          "url": "http://127.0.0.1:4321/assets/matter/planter-square/desktop.glb",
+          "bytes": 43268,
+          "transferBytes": 300
+        },
+        {
+          "url": "http://127.0.0.1:4321/assets/matter/olive-small/desktop.glb",
+          "bytes": 116204,
+          "transferBytes": 300
+        },
+        {
+          "url": "http://127.0.0.1:4321/assets/matter/ground-plant-clump/desktop.glb",
+          "bytes": 51848,
+          "transferBytes": 300
+        },
+        {
+          "url": "http://127.0.0.1:4321/assets/matter/statue-b/desktop.glb",
+          "bytes": 83804,
+          "transferBytes": 300
+        },
+        {
+          "url": "http://127.0.0.1:4321/assets/matter/urn-large/desktop.glb",
+          "bytes": 125564,
+          "transferBytes": 125864
+        }
+      ],
+      "problems": {
+        "errors": [],
+        "warnings": [],
+        "pageErrors": [],
+        "failedRequests": [],
+        "badResponses": []
+      }
+    },
+    {
+      "name": "desktop-agent-queue-focal",
+      "assets": {
+        "tier": "desktop",
+        "loaded": {
+          "floor-slab-3x3": "matter",
+          "wall-3m": "matter",
+          "wall-3m-doorway": "matter",
+          "relief-a": "matter",
+          "statue-a": "matter",
+          "wall-inset-panel": "matter",
+          "entablature-3m": "matter",
+          "column-doric": "matter",
+          "pool-basin-3x3": "matter",
+          "pool-edge-straight": "matter",
+          "pool-edge-corner": "matter",
+          "fountain-tiered": "matter",
+          "urn-small": "matter",
+          "stair-run-3m": "matter",
+          "planter-square": "matter",
+          "olive-small": "matter",
+          "ground-plant-clump": "matter",
+          "statue-b": "matter",
+          "urn-large": "matter"
+        }
+      },
+      "render": {
+        "calls": 66,
+        "triangles": 393942,
+        "textures": 46,
+        "geometries": 35,
+        "residentStops": [
+          "cy-1",
+          "outrider-ide",
+          "cy-2",
+          "agent-queue",
+          "cy-3",
+          "quilt-trader"
+        ],
+        "reflectionPasses": 1,
+        "leaves": 7020,
+        "dust": 650
+      },
+      "travel": {
+        "u": 0.5601790616638826,
+        "metres": 70.08390167973111,
+        "speed": 0,
+        "acceleration": 0,
+        "jerk": 0,
+        "mode": "paused",
+        "viewpoint": 8,
+        "position": [
+          -6.49999999999995,
+          1.7,
+          42.00000000000001
+        ]
+      },
+      "requests": [
+        {
+          "url": "http://127.0.0.1:4321/assets/matter/floor-slab-3x3/desktop.glb",
+          "bytes": 33448,
+          "transferBytes": 300
+        },
+        {
+          "url": "http://127.0.0.1:4321/assets/matter/wall-3m/desktop.glb",
+          "bytes": 29732,
+          "transferBytes": 300
+        },
+        {
+          "url": "http://127.0.0.1:4321/assets/matter/wall-3m-doorway/desktop.glb",
+          "bytes": 39912,
+          "transferBytes": 300
+        },
+        {
+          "url": "http://127.0.0.1:4321/assets/matter/relief-a/desktop.glb",
+          "bytes": 202832,
+          "transferBytes": 300
+        },
+        {
+          "url": "http://127.0.0.1:4321/assets/matter/statue-a/desktop.glb",
+          "bytes": 110512,
+          "transferBytes": 300
+        },
+        {
+          "url": "http://127.0.0.1:4321/assets/matter/wall-inset-panel/desktop.glb",
+          "bytes": 167844,
+          "transferBytes": 300
+        },
+        {
+          "url": "http://127.0.0.1:4321/assets/matter/entablature-3m/desktop.glb",
+          "bytes": 77624,
+          "transferBytes": 300
+        },
+        {
+          "url": "http://127.0.0.1:4321/assets/matter/column-doric/desktop.glb",
+          "bytes": 360452,
+          "transferBytes": 300
+        },
+        {
+          "url": "http://127.0.0.1:4321/assets/matter/pool-basin-3x3/desktop.glb",
+          "bytes": 68900,
+          "transferBytes": 300
+        },
+        {
+          "url": "http://127.0.0.1:4321/assets/matter/pool-edge-straight/desktop.glb",
+          "bytes": 14212,
+          "transferBytes": 300
+        },
+        {
+          "url": "http://127.0.0.1:4321/assets/matter/pool-edge-corner/desktop.glb",
+          "bytes": 9696,
+          "transferBytes": 300
+        },
+        {
+          "url": "http://127.0.0.1:4321/assets/matter/fountain-tiered/desktop.glb",
+          "bytes": 201828,
+          "transferBytes": 300
+        },
+        {
+          "url": "http://127.0.0.1:4321/assets/matter/urn-small/desktop.glb",
+          "bytes": 100224,
+          "transferBytes": 300
+        },
+        {
+          "url": "http://127.0.0.1:4321/assets/matter/stair-run-3m/desktop.glb",
+          "bytes": 40532,
+          "transferBytes": 300
+        },
+        {
+          "url": "http://127.0.0.1:4321/assets/matter/planter-square/desktop.glb",
+          "bytes": 43268,
+          "transferBytes": 300
+        },
+        {
+          "url": "http://127.0.0.1:4321/assets/matter/olive-small/desktop.glb",
+          "bytes": 116204,
+          "transferBytes": 300
+        },
+        {
+          "url": "http://127.0.0.1:4321/assets/matter/ground-plant-clump/desktop.glb",
+          "bytes": 51848,
+          "transferBytes": 300
+        },
+        {
+          "url": "http://127.0.0.1:4321/assets/matter/statue-b/desktop.glb",
+          "bytes": 83804,
+          "transferBytes": 300
+        },
+        {
+          "url": "http://127.0.0.1:4321/assets/matter/urn-large/desktop.glb",
+          "bytes": 125564,
+          "transferBytes": 300
+        }
+      ],
+      "problems": {
+        "errors": [],
+        "warnings": [],
+        "pageErrors": [],
+        "failedRequests": [],
+        "badResponses": []
+      }
+    },
+    {
+      "name": "desktop-cy-3-view",
+      "assets": {
+        "tier": "desktop",
+        "loaded": {
+          "floor-slab-3x3": "matter",
+          "entablature-3m": "matter",
+          "column-doric": "matter",
+          "pool-basin-3x3": "matter",
+          "pool-edge-straight": "matter",
+          "pool-edge-corner": "matter",
+          "fountain-tiered": "matter",
+          "stair-run-3m": "matter",
+          "urn-small": "matter",
+          "planter-square": "matter",
+          "olive-small": "matter",
+          "ground-plant-clump": "matter",
+          "wall-3m": "matter",
+          "wall-3m-doorway": "matter",
+          "relief-a": "matter",
+          "statue-a": "matter",
+          "wall-inset-panel": "matter",
+          "urn-large": "matter",
+          "statue-b": "matter"
+        }
+      },
+      "render": {
+        "calls": 69,
+        "triangles": 461338,
+        "textures": 42,
+        "geometries": 35,
+        "residentStops": [
+          "outrider-ide",
+          "cy-2",
+          "agent-queue",
+          "cy-3",
+          "quilt-trader",
+          "cy-4"
+        ],
+        "reflectionPasses": 1,
+        "leaves": 7020,
+        "dust": 650
+      },
+      "travel": {
+        "u": 0.6353920998722751,
+        "metres": 79.4937913660287,
+        "speed": 0,
+        "acceleration": 0,
+        "jerk": 0,
+        "mode": "paused",
+        "viewpoint": 9,
+        "position": [
+          -12.000000000000014,
+          1.7,
+          40.399999999999984
+        ]
+      },
+      "requests": [
+        {
+          "url": "http://127.0.0.1:4321/assets/matter/floor-slab-3x3/desktop.glb",
+          "bytes": 33448,
+          "transferBytes": 300
+        },
+        {
+          "url": "http://127.0.0.1:4321/assets/matter/entablature-3m/desktop.glb",
+          "bytes": 77624,
+          "transferBytes": 300
+        },
+        {
+          "url": "http://127.0.0.1:4321/assets/matter/column-doric/desktop.glb",
+          "bytes": 360452,
+          "transferBytes": 300
+        },
+        {
+          "url": "http://127.0.0.1:4321/assets/matter/pool-basin-3x3/desktop.glb",
+          "bytes": 68900,
+          "transferBytes": 300
+        },
+        {
+          "url": "http://127.0.0.1:4321/assets/matter/pool-edge-straight/desktop.glb",
+          "bytes": 14212,
+          "transferBytes": 300
+        },
+        {
+          "url": "http://127.0.0.1:4321/assets/matter/pool-edge-corner/desktop.glb",
+          "bytes": 9696,
+          "transferBytes": 300
+        },
+        {
+          "url": "http://127.0.0.1:4321/assets/matter/fountain-tiered/desktop.glb",
+          "bytes": 201828,
+          "transferBytes": 300
+        },
+        {
+          "url": "http://127.0.0.1:4321/assets/matter/stair-run-3m/desktop.glb",
+          "bytes": 40532,
+          "transferBytes": 300
+        },
+        {
+          "url": "http://127.0.0.1:4321/assets/matter/urn-small/desktop.glb",
+          "bytes": 100224,
+          "transferBytes": 300
+        },
+        {
+          "url": "http://127.0.0.1:4321/assets/matter/planter-square/desktop.glb",
+          "bytes": 43268,
+          "transferBytes": 300
+        },
+        {
+          "url": "http://127.0.0.1:4321/assets/matter/olive-small/desktop.glb",
+          "bytes": 116204,
+          "transferBytes": 300
+        },
+        {
+          "url": "http://127.0.0.1:4321/assets/matter/ground-plant-clump/desktop.glb",
+          "bytes": 51848,
+          "transferBytes": 300
+        },
+        {
+          "url": "http://127.0.0.1:4321/assets/matter/wall-3m/desktop.glb",
+          "bytes": 29732,
+          "transferBytes": 300
+        },
+        {
+          "url": "http://127.0.0.1:4321/assets/matter/wall-3m-doorway/desktop.glb",
+          "bytes": 39912,
+          "transferBytes": 300
+        },
+        {
+          "url": "http://127.0.0.1:4321/assets/matter/relief-a/desktop.glb",
+          "bytes": 202832,
+          "transferBytes": 300
+        },
+        {
+          "url": "http://127.0.0.1:4321/assets/matter/statue-a/desktop.glb",
+          "bytes": 110512,
+          "transferBytes": 300
+        },
+        {
+          "url": "http://127.0.0.1:4321/assets/matter/wall-inset-panel/desktop.glb",
+          "bytes": 167844,
+          "transferBytes": 300
+        },
+        {
+          "url": "http://127.0.0.1:4321/assets/matter/urn-large/desktop.glb",
+          "bytes": 125564,
+          "transferBytes": 300
+        },
+        {
+          "url": "http://127.0.0.1:4321/assets/matter/statue-b/desktop.glb",
+          "bytes": 83804,
+          "transferBytes": 300
+        }
+      ],
+      "problems": {
+        "errors": [],
+        "warnings": [],
+        "pageErrors": [],
+        "failedRequests": [],
+        "badResponses": []
+      }
+    },
+    {
+      "name": "desktop-quilt-trader-enter",
+      "assets": {
+        "tier": "desktop",
+        "loaded": {
+          "floor-slab-3x3": "matter",
+          "wall-3m": "matter",
+          "wall-3m-doorway": "matter",
+          "column-doric": "matter",
+          "entablature-3m": "matter",
+          "urn-large": "matter",
+          "planter-square": "matter",
+          "olive-small": "matter",
+          "ground-plant-clump": "matter",
+          "urn-small": "matter",
+          "statue-a": "matter",
+          "wall-inset-panel": "matter",
+          "pool-basin-3x3": "matter",
+          "pool-edge-straight": "matter",
+          "pool-edge-corner": "matter",
+          "fountain-tiered": "matter",
+          "stair-run-3m": "matter",
+          "relief-a": "matter",
+          "bench-3m": "matter"
+        }
+      },
+      "render": {
+        "calls": 58,
+        "triangles": 405436,
+        "textures": 42,
+        "geometries": 35,
+        "residentStops": [
+          "cy-2",
+          "agent-queue",
+          "cy-3",
+          "quilt-trader",
+          "cy-4",
+          "terrace"
+        ],
+        "reflectionPasses": 1,
+        "leaves": 7020,
+        "dust": 650
+      },
+      "travel": {
+        "u": 0.748441969355935,
+        "metres": 93.63744020978571,
+        "speed": 0,
+        "acceleration": 0,
+        "jerk": 0,
+        "mode": "paused",
+        "viewpoint": 10,
+        "position": [
+          -23.500000000000092,
+          0.7,
+          43.5
+        ]
+      },
+      "requests": [
+        {
+          "url": "http://127.0.0.1:4321/assets/matter/floor-slab-3x3/desktop.glb",
+          "bytes": 33448,
+          "transferBytes": 300
+        },
+        {
+          "url": "http://127.0.0.1:4321/assets/matter/wall-3m/desktop.glb",
+          "bytes": 29732,
+          "transferBytes": 300
+        },
+        {
+          "url": "http://127.0.0.1:4321/assets/matter/wall-3m-doorway/desktop.glb",
+          "bytes": 39912,
+          "transferBytes": 300
+        },
+        {
+          "url": "http://127.0.0.1:4321/assets/matter/column-doric/desktop.glb",
+          "bytes": 360452,
+          "transferBytes": 300
+        },
+        {
+          "url": "http://127.0.0.1:4321/assets/matter/entablature-3m/desktop.glb",
+          "bytes": 77624,
+          "transferBytes": 300
+        },
+        {
+          "url": "http://127.0.0.1:4321/assets/matter/urn-large/desktop.glb",
+          "bytes": 125564,
+          "transferBytes": 300
+        },
+        {
+          "url": "http://127.0.0.1:4321/assets/matter/planter-square/desktop.glb",
+          "bytes": 43268,
+          "transferBytes": 300
+        },
+        {
+          "url": "http://127.0.0.1:4321/assets/matter/olive-small/desktop.glb",
+          "bytes": 116204,
+          "transferBytes": 300
+        },
+        {
+          "url": "http://127.0.0.1:4321/assets/matter/ground-plant-clump/desktop.glb",
+          "bytes": 51848,
+          "transferBytes": 300
+        },
+        {
+          "url": "http://127.0.0.1:4321/assets/matter/urn-small/desktop.glb",
+          "bytes": 100224,
+          "transferBytes": 300
+        },
+        {
+          "url": "http://127.0.0.1:4321/assets/matter/statue-a/desktop.glb",
+          "bytes": 110512,
+          "transferBytes": 300
+        },
+        {
+          "url": "http://127.0.0.1:4321/assets/matter/wall-inset-panel/desktop.glb",
+          "bytes": 167844,
+          "transferBytes": 300
+        },
+        {
+          "url": "http://127.0.0.1:4321/assets/matter/pool-basin-3x3/desktop.glb",
+          "bytes": 68900,
+          "transferBytes": 300
+        },
+        {
+          "url": "http://127.0.0.1:4321/assets/matter/pool-edge-straight/desktop.glb",
+          "bytes": 14212,
+          "transferBytes": 300
+        },
+        {
+          "url": "http://127.0.0.1:4321/assets/matter/pool-edge-corner/desktop.glb",
+          "bytes": 9696,
+          "transferBytes": 300
+        },
+        {
+          "url": "http://127.0.0.1:4321/assets/matter/fountain-tiered/desktop.glb",
+          "bytes": 201828,
+          "transferBytes": 300
+        },
+        {
+          "url": "http://127.0.0.1:4321/assets/matter/stair-run-3m/desktop.glb",
+          "bytes": 40532,
+          "transferBytes": 300
+        },
+        {
+          "url": "http://127.0.0.1:4321/assets/matter/relief-a/desktop.glb",
+          "bytes": 202832,
+          "transferBytes": 300
+        },
+        {
+          "url": "http://127.0.0.1:4321/assets/matter/bench-3m/desktop.glb",
+          "bytes": 37488,
+          "transferBytes": 37788
+        }
+      ],
+      "problems": {
+        "errors": [],
+        "warnings": [],
+        "pageErrors": [],
+        "failedRequests": [],
+        "badResponses": []
+      }
+    },
+    {
+      "name": "desktop-quilt-trader-focal",
+      "assets": {
+        "tier": "desktop",
+        "loaded": {
+          "floor-slab-3x3": "matter",
+          "wall-3m": "matter",
+          "wall-3m-doorway": "matter",
+          "column-doric": "matter",
+          "entablature-3m": "matter",
+          "urn-large": "matter",
+          "planter-square": "matter",
+          "olive-small": "matter",
+          "ground-plant-clump": "matter",
+          "urn-small": "matter",
+          "statue-a": "matter",
+          "wall-inset-panel": "matter",
+          "pool-basin-3x3": "matter",
+          "pool-edge-straight": "matter",
+          "pool-edge-corner": "matter",
+          "fountain-tiered": "matter",
+          "stair-run-3m": "matter",
+          "relief-a": "matter",
+          "bench-3m": "matter"
+        }
+      },
+      "render": {
+        "calls": 51,
+        "triangles": 388512,
+        "textures": 42,
+        "geometries": 35,
+        "residentStops": [
+          "cy-2",
+          "agent-queue",
+          "cy-3",
+          "quilt-trader",
+          "cy-4",
+          "terrace"
+        ],
+        "reflectionPasses": 1,
+        "leaves": 7020,
+        "dust": 650
+      },
+      "travel": {
+        "u": 0.7749265199500958,
+        "metres": 96.95091757247005,
+        "speed": 0,
+        "acceleration": 0,
+        "jerk": 0,
+        "mode": "paused",
+        "viewpoint": 11,
+        "position": [
+          -26.80000000000003,
+          0.7,
+          43.49999999999999
+        ]
+      },
+      "requests": [
+        {
+          "url": "http://127.0.0.1:4321/assets/matter/floor-slab-3x3/desktop.glb",
+          "bytes": 33448,
+          "transferBytes": 300
+        },
+        {
+          "url": "http://127.0.0.1:4321/assets/matter/wall-3m/desktop.glb",
+          "bytes": 29732,
+          "transferBytes": 300
+        },
+        {
+          "url": "http://127.0.0.1:4321/assets/matter/wall-3m-doorway/desktop.glb",
+          "bytes": 39912,
+          "transferBytes": 300
+        },
+        {
+          "url": "http://127.0.0.1:4321/assets/matter/column-doric/desktop.glb",
+          "bytes": 360452,
+          "transferBytes": 300
+        },
+        {
+          "url": "http://127.0.0.1:4321/assets/matter/entablature-3m/desktop.glb",
+          "bytes": 77624,
+          "transferBytes": 300
+        },
+        {
+          "url": "http://127.0.0.1:4321/assets/matter/urn-large/desktop.glb",
+          "bytes": 125564,
+          "transferBytes": 300
+        },
+        {
+          "url": "http://127.0.0.1:4321/assets/matter/planter-square/desktop.glb",
+          "bytes": 43268,
+          "transferBytes": 300
+        },
+        {
+          "url": "http://127.0.0.1:4321/assets/matter/olive-small/desktop.glb",
+          "bytes": 116204,
+          "transferBytes": 300
+        },
+        {
+          "url": "http://127.0.0.1:4321/assets/matter/ground-plant-clump/desktop.glb",
+          "bytes": 51848,
+          "transferBytes": 300
+        },
+        {
+          "url": "http://127.0.0.1:4321/assets/matter/urn-small/desktop.glb",
+          "bytes": 100224,
+          "transferBytes": 300
+        },
+        {
+          "url": "http://127.0.0.1:4321/assets/matter/statue-a/desktop.glb",
+          "bytes": 110512,
+          "transferBytes": 300
+        },
+        {
+          "url": "http://127.0.0.1:4321/assets/matter/wall-inset-panel/desktop.glb",
+          "bytes": 167844,
+          "transferBytes": 300
+        },
+        {
+          "url": "http://127.0.0.1:4321/assets/matter/pool-basin-3x3/desktop.glb",
+          "bytes": 68900,
+          "transferBytes": 300
+        },
+        {
+          "url": "http://127.0.0.1:4321/assets/matter/pool-edge-straight/desktop.glb",
+          "bytes": 14212,
+          "transferBytes": 300
+        },
+        {
+          "url": "http://127.0.0.1:4321/assets/matter/pool-edge-corner/desktop.glb",
+          "bytes": 9696,
+          "transferBytes": 300
+        },
+        {
+          "url": "http://127.0.0.1:4321/assets/matter/fountain-tiered/desktop.glb",
+          "bytes": 201828,
+          "transferBytes": 300
+        },
+        {
+          "url": "http://127.0.0.1:4321/assets/matter/stair-run-3m/desktop.glb",
+          "bytes": 40532,
+          "transferBytes": 300
+        },
+        {
+          "url": "http://127.0.0.1:4321/assets/matter/relief-a/desktop.glb",
+          "bytes": 202832,
+          "transferBytes": 300
+        },
+        {
+          "url": "http://127.0.0.1:4321/assets/matter/bench-3m/desktop.glb",
+          "bytes": 37488,
+          "transferBytes": 300
+        }
+      ],
+      "problems": {
+        "errors": [],
+        "warnings": [],
+        "pageErrors": [],
+        "failedRequests": [],
+        "badResponses": []
+      }
+    },
+    {
+      "name": "desktop-cy-4-view",
+      "assets": {
+        "tier": "desktop",
+        "loaded": {
+          "floor-slab-3x3": "matter",
+          "entablature-3m": "matter",
+          "column-doric": "matter",
+          "pool-basin-3x3": "matter",
+          "pool-edge-straight": "matter",
+          "pool-edge-corner": "matter",
+          "fountain-tiered": "matter",
+          "urn-small": "matter",
+          "wall-3m": "matter",
+          "wall-3m-doorway": "matter",
+          "urn-large": "matter",
+          "planter-square": "matter",
+          "olive-small": "matter",
+          "ground-plant-clump": "matter",
+          "statue-a": "matter",
+          "wall-inset-panel": "matter",
+          "bench-3m": "matter",
+          "stair-run-3m": "matter",
+          "relief-a": "matter"
+        }
+      },
+      "render": {
+        "calls": 45,
+        "triangles": 368976,
+        "textures": 38,
+        "geometries": 35,
+        "residentStops": [
+          "agent-queue",
+          "cy-3",
+          "quilt-trader",
+          "cy-4",
+          "terrace"
+        ],
+        "reflectionPasses": 1,
+        "leaves": 7020,
+        "dust": 650
+      },
+      "travel": {
+        "u": 0.8619650162765108,
+        "metres": 107.84028819759386,
+        "speed": 0,
+        "acceleration": 0,
+        "jerk": 0,
+        "mode": "paused",
+        "viewpoint": 12,
+        "position": [
+          -32.99999999999996,
+          0.7,
+          40.40000000000004
+        ]
+      },
+      "requests": [
+        {
+          "url": "http://127.0.0.1:4321/assets/matter/floor-slab-3x3/desktop.glb",
+          "bytes": 33448,
+          "transferBytes": 300
+        },
+        {
+          "url": "http://127.0.0.1:4321/assets/matter/entablature-3m/desktop.glb",
+          "bytes": 77624,
+          "transferBytes": 300
+        },
+        {
+          "url": "http://127.0.0.1:4321/assets/matter/column-doric/desktop.glb",
+          "bytes": 360452,
+          "transferBytes": 300
+        },
+        {
+          "url": "http://127.0.0.1:4321/assets/matter/pool-basin-3x3/desktop.glb",
+          "bytes": 68900,
+          "transferBytes": 300
+        },
+        {
+          "url": "http://127.0.0.1:4321/assets/matter/pool-edge-straight/desktop.glb",
+          "bytes": 14212,
+          "transferBytes": 300
+        },
+        {
+          "url": "http://127.0.0.1:4321/assets/matter/pool-edge-corner/desktop.glb",
+          "bytes": 9696,
+          "transferBytes": 300
+        },
+        {
+          "url": "http://127.0.0.1:4321/assets/matter/fountain-tiered/desktop.glb",
+          "bytes": 201828,
+          "transferBytes": 300
+        },
+        {
+          "url": "http://127.0.0.1:4321/assets/matter/urn-small/desktop.glb",
+          "bytes": 100224,
+          "transferBytes": 300
+        },
+        {
+          "url": "http://127.0.0.1:4321/assets/matter/wall-3m/desktop.glb",
+          "bytes": 29732,
+          "transferBytes": 300
+        },
+        {
+          "url": "http://127.0.0.1:4321/assets/matter/wall-3m-doorway/desktop.glb",
+          "bytes": 39912,
+          "transferBytes": 300
+        },
+        {
+          "url": "http://127.0.0.1:4321/assets/matter/urn-large/desktop.glb",
+          "bytes": 125564,
+          "transferBytes": 300
+        },
+        {
+          "url": "http://127.0.0.1:4321/assets/matter/planter-square/desktop.glb",
+          "bytes": 43268,
+          "transferBytes": 300
+        },
+        {
+          "url": "http://127.0.0.1:4321/assets/matter/olive-small/desktop.glb",
+          "bytes": 116204,
+          "transferBytes": 300
+        },
+        {
+          "url": "http://127.0.0.1:4321/assets/matter/ground-plant-clump/desktop.glb",
+          "bytes": 51848,
+          "transferBytes": 300
+        },
+        {
+          "url": "http://127.0.0.1:4321/assets/matter/statue-a/desktop.glb",
+          "bytes": 110512,
+          "transferBytes": 300
+        },
+        {
+          "url": "http://127.0.0.1:4321/assets/matter/wall-inset-panel/desktop.glb",
+          "bytes": 167844,
+          "transferBytes": 300
+        },
+        {
+          "url": "http://127.0.0.1:4321/assets/matter/bench-3m/desktop.glb",
+          "bytes": 37488,
+          "transferBytes": 300
+        },
+        {
+          "url": "http://127.0.0.1:4321/assets/matter/stair-run-3m/desktop.glb",
+          "bytes": 40532,
+          "transferBytes": 300
+        },
+        {
+          "url": "http://127.0.0.1:4321/assets/matter/relief-a/desktop.glb",
+          "bytes": 202832,
+          "transferBytes": 300
+        }
+      ],
+      "problems": {
+        "errors": [],
+        "warnings": [],
+        "pageErrors": [],
+        "failedRequests": [],
+        "badResponses": []
+      }
+    },
+    {
+      "name": "desktop-terrace-view",
+      "assets": {
+        "tier": "desktop",
+        "loaded": {
+          "floor-slab-3x3": "matter",
+          "column-doric": "matter",
+          "entablature-3m": "matter",
+          "statue-a": "matter",
+          "urn-small": "matter",
+          "planter-square": "matter",
+          "olive-small": "matter",
+          "ground-plant-clump": "matter",
+          "bench-3m": "matter",
+          "pool-basin-3x3": "matter",
+          "pool-edge-straight": "matter",
+          "pool-edge-corner": "matter",
+          "fountain-tiered": "matter",
+          "wall-3m": "matter",
+          "wall-3m-doorway": "matter",
+          "urn-large": "matter",
+          "wall-inset-panel": "matter",
+          "stair-run-3m": "matter"
+        }
+      },
+      "render": {
+        "calls": 28,
+        "triangles": 207278,
+        "textures": 19,
+        "geometries": 31,
+        "residentStops": [
+          "cy-3",
+          "quilt-trader",
+          "cy-4",
+          "terrace"
+        ],
+        "reflectionPasses": 1,
+        "leaves": 7020,
+        "dust": 650
+      },
+      "travel": {
+        "u": 1,
+        "metres": 125.1098201913564,
+        "speed": 0,
+        "acceleration": 0,
+        "jerk": 0,
+        "mode": "paused",
+        "viewpoint": 13,
+        "position": [
+          -36,
+          0.7,
+          49.5
+        ]
+      },
+      "requests": [
+        {
+          "url": "http://127.0.0.1:4321/assets/matter/floor-slab-3x3/desktop.glb",
+          "bytes": 33448,
+          "transferBytes": 300
+        },
+        {
+          "url": "http://127.0.0.1:4321/assets/matter/column-doric/desktop.glb",
+          "bytes": 360452,
+          "transferBytes": 300
+        },
+        {
+          "url": "http://127.0.0.1:4321/assets/matter/entablature-3m/desktop.glb",
+          "bytes": 77624,
+          "transferBytes": 300
+        },
+        {
+          "url": "http://127.0.0.1:4321/assets/matter/statue-a/desktop.glb",
+          "bytes": 110512,
+          "transferBytes": 300
+        },
+        {
+          "url": "http://127.0.0.1:4321/assets/matter/urn-small/desktop.glb",
+          "bytes": 100224,
+          "transferBytes": 300
+        },
+        {
+          "url": "http://127.0.0.1:4321/assets/matter/planter-square/desktop.glb",
+          "bytes": 43268,
+          "transferBytes": 300
+        },
+        {
+          "url": "http://127.0.0.1:4321/assets/matter/olive-small/desktop.glb",
+          "bytes": 116204,
+          "transferBytes": 300
+        },
+        {
+          "url": "http://127.0.0.1:4321/assets/matter/ground-plant-clump/desktop.glb",
+          "bytes": 51848,
+          "transferBytes": 300
+        },
+        {
+          "url": "http://127.0.0.1:4321/assets/matter/bench-3m/desktop.glb",
+          "bytes": 37488,
+          "transferBytes": 300
+        },
+        {
+          "url": "http://127.0.0.1:4321/assets/matter/pool-basin-3x3/desktop.glb",
+          "bytes": 68900,
+          "transferBytes": 300
+        },
+        {
+          "url": "http://127.0.0.1:4321/assets/matter/pool-edge-straight/desktop.glb",
+          "bytes": 14212,
+          "transferBytes": 300
+        },
+        {
+          "url": "http://127.0.0.1:4321/assets/matter/pool-edge-corner/desktop.glb",
+          "bytes": 9696,
+          "transferBytes": 300
+        },
+        {
+          "url": "http://127.0.0.1:4321/assets/matter/fountain-tiered/desktop.glb",
+          "bytes": 201828,
+          "transferBytes": 300
+        },
+        {
+          "url": "http://127.0.0.1:4321/assets/matter/wall-3m/desktop.glb",
+          "bytes": 29732,
+          "transferBytes": 300
+        },
+        {
+          "url": "http://127.0.0.1:4321/assets/matter/wall-3m-doorway/desktop.glb",
+          "bytes": 39912,
+          "transferBytes": 300
+        },
+        {
+          "url": "http://127.0.0.1:4321/assets/matter/urn-large/desktop.glb",
+          "bytes": 125564,
+          "transferBytes": 300
+        },
+        {
+          "url": "http://127.0.0.1:4321/assets/matter/wall-inset-panel/desktop.glb",
+          "bytes": 167844,
+          "transferBytes": 300
+        },
+        {
+          "url": "http://127.0.0.1:4321/assets/matter/stair-run-3m/desktop.glb",
+          "bytes": 40532,
+          "transferBytes": 300
+        }
+      ],
+      "problems": {
+        "errors": [],
+        "warnings": [],
+        "pageErrors": [],
+        "failedRequests": [],
+        "badResponses": []
+      }
+    },
+    {
+      "name": "mobile-entry-view",
+      "assets": {
+        "tier": "mobile",
+        "loaded": {
+          "floor-slab-3x3": "matter",
+          "column-doric": "matter",
+          "entablature-3m": "matter",
+          "pool-basin-3x3": "matter",
+          "pool-edge-straight": "matter",
+          "pool-edge-corner": "matter",
+          "fountain-tiered": "matter",
+          "planter-square": "matter",
+          "olive-small": "matter",
+          "ground-plant-clump": "matter",
+          "urn-small": "matter",
+          "stair-run-3m": "matter",
+          "wall-3m": "matter",
+          "wall-3m-doorway": "matter",
+          "fountain-wall": "matter",
+          "statue-a": "matter",
+          "wall-inset-panel": "matter"
+        }
+      },
+      "render": {
+        "calls": 57,
+        "triangles": 374280,
+        "textures": 38,
+        "geometries": 33,
+        "residentStops": [
+          "entry",
+          "matter-engine",
+          "cy-1"
+        ],
+        "reflectionPasses": 1,
+        "leaves": 4272,
+        "dust": 280
+      },
+      "travel": {
+        "u": 0,
+        "metres": 0,
+        "speed": 0,
+        "acceleration": 0,
+        "jerk": 0,
+        "mode": "paused",
+        "viewpoint": 0,
+        "position": [
+          -3.746999,
+          1.7,
+          1.5
+        ]
+      },
+      "requests": [
+        {
+          "url": "http://127.0.0.1:4321/assets/matter/floor-slab-3x3/mobile.glb",
+          "bytes": 19152,
+          "transferBytes": 19452
+        },
+        {
+          "url": "http://127.0.0.1:4321/assets/matter/column-doric/mobile.glb",
+          "bytes": 298944,
+          "transferBytes": 299244
+        },
+        {
+          "url": "http://127.0.0.1:4321/assets/matter/entablature-3m/mobile.glb",
+          "bytes": 60284,
+          "transferBytes": 60584
+        },
+        {
+          "url": "http://127.0.0.1:4321/assets/matter/pool-basin-3x3/mobile.glb",
+          "bytes": 65464,
+          "transferBytes": 65764
+        },
+        {
+          "url": "http://127.0.0.1:4321/assets/matter/pool-edge-straight/mobile.glb",
+          "bytes": 7692,
+          "transferBytes": 7992
+        },
+        {
+          "url": "http://127.0.0.1:4321/assets/matter/pool-edge-corner/mobile.glb",
+          "bytes": 6984,
+          "transferBytes": 7284
+        },
+        {
+          "url": "http://127.0.0.1:4321/assets/matter/fountain-tiered/mobile.glb",
+          "bytes": 168936,
+          "transferBytes": 169236
+        },
+        {
+          "url": "http://127.0.0.1:4321/assets/matter/planter-square/mobile.glb",
+          "bytes": 30208,
+          "transferBytes": 30508
+        },
+        {
+          "url": "http://127.0.0.1:4321/assets/matter/olive-small/mobile.glb",
+          "bytes": 94748,
+          "transferBytes": 95048
+        },
+        {
+          "url": "http://127.0.0.1:4321/assets/matter/ground-plant-clump/mobile.glb",
+          "bytes": 35840,
+          "transferBytes": 36140
+        },
+        {
+          "url": "http://127.0.0.1:4321/assets/matter/urn-small/mobile.glb",
+          "bytes": 96208,
+          "transferBytes": 96508
+        },
+        {
+          "url": "http://127.0.0.1:4321/assets/matter/stair-run-3m/mobile.glb",
+          "bytes": 25968,
+          "transferBytes": 26268
+        },
+        {
+          "url": "http://127.0.0.1:4321/assets/matter/wall-3m/mobile.glb",
+          "bytes": 20780,
+          "transferBytes": 21080
+        },
+        {
+          "url": "http://127.0.0.1:4321/assets/matter/wall-3m-doorway/mobile.glb",
+          "bytes": 28832,
+          "transferBytes": 29132
+        },
+        {
+          "url": "http://127.0.0.1:4321/assets/matter/fountain-wall/mobile.glb",
+          "bytes": 88468,
+          "transferBytes": 88768
+        },
+        {
+          "url": "http://127.0.0.1:4321/assets/matter/statue-a/mobile.glb",
+          "bytes": 99036,
+          "transferBytes": 99336
+        },
+        {
+          "url": "http://127.0.0.1:4321/assets/matter/wall-inset-panel/mobile.glb",
+          "bytes": 133020,
+          "transferBytes": 133320
+        }
+      ],
+      "problems": {
+        "errors": [],
+        "warnings": [],
+        "pageErrors": [],
+        "failedRequests": [],
+        "badResponses": []
+      }
+    },
+    {
+      "name": "mobile-matter-engine-enter",
+      "assets": {
+        "tier": "mobile",
+        "loaded": {
+          "floor-slab-3x3": "matter",
+          "wall-3m": "matter",
+          "wall-3m-doorway": "matter",
+          "column-doric": "matter",
+          "entablature-3m": "matter",
+          "pool-basin-3x3": "matter",
+          "pool-edge-straight": "matter",
+          "pool-edge-corner": "matter",
+          "fountain-wall": "matter",
+          "planter-square": "matter",
+          "olive-small": "matter",
+          "ground-plant-clump": "matter",
+          "statue-a": "matter",
+          "wall-inset-panel": "matter",
+          "fountain-tiered": "matter",
+          "urn-small": "matter",
+          "stair-run-3m": "matter",
+          "statue-b": "matter"
+        }
+      },
+      "render": {
+        "calls": 78,
+        "triangles": 559924,
+        "textures": 46,
+        "geometries": 34,
+        "residentStops": [
+          "entry",
+          "matter-engine",
+          "cy-1",
+          "outrider-ide"
+        ],
+        "reflectionPasses": 1,
+        "leaves": 4272,
+        "dust": 280
+      },
+      "travel": {
+        "u": 0.07514020507496869,
+        "metres": 9.400777546070978,
+        "speed": 0,
+        "acceleration": 0,
+        "jerk": 0,
+        "mode": "paused",
+        "viewpoint": 1,
+        "position": [
+          1.9652501400187674e-26,
+          1.7,
+          10.000000000000302
+        ]
+      },
+      "requests": [
+        {
+          "url": "http://127.0.0.1:4321/assets/matter/floor-slab-3x3/mobile.glb",
+          "bytes": 19152,
+          "transferBytes": 300
+        },
+        {
+          "url": "http://127.0.0.1:4321/assets/matter/wall-3m/mobile.glb",
+          "bytes": 20780,
+          "transferBytes": 300
+        },
+        {
+          "url": "http://127.0.0.1:4321/assets/matter/wall-3m-doorway/mobile.glb",
+          "bytes": 28832,
+          "transferBytes": 300
+        },
+        {
+          "url": "http://127.0.0.1:4321/assets/matter/column-doric/mobile.glb",
+          "bytes": 298944,
+          "transferBytes": 300
+        },
+        {
+          "url": "http://127.0.0.1:4321/assets/matter/entablature-3m/mobile.glb",
+          "bytes": 60284,
+          "transferBytes": 300
+        },
+        {
+          "url": "http://127.0.0.1:4321/assets/matter/pool-basin-3x3/mobile.glb",
+          "bytes": 65464,
+          "transferBytes": 300
+        },
+        {
+          "url": "http://127.0.0.1:4321/assets/matter/pool-edge-straight/mobile.glb",
+          "bytes": 7692,
+          "transferBytes": 300
+        },
+        {
+          "url": "http://127.0.0.1:4321/assets/matter/pool-edge-corner/mobile.glb",
+          "bytes": 6984,
+          "transferBytes": 300
+        },
+        {
+          "url": "http://127.0.0.1:4321/assets/matter/fountain-wall/mobile.glb",
+          "bytes": 88468,
+          "transferBytes": 300
+        },
+        {
+          "url": "http://127.0.0.1:4321/assets/matter/planter-square/mobile.glb",
+          "bytes": 30208,
+          "transferBytes": 300
+        },
+        {
+          "url": "http://127.0.0.1:4321/assets/matter/olive-small/mobile.glb",
+          "bytes": 94748,
+          "transferBytes": 300
+        },
+        {
+          "url": "http://127.0.0.1:4321/assets/matter/ground-plant-clump/mobile.glb",
+          "bytes": 35840,
+          "transferBytes": 300
+        },
+        {
+          "url": "http://127.0.0.1:4321/assets/matter/statue-a/mobile.glb",
+          "bytes": 99036,
+          "transferBytes": 300
+        },
+        {
+          "url": "http://127.0.0.1:4321/assets/matter/wall-inset-panel/mobile.glb",
+          "bytes": 133020,
+          "transferBytes": 300
+        },
+        {
+          "url": "http://127.0.0.1:4321/assets/matter/fountain-tiered/mobile.glb",
+          "bytes": 168936,
+          "transferBytes": 300
+        },
+        {
+          "url": "http://127.0.0.1:4321/assets/matter/urn-small/mobile.glb",
+          "bytes": 96208,
+          "transferBytes": 300
+        },
+        {
+          "url": "http://127.0.0.1:4321/assets/matter/stair-run-3m/mobile.glb",
+          "bytes": 25968,
+          "transferBytes": 300
+        },
+        {
+          "url": "http://127.0.0.1:4321/assets/matter/statue-b/mobile.glb",
+          "bytes": 71484,
+          "transferBytes": 71784
+        }
+      ],
+      "problems": {
+        "errors": [],
+        "warnings": [],
+        "pageErrors": [],
+        "failedRequests": [],
+        "badResponses": []
+      }
+    },
+    {
+      "name": "mobile-matter-engine-focal",
+      "assets": {
+        "tier": "mobile",
+        "loaded": {
+          "floor-slab-3x3": "matter",
+          "wall-3m": "matter",
+          "wall-3m-doorway": "matter",
+          "column-doric": "matter",
+          "entablature-3m": "matter",
+          "pool-basin-3x3": "matter",
+          "pool-edge-straight": "matter",
+          "pool-edge-corner": "matter",
+          "fountain-wall": "matter",
+          "planter-square": "matter",
+          "olive-small": "matter",
+          "ground-plant-clump": "matter",
+          "statue-a": "matter",
+          "wall-inset-panel": "matter",
+          "fountain-tiered": "matter",
+          "urn-small": "matter",
+          "stair-run-3m": "matter",
+          "statue-b": "matter"
+        }
+      },
+      "render": {
+        "calls": 73,
+        "triangles": 450696,
+        "textures": 46,
+        "geometries": 34,
+        "residentStops": [
+          "entry",
+          "matter-engine",
+          "cy-1",
+          "outrider-ide"
+        ],
+        "reflectionPasses": 1,
+        "leaves": 4272,
+        "dust": 280
+      },
+      "travel": {
+        "u": 0.08876755183177847,
+        "metres": 11.105692448500713,
+        "speed": 0,
+        "acceleration": 0,
+        "jerk": 0,
+        "mode": "paused",
+        "viewpoint": 2,
+        "position": [
+          8.38889194167974e-15,
+          1.7,
+          11.699999999999953
+        ]
+      },
+      "requests": [
+        {
+          "url": "http://127.0.0.1:4321/assets/matter/floor-slab-3x3/mobile.glb",
+          "bytes": 19152,
+          "transferBytes": 300
+        },
+        {
+          "url": "http://127.0.0.1:4321/assets/matter/wall-3m/mobile.glb",
+          "bytes": 20780,
+          "transferBytes": 300
+        },
+        {
+          "url": "http://127.0.0.1:4321/assets/matter/wall-3m-doorway/mobile.glb",
+          "bytes": 28832,
+          "transferBytes": 300
+        },
+        {
+          "url": "http://127.0.0.1:4321/assets/matter/column-doric/mobile.glb",
+          "bytes": 298944,
+          "transferBytes": 300
+        },
+        {
+          "url": "http://127.0.0.1:4321/assets/matter/entablature-3m/mobile.glb",
+          "bytes": 60284,
+          "transferBytes": 300
+        },
+        {
+          "url": "http://127.0.0.1:4321/assets/matter/pool-basin-3x3/mobile.glb",
+          "bytes": 65464,
+          "transferBytes": 300
+        },
+        {
+          "url": "http://127.0.0.1:4321/assets/matter/pool-edge-straight/mobile.glb",
+          "bytes": 7692,
+          "transferBytes": 300
+        },
+        {
+          "url": "http://127.0.0.1:4321/assets/matter/pool-edge-corner/mobile.glb",
+          "bytes": 6984,
+          "transferBytes": 300
+        },
+        {
+          "url": "http://127.0.0.1:4321/assets/matter/fountain-wall/mobile.glb",
+          "bytes": 88468,
+          "transferBytes": 300
+        },
+        {
+          "url": "http://127.0.0.1:4321/assets/matter/planter-square/mobile.glb",
+          "bytes": 30208,
+          "transferBytes": 300
+        },
+        {
+          "url": "http://127.0.0.1:4321/assets/matter/olive-small/mobile.glb",
+          "bytes": 94748,
+          "transferBytes": 300
+        },
+        {
+          "url": "http://127.0.0.1:4321/assets/matter/ground-plant-clump/mobile.glb",
+          "bytes": 35840,
+          "transferBytes": 300
+        },
+        {
+          "url": "http://127.0.0.1:4321/assets/matter/statue-a/mobile.glb",
+          "bytes": 99036,
+          "transferBytes": 300
+        },
+        {
+          "url": "http://127.0.0.1:4321/assets/matter/wall-inset-panel/mobile.glb",
+          "bytes": 133020,
+          "transferBytes": 300
+        },
+        {
+          "url": "http://127.0.0.1:4321/assets/matter/fountain-tiered/mobile.glb",
+          "bytes": 168936,
+          "transferBytes": 300
+        },
+        {
+          "url": "http://127.0.0.1:4321/assets/matter/urn-small/mobile.glb",
+          "bytes": 96208,
+          "transferBytes": 300
+        },
+        {
+          "url": "http://127.0.0.1:4321/assets/matter/stair-run-3m/mobile.glb",
+          "bytes": 25968,
+          "transferBytes": 300
+        },
+        {
+          "url": "http://127.0.0.1:4321/assets/matter/statue-b/mobile.glb",
+          "bytes": 71484,
+          "transferBytes": 300
+        }
+      ],
+      "problems": {
+        "errors": [],
+        "warnings": [],
+        "pageErrors": [],
+        "failedRequests": [],
+        "badResponses": []
+      }
+    },
+    {
+      "name": "mobile-cy-1-view",
+      "assets": {
+        "tier": "mobile",
+        "loaded": {
+          "floor-slab-3x3": "matter",
+          "entablature-3m": "matter",
+          "column-doric": "matter",
+          "pool-basin-3x3": "matter",
+          "pool-edge-straight": "matter",
+          "pool-edge-corner": "matter",
+          "fountain-tiered": "matter",
+          "statue-a": "matter",
+          "urn-small": "matter",
+          "planter-square": "matter",
+          "olive-small": "matter",
+          "ground-plant-clump": "matter",
+          "wall-3m": "matter",
+          "wall-3m-doorway": "matter",
+          "fountain-wall": "matter",
+          "wall-inset-panel": "matter",
+          "statue-b": "matter",
+          "stair-run-3m": "matter"
+        }
+      },
+      "render": {
+        "calls": 62,
+        "triangles": 489008,
+        "textures": 38,
+        "geometries": 34,
+        "residentStops": [
+          "entry",
+          "matter-engine",
+          "cy-1",
+          "outrider-ide",
+          "cy-2"
+        ],
+        "reflectionPasses": 1,
+        "leaves": 4272,
+        "dust": 280
+      },
+      "travel": {
+        "u": 0.1874275179236218,
+        "metres": 23.449023066336554,
+        "speed": 0,
+        "acceleration": 0,
+        "jerk": 0,
+        "mode": "paused",
+        "viewpoint": 3,
+        "position": [
+          -3.1000000000000694,
+          1.7,
+          19.500000000000078
+        ]
+      },
+      "requests": [
+        {
+          "url": "http://127.0.0.1:4321/assets/matter/floor-slab-3x3/mobile.glb",
+          "bytes": 19152,
+          "transferBytes": 300
+        },
+        {
+          "url": "http://127.0.0.1:4321/assets/matter/entablature-3m/mobile.glb",
+          "bytes": 60284,
+          "transferBytes": 300
+        },
+        {
+          "url": "http://127.0.0.1:4321/assets/matter/column-doric/mobile.glb",
+          "bytes": 298944,
+          "transferBytes": 300
+        },
+        {
+          "url": "http://127.0.0.1:4321/assets/matter/pool-basin-3x3/mobile.glb",
+          "bytes": 65464,
+          "transferBytes": 300
+        },
+        {
+          "url": "http://127.0.0.1:4321/assets/matter/pool-edge-straight/mobile.glb",
+          "bytes": 7692,
+          "transferBytes": 300
+        },
+        {
+          "url": "http://127.0.0.1:4321/assets/matter/pool-edge-corner/mobile.glb",
+          "bytes": 6984,
+          "transferBytes": 300
+        },
+        {
+          "url": "http://127.0.0.1:4321/assets/matter/fountain-tiered/mobile.glb",
+          "bytes": 168936,
+          "transferBytes": 300
+        },
+        {
+          "url": "http://127.0.0.1:4321/assets/matter/statue-a/mobile.glb",
+          "bytes": 99036,
+          "transferBytes": 300
+        },
+        {
+          "url": "http://127.0.0.1:4321/assets/matter/urn-small/mobile.glb",
+          "bytes": 96208,
+          "transferBytes": 300
+        },
+        {
+          "url": "http://127.0.0.1:4321/assets/matter/planter-square/mobile.glb",
+          "bytes": 30208,
+          "transferBytes": 300
+        },
+        {
+          "url": "http://127.0.0.1:4321/assets/matter/olive-small/mobile.glb",
+          "bytes": 94748,
+          "transferBytes": 300
+        },
+        {
+          "url": "http://127.0.0.1:4321/assets/matter/ground-plant-clump/mobile.glb",
+          "bytes": 35840,
+          "transferBytes": 300
+        },
+        {
+          "url": "http://127.0.0.1:4321/assets/matter/wall-3m/mobile.glb",
+          "bytes": 20780,
+          "transferBytes": 300
+        },
+        {
+          "url": "http://127.0.0.1:4321/assets/matter/wall-3m-doorway/mobile.glb",
+          "bytes": 28832,
+          "transferBytes": 300
+        },
+        {
+          "url": "http://127.0.0.1:4321/assets/matter/fountain-wall/mobile.glb",
+          "bytes": 88468,
+          "transferBytes": 300
+        },
+        {
+          "url": "http://127.0.0.1:4321/assets/matter/wall-inset-panel/mobile.glb",
+          "bytes": 133020,
+          "transferBytes": 300
+        },
+        {
+          "url": "http://127.0.0.1:4321/assets/matter/statue-b/mobile.glb",
+          "bytes": 71484,
+          "transferBytes": 300
+        },
+        {
+          "url": "http://127.0.0.1:4321/assets/matter/stair-run-3m/mobile.glb",
+          "bytes": 25968,
+          "transferBytes": 300
+        }
+      ],
+      "problems": {
+        "errors": [],
+        "warnings": [],
+        "pageErrors": [],
+        "failedRequests": [],
+        "badResponses": []
+      }
+    },
+    {
+      "name": "mobile-outrider-ide-enter",
+      "assets": {
+        "tier": "mobile",
+        "loaded": {
+          "floor-slab-3x3": "matter",
+          "wall-3m": "matter",
+          "wall-3m-doorway": "matter",
+          "column-doric": "matter",
+          "entablature-3m": "matter",
+          "statue-b": "matter",
+          "planter-square": "matter",
+          "olive-small": "matter",
+          "ground-plant-clump": "matter",
+          "statue-a": "matter",
+          "urn-small": "matter",
+          "wall-inset-panel": "matter",
+          "pool-basin-3x3": "matter",
+          "pool-edge-straight": "matter",
+          "pool-edge-corner": "matter",
+          "fountain-tiered": "matter",
+          "fountain-wall": "matter",
+          "relief-a": "matter",
+          "stair-run-3m": "matter"
+        }
+      },
+      "render": {
+        "calls": 58,
+        "triangles": 399862,
+        "textures": 40,
+        "geometries": 34,
+        "residentStops": [
+          "entry",
+          "matter-engine",
+          "cy-1",
+          "outrider-ide",
+          "cy-2",
+          "agent-queue"
+        ],
+        "reflectionPasses": 1,
+        "leaves": 4272,
+        "dust": 280
+      },
+      "travel": {
+        "u": 0.2751170537458755,
+        "metres": 34.41984512572222,
+        "speed": 0,
+        "acceleration": 0,
+        "jerk": 0,
+        "mode": "paused",
+        "viewpoint": 4,
+        "position": [
+          3.43914609769695e-29,
+          1.7,
+          27.999999999999968
+        ]
+      },
+      "requests": [
+        {
+          "url": "http://127.0.0.1:4321/assets/matter/floor-slab-3x3/mobile.glb",
+          "bytes": 19152,
+          "transferBytes": 300
+        },
+        {
+          "url": "http://127.0.0.1:4321/assets/matter/wall-3m/mobile.glb",
+          "bytes": 20780,
+          "transferBytes": 300
+        },
+        {
+          "url": "http://127.0.0.1:4321/assets/matter/wall-3m-doorway/mobile.glb",
+          "bytes": 28832,
+          "transferBytes": 300
+        },
+        {
+          "url": "http://127.0.0.1:4321/assets/matter/column-doric/mobile.glb",
+          "bytes": 298944,
+          "transferBytes": 300
+        },
+        {
+          "url": "http://127.0.0.1:4321/assets/matter/entablature-3m/mobile.glb",
+          "bytes": 60284,
+          "transferBytes": 300
+        },
+        {
+          "url": "http://127.0.0.1:4321/assets/matter/statue-b/mobile.glb",
+          "bytes": 71484,
+          "transferBytes": 300
+        },
+        {
+          "url": "http://127.0.0.1:4321/assets/matter/planter-square/mobile.glb",
+          "bytes": 30208,
+          "transferBytes": 300
+        },
+        {
+          "url": "http://127.0.0.1:4321/assets/matter/olive-small/mobile.glb",
+          "bytes": 94748,
+          "transferBytes": 300
+        },
+        {
+          "url": "http://127.0.0.1:4321/assets/matter/ground-plant-clump/mobile.glb",
+          "bytes": 35840,
+          "transferBytes": 300
+        },
+        {
+          "url": "http://127.0.0.1:4321/assets/matter/statue-a/mobile.glb",
+          "bytes": 99036,
+          "transferBytes": 300
+        },
+        {
+          "url": "http://127.0.0.1:4321/assets/matter/urn-small/mobile.glb",
+          "bytes": 96208,
+          "transferBytes": 300
+        },
+        {
+          "url": "http://127.0.0.1:4321/assets/matter/wall-inset-panel/mobile.glb",
+          "bytes": 133020,
+          "transferBytes": 300
+        },
+        {
+          "url": "http://127.0.0.1:4321/assets/matter/pool-basin-3x3/mobile.glb",
+          "bytes": 65464,
+          "transferBytes": 300
+        },
+        {
+          "url": "http://127.0.0.1:4321/assets/matter/pool-edge-straight/mobile.glb",
+          "bytes": 7692,
+          "transferBytes": 300
+        },
+        {
+          "url": "http://127.0.0.1:4321/assets/matter/pool-edge-corner/mobile.glb",
+          "bytes": 6984,
+          "transferBytes": 300
+        },
+        {
+          "url": "http://127.0.0.1:4321/assets/matter/fountain-tiered/mobile.glb",
+          "bytes": 168936,
+          "transferBytes": 300
+        },
+        {
+          "url": "http://127.0.0.1:4321/assets/matter/fountain-wall/mobile.glb",
+          "bytes": 88468,
+          "transferBytes": 300
+        },
+        {
+          "url": "http://127.0.0.1:4321/assets/matter/relief-a/mobile.glb",
+          "bytes": 188812,
+          "transferBytes": 189112
+        },
+        {
+          "url": "http://127.0.0.1:4321/assets/matter/stair-run-3m/mobile.glb",
+          "bytes": 25968,
+          "transferBytes": 300
+        }
+      ],
+      "problems": {
+        "errors": [],
+        "warnings": [],
+        "pageErrors": [],
+        "failedRequests": [],
+        "badResponses": []
+      }
+    },
+    {
+      "name": "mobile-outrider-ide-focal",
+      "assets": {
+        "tier": "mobile",
+        "loaded": {
+          "floor-slab-3x3": "matter",
+          "wall-3m": "matter",
+          "wall-3m-doorway": "matter",
+          "column-doric": "matter",
+          "entablature-3m": "matter",
+          "statue-b": "matter",
+          "planter-square": "matter",
+          "olive-small": "matter",
+          "ground-plant-clump": "matter",
+          "statue-a": "matter",
+          "urn-small": "matter",
+          "wall-inset-panel": "matter",
+          "pool-basin-3x3": "matter",
+          "pool-edge-straight": "matter",
+          "pool-edge-corner": "matter",
+          "fountain-tiered": "matter",
+          "fountain-wall": "matter",
+          "relief-a": "matter",
+          "stair-run-3m": "matter"
+        }
+      },
+      "render": {
+        "calls": 48,
+        "triangles": 321066,
+        "textures": 33,
+        "geometries": 34,
+        "residentStops": [
+          "entry",
+          "matter-engine",
+          "cy-1",
+          "outrider-ide",
+          "cy-2",
+          "agent-queue"
+        ],
+        "reflectionPasses": 1,
+        "leaves": 4272,
+        "dust": 280
+      },
+      "travel": {
+        "u": 0.3127622231352774,
+        "metres": 39.12962549910345,
+        "speed": 0,
+        "acceleration": 0,
+        "jerk": 0,
+        "mode": "paused",
+        "viewpoint": 5,
+        "position": [
+          4.646508729945138e-15,
+          1.7,
+          32.699999999999974
+        ]
+      },
+      "requests": [
+        {
+          "url": "http://127.0.0.1:4321/assets/matter/floor-slab-3x3/mobile.glb",
+          "bytes": 19152,
+          "transferBytes": 300
+        },
+        {
+          "url": "http://127.0.0.1:4321/assets/matter/wall-3m/mobile.glb",
+          "bytes": 20780,
+          "transferBytes": 300
+        },
+        {
+          "url": "http://127.0.0.1:4321/assets/matter/wall-3m-doorway/mobile.glb",
+          "bytes": 28832,
+          "transferBytes": 300
+        },
+        {
+          "url": "http://127.0.0.1:4321/assets/matter/column-doric/mobile.glb",
+          "bytes": 298944,
+          "transferBytes": 300
+        },
+        {
+          "url": "http://127.0.0.1:4321/assets/matter/entablature-3m/mobile.glb",
+          "bytes": 60284,
+          "transferBytes": 300
+        },
+        {
+          "url": "http://127.0.0.1:4321/assets/matter/statue-b/mobile.glb",
+          "bytes": 71484,
+          "transferBytes": 300
+        },
+        {
+          "url": "http://127.0.0.1:4321/assets/matter/planter-square/mobile.glb",
+          "bytes": 30208,
+          "transferBytes": 300
+        },
+        {
+          "url": "http://127.0.0.1:4321/assets/matter/olive-small/mobile.glb",
+          "bytes": 94748,
+          "transferBytes": 300
+        },
+        {
+          "url": "http://127.0.0.1:4321/assets/matter/ground-plant-clump/mobile.glb",
+          "bytes": 35840,
+          "transferBytes": 300
+        },
+        {
+          "url": "http://127.0.0.1:4321/assets/matter/statue-a/mobile.glb",
+          "bytes": 99036,
+          "transferBytes": 300
+        },
+        {
+          "url": "http://127.0.0.1:4321/assets/matter/urn-small/mobile.glb",
+          "bytes": 96208,
+          "transferBytes": 300
+        },
+        {
+          "url": "http://127.0.0.1:4321/assets/matter/wall-inset-panel/mobile.glb",
+          "bytes": 133020,
+          "transferBytes": 300
+        },
+        {
+          "url": "http://127.0.0.1:4321/assets/matter/pool-basin-3x3/mobile.glb",
+          "bytes": 65464,
+          "transferBytes": 300
+        },
+        {
+          "url": "http://127.0.0.1:4321/assets/matter/pool-edge-straight/mobile.glb",
+          "bytes": 7692,
+          "transferBytes": 300
+        },
+        {
+          "url": "http://127.0.0.1:4321/assets/matter/pool-edge-corner/mobile.glb",
+          "bytes": 6984,
+          "transferBytes": 300
+        },
+        {
+          "url": "http://127.0.0.1:4321/assets/matter/fountain-tiered/mobile.glb",
+          "bytes": 168936,
+          "transferBytes": 300
+        },
+        {
+          "url": "http://127.0.0.1:4321/assets/matter/fountain-wall/mobile.glb",
+          "bytes": 88468,
+          "transferBytes": 300
+        },
+        {
+          "url": "http://127.0.0.1:4321/assets/matter/relief-a/mobile.glb",
+          "bytes": 188812,
+          "transferBytes": 300
+        },
+        {
+          "url": "http://127.0.0.1:4321/assets/matter/stair-run-3m/mobile.glb",
+          "bytes": 25968,
+          "transferBytes": 300
+        }
+      ],
+      "problems": {
+        "errors": [],
+        "warnings": [],
+        "pageErrors": [],
+        "failedRequests": [],
+        "badResponses": []
+      }
+    },
+    {
+      "name": "mobile-cy-2-view",
+      "assets": {
+        "tier": "mobile",
+        "loaded": {
+          "floor-slab-3x3": "matter",
+          "entablature-3m": "matter",
+          "column-doric": "matter",
+          "pool-basin-3x3": "matter",
+          "pool-edge-straight": "matter",
+          "pool-edge-corner": "matter",
+          "fountain-tiered": "matter",
+          "urn-small": "matter",
+          "wall-3m": "matter",
+          "wall-3m-doorway": "matter",
+          "statue-b": "matter",
+          "planter-square": "matter",
+          "olive-small": "matter",
+          "ground-plant-clump": "matter",
+          "statue-a": "matter",
+          "wall-inset-panel": "matter",
+          "relief-a": "matter",
+          "stair-run-3m": "matter",
+          "fountain-wall": "matter"
+        }
+      },
+      "render": {
+        "calls": 53,
+        "triangles": 309750,
+        "textures": 38,
+        "geometries": 34,
+        "residentStops": [
+          "matter-engine",
+          "cy-1",
+          "outrider-ide",
+          "cy-2",
+          "agent-queue",
+          "cy-3"
+        ],
+        "reflectionPasses": 1,
+        "leaves": 4272,
+        "dust": 280
+      },
+      "travel": {
+        "u": 0.4112197672199669,
+        "metres": 51.44763113602149,
+        "speed": 0,
+        "acceleration": 0,
+        "jerk": 0,
+        "mode": "paused",
+        "viewpoint": 6,
+        "position": [
+          3.1000000000000396,
+          1.7,
+          40.50000000000004
+        ]
+      },
+      "requests": [
+        {
+          "url": "http://127.0.0.1:4321/assets/matter/floor-slab-3x3/mobile.glb",
+          "bytes": 19152,
+          "transferBytes": 300
+        },
+        {
+          "url": "http://127.0.0.1:4321/assets/matter/entablature-3m/mobile.glb",
+          "bytes": 60284,
+          "transferBytes": 300
+        },
+        {
+          "url": "http://127.0.0.1:4321/assets/matter/column-doric/mobile.glb",
+          "bytes": 298944,
+          "transferBytes": 300
+        },
+        {
+          "url": "http://127.0.0.1:4321/assets/matter/pool-basin-3x3/mobile.glb",
+          "bytes": 65464,
+          "transferBytes": 300
+        },
+        {
+          "url": "http://127.0.0.1:4321/assets/matter/pool-edge-straight/mobile.glb",
+          "bytes": 7692,
+          "transferBytes": 300
+        },
+        {
+          "url": "http://127.0.0.1:4321/assets/matter/pool-edge-corner/mobile.glb",
+          "bytes": 6984,
+          "transferBytes": 300
+        },
+        {
+          "url": "http://127.0.0.1:4321/assets/matter/fountain-tiered/mobile.glb",
+          "bytes": 168936,
+          "transferBytes": 300
+        },
+        {
+          "url": "http://127.0.0.1:4321/assets/matter/urn-small/mobile.glb",
+          "bytes": 96208,
+          "transferBytes": 300
+        },
+        {
+          "url": "http://127.0.0.1:4321/assets/matter/wall-3m/mobile.glb",
+          "bytes": 20780,
+          "transferBytes": 300
+        },
+        {
+          "url": "http://127.0.0.1:4321/assets/matter/wall-3m-doorway/mobile.glb",
+          "bytes": 28832,
+          "transferBytes": 300
+        },
+        {
+          "url": "http://127.0.0.1:4321/assets/matter/statue-b/mobile.glb",
+          "bytes": 71484,
+          "transferBytes": 300
+        },
+        {
+          "url": "http://127.0.0.1:4321/assets/matter/planter-square/mobile.glb",
+          "bytes": 30208,
+          "transferBytes": 300
+        },
+        {
+          "url": "http://127.0.0.1:4321/assets/matter/olive-small/mobile.glb",
+          "bytes": 94748,
+          "transferBytes": 300
+        },
+        {
+          "url": "http://127.0.0.1:4321/assets/matter/ground-plant-clump/mobile.glb",
+          "bytes": 35840,
+          "transferBytes": 300
+        },
+        {
+          "url": "http://127.0.0.1:4321/assets/matter/statue-a/mobile.glb",
+          "bytes": 99036,
+          "transferBytes": 300
+        },
+        {
+          "url": "http://127.0.0.1:4321/assets/matter/wall-inset-panel/mobile.glb",
+          "bytes": 133020,
+          "transferBytes": 300
+        },
+        {
+          "url": "http://127.0.0.1:4321/assets/matter/relief-a/mobile.glb",
+          "bytes": 188812,
+          "transferBytes": 300
+        },
+        {
+          "url": "http://127.0.0.1:4321/assets/matter/stair-run-3m/mobile.glb",
+          "bytes": 25968,
+          "transferBytes": 300
+        },
+        {
+          "url": "http://127.0.0.1:4321/assets/matter/fountain-wall/mobile.glb",
+          "bytes": 88468,
+          "transferBytes": 300
+        }
+      ],
+      "problems": {
+        "errors": [],
+        "warnings": [],
+        "pageErrors": [],
+        "failedRequests": [],
+        "badResponses": []
+      }
+    },
+    {
+      "name": "mobile-agent-queue-enter",
+      "assets": {
+        "tier": "mobile",
+        "loaded": {
+          "floor-slab-3x3": "matter",
+          "wall-3m": "matter",
+          "wall-3m-doorway": "matter",
+          "relief-a": "matter",
+          "statue-a": "matter",
+          "wall-inset-panel": "matter",
+          "entablature-3m": "matter",
+          "column-doric": "matter",
+          "pool-basin-3x3": "matter",
+          "pool-edge-straight": "matter",
+          "pool-edge-corner": "matter",
+          "fountain-tiered": "matter",
+          "urn-small": "matter",
+          "stair-run-3m": "matter",
+          "planter-square": "matter",
+          "olive-small": "matter",
+          "ground-plant-clump": "matter",
+          "statue-b": "matter",
+          "urn-large": "matter"
+        }
+      },
+      "render": {
+        "calls": 65,
+        "triangles": 414478,
+        "textures": 46,
+        "geometries": 35,
+        "residentStops": [
+          "cy-1",
+          "outrider-ide",
+          "cy-2",
+          "agent-queue",
+          "cy-3",
+          "quilt-trader"
+        ],
+        "reflectionPasses": 1,
+        "leaves": 4272,
+        "dust": 280
+      },
+      "travel": {
+        "u": 0.5453746328493648,
+        "metres": 68.23172225271105,
+        "speed": 0,
+        "acceleration": 0,
+        "jerk": 0,
+        "mode": "paused",
+        "viewpoint": 7,
+        "position": [
+          -5.49999999999995,
+          1.7,
+          43.50000000000003
+        ]
+      },
+      "requests": [
+        {
+          "url": "http://127.0.0.1:4321/assets/matter/floor-slab-3x3/mobile.glb",
+          "bytes": 19152,
+          "transferBytes": 300
+        },
+        {
+          "url": "http://127.0.0.1:4321/assets/matter/wall-3m/mobile.glb",
+          "bytes": 20780,
+          "transferBytes": 300
+        },
+        {
+          "url": "http://127.0.0.1:4321/assets/matter/wall-3m-doorway/mobile.glb",
+          "bytes": 28832,
+          "transferBytes": 300
+        },
+        {
+          "url": "http://127.0.0.1:4321/assets/matter/relief-a/mobile.glb",
+          "bytes": 188812,
+          "transferBytes": 300
+        },
+        {
+          "url": "http://127.0.0.1:4321/assets/matter/statue-a/mobile.glb",
+          "bytes": 99036,
+          "transferBytes": 300
+        },
+        {
+          "url": "http://127.0.0.1:4321/assets/matter/wall-inset-panel/mobile.glb",
+          "bytes": 133020,
+          "transferBytes": 300
+        },
+        {
+          "url": "http://127.0.0.1:4321/assets/matter/entablature-3m/mobile.glb",
+          "bytes": 60284,
+          "transferBytes": 300
+        },
+        {
+          "url": "http://127.0.0.1:4321/assets/matter/column-doric/mobile.glb",
+          "bytes": 298944,
+          "transferBytes": 300
+        },
+        {
+          "url": "http://127.0.0.1:4321/assets/matter/pool-basin-3x3/mobile.glb",
+          "bytes": 65464,
+          "transferBytes": 300
+        },
+        {
+          "url": "http://127.0.0.1:4321/assets/matter/pool-edge-straight/mobile.glb",
+          "bytes": 7692,
+          "transferBytes": 300
+        },
+        {
+          "url": "http://127.0.0.1:4321/assets/matter/pool-edge-corner/mobile.glb",
+          "bytes": 6984,
+          "transferBytes": 300
+        },
+        {
+          "url": "http://127.0.0.1:4321/assets/matter/fountain-tiered/mobile.glb",
+          "bytes": 168936,
+          "transferBytes": 300
+        },
+        {
+          "url": "http://127.0.0.1:4321/assets/matter/urn-small/mobile.glb",
+          "bytes": 96208,
+          "transferBytes": 300
+        },
+        {
+          "url": "http://127.0.0.1:4321/assets/matter/stair-run-3m/mobile.glb",
+          "bytes": 25968,
+          "transferBytes": 300
+        },
+        {
+          "url": "http://127.0.0.1:4321/assets/matter/planter-square/mobile.glb",
+          "bytes": 30208,
+          "transferBytes": 300
+        },
+        {
+          "url": "http://127.0.0.1:4321/assets/matter/olive-small/mobile.glb",
+          "bytes": 94748,
+          "transferBytes": 300
+        },
+        {
+          "url": "http://127.0.0.1:4321/assets/matter/ground-plant-clump/mobile.glb",
+          "bytes": 35840,
+          "transferBytes": 300
+        },
+        {
+          "url": "http://127.0.0.1:4321/assets/matter/statue-b/mobile.glb",
+          "bytes": 71484,
+          "transferBytes": 300
+        },
+        {
+          "url": "http://127.0.0.1:4321/assets/matter/urn-large/mobile.glb",
+          "bytes": 120008,
+          "transferBytes": 120308
+        }
+      ],
+      "problems": {
+        "errors": [],
+        "warnings": [],
+        "pageErrors": [],
+        "failedRequests": [],
+        "badResponses": []
+      }
+    },
+    {
+      "name": "mobile-agent-queue-focal",
+      "assets": {
+        "tier": "mobile",
+        "loaded": {
+          "floor-slab-3x3": "matter",
+          "wall-3m": "matter",
+          "wall-3m-doorway": "matter",
+          "relief-a": "matter",
+          "statue-a": "matter",
+          "wall-inset-panel": "matter",
+          "entablature-3m": "matter",
+          "column-doric": "matter",
+          "pool-basin-3x3": "matter",
+          "pool-edge-straight": "matter",
+          "pool-edge-corner": "matter",
+          "fountain-tiered": "matter",
+          "urn-small": "matter",
+          "stair-run-3m": "matter",
+          "planter-square": "matter",
+          "olive-small": "matter",
+          "ground-plant-clump": "matter",
+          "statue-b": "matter",
+          "urn-large": "matter"
+        }
+      },
+      "render": {
+        "calls": 66,
+        "triangles": 430286,
+        "textures": 46,
+        "geometries": 35,
+        "residentStops": [
+          "cy-1",
+          "outrider-ide",
+          "cy-2",
+          "agent-queue",
+          "cy-3",
+          "quilt-trader"
+        ],
+        "reflectionPasses": 1,
+        "leaves": 4272,
+        "dust": 280
+      },
+      "travel": {
+        "u": 0.5601790616638826,
+        "metres": 70.08390167973111,
+        "speed": 0,
+        "acceleration": 0,
+        "jerk": 0,
+        "mode": "paused",
+        "viewpoint": 8,
+        "position": [
+          -6.49999999999995,
+          1.7,
+          42.00000000000001
+        ]
+      },
+      "requests": [
+        {
+          "url": "http://127.0.0.1:4321/assets/matter/floor-slab-3x3/mobile.glb",
+          "bytes": 19152,
+          "transferBytes": 300
+        },
+        {
+          "url": "http://127.0.0.1:4321/assets/matter/wall-3m/mobile.glb",
+          "bytes": 20780,
+          "transferBytes": 300
+        },
+        {
+          "url": "http://127.0.0.1:4321/assets/matter/wall-3m-doorway/mobile.glb",
+          "bytes": 28832,
+          "transferBytes": 300
+        },
+        {
+          "url": "http://127.0.0.1:4321/assets/matter/relief-a/mobile.glb",
+          "bytes": 188812,
+          "transferBytes": 300
+        },
+        {
+          "url": "http://127.0.0.1:4321/assets/matter/statue-a/mobile.glb",
+          "bytes": 99036,
+          "transferBytes": 300
+        },
+        {
+          "url": "http://127.0.0.1:4321/assets/matter/wall-inset-panel/mobile.glb",
+          "bytes": 133020,
+          "transferBytes": 300
+        },
+        {
+          "url": "http://127.0.0.1:4321/assets/matter/entablature-3m/mobile.glb",
+          "bytes": 60284,
+          "transferBytes": 300
+        },
+        {
+          "url": "http://127.0.0.1:4321/assets/matter/column-doric/mobile.glb",
+          "bytes": 298944,
+          "transferBytes": 300
+        },
+        {
+          "url": "http://127.0.0.1:4321/assets/matter/pool-basin-3x3/mobile.glb",
+          "bytes": 65464,
+          "transferBytes": 300
+        },
+        {
+          "url": "http://127.0.0.1:4321/assets/matter/pool-edge-straight/mobile.glb",
+          "bytes": 7692,
+          "transferBytes": 300
+        },
+        {
+          "url": "http://127.0.0.1:4321/assets/matter/pool-edge-corner/mobile.glb",
+          "bytes": 6984,
+          "transferBytes": 300
+        },
+        {
+          "url": "http://127.0.0.1:4321/assets/matter/fountain-tiered/mobile.glb",
+          "bytes": 168936,
+          "transferBytes": 300
+        },
+        {
+          "url": "http://127.0.0.1:4321/assets/matter/urn-small/mobile.glb",
+          "bytes": 96208,
+          "transferBytes": 300
+        },
+        {
+          "url": "http://127.0.0.1:4321/assets/matter/stair-run-3m/mobile.glb",
+          "bytes": 25968,
+          "transferBytes": 300
+        },
+        {
+          "url": "http://127.0.0.1:4321/assets/matter/planter-square/mobile.glb",
+          "bytes": 30208,
+          "transferBytes": 300
+        },
+        {
+          "url": "http://127.0.0.1:4321/assets/matter/olive-small/mobile.glb",
+          "bytes": 94748,
+          "transferBytes": 300
+        },
+        {
+          "url": "http://127.0.0.1:4321/assets/matter/ground-plant-clump/mobile.glb",
+          "bytes": 35840,
+          "transferBytes": 300
+        },
+        {
+          "url": "http://127.0.0.1:4321/assets/matter/statue-b/mobile.glb",
+          "bytes": 71484,
+          "transferBytes": 300
+        },
+        {
+          "url": "http://127.0.0.1:4321/assets/matter/urn-large/mobile.glb",
+          "bytes": 120008,
+          "transferBytes": 300
+        }
+      ],
+      "problems": {
+        "errors": [],
+        "warnings": [],
+        "pageErrors": [],
+        "failedRequests": [],
+        "badResponses": []
+      }
+    },
+    {
+      "name": "mobile-cy-3-view",
+      "assets": {
+        "tier": "mobile",
+        "loaded": {
+          "floor-slab-3x3": "matter",
+          "entablature-3m": "matter",
+          "column-doric": "matter",
+          "pool-basin-3x3": "matter",
+          "pool-edge-straight": "matter",
+          "pool-edge-corner": "matter",
+          "fountain-tiered": "matter",
+          "stair-run-3m": "matter",
+          "urn-small": "matter",
+          "planter-square": "matter",
+          "olive-small": "matter",
+          "ground-plant-clump": "matter",
+          "wall-3m": "matter",
+          "wall-3m-doorway": "matter",
+          "relief-a": "matter",
+          "statue-a": "matter",
+          "wall-inset-panel": "matter",
+          "urn-large": "matter",
+          "statue-b": "matter"
+        }
+      },
+      "render": {
+        "calls": 61,
+        "triangles": 415358,
+        "textures": 38,
+        "geometries": 35,
+        "residentStops": [
+          "outrider-ide",
+          "cy-2",
+          "agent-queue",
+          "cy-3",
+          "quilt-trader",
+          "cy-4"
+        ],
+        "reflectionPasses": 1,
+        "leaves": 4272,
+        "dust": 280
+      },
+      "travel": {
+        "u": 0.6353920998722751,
+        "metres": 79.4937913660287,
+        "speed": 0,
+        "acceleration": 0,
+        "jerk": 0,
+        "mode": "paused",
+        "viewpoint": 9,
+        "position": [
+          -12.000000000000014,
+          1.7,
+          40.399999999999984
+        ]
+      },
+      "requests": [
+        {
+          "url": "http://127.0.0.1:4321/assets/matter/floor-slab-3x3/mobile.glb",
+          "bytes": 19152,
+          "transferBytes": 300
+        },
+        {
+          "url": "http://127.0.0.1:4321/assets/matter/entablature-3m/mobile.glb",
+          "bytes": 60284,
+          "transferBytes": 300
+        },
+        {
+          "url": "http://127.0.0.1:4321/assets/matter/column-doric/mobile.glb",
+          "bytes": 298944,
+          "transferBytes": 300
+        },
+        {
+          "url": "http://127.0.0.1:4321/assets/matter/pool-basin-3x3/mobile.glb",
+          "bytes": 65464,
+          "transferBytes": 300
+        },
+        {
+          "url": "http://127.0.0.1:4321/assets/matter/pool-edge-straight/mobile.glb",
+          "bytes": 7692,
+          "transferBytes": 300
+        },
+        {
+          "url": "http://127.0.0.1:4321/assets/matter/pool-edge-corner/mobile.glb",
+          "bytes": 6984,
+          "transferBytes": 300
+        },
+        {
+          "url": "http://127.0.0.1:4321/assets/matter/fountain-tiered/mobile.glb",
+          "bytes": 168936,
+          "transferBytes": 300
+        },
+        {
+          "url": "http://127.0.0.1:4321/assets/matter/stair-run-3m/mobile.glb",
+          "bytes": 25968,
+          "transferBytes": 300
+        },
+        {
+          "url": "http://127.0.0.1:4321/assets/matter/urn-small/mobile.glb",
+          "bytes": 96208,
+          "transferBytes": 300
+        },
+        {
+          "url": "http://127.0.0.1:4321/assets/matter/planter-square/mobile.glb",
+          "bytes": 30208,
+          "transferBytes": 300
+        },
+        {
+          "url": "http://127.0.0.1:4321/assets/matter/olive-small/mobile.glb",
+          "bytes": 94748,
+          "transferBytes": 300
+        },
+        {
+          "url": "http://127.0.0.1:4321/assets/matter/ground-plant-clump/mobile.glb",
+          "bytes": 35840,
+          "transferBytes": 300
+        },
+        {
+          "url": "http://127.0.0.1:4321/assets/matter/wall-3m/mobile.glb",
+          "bytes": 20780,
+          "transferBytes": 300
+        },
+        {
+          "url": "http://127.0.0.1:4321/assets/matter/wall-3m-doorway/mobile.glb",
+          "bytes": 28832,
+          "transferBytes": 300
+        },
+        {
+          "url": "http://127.0.0.1:4321/assets/matter/relief-a/mobile.glb",
+          "bytes": 188812,
+          "transferBytes": 300
+        },
+        {
+          "url": "http://127.0.0.1:4321/assets/matter/statue-a/mobile.glb",
+          "bytes": 99036,
+          "transferBytes": 300
+        },
+        {
+          "url": "http://127.0.0.1:4321/assets/matter/wall-inset-panel/mobile.glb",
+          "bytes": 133020,
+          "transferBytes": 300
+        },
+        {
+          "url": "http://127.0.0.1:4321/assets/matter/urn-large/mobile.glb",
+          "bytes": 120008,
+          "transferBytes": 300
+        },
+        {
+          "url": "http://127.0.0.1:4321/assets/matter/statue-b/mobile.glb",
+          "bytes": 71484,
+          "transferBytes": 300
+        }
+      ],
+      "problems": {
+        "errors": [],
+        "warnings": [],
+        "pageErrors": [],
+        "failedRequests": [],
+        "badResponses": []
+      }
+    },
+    {
+      "name": "mobile-quilt-trader-enter",
+      "assets": {
+        "tier": "mobile",
+        "loaded": {
+          "floor-slab-3x3": "matter",
+          "wall-3m": "matter",
+          "wall-3m-doorway": "matter",
+          "column-doric": "matter",
+          "entablature-3m": "matter",
+          "urn-large": "matter",
+          "planter-square": "matter",
+          "olive-small": "matter",
+          "ground-plant-clump": "matter",
+          "urn-small": "matter",
+          "statue-a": "matter",
+          "wall-inset-panel": "matter",
+          "pool-basin-3x3": "matter",
+          "pool-edge-straight": "matter",
+          "pool-edge-corner": "matter",
+          "fountain-tiered": "matter",
+          "stair-run-3m": "matter",
+          "relief-a": "matter",
+          "bench-3m": "matter"
+        }
+      },
+      "render": {
+        "calls": 55,
+        "triangles": 391280,
+        "textures": 42,
+        "geometries": 35,
+        "residentStops": [
+          "cy-2",
+          "agent-queue",
+          "cy-3",
+          "quilt-trader",
+          "cy-4",
+          "terrace"
+        ],
+        "reflectionPasses": 1,
+        "leaves": 4272,
+        "dust": 280
+      },
+      "travel": {
+        "u": 0.748441969355935,
+        "metres": 93.63744020978571,
+        "speed": 0,
+        "acceleration": 0,
+        "jerk": 0,
+        "mode": "paused",
+        "viewpoint": 10,
+        "position": [
+          -23.500000000000092,
+          0.7,
+          43.5
+        ]
+      },
+      "requests": [
+        {
+          "url": "http://127.0.0.1:4321/assets/matter/floor-slab-3x3/mobile.glb",
+          "bytes": 19152,
+          "transferBytes": 300
+        },
+        {
+          "url": "http://127.0.0.1:4321/assets/matter/wall-3m/mobile.glb",
+          "bytes": 20780,
+          "transferBytes": 300
+        },
+        {
+          "url": "http://127.0.0.1:4321/assets/matter/wall-3m-doorway/mobile.glb",
+          "bytes": 28832,
+          "transferBytes": 300
+        },
+        {
+          "url": "http://127.0.0.1:4321/assets/matter/column-doric/mobile.glb",
+          "bytes": 298944,
+          "transferBytes": 300
+        },
+        {
+          "url": "http://127.0.0.1:4321/assets/matter/entablature-3m/mobile.glb",
+          "bytes": 60284,
+          "transferBytes": 300
+        },
+        {
+          "url": "http://127.0.0.1:4321/assets/matter/urn-large/mobile.glb",
+          "bytes": 120008,
+          "transferBytes": 300
+        },
+        {
+          "url": "http://127.0.0.1:4321/assets/matter/planter-square/mobile.glb",
+          "bytes": 30208,
+          "transferBytes": 300
+        },
+        {
+          "url": "http://127.0.0.1:4321/assets/matter/olive-small/mobile.glb",
+          "bytes": 94748,
+          "transferBytes": 300
+        },
+        {
+          "url": "http://127.0.0.1:4321/assets/matter/ground-plant-clump/mobile.glb",
+          "bytes": 35840,
+          "transferBytes": 300
+        },
+        {
+          "url": "http://127.0.0.1:4321/assets/matter/urn-small/mobile.glb",
+          "bytes": 96208,
+          "transferBytes": 300
+        },
+        {
+          "url": "http://127.0.0.1:4321/assets/matter/statue-a/mobile.glb",
+          "bytes": 99036,
+          "transferBytes": 300
+        },
+        {
+          "url": "http://127.0.0.1:4321/assets/matter/wall-inset-panel/mobile.glb",
+          "bytes": 133020,
+          "transferBytes": 300
+        },
+        {
+          "url": "http://127.0.0.1:4321/assets/matter/pool-basin-3x3/mobile.glb",
+          "bytes": 65464,
+          "transferBytes": 300
+        },
+        {
+          "url": "http://127.0.0.1:4321/assets/matter/pool-edge-straight/mobile.glb",
+          "bytes": 7692,
+          "transferBytes": 300
+        },
+        {
+          "url": "http://127.0.0.1:4321/assets/matter/pool-edge-corner/mobile.glb",
+          "bytes": 6984,
+          "transferBytes": 300
+        },
+        {
+          "url": "http://127.0.0.1:4321/assets/matter/fountain-tiered/mobile.glb",
+          "bytes": 168936,
+          "transferBytes": 300
+        },
+        {
+          "url": "http://127.0.0.1:4321/assets/matter/stair-run-3m/mobile.glb",
+          "bytes": 25968,
+          "transferBytes": 300
+        },
+        {
+          "url": "http://127.0.0.1:4321/assets/matter/relief-a/mobile.glb",
+          "bytes": 188812,
+          "transferBytes": 300
+        },
+        {
+          "url": "http://127.0.0.1:4321/assets/matter/bench-3m/mobile.glb",
+          "bytes": 23008,
+          "transferBytes": 23308
+        }
+      ],
+      "problems": {
+        "errors": [],
+        "warnings": [],
+        "pageErrors": [],
+        "failedRequests": [],
+        "badResponses": []
+      }
+    },
+    {
+      "name": "mobile-quilt-trader-focal",
+      "assets": {
+        "tier": "mobile",
+        "loaded": {
+          "floor-slab-3x3": "matter",
+          "wall-3m": "matter",
+          "wall-3m-doorway": "matter",
+          "column-doric": "matter",
+          "entablature-3m": "matter",
+          "urn-large": "matter",
+          "planter-square": "matter",
+          "olive-small": "matter",
+          "ground-plant-clump": "matter",
+          "urn-small": "matter",
+          "statue-a": "matter",
+          "wall-inset-panel": "matter",
+          "pool-basin-3x3": "matter",
+          "pool-edge-straight": "matter",
+          "pool-edge-corner": "matter",
+          "fountain-tiered": "matter",
+          "stair-run-3m": "matter",
+          "relief-a": "matter",
+          "bench-3m": "matter"
+        }
+      },
+      "render": {
+        "calls": 50,
+        "triangles": 385508,
+        "textures": 42,
+        "geometries": 35,
+        "residentStops": [
+          "cy-2",
+          "agent-queue",
+          "cy-3",
+          "quilt-trader",
+          "cy-4",
+          "terrace"
+        ],
+        "reflectionPasses": 1,
+        "leaves": 4272,
+        "dust": 280
+      },
+      "travel": {
+        "u": 0.7749265199500958,
+        "metres": 96.95091757247005,
+        "speed": 0,
+        "acceleration": 0,
+        "jerk": 0,
+        "mode": "paused",
+        "viewpoint": 11,
+        "position": [
+          -26.80000000000003,
+          0.7,
+          43.49999999999999
+        ]
+      },
+      "requests": [
+        {
+          "url": "http://127.0.0.1:4321/assets/matter/floor-slab-3x3/mobile.glb",
+          "bytes": 19152,
+          "transferBytes": 300
+        },
+        {
+          "url": "http://127.0.0.1:4321/assets/matter/wall-3m/mobile.glb",
+          "bytes": 20780,
+          "transferBytes": 300
+        },
+        {
+          "url": "http://127.0.0.1:4321/assets/matter/wall-3m-doorway/mobile.glb",
+          "bytes": 28832,
+          "transferBytes": 300
+        },
+        {
+          "url": "http://127.0.0.1:4321/assets/matter/column-doric/mobile.glb",
+          "bytes": 298944,
+          "transferBytes": 300
+        },
+        {
+          "url": "http://127.0.0.1:4321/assets/matter/entablature-3m/mobile.glb",
+          "bytes": 60284,
+          "transferBytes": 300
+        },
+        {
+          "url": "http://127.0.0.1:4321/assets/matter/urn-large/mobile.glb",
+          "bytes": 120008,
+          "transferBytes": 300
+        },
+        {
+          "url": "http://127.0.0.1:4321/assets/matter/planter-square/mobile.glb",
+          "bytes": 30208,
+          "transferBytes": 300
+        },
+        {
+          "url": "http://127.0.0.1:4321/assets/matter/olive-small/mobile.glb",
+          "bytes": 94748,
+          "transferBytes": 300
+        },
+        {
+          "url": "http://127.0.0.1:4321/assets/matter/ground-plant-clump/mobile.glb",
+          "bytes": 35840,
+          "transferBytes": 300
+        },
+        {
+          "url": "http://127.0.0.1:4321/assets/matter/urn-small/mobile.glb",
+          "bytes": 96208,
+          "transferBytes": 300
+        },
+        {
+          "url": "http://127.0.0.1:4321/assets/matter/statue-a/mobile.glb",
+          "bytes": 99036,
+          "transferBytes": 300
+        },
+        {
+          "url": "http://127.0.0.1:4321/assets/matter/wall-inset-panel/mobile.glb",
+          "bytes": 133020,
+          "transferBytes": 300
+        },
+        {
+          "url": "http://127.0.0.1:4321/assets/matter/pool-basin-3x3/mobile.glb",
+          "bytes": 65464,
+          "transferBytes": 300
+        },
+        {
+          "url": "http://127.0.0.1:4321/assets/matter/pool-edge-straight/mobile.glb",
+          "bytes": 7692,
+          "transferBytes": 300
+        },
+        {
+          "url": "http://127.0.0.1:4321/assets/matter/pool-edge-corner/mobile.glb",
+          "bytes": 6984,
+          "transferBytes": 300
+        },
+        {
+          "url": "http://127.0.0.1:4321/assets/matter/fountain-tiered/mobile.glb",
+          "bytes": 168936,
+          "transferBytes": 300
+        },
+        {
+          "url": "http://127.0.0.1:4321/assets/matter/stair-run-3m/mobile.glb",
+          "bytes": 25968,
+          "transferBytes": 300
+        },
+        {
+          "url": "http://127.0.0.1:4321/assets/matter/relief-a/mobile.glb",
+          "bytes": 188812,
+          "transferBytes": 300
+        },
+        {
+          "url": "http://127.0.0.1:4321/assets/matter/bench-3m/mobile.glb",
+          "bytes": 23008,
+          "transferBytes": 300
+        }
+      ],
+      "problems": {
+        "errors": [],
+        "warnings": [],
+        "pageErrors": [],
+        "failedRequests": [],
+        "badResponses": []
+      }
+    },
+    {
+      "name": "mobile-cy-4-view",
+      "assets": {
+        "tier": "mobile",
+        "loaded": {
+          "floor-slab-3x3": "matter",
+          "entablature-3m": "matter",
+          "column-doric": "matter",
+          "pool-basin-3x3": "matter",
+          "pool-edge-straight": "matter",
+          "pool-edge-corner": "matter",
+          "fountain-tiered": "matter",
+          "urn-small": "matter",
+          "wall-3m": "matter",
+          "wall-3m-doorway": "matter",
+          "urn-large": "matter",
+          "planter-square": "matter",
+          "olive-small": "matter",
+          "ground-plant-clump": "matter",
+          "statue-a": "matter",
+          "wall-inset-panel": "matter",
+          "bench-3m": "matter",
+          "stair-run-3m": "matter",
+          "relief-a": "matter"
+        }
+      },
+      "render": {
+        "calls": 44,
+        "triangles": 363340,
+        "textures": 35,
+        "geometries": 35,
+        "residentStops": [
+          "agent-queue",
+          "cy-3",
+          "quilt-trader",
+          "cy-4",
+          "terrace"
+        ],
+        "reflectionPasses": 1,
+        "leaves": 4272,
+        "dust": 280
+      },
+      "travel": {
+        "u": 0.8619650162765108,
+        "metres": 107.84028819759386,
+        "speed": 0,
+        "acceleration": 0,
+        "jerk": 0,
+        "mode": "paused",
+        "viewpoint": 12,
+        "position": [
+          -32.99999999999996,
+          0.7,
+          40.40000000000004
+        ]
+      },
+      "requests": [
+        {
+          "url": "http://127.0.0.1:4321/assets/matter/floor-slab-3x3/mobile.glb",
+          "bytes": 19152,
+          "transferBytes": 300
+        },
+        {
+          "url": "http://127.0.0.1:4321/assets/matter/entablature-3m/mobile.glb",
+          "bytes": 60284,
+          "transferBytes": 300
+        },
+        {
+          "url": "http://127.0.0.1:4321/assets/matter/column-doric/mobile.glb",
+          "bytes": 298944,
+          "transferBytes": 300
+        },
+        {
+          "url": "http://127.0.0.1:4321/assets/matter/pool-basin-3x3/mobile.glb",
+          "bytes": 65464,
+          "transferBytes": 300
+        },
+        {
+          "url": "http://127.0.0.1:4321/assets/matter/pool-edge-straight/mobile.glb",
+          "bytes": 7692,
+          "transferBytes": 300
+        },
+        {
+          "url": "http://127.0.0.1:4321/assets/matter/pool-edge-corner/mobile.glb",
+          "bytes": 6984,
+          "transferBytes": 300
+        },
+        {
+          "url": "http://127.0.0.1:4321/assets/matter/fountain-tiered/mobile.glb",
+          "bytes": 168936,
+          "transferBytes": 300
+        },
+        {
+          "url": "http://127.0.0.1:4321/assets/matter/urn-small/mobile.glb",
+          "bytes": 96208,
+          "transferBytes": 300
+        },
+        {
+          "url": "http://127.0.0.1:4321/assets/matter/wall-3m/mobile.glb",
+          "bytes": 20780,
+          "transferBytes": 300
+        },
+        {
+          "url": "http://127.0.0.1:4321/assets/matter/wall-3m-doorway/mobile.glb",
+          "bytes": 28832,
+          "transferBytes": 300
+        },
+        {
+          "url": "http://127.0.0.1:4321/assets/matter/urn-large/mobile.glb",
+          "bytes": 120008,
+          "transferBytes": 300
+        },
+        {
+          "url": "http://127.0.0.1:4321/assets/matter/planter-square/mobile.glb",
+          "bytes": 30208,
+          "transferBytes": 300
+        },
+        {
+          "url": "http://127.0.0.1:4321/assets/matter/olive-small/mobile.glb",
+          "bytes": 94748,
+          "transferBytes": 300
+        },
+        {
+          "url": "http://127.0.0.1:4321/assets/matter/ground-plant-clump/mobile.glb",
+          "bytes": 35840,
+          "transferBytes": 300
+        },
+        {
+          "url": "http://127.0.0.1:4321/assets/matter/statue-a/mobile.glb",
+          "bytes": 99036,
+          "transferBytes": 300
+        },
+        {
+          "url": "http://127.0.0.1:4321/assets/matter/wall-inset-panel/mobile.glb",
+          "bytes": 133020,
+          "transferBytes": 300
+        },
+        {
+          "url": "http://127.0.0.1:4321/assets/matter/bench-3m/mobile.glb",
+          "bytes": 23008,
+          "transferBytes": 300
+        },
+        {
+          "url": "http://127.0.0.1:4321/assets/matter/stair-run-3m/mobile.glb",
+          "bytes": 25968,
+          "transferBytes": 300
+        },
+        {
+          "url": "http://127.0.0.1:4321/assets/matter/relief-a/mobile.glb",
+          "bytes": 188812,
+          "transferBytes": 300
+        }
+      ],
+      "problems": {
+        "errors": [],
+        "warnings": [],
+        "pageErrors": [],
+        "failedRequests": [],
+        "badResponses": []
+      }
+    },
+    {
+      "name": "mobile-terrace-view",
+      "assets": {
+        "tier": "mobile",
+        "loaded": {
+          "floor-slab-3x3": "matter",
+          "column-doric": "matter",
+          "entablature-3m": "matter",
+          "statue-a": "matter",
+          "urn-small": "matter",
+          "planter-square": "matter",
+          "olive-small": "matter",
+          "ground-plant-clump": "matter",
+          "bench-3m": "matter",
+          "pool-basin-3x3": "matter",
+          "pool-edge-straight": "matter",
+          "pool-edge-corner": "matter",
+          "fountain-tiered": "matter",
+          "wall-3m": "matter",
+          "wall-3m-doorway": "matter",
+          "urn-large": "matter",
+          "wall-inset-panel": "matter",
+          "stair-run-3m": "matter"
+        }
+      },
+      "render": {
+        "calls": 28,
+        "triangles": 204298,
+        "textures": 19,
+        "geometries": 31,
+        "residentStops": [
+          "cy-3",
+          "quilt-trader",
+          "cy-4",
+          "terrace"
+        ],
+        "reflectionPasses": 1,
+        "leaves": 4272,
+        "dust": 280
+      },
+      "travel": {
+        "u": 1,
+        "metres": 125.1098201913564,
+        "speed": 0,
+        "acceleration": 0,
+        "jerk": 0,
+        "mode": "paused",
+        "viewpoint": 13,
+        "position": [
+          -36,
+          0.7,
+          49.5
+        ]
+      },
+      "requests": [
+        {
+          "url": "http://127.0.0.1:4321/assets/matter/floor-slab-3x3/mobile.glb",
+          "bytes": 19152,
+          "transferBytes": 300
+        },
+        {
+          "url": "http://127.0.0.1:4321/assets/matter/column-doric/mobile.glb",
+          "bytes": 298944,
+          "transferBytes": 300
+        },
+        {
+          "url": "http://127.0.0.1:4321/assets/matter/entablature-3m/mobile.glb",
+          "bytes": 60284,
+          "transferBytes": 300
+        },
+        {
+          "url": "http://127.0.0.1:4321/assets/matter/statue-a/mobile.glb",
+          "bytes": 99036,
+          "transferBytes": 300
+        },
+        {
+          "url": "http://127.0.0.1:4321/assets/matter/urn-small/mobile.glb",
+          "bytes": 96208,
+          "transferBytes": 300
+        },
+        {
+          "url": "http://127.0.0.1:4321/assets/matter/planter-square/mobile.glb",
+          "bytes": 30208,
+          "transferBytes": 300
+        },
+        {
+          "url": "http://127.0.0.1:4321/assets/matter/olive-small/mobile.glb",
+          "bytes": 94748,
+          "transferBytes": 300
+        },
+        {
+          "url": "http://127.0.0.1:4321/assets/matter/ground-plant-clump/mobile.glb",
+          "bytes": 35840,
+          "transferBytes": 300
+        },
+        {
+          "url": "http://127.0.0.1:4321/assets/matter/bench-3m/mobile.glb",
+          "bytes": 23008,
+          "transferBytes": 300
+        },
+        {
+          "url": "http://127.0.0.1:4321/assets/matter/pool-basin-3x3/mobile.glb",
+          "bytes": 65464,
+          "transferBytes": 300
+        },
+        {
+          "url": "http://127.0.0.1:4321/assets/matter/pool-edge-straight/mobile.glb",
+          "bytes": 7692,
+          "transferBytes": 300
+        },
+        {
+          "url": "http://127.0.0.1:4321/assets/matter/pool-edge-corner/mobile.glb",
+          "bytes": 6984,
+          "transferBytes": 300
+        },
+        {
+          "url": "http://127.0.0.1:4321/assets/matter/fountain-tiered/mobile.glb",
+          "bytes": 168936,
+          "transferBytes": 300
+        },
+        {
+          "url": "http://127.0.0.1:4321/assets/matter/wall-3m/mobile.glb",
+          "bytes": 20780,
+          "transferBytes": 300
+        },
+        {
+          "url": "http://127.0.0.1:4321/assets/matter/wall-3m-doorway/mobile.glb",
+          "bytes": 28832,
+          "transferBytes": 300
+        },
+        {
+          "url": "http://127.0.0.1:4321/assets/matter/urn-large/mobile.glb",
+          "bytes": 120008,
+          "transferBytes": 300
+        },
+        {
+          "url": "http://127.0.0.1:4321/assets/matter/wall-inset-panel/mobile.glb",
+          "bytes": 133020,
+          "transferBytes": 300
+        },
+        {
+          "url": "http://127.0.0.1:4321/assets/matter/stair-run-3m/mobile.glb",
+          "bytes": 25968,
+          "transferBytes": 300
+        }
+      ],
+      "problems": {
+        "errors": [],
+        "warnings": [],
+        "pageErrors": [],
+        "failedRequests": [],
+        "badResponses": []
+      }
+    }
+  ]
+}

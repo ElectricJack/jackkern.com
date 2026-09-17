@@ -1,0 +1,389 @@
+[
+  {
+    "protocol": "matter-agent",
+    "version": 1,
+    "type": "result",
+    "request_id": "4fb38c92-9ef3-46a5-b435-c64189c5b1e8",
+    "command": "viewport.capture",
+    "ticket_id": "65",
+    "ok": true,
+    "code": "ok",
+    "message": "",
+    "context": {
+      "session": {
+        "id": "1",
+        "generation": "1"
+      },
+      "scene": {
+        "generation": "3",
+        "revision": "1",
+        "ready": true
+      },
+      "selection": {
+        "revision": "2"
+      },
+      "frame": {
+        "id": "91886"
+      },
+      "view": {
+        "id": "91886"
+      }
+    },
+    "result": {
+      "path": "D:/Shared With Desktop/AI/matter-engine-cpp/MatterEditor/build/asset-handoff/2026-09-16-r1/pilot-output/villa-column-marble-01/marble-overview.png",
+      "completion_marker": "D:/Shared With Desktop/AI/matter-engine-cpp/MatterEditor/build/asset-handoff/2026-09-16-r1/pilot-output/villa-column-marble-01/marble-overview.png.done",
+      "image": {
+        "format": "png",
+        "width": 1728,
+        "height": 1065,
+        "framebuffer_origin": {
+          "x": 0,
+          "y": 0
+        }
+      },
+      "viewport": {
+        "logical": {
+          "x": 0,
+          "y": 0,
+          "width": 1728,
+          "height": 1065
+        },
+        "framebuffer": {
+          "x": 0,
+          "y": 0,
+          "width": 1728,
+          "height": 1065
+        },
+        "image": {
+          "x": 0,
+          "y": 0,
+          "width": 1728,
+          "height": 1065
+        },
+        "framebuffer_scale": {
+          "x": 1,
+          "y": 1
+        },
+        "production_view": true
+      },
+      "pick_mapping": {
+        "target_space": "viewport_local_logical_pixels",
+        "image_offset": {
+          "x": 0,
+          "y": 0
+        },
+        "divide_by": {
+          "x": 1,
+          "y": 1
+        },
+        "formula": "viewport_x = (image_x - image_offset.x) / divide_by.x; same for y"
+      },
+      "camera": {
+        "position": [
+          3.5999999046325684,
+          2.9000000953674316,
+          5.5
+        ],
+        "target": [
+          0,
+          1.9500000476837158,
+          0
+        ],
+        "up": [
+          0,
+          1,
+          0
+        ],
+        "vertical_fov_radians": 0.7853981852531433,
+        "near_plane": 0.10000000149011612,
+        "far_plane": 10241
+      },
+      "captured": {
+        "session": {
+          "id": "1",
+          "generation": "1"
+        },
+        "scene": {
+          "generation": "3",
+          "revision": "1",
+          "ready": true
+        },
+        "selection": {
+          "revision": "2"
+        },
+        "frame": {
+          "id": "91886"
+        },
+        "view": {
+          "id": "91886"
+        }
+      },
+      "presented": {
+        "id": "91886",
+        "view_id": "91886"
+      },
+      "annotations": {
+        "available": false,
+        "reason": "annotate_selection was not requested"
+      }
+    }
+  },
+  {
+    "protocol": "matter-agent",
+    "version": 1,
+    "type": "result",
+    "request_id": "8c05ed4a-822e-49b2-a459-ef3c17c3051d",
+    "command": "viewport.capture",
+    "ticket_id": "68",
+    "ok": true,
+    "code": "ok",
+    "message": "",
+    "context": {
+      "session": {
+        "id": "1",
+        "generation": "1"
+      },
+      "scene": {
+        "generation": "3",
+        "revision": "1",
+        "ready": true
+      },
+      "selection": {
+        "revision": "2"
+      },
+      "frame": {
+        "id": "92348"
+      },
+      "view": {
+        "id": "92348"
+      }
+    },
+    "result": {
+      "path": "D:/Shared With Desktop/AI/matter-engine-cpp/MatterEditor/build/asset-handoff/2026-09-16-r1/pilot-output/villa-column-marble-01/marble-capital.png",
+      "completion_marker": "D:/Shared With Desktop/AI/matter-engine-cpp/MatterEditor/build/asset-handoff/2026-09-16-r1/pilot-output/villa-column-marble-01/marble-capital.png.done",
+      "image": {
+        "format": "png",
+        "width": 1728,
+        "height": 1065,
+        "framebuffer_origin": {
+          "x": 0,
+          "y": 0
+        }
+      },
+      "viewport": {
+        "logical": {
+          "x": 0,
+          "y": 0,
+          "width": 1728,
+          "height": 1065
+        },
+        "framebuffer": {
+          "x": 0,
+          "y": 0,
+          "width": 1728,
+          "height": 1065
+        },
+        "image": {
+          "x": 0,
+          "y": 0,
+          "width": 1728,
+          "height": 1065
+        },
+        "framebuffer_scale": {
+          "x": 1,
+          "y": 1
+        },
+        "production_view": true
+      },
+      "pick_mapping": {
+        "target_space": "viewport_local_logical_pixels",
+        "image_offset": {
+          "x": 0,
+          "y": 0
+        },
+        "divide_by": {
+          "x": 1,
+          "y": 1
+        },
+        "formula": "viewport_x = (image_x - image_offset.x) / divide_by.x; same for y"
+      },
+      "camera": {
+        "position": [
+          1.4500000476837158,
+          3.7799999713897705,
+          1.9500000476837158
+        ],
+        "target": [
+          0,
+          3.559999942779541,
+          0
+        ],
+        "up": [
+          0,
+          1,
+          0
+        ],
+        "vertical_fov_radians": 0.7853981852531433,
+        "near_plane": 0.10000000149011612,
+        "far_plane": 10241
+      },
+      "captured": {
+        "session": {
+          "id": "1",
+          "generation": "1"
+        },
+        "scene": {
+          "generation": "3",
+          "revision": "1",
+          "ready": true
+        },
+        "selection": {
+          "revision": "2"
+        },
+        "frame": {
+          "id": "92348"
+        },
+        "view": {
+          "id": "92348"
+        }
+      },
+      "presented": {
+        "id": "92348",
+        "view_id": "92348"
+      },
+      "annotations": {
+        "available": false,
+        "reason": "annotate_selection was not requested"
+      }
+    }
+  },
+  {
+    "protocol": "matter-agent",
+    "version": 1,
+    "type": "result",
+    "request_id": "7a60e0e3-f83f-483a-a008-26cd0e648fe6",
+    "command": "viewport.capture",
+    "ticket_id": "71",
+    "ok": true,
+    "code": "ok",
+    "message": "",
+    "context": {
+      "session": {
+        "id": "1",
+        "generation": "1"
+      },
+      "scene": {
+        "generation": "3",
+        "revision": "1",
+        "ready": true
+      },
+      "selection": {
+        "revision": "2"
+      },
+      "frame": {
+        "id": "93580"
+      },
+      "view": {
+        "id": "93580"
+      }
+    },
+    "result": {
+      "path": "D:/Shared With Desktop/AI/matter-engine-cpp/MatterEditor/build/asset-handoff/2026-09-16-r1/pilot-output/villa-column-marble-01/marble-base.png",
+      "completion_marker": "D:/Shared With Desktop/AI/matter-engine-cpp/MatterEditor/build/asset-handoff/2026-09-16-r1/pilot-output/villa-column-marble-01/marble-base.png.done",
+      "image": {
+        "format": "png",
+        "width": 1728,
+        "height": 1065,
+        "framebuffer_origin": {
+          "x": 0,
+          "y": 0
+        }
+      },
+      "viewport": {
+        "logical": {
+          "x": 0,
+          "y": 0,
+          "width": 1728,
+          "height": 1065
+        },
+        "framebuffer": {
+          "x": 0,
+          "y": 0,
+          "width": 1728,
+          "height": 1065
+        },
+        "image": {
+          "x": 0,
+          "y": 0,
+          "width": 1728,
+          "height": 1065
+        },
+        "framebuffer_scale": {
+          "x": 1,
+          "y": 1
+        },
+        "production_view": true
+      },
+      "pick_mapping": {
+        "target_space": "viewport_local_logical_pixels",
+        "image_offset": {
+          "x": 0,
+          "y": 0
+        },
+        "divide_by": {
+          "x": 1,
+          "y": 1
+        },
+        "formula": "viewport_x = (image_x - image_offset.x) / divide_by.x; same for y"
+      },
+      "camera": {
+        "position": [
+          1.5,
+          1.100000023841858,
+          2.0999999046325684
+        ],
+        "target": [
+          0,
+          0.47999998927116394,
+          0
+        ],
+        "up": [
+          0,
+          1,
+          0
+        ],
+        "vertical_fov_radians": 0.7853981852531433,
+        "near_plane": 0.10000000149011612,
+        "far_plane": 10241
+      },
+      "captured": {
+        "session": {
+          "id": "1",
+          "generation": "1"
+        },
+        "scene": {
+          "generation": "3",
+          "revision": "1",
+          "ready": true
+        },
+        "selection": {
+          "revision": "2"
+        },
+        "frame": {
+          "id": "93580"
+        },
+        "view": {
+          "id": "93580"
+        }
+      },
+      "presented": {
+        "id": "93580",
+        "view_id": "93580"
+      },
+      "annotations": {
+        "available": false,
+        "reason": "annotate_selection was not requested"
+      }
+    }
+  }
+]

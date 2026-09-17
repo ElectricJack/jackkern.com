@@ -1,0 +1,262 @@
+{
+  "base": "http://192.168.1.69:8000",
+  "backend": "Chromium SwiftShader, mobile viewport emulation",
+  "layoutHash": "47a26b0dcbf515a1",
+  "views": [
+    {
+      "name": "desktop-quilt-trader-enter",
+      "assets": {
+        "tier": "desktop",
+        "loaded": {
+          "floor-slab-3x3": "matter",
+          "wall-3m": "matter",
+          "wall-3m-doorway": "matter",
+          "column-doric": "matter",
+          "entablature-3m": "matter",
+          "urn-large": "matter",
+          "planter-square": "matter",
+          "olive-small": "matter",
+          "ground-plant-clump": "matter",
+          "urn-small": "matter",
+          "statue-a": "matter",
+          "wall-inset-panel": "matter",
+          "gold-bar": "matter",
+          "gold-coin": "matter",
+          "pool-basin-3x3": "matter",
+          "pool-edge-straight": "matter",
+          "pool-edge-corner": "matter",
+          "fountain-tiered": "matter",
+          "stair-run-3m": "matter",
+          "relief-a": "matter",
+          "bench-3m": "matter"
+        }
+      },
+      "render": {
+        "calls": 60,
+        "triangles": 465748,
+        "textures": 47,
+        "geometries": 37,
+        "residentStops": [
+          "cy-2",
+          "agent-queue",
+          "cy-3",
+          "quilt-trader",
+          "cy-4",
+          "terrace"
+        ],
+        "reflectionPasses": 1,
+        "leaves": 7020,
+        "dust": 650
+      },
+      "travel": {
+        "u": 0.7484419693559347,
+        "metres": 93.63744020978567,
+        "speed": 0,
+        "acceleration": 0,
+        "jerk": 0,
+        "mode": "paused",
+        "viewpoint": 10,
+        "position": [
+          -23.500000000000043,
+          0.7,
+          43.5
+        ]
+      }
+    },
+    {
+      "name": "desktop-quilt-trader-focal",
+      "assets": {
+        "tier": "desktop",
+        "loaded": {
+          "floor-slab-3x3": "matter",
+          "wall-3m": "matter",
+          "wall-3m-doorway": "matter",
+          "column-doric": "matter",
+          "entablature-3m": "matter",
+          "urn-large": "matter",
+          "planter-square": "matter",
+          "olive-small": "matter",
+          "ground-plant-clump": "matter",
+          "urn-small": "matter",
+          "statue-a": "matter",
+          "wall-inset-panel": "matter",
+          "gold-bar": "matter",
+          "gold-coin": "matter",
+          "pool-basin-3x3": "matter",
+          "pool-edge-straight": "matter",
+          "pool-edge-corner": "matter",
+          "fountain-tiered": "matter",
+          "stair-run-3m": "matter",
+          "relief-a": "matter",
+          "bench-3m": "matter"
+        }
+      },
+      "render": {
+        "calls": 53,
+        "triangles": 448824,
+        "textures": 47,
+        "geometries": 37,
+        "residentStops": [
+          "cy-2",
+          "agent-queue",
+          "cy-3",
+          "quilt-trader",
+          "cy-4",
+          "terrace"
+        ],
+        "reflectionPasses": 1,
+        "leaves": 7020,
+        "dust": 650
+      },
+      "travel": {
+        "u": 0.7749265199500946,
+        "metres": 96.9509175724699,
+        "speed": 0,
+        "acceleration": 0,
+        "jerk": 0,
+        "mode": "paused",
+        "viewpoint": 11,
+        "position": [
+          -26.79999999999989,
+          0.7,
+          43.50000000000003
+        ]
+      }
+    },
+    {
+      "name": "mobile-quilt-trader-enter",
+      "assets": {
+        "tier": "mobile",
+        "loaded": {
+          "floor-slab-3x3": "matter",
+          "wall-3m": "matter",
+          "wall-3m-doorway": "matter",
+          "column-doric": "matter",
+          "entablature-3m": "matter",
+          "urn-large": "matter",
+          "planter-square": "matter",
+          "olive-small": "matter",
+          "ground-plant-clump": "matter",
+          "urn-small": "matter",
+          "statue-a": "matter",
+          "wall-inset-panel": "matter",
+          "gold-bar": "matter",
+          "gold-coin": "matter",
+          "pool-basin-3x3": "matter",
+          "pool-edge-straight": "matter",
+          "pool-edge-corner": "matter",
+          "fountain-tiered": "matter",
+          "stair-run-3m": "matter",
+          "relief-a": "matter",
+          "bench-3m": "matter"
+        }
+      },
+      "render": {
+        "calls": 57,
+        "triangles": 451592,
+        "textures": 47,
+        "geometries": 37,
+        "residentStops": [
+          "cy-2",
+          "agent-queue",
+          "cy-3",
+          "quilt-trader",
+          "cy-4",
+          "terrace"
+        ],
+        "reflectionPasses": 1,
+        "leaves": 4272,
+        "dust": 280
+      },
+      "travel": {
+        "u": 0.7484419693559347,
+        "metres": 93.63744020978567,
+        "speed": 0,
+        "acceleration": 0,
+        "jerk": 0,
+        "mode": "paused",
+        "viewpoint": 10,
+        "position": [
+          -23.500000000000043,
+          0.7,
+          43.5
+        ]
+      }
+    },
+    {
+      "name": "mobile-quilt-trader-focal",
+      "assets": {
+        "tier": "mobile",
+        "loaded": {
+          "floor-slab-3x3": "matter",
+          "wall-3m": "matter",
+          "wall-3m-doorway": "matter",
+          "column-doric": "matter",
+          "entablature-3m": "matter",
+          "urn-large": "matter",
+          "planter-square": "matter",
+          "olive-small": "matter",
+          "ground-plant-clump": "matter",
+          "urn-small": "matter",
+          "statue-a": "matter",
+          "wall-inset-panel": "matter",
+          "gold-bar": "matter",
+          "gold-coin": "matter",
+          "pool-basin-3x3": "matter",
+          "pool-edge-straight": "matter",
+          "pool-edge-corner": "matter",
+          "fountain-tiered": "matter",
+          "stair-run-3m": "matter",
+          "relief-a": "matter",
+          "bench-3m": "matter"
+        }
+      },
+      "render": {
+        "calls": 52,
+        "triangles": 445820,
+        "textures": 47,
+        "geometries": 37,
+        "residentStops": [
+          "cy-2",
+          "agent-queue",
+          "cy-3",
+          "quilt-trader",
+          "cy-4",
+          "terrace"
+        ],
+        "reflectionPasses": 1,
+        "leaves": 4272,
+        "dust": 280
+      },
+      "travel": {
+        "u": 0.7749265199500946,
+        "metres": 96.9509175724699,
+        "speed": 0,
+        "acceleration": 0,
+        "jerk": 0,
+        "mode": "paused",
+        "viewpoint": 11,
+        "position": [
+          -26.79999999999989,
+          0.7,
+          43.50000000000003
+        ]
+      }
+    }
+  ],
+  "desktopProblems": {
+    "errors": [],
+    "warnings": [],
+    "pageErrors": [],
+    "failedRequests": [],
+    "badResponses": []
+  },
+  "mobileProblems": {
+    "errors": [],
+    "warnings": [],
+    "pageErrors": [],
+    "failedRequests": [],
+    "badResponses": []
+  },
+  "completed": true
+}

@@ -1,0 +1,328 @@
+{
+  "base": "http://192.168.1.69:8000",
+  "backend": "Chromium SwiftShader, mobile viewport emulation; greybox geometry and half-resolution rendering for input/behavior checks",
+  "layoutHash": "cab488ae03b88a17",
+  "stops": [
+    {
+      "tier": "desktop",
+      "project": "matter-engine",
+      "arrived": {
+        "u": 0.08876755183177884,
+        "metres": 11.105692448500761,
+        "speed": 0,
+        "acceleration": 0,
+        "jerk": 0,
+        "mode": "paused",
+        "viewpoint": 2,
+        "position": [
+          0,
+          1.7,
+          11.7
+        ]
+      },
+      "pane": {
+        "hidden": false,
+        "inert": false,
+        "opacity": "1.000"
+      },
+      "action": "Continue →",
+      "continued": {
+        "u": 0.0887776639119134,
+        "metres": 11.106957569028156,
+        "speed": 0.011756297934165529,
+        "acceleration": 0.09271547155820929,
+        "jerk": 0.5793965892923325,
+        "mode": "flight",
+        "viewpoint": 2,
+        "position": [
+          -0.00022608346148000996,
+          1.7,
+          11.70124475546769
+        ]
+      }
+    },
+    {
+      "tier": "desktop",
+      "project": "outrider-ide",
+      "arrived": {
+        "u": 0.31276222313527763,
+        "metres": 39.129625499103476,
+        "speed": 0,
+        "acceleration": 0,
+        "jerk": 0,
+        "mode": "paused",
+        "viewpoint": 5,
+        "position": [
+          0,
+          1.7,
+          32.7
+        ]
+      },
+      "pane": {
+        "hidden": false,
+        "inert": false,
+        "opacity": "1.000"
+      },
+      "action": "Continue →",
+      "continued": {
+        "u": 0.3127723352154122,
+        "metres": 39.13089061963087,
+        "speed": 0.011756297934165513,
+        "acceleration": 0.09271547155820921,
+        "jerk": 0.5793965892923323,
+        "mode": "flight",
+        "viewpoint": 5,
+        "position": [
+          -0.000225933902329016,
+          1.7,
+          32.701244782634085
+        ]
+      }
+    },
+    {
+      "tier": "desktop",
+      "project": "agent-queue",
+      "arrived": {
+        "u": 0.5601790616638833,
+        "metres": 70.0839016797312,
+        "speed": 0,
+        "acceleration": 0,
+        "jerk": 0,
+        "mode": "paused",
+        "viewpoint": 8,
+        "position": [
+          -6.500000000000042,
+          1.7,
+          41.99999999999999
+        ]
+      },
+      "pane": {
+        "hidden": false,
+        "inert": false,
+        "opacity": "1.000"
+      },
+      "action": "Continue →",
+      "continued": {
+        "u": 0.5601891737440179,
+        "metres": 70.08516680025859,
+        "speed": 0.011756297934165529,
+        "acceleration": 0.09271547155820929,
+        "jerk": 0.5793965892923325,
+        "mode": "flight",
+        "viewpoint": 8,
+        "position": [
+          -6.501245301765375,
+          1.7,
+          41.99977695069556
+        ]
+      }
+    },
+    {
+      "tier": "desktop",
+      "project": "quilt-trader",
+      "arrived": {
+        "u": 0.7749265199500955,
+        "metres": 96.95091757247002,
+        "speed": 0,
+        "acceleration": 0,
+        "jerk": 0,
+        "mode": "paused",
+        "viewpoint": 11,
+        "position": [
+          -26.8,
+          0.7,
+          43.5
+        ]
+      },
+      "pane": {
+        "hidden": false,
+        "inert": false,
+        "opacity": "1.000"
+      },
+      "action": "Continue →",
+      "continued": {
+        "u": 0.7749366414307189,
+        "metres": 96.95218386909087,
+        "speed": 0.011765572378703015,
+        "acceleration": 0.09277342317653371,
+        "jerk": 0.5796357789839486,
+        "mode": "flight",
+        "viewpoint": 11,
+        "position": [
+          -26.801224864464007,
+          0.7,
+          43.499678730451066
+        ]
+      }
+    },
+    {
+      "tier": "mobile",
+      "project": "matter-engine",
+      "arrived": {
+        "u": 0.08876755183177884,
+        "metres": 11.105692448500761,
+        "speed": 0,
+        "acceleration": 0,
+        "jerk": 0,
+        "mode": "paused",
+        "viewpoint": 2,
+        "position": [
+          0,
+          1.7,
+          11.7
+        ]
+      },
+      "pane": {
+        "hidden": false,
+        "inert": false,
+        "opacity": "1.000"
+      },
+      "action": "Continue →",
+      "continued": {
+        "u": 0.08877767331240223,
+        "metres": 11.106958745121624,
+        "speed": 0.011765572378702982,
+        "acceleration": 0.09277342317653343,
+        "jerk": 0.5796357789839474,
+        "mode": "flight",
+        "viewpoint": 2,
+        "position": [
+          -0.0002262939650461505,
+          1.7,
+          11.70124591256928
+        ]
+      }
+    }
+  ],
+  "desktopProblems": {
+    "errors": [],
+    "warnings": [],
+    "pageErrors": [],
+    "failedRequests": [],
+    "badResponses": []
+  },
+  "mobileProblems": {
+    "errors": [],
+    "warnings": [],
+    "pageErrors": [],
+    "failedRequests": [],
+    "badResponses": []
+  },
+  "pace": [
+    {
+      "name": "default",
+      "selected": {
+        "u": 0.1060300816371663,
+        "metres": 13.265404448500718,
+        "speed": 1.439999999995736,
+        "acceleration": 6.399146695344135e-8,
+        "jerk": -0.0006398720057005377,
+        "mode": "flight",
+        "viewpoint": 2,
+        "position": [
+          -0.8515408825597669,
+          1.7,
+          13.677733315731748
+        ]
+      },
+      "sustained": {
+        "u": 0.11293601435034985,
+        "metres": 14.129404448500717,
+        "speed": 1.44,
+        "acceleration": 0,
+        "jerk": 0,
+        "mode": "flight",
+        "viewpoint": 2,
+        "position": [
+          -1.2399841204257143,
+          1.7,
+          14.449467051392608
+        ]
+      }
+    },
+    {
+      "name": "fast",
+      "selected": {
+        "u": 0.14232213923148845,
+        "metres": 17.805897248500713,
+        "speed": 2.5919999999980257,
+        "acceleration": 5.925267508221545e-8,
+        "jerk": -0.0011849876616589134,
+        "mode": "flight",
+        "viewpoint": 3,
+        "position": [
+          -0.671636999845701,
+          1.7,
+          17.4490985488431
+        ]
+      },
+      "sustained": {
+        "u": 0.1547528181152189,
+        "metres": 19.36109724850072,
+        "speed": 2.592,
+        "acceleration": 0,
+        "jerk": 0,
+        "mode": "flight",
+        "viewpoint": 3,
+        "position": [
+          0.1776995622435586,
+          1.7,
+          18.645499594892918
+        ]
+      }
+    },
+    {
+      "name": "slow",
+      "selected": {
+        "u": 0.1792681886537492,
+        "metres": 22.42821084850072,
+        "speed": 0.72,
+        "acceleration": 0,
+        "jerk": 0,
+        "mode": "flight",
+        "viewpoint": 3,
+        "position": [
+          -2.123139637880631,
+          1.7,
+          19.360001923140285
+        ]
+      },
+      "sustained": {
+        "u": 0.18272057951594817,
+        "metres": 22.860138848500714,
+        "speed": 0.72,
+        "acceleration": 0,
+        "jerk": 0,
+        "mode": "flight",
+        "viewpoint": 3,
+        "position": [
+          -2.5537571560303407,
+          1.7,
+          19.330545505982826
+        ]
+      }
+    }
+  ],
+  "reverseWheel": {
+    "u": 0.1879018205098963,
+    "metres": 23.50836297762165,
+    "speed": -0.10684640683890165,
+    "acceleration": -0.8012984111722048,
+    "jerk": -4.561858769657052,
+    "mode": "flight",
+    "viewpoint": 3,
+    "position": [
+      -3.1363862170613435,
+      1.7,
+      19.546811836860186
+    ]
+  },
+  "paceProblems": {
+    "errors": [],
+    "warnings": [],
+    "pageErrors": [],
+    "failedRequests": [],
+    "badResponses": []
+  },
+  "completed": true
+}

@@ -1,0 +1,33 @@
+phase,id,kind,current_instances,authoring_brief,shared_materials,delivery_notes,delivery_status
+1,column-doric,existing-geometry,92,Fluted shaft with convincing base/capital and small silhouette bevels,limestone;architectural-trim,One reusable part; silhouette-preserving LODs,Matter exported; desktop/mobile GLBs integrated
+1,wall-3m,existing-geometry,40,Plaster field with a stone base and restrained edge treatment,plaster;limestone,Keep broad surface detail tiled,Matter exported; desktop/mobile GLBs integrated
+1,wall-3m-doorway,existing-geometry,8,Doorway frame matching the tested opening and threshold,plaster;limestone;architectural-trim,Respect raised stair entry and camera clearance,Matter exported; desktop/mobile GLBs integrated
+1,entablature-3m,existing-geometry,86,Crisp projecting cornice with a restrained carved band,limestone;architectural-trim,Share trim sheet; avoid texture seams at joins,Matter exported; desktop/mobile GLBs integrated
+1,floor-slab-3x3,existing-geometry,88,Pale stone paving with controlled joints and bevels,travertine,Tile material consistently across repeated slabs,Matter exported; desktop/mobile GLBs integrated
+1,pool-basin-3x3,existing-geometry,6,Readable pool depth with a finished inner surface,limestone;pool-lining,Water surface supplied by the runtime,Matter exported; desktop/mobile GLBs integrated
+1,pool-edge-straight,existing-unused-geometry,24,Narrow stone coping with a light-catching edge,limestone,Existing contract ID; enable placement deliberately,Matter exported; desktop/mobile GLBs integrated
+1,pool-edge-corner,proposed-geometry,24,Matching coping corner,limestone,New contract ID required; reuse mirrored/rotated piece when possible,Matter exported; desktop/mobile GLBs integrated
+1,fountain-tiered,existing-geometry,5,Simple refined fountain with distinct basins and lip silhouettes,limestone,Constrain mesh detail; runtime water effects separately budgeted,Matter exported; desktop/mobile GLBs integrated
+1,fountain-wall,existing-geometry,1,Matter Engine hero fountain with carved relief and a clear water channel,limestone;architectural-trim;bronze,Hero detail evaluated at nearest camera position,Matter exported; desktop/mobile GLBs integrated
+1,planter-square,existing-geometry,10,Restrained square planter with soil recess,limestone,Separate plant instance from planter geometry,Matter exported; desktop/mobile GLBs integrated
+1,olive-small,proposed-geometry,10,Compact olive planting with a readable trunk and sparse foliage,bark;foliage-atlas,New contract ID; alpha overdraw and mobile LOD test,Matter exported; desktop/mobile GLBs integrated
+1,limestone-travertine,shared-texture-family,0,Tileable stone albedo/normal; restrained roughness variation,,Start with 2K authoring source; choose delivery resolution from screen coverage,Material recipes baked into native part atlases
+1,chalk-plaster,shared-texture-family,0,Warm chalk surface with subtle detail,,Use scalar properties when texture adds no visible value,Material recipes baked into native part atlases
+1,architectural-trim,shared-texture-family,0,Cornice and plinth bands with reusable baked detail,,Shared strip atlas with padded islands and mip review,Material recipes baked into native part atlases
+1,water-normals,shared-texture-family,0,Small tileable ripples at two scales,,Runtime UV animation; test temporal shimmer,Replaced by procedural runtime water; no texture download
+1,foliage-atlas,shared-texture-family,0,Olive leaves with clean alpha edges,,Preserve coverage in mips; compare compressed variants,Replaced by opaque geometric leaves; no alpha atlas
+1,entry-pool-lighting,bake,0,Sun/sky/bounce and contact shading for the first complete slice,,Prototype room atlas and per-instance UV transforms before full bake,Runtime sun/environment/shadows; native illumination export unavailable
+2,stair-run-3m,existing-geometry,1,Three-metre run dropping one metre with readable tread edges,limestone,Render real treads; camera follows a smooth traversal surface,Matter exported; desktop/mobile GLBs integrated
+2,urn-small,existing-geometry,15,Simple amphora form with a crisp rim and small base,terracotta,Reuse geometry with restrained material variation,Matter exported; desktop/mobile GLBs integrated
+2,statue-a,existing-geometry,8,One quiet architectural sculpture for repeated dressing,pale-marble,Repeat selectively; lower-detail variant for distant views,Matter exported; desktop/mobile GLBs integrated
+2,bench-3m,existing-unused-geometry,2,Simple stone bench with slender supports,limestone,Existing contract ID; add only in clear placement zones,Matter exported; desktop/mobile GLBs integrated
+2,statue-b,existing-geometry,1,Outrider focal sculpture; proposed layered forms suggesting structure,pale-marble;bronze,Art direction to be confirmed; stable existing ID,Matter exported; desktop/mobile GLBs integrated
+2,relief-a,existing-geometry,1,Agent Queue focal relief of coordinated connected forms,limestone;bronze,Prefer baked shallow detail with a small amount of true relief,Matter exported; desktop/mobile GLBs integrated
+2,urn-large,existing-geometry,1,Quilt Trader focal vessel with a restrained woven geometric motif,terracotta,Final motif depends on agreed project identity,Matter exported; desktop/mobile GLBs integrated
+2,terracotta,shared-texture-family,0,Subtle ceramic variation for small and large urns,,Shared color/normal; scalar roughness where sufficient,Material recipes baked into native part atlases
+2,pale-marble,shared-texture-family,0,Low-contrast veining for selected focal pieces,,Avoid a separate texture set for each sculpture,Material recipes baked into native part atlases
+2,bronze,shared-material,0,Restrained aged bronze accent,,Start with constant PBR parameters; add maps only if justified,Material recipes baked into native part atlases
+2,remaining-room-lighting,bake,0,Baked light for the agreed final deterministic layout,,Atlas per streamable room/chunk; hash-stamped provenance,Runtime sun/environment/shadows; native illumination export unavailable
+2,project-screenshots,content-images,0,Real screenshots illustrating the four projects,,HTML images; responsive AVIF/WebP with appropriate fallback,Optional content follow-up; outside 21-object kit
+3,ground-plant-clump,optional-geometry,10,Sparse foliage at selected courtyard edges,foliage-atlas,New contract ID; deterministic scatter and clearance constraints,Matter exported; desktop/mobile GLBs integrated
+3,wall-inset-panel,optional-geometry,8,A niche or recessed panel to vary long walls,plaster;limestone,Add only if the first completed space needs it,Matter exported; desktop/mobile GLBs integrated

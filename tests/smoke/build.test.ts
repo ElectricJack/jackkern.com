@@ -18,7 +18,7 @@ test('vite build emits index.html, a bundle, and the CNAME', () => {
   expect(scripts.length).toBeGreaterThan(1);
 
   const html = readFileSync(join(out, 'index.html'), 'utf8');
-  const entry = html.match(/<script type="module" crossorigin src="\/bundle\/([^"]+\.js)"><\/script>/)?.[1];
+  const entry = html.match(/<script type="module" crossorigin src="\.\/bundle\/([^"]+\.js)"><\/script>/)?.[1];
   expect(entry).toBeDefined();
   expect(statSync(join(out, 'bundle', entry!)).size).toBeLessThan(8_000);
   expect(html).toContain('id="fallback"');

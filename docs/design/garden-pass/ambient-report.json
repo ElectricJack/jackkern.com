@@ -1,0 +1,373 @@
+{
+  "backend": "Chromium SwiftShader; viewport emulation, not physical device performance",
+  "cases": [
+    {
+      "mobile": false,
+      "reducedMotion": "no-preference",
+      "changedPixels": 23211,
+      "start": {
+        "render": {
+          "calls": 65,
+          "triangles": 520978,
+          "textures": 42,
+          "geometries": 34,
+          "residentStops": [
+            "entry",
+            "matter-engine",
+            "cy-1",
+            "outrider-ide",
+            "cy-2"
+          ],
+          "reflectionPasses": 1,
+          "leaves": 7020,
+          "dust": 650
+        },
+        "travel": {
+          "u": 0.1874275179236218,
+          "metres": 23.449023066336554,
+          "speed": 0,
+          "acceleration": 0,
+          "jerk": 0,
+          "mode": "paused",
+          "viewpoint": 3,
+          "position": [
+            -3.1000000000000694,
+            1.7,
+            19.500000000000078
+          ]
+        }
+      },
+      "end": {
+        "render": {
+          "calls": 65,
+          "triangles": 520978,
+          "textures": 42,
+          "geometries": 34,
+          "residentStops": [
+            "entry",
+            "matter-engine",
+            "cy-1",
+            "outrider-ide",
+            "cy-2"
+          ],
+          "reflectionPasses": 1,
+          "leaves": 7020,
+          "dust": 650
+        },
+        "travel": {
+          "u": 0.1874275179236218,
+          "metres": 23.449023066336554,
+          "speed": 0,
+          "acceleration": 0,
+          "jerk": 0,
+          "mode": "paused",
+          "viewpoint": 3,
+          "position": [
+            -3.1000000000000694,
+            1.7,
+            19.500000000000078
+          ]
+        }
+      },
+      "problems": {
+        "errors": [],
+        "warnings": [],
+        "pageErrors": [],
+        "failedRequests": [],
+        "badResponses": []
+      },
+      "afterResize": {
+        "calls": 65,
+        "triangles": 520978,
+        "textures": 42,
+        "geometries": 34,
+        "residentStops": [
+          "entry",
+          "matter-engine",
+          "cy-1",
+          "outrider-ide",
+          "cy-2"
+        ],
+        "reflectionPasses": 2,
+        "leaves": 7020,
+        "dust": 650
+      }
+    },
+    {
+      "mobile": false,
+      "reducedMotion": "reduce",
+      "changedPixels": 0,
+      "start": {
+        "render": {
+          "calls": 65,
+          "triangles": 520978,
+          "textures": 42,
+          "geometries": 34,
+          "residentStops": [
+            "entry",
+            "matter-engine",
+            "cy-1",
+            "outrider-ide",
+            "cy-2"
+          ],
+          "reflectionPasses": 1,
+          "leaves": 7020,
+          "dust": 650
+        },
+        "travel": {
+          "u": 0.1874275179236218,
+          "metres": 23.449023066336554,
+          "speed": 0,
+          "acceleration": 0,
+          "jerk": 0,
+          "mode": "paused",
+          "viewpoint": 3,
+          "position": [
+            -3.1000000000000694,
+            1.7,
+            19.500000000000078
+          ]
+        }
+      },
+      "end": {
+        "render": {
+          "calls": 65,
+          "triangles": 520978,
+          "textures": 42,
+          "geometries": 34,
+          "residentStops": [
+            "entry",
+            "matter-engine",
+            "cy-1",
+            "outrider-ide",
+            "cy-2"
+          ],
+          "reflectionPasses": 1,
+          "leaves": 7020,
+          "dust": 650
+        },
+        "travel": {
+          "u": 0.1874275179236218,
+          "metres": 23.449023066336554,
+          "speed": 0,
+          "acceleration": 0,
+          "jerk": 0,
+          "mode": "paused",
+          "viewpoint": 3,
+          "position": [
+            -3.1000000000000694,
+            1.7,
+            19.500000000000078
+          ]
+        }
+      },
+      "problems": {
+        "errors": [],
+        "warnings": [],
+        "pageErrors": [],
+        "failedRequests": [],
+        "badResponses": []
+      },
+      "afterResize": {
+        "calls": 65,
+        "triangles": 520978,
+        "textures": 42,
+        "geometries": 34,
+        "residentStops": [
+          "entry",
+          "matter-engine",
+          "cy-1",
+          "outrider-ide",
+          "cy-2"
+        ],
+        "reflectionPasses": 2,
+        "leaves": 7020,
+        "dust": 650
+      }
+    },
+    {
+      "mobile": true,
+      "reducedMotion": "no-preference",
+      "changedPixels": 9052,
+      "start": {
+        "render": {
+          "calls": 58,
+          "triangles": 498798,
+          "textures": 38,
+          "geometries": 32,
+          "residentStops": [
+            "entry",
+            "matter-engine",
+            "cy-1",
+            "outrider-ide",
+            "cy-2"
+          ],
+          "reflectionPasses": 1,
+          "leaves": 4272,
+          "dust": 280
+        },
+        "travel": {
+          "u": 0.1874275179236218,
+          "metres": 23.449023066336554,
+          "speed": 0,
+          "acceleration": 0,
+          "jerk": 0,
+          "mode": "paused",
+          "viewpoint": 3,
+          "position": [
+            -3.1000000000000694,
+            1.7,
+            19.500000000000078
+          ]
+        }
+      },
+      "end": {
+        "render": {
+          "calls": 58,
+          "triangles": 498798,
+          "textures": 38,
+          "geometries": 32,
+          "residentStops": [
+            "entry",
+            "matter-engine",
+            "cy-1",
+            "outrider-ide",
+            "cy-2"
+          ],
+          "reflectionPasses": 1,
+          "leaves": 4272,
+          "dust": 280
+        },
+        "travel": {
+          "u": 0.1874275179236218,
+          "metres": 23.449023066336554,
+          "speed": 0,
+          "acceleration": 0,
+          "jerk": 0,
+          "mode": "paused",
+          "viewpoint": 3,
+          "position": [
+            -3.1000000000000694,
+            1.7,
+            19.500000000000078
+          ]
+        }
+      },
+      "problems": {
+        "errors": [],
+        "warnings": [],
+        "pageErrors": [],
+        "failedRequests": [],
+        "badResponses": []
+      },
+      "afterResize": {
+        "calls": 70,
+        "triangles": 515518,
+        "textures": 42,
+        "geometries": 35,
+        "residentStops": [
+          "entry",
+          "matter-engine",
+          "cy-1",
+          "outrider-ide",
+          "cy-2"
+        ],
+        "reflectionPasses": 2,
+        "leaves": 4272,
+        "dust": 280
+      }
+    },
+    {
+      "mobile": true,
+      "reducedMotion": "reduce",
+      "changedPixels": 0,
+      "start": {
+        "render": {
+          "calls": 58,
+          "triangles": 498798,
+          "textures": 38,
+          "geometries": 32,
+          "residentStops": [
+            "entry",
+            "matter-engine",
+            "cy-1",
+            "outrider-ide",
+            "cy-2"
+          ],
+          "reflectionPasses": 1,
+          "leaves": 4272,
+          "dust": 280
+        },
+        "travel": {
+          "u": 0.1874275179236218,
+          "metres": 23.449023066336554,
+          "speed": 0,
+          "acceleration": 0,
+          "jerk": 0,
+          "mode": "paused",
+          "viewpoint": 3,
+          "position": [
+            -3.1000000000000694,
+            1.7,
+            19.500000000000078
+          ]
+        }
+      },
+      "end": {
+        "render": {
+          "calls": 58,
+          "triangles": 498798,
+          "textures": 38,
+          "geometries": 32,
+          "residentStops": [
+            "entry",
+            "matter-engine",
+            "cy-1",
+            "outrider-ide",
+            "cy-2"
+          ],
+          "reflectionPasses": 1,
+          "leaves": 4272,
+          "dust": 280
+        },
+        "travel": {
+          "u": 0.1874275179236218,
+          "metres": 23.449023066336554,
+          "speed": 0,
+          "acceleration": 0,
+          "jerk": 0,
+          "mode": "paused",
+          "viewpoint": 3,
+          "position": [
+            -3.1000000000000694,
+            1.7,
+            19.500000000000078
+          ]
+        }
+      },
+      "problems": {
+        "errors": [],
+        "warnings": [],
+        "pageErrors": [],
+        "failedRequests": [],
+        "badResponses": []
+      },
+      "afterResize": {
+        "calls": 70,
+        "triangles": 515518,
+        "textures": 42,
+        "geometries": 35,
+        "residentStops": [
+          "entry",
+          "matter-engine",
+          "cy-1",
+          "outrider-ide",
+          "cy-2"
+        ],
+        "reflectionPasses": 2,
+        "leaves": 4272,
+        "dust": 280
+      }
+    }
+  ]
+}

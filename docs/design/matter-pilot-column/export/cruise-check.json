@@ -1,0 +1,32 @@
+{
+  "before": {
+    "u": 0,
+    "metres": 0,
+    "speed": 0,
+    "acceleration": 0,
+    "jerk": 0,
+    "mode": "paused",
+    "viewpoint": 0,
+    "position": [
+      -3.746999,
+      1.7,
+      1.5
+    ]
+  },
+  "after": {
+    "u": 0.00008217169664392952,
+    "metres": 0.010280486191940707,
+    "speed": 0.06281016823786799,
+    "acceleration": 0.2960713497104816,
+    "jerk": 0.8610357837435973,
+    "mode": "flight",
+    "viewpoint": 0,
+    "position": [
+      -3.7424030804052126,
+      1.7,
+      1.5091959729626425
+    ]
+  },
+  "problems": [],
+  "continuedWithoutFurtherInput": true
+}

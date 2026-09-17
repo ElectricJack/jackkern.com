@@ -1,0 +1,303 @@
+{
+  "backend": "Chromium / SwiftShader; mobile viewport emulation, not physical device performance",
+  "views": {
+    "master-overview": {
+      "bounds": {
+        "min": [
+          -0.5,
+          0,
+          -0.5
+        ],
+        "max": [
+          0.5,
+          4,
+          0.5
+        ]
+      },
+      "triangles": 8680,
+      "textures": 6,
+      "map": [
+        3456,
+        4096
+      ],
+      "material": "MeshPhysicalMaterial"
+    },
+    "master-capital": {
+      "bounds": {
+        "min": [
+          -0.5,
+          0,
+          -0.5
+        ],
+        "max": [
+          0.5,
+          4,
+          0.5
+        ]
+      },
+      "triangles": 8680,
+      "textures": 6,
+      "map": [
+        3456,
+        4096
+      ],
+      "material": "MeshPhysicalMaterial"
+    },
+    "master-base": {
+      "bounds": {
+        "min": [
+          -0.5,
+          0,
+          -0.5
+        ],
+        "max": [
+          0.5,
+          4,
+          0.5
+        ]
+      },
+      "triangles": 8680,
+      "textures": 6,
+      "map": [
+        3456,
+        4096
+      ],
+      "material": "MeshPhysicalMaterial"
+    },
+    "desktop-overview": {
+      "bounds": {
+        "min": [
+          -0.5000152587890625,
+          0,
+          -0.5000152587890625
+        ],
+        "max": [
+          0.5000152587890625,
+          4,
+          0.5000152587890625
+        ]
+      },
+      "triangles": 8680,
+      "textures": 6,
+      "map": [
+        1728,
+        2048
+      ],
+      "material": "MeshPhysicalMaterial"
+    },
+    "desktop-capital": {
+      "bounds": {
+        "min": [
+          -0.5000152587890625,
+          0,
+          -0.5000152587890625
+        ],
+        "max": [
+          0.5000152587890625,
+          4,
+          0.5000152587890625
+        ]
+      },
+      "triangles": 8680,
+      "textures": 6,
+      "map": [
+        1728,
+        2048
+      ],
+      "material": "MeshPhysicalMaterial"
+    },
+    "desktop-base": {
+      "bounds": {
+        "min": [
+          -0.5000152587890625,
+          0,
+          -0.5000152587890625
+        ],
+        "max": [
+          0.5000152587890625,
+          4,
+          0.5000152587890625
+        ]
+      },
+      "triangles": 8680,
+      "textures": 6,
+      "map": [
+        1728,
+        2048
+      ],
+      "material": "MeshPhysicalMaterial"
+    },
+    "mobile-overview": {
+      "bounds": {
+        "min": [
+          -0.5000152587890625,
+          0,
+          -0.5000152587890625
+        ],
+        "max": [
+          0.5000152587890625,
+          4,
+          0.5000152587890625
+        ]
+      },
+      "triangles": 8680,
+      "textures": 6,
+      "map": [
+        864,
+        1024
+      ],
+      "material": "MeshPhysicalMaterial"
+    },
+    "mobile-capital": {
+      "bounds": {
+        "min": [
+          -0.5000152587890625,
+          0,
+          -0.5000152587890625
+        ],
+        "max": [
+          0.5000152587890625,
+          4,
+          0.5000152587890625
+        ]
+      },
+      "triangles": 8680,
+      "textures": 6,
+      "map": [
+        864,
+        1024
+      ],
+      "material": "MeshPhysicalMaterial"
+    },
+    "mobile-base": {
+      "bounds": {
+        "min": [
+          -0.5000152587890625,
+          0,
+          -0.5000152587890625
+        ],
+        "max": [
+          0.5000152587890625,
+          4,
+          0.5000152587890625
+        ]
+      },
+      "triangles": 8680,
+      "textures": 6,
+      "map": [
+        864,
+        1024
+      ],
+      "material": "MeshPhysicalMaterial"
+    }
+  },
+  "comparisons": {
+    "desktop-overview": {
+      "differingPixels": 0,
+      "totalPixels": 1080000,
+      "meanRgbByteDifference": 0.01587037037037037,
+      "note": "Whole frame includes background; inspect close-up images too"
+    },
+    "desktop-capital": {
+      "differingPixels": 0,
+      "totalPixels": 1080000,
+      "meanRgbByteDifference": 0.06061728395061729,
+      "note": "Whole frame includes background; inspect close-up images too"
+    },
+    "desktop-base": {
+      "differingPixels": 0,
+      "totalPixels": 1080000,
+      "meanRgbByteDifference": 0.08175154320987654,
+      "note": "Whole frame includes background; inspect close-up images too"
+    },
+    "mobile-overview": {
+      "differingPixels": 0,
+      "totalPixels": 1080000,
+      "meanRgbByteDifference": 0.0232570987654321,
+      "note": "Whole frame includes background; inspect close-up images too"
+    },
+    "mobile-capital": {
+      "differingPixels": 0,
+      "totalPixels": 1080000,
+      "meanRgbByteDifference": 0.09973641975308642,
+      "note": "Whole frame includes background; inspect close-up images too"
+    },
+    "mobile-base": {
+      "differingPixels": 0,
+      "totalPixels": 1080000,
+      "meanRgbByteDifference": 0.13723333333333335,
+      "note": "Whole frame includes background; inspect close-up images too"
+    }
+  },
+  "site": [
+    {
+      "tier": "desktop",
+      "requests": [
+        {
+          "url": "http://127.0.0.1:4322/assets/matter/column-doric/desktop.glb",
+          "transferSize": 520840,
+          "encodedBodySize": 520540
+        }
+      ],
+      "travel": {
+        "u": 0,
+        "metres": 0,
+        "speed": 0,
+        "acceleration": 0,
+        "jerk": 0,
+        "mode": "paused",
+        "viewpoint": 0,
+        "position": [
+          -3.746999,
+          1.7,
+          1.5
+        ]
+      },
+      "problems": {
+        "errors": [],
+        "warnings": [],
+        "pageErrors": [],
+        "failedRequests": [],
+        "badResponses": []
+      }
+    },
+    {
+      "tier": "mobile",
+      "requests": [
+        {
+          "url": "http://127.0.0.1:4322/assets/matter/column-doric/mobile.glb",
+          "transferSize": 459332,
+          "encodedBodySize": 459032
+        }
+      ],
+      "travel": {
+        "u": 0,
+        "metres": 0,
+        "speed": 0,
+        "acceleration": 0,
+        "jerk": 0,
+        "mode": "paused",
+        "viewpoint": 0,
+        "position": [
+          -3.746999,
+          1.7,
+          1.5
+        ]
+      },
+      "problems": {
+        "errors": [],
+        "warnings": [],
+        "pageErrors": [],
+        "failedRequests": [],
+        "badResponses": []
+      }
+    }
+  ],
+  "inspectionProblems": {
+    "errors": [],
+    "warnings": [],
+    "pageErrors": [],
+    "failedRequests": [],
+    "badResponses": []
+  }
+}

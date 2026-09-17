@@ -1,0 +1,76 @@
+{
+  "backend": "Chromium SwiftShader; behavior checks, not physical device performance",
+  "context": {
+    "during": "static",
+    "after": "scene",
+    "changedPixels": 0,
+    "totalPixels": 921600,
+    "changedRatio": 0,
+    "problems": {
+      "errors": [],
+      "warnings": [],
+      "pageErrors": [],
+      "failedRequests": [],
+      "badResponses": []
+    }
+  },
+  "cruise": {
+    "start": {
+      "u": 0.0030340404863489225,
+      "metres": 0.3795882597004092,
+      "speed": 0.711678741510217,
+      "acceleration": 0.7350947935332441,
+      "jerk": -0.19787066400059491,
+      "mode": "flight",
+      "viewpoint": 0,
+      "position": [
+        -3.575738524620125,
+        1.7,
+        1.8387567014597415
+      ]
+    },
+    "end": {
+      "u": 0.0066925766812373794,
+      "metres": 0.8373070652064734,
+      "speed": 1.0380260234110914,
+      "acceleration": 0.4830150879559875,
+      "jerk": -0.7132696792319997,
+      "mode": "flight",
+      "viewpoint": 0,
+      "position": [
+        -3.3656903954074022,
+        1.7,
+        2.2454323808339685
+      ]
+    }
+  },
+  "fallback": {
+    "mode": "scene",
+    "assets": {
+      "tier": "desktop",
+      "loaded": {
+        "floor-slab-3x3": "matter",
+        "column-doric": "fallback",
+        "entablature-3m": "matter",
+        "pool-basin-3x3": "matter",
+        "pool-edge-straight": "matter",
+        "pool-edge-corner": "matter",
+        "fountain-tiered": "matter",
+        "planter-square": "matter",
+        "olive-small": "matter",
+        "ground-plant-clump": "matter",
+        "urn-small": "matter",
+        "stair-run-3m": "matter",
+        "wall-3m": "matter",
+        "wall-3m-doorway": "matter",
+        "fountain-wall": "matter",
+        "statue-a": "matter",
+        "wall-inset-panel": "matter"
+      }
+    }
+  },
+  "static": {
+    "mode": "static",
+    "glbRequests": 0
+  }
+}

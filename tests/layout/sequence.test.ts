@@ -51,10 +51,10 @@ test('a side of an even number of bays is crossed a half bay past its centre', (
   // The 6 m exedra is entered and left 1.5 m off its own centre line, through the same pair of bays.
   expect(entryLocal(exedra)).toEqual([1.5, 0]);
   expect(exitLocal(exedra)).toEqual([1.5, exedra.d]);
-  // Turning out of a 6 m deep courtyard takes the far bay, not the column between the two.
+  // The deeper 9 m courtyards have a central bay, so their side exits stay centred.
   const turning = stops.filter((s) => s.turn !== 0);
   expect(turning.length).toBeGreaterThan(0);
-  for (const stop of turning) expect(exitLocal(stop)[1]).toBe(stop.d / 2 + 1.5);
+  for (const stop of turning) expect([stop.d, exitLocal(stop)[1]]).toEqual([9, 4.5]);
 });
 
 test('no two stops overlap in plan', () => {

@@ -1,0 +1,156 @@
+{
+  "id": "bench-3m",
+  "bounds": {
+    "min": [
+      -1.5,
+      0,
+      -0.43
+    ],
+    "max": [
+      1.5,
+      0.7799999999999999,
+      0.43
+    ]
+  },
+  "triangles": 360,
+  "geometryPolicy": "Meshopt high; 16-bit positions/UVs, 8-bit filtered normals/tangents; no simplification",
+  "texturePolicy": "WebP 92 color, lossless data after resize; exactly constant maps are 1 pixel",
+  "variants": {
+    "desktop": {
+      "bytes": 37488,
+      "gzipBytes": 32773,
+      "brotliBytes": 31664,
+      "sha256": "b7b4fe811593011c8803bb37bd99b3fed78fa470f0180e6e0e131b16c01f59bf",
+      "geometryBytes": 18871,
+      "textures": [
+        {
+          "size": [
+            1,
+            1
+          ],
+          "slots": [
+            "baseColorTexture"
+          ],
+          "bytes": 54
+        },
+        {
+          "size": [
+            433,
+            512
+          ],
+          "slots": [
+            "normalTexture"
+          ],
+          "bytes": 20092
+        },
+        {
+          "size": [
+            433,
+            512
+          ],
+          "slots": [
+            "occlusionTexture",
+            "metallicRoughnessTexture"
+          ],
+          "bytes": 4502
+        }
+      ],
+      "textureMemoryBytes": 2364763,
+      "validation": {
+        "numErrors": 0,
+        "numWarnings": 0,
+        "numInfos": 3,
+        "numHints": 0,
+        "messages": [
+          {
+            "code": "UNSUPPORTED_EXTENSION",
+            "message": "Cannot validate an extension as it is not supported by the validator: 'EXT_meshopt_compression'.",
+            "severity": 2,
+            "pointer": "/extensionsUsed/0"
+          },
+          {
+            "code": "IMAGE_NPOT_DIMENSIONS",
+            "message": "Image has non-power-of-two dimensions: 433x512.",
+            "severity": 2,
+            "pointer": "/images/1"
+          },
+          {
+            "code": "IMAGE_NPOT_DIMENSIONS",
+            "message": "Image has non-power-of-two dimensions: 433x512.",
+            "severity": 2,
+            "pointer": "/images/2"
+          }
+        ],
+        "truncated": false
+      }
+    },
+    "mobile": {
+      "bytes": 23008,
+      "gzipBytes": 18327,
+      "brotliBytes": 17288,
+      "sha256": "b418a8d4c633ad21769a9c093e64d84b6c24d189d0eaa2a01a23694dd565da1c",
+      "geometryBytes": 18871,
+      "textures": [
+        {
+          "size": [
+            1,
+            1
+          ],
+          "slots": [
+            "baseColorTexture"
+          ],
+          "bytes": 54
+        },
+        {
+          "size": [
+            217,
+            256
+          ],
+          "slots": [
+            "normalTexture"
+          ],
+          "bytes": 6766
+        },
+        {
+          "size": [
+            217,
+            256
+          ],
+          "slots": [
+            "occlusionTexture",
+            "metallicRoughnessTexture"
+          ],
+          "bytes": 3346
+        }
+      ],
+      "textureMemoryBytes": 592560,
+      "validation": {
+        "numErrors": 0,
+        "numWarnings": 0,
+        "numInfos": 3,
+        "numHints": 0,
+        "messages": [
+          {
+            "code": "UNSUPPORTED_EXTENSION",
+            "message": "Cannot validate an extension as it is not supported by the validator: 'EXT_meshopt_compression'.",
+            "severity": 2,
+            "pointer": "/extensionsUsed/0"
+          },
+          {
+            "code": "IMAGE_NPOT_DIMENSIONS",
+            "message": "Image has non-power-of-two dimensions: 217x256.",
+            "severity": 2,
+            "pointer": "/images/1"
+          },
+          {
+            "code": "IMAGE_NPOT_DIMENSIONS",
+            "message": "Image has non-power-of-two dimensions: 217x256.",
+            "severity": 2,
+            "pointer": "/images/2"
+          }
+        ],
+        "truncated": false
+      }
+    }
+  }
+}

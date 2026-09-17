@@ -1,0 +1,168 @@
+{
+  "id": "planter-square",
+  "bounds": {
+    "min": [
+      -0.47500000000000003,
+      0,
+      -0.47500000000000003
+    ],
+    "max": [
+      0.47500000000000003,
+      0.8150000000000001,
+      0.47500000000000003
+    ]
+  },
+  "triangles": 600,
+  "geometryPolicy": "Meshopt high; 16-bit positions/UVs, 8-bit filtered normals/tangents; no simplification",
+  "texturePolicy": "WebP 92 color, lossless data after resize; exactly constant maps are 1 pixel",
+  "variants": {
+    "desktop": {
+      "bytes": 43268,
+      "gzipBytes": 35429,
+      "brotliBytes": 33932,
+      "sha256": "24707401f3e2b6adaeab280ba250a930068b92e3be7ba0d23a8ed80e5ce38683",
+      "geometryBytes": 31412,
+      "textures": [
+        {
+          "size": [
+            512,
+            469
+          ],
+          "slots": [
+            "baseColorTexture"
+          ],
+          "bytes": 1512
+        },
+        {
+          "size": [
+            512,
+            469
+          ],
+          "slots": [
+            "normalTexture"
+          ],
+          "bytes": 18874
+        },
+        {
+          "size": [
+            512,
+            469
+          ],
+          "slots": [
+            "occlusionTexture",
+            "metallicRoughnessTexture"
+          ],
+          "bytes": 3036
+        }
+      ],
+      "textureMemoryBytes": 3842048,
+      "validation": {
+        "numErrors": 0,
+        "numWarnings": 0,
+        "numInfos": 4,
+        "numHints": 0,
+        "messages": [
+          {
+            "code": "UNSUPPORTED_EXTENSION",
+            "message": "Cannot validate an extension as it is not supported by the validator: 'EXT_meshopt_compression'.",
+            "severity": 2,
+            "pointer": "/extensionsUsed/0"
+          },
+          {
+            "code": "IMAGE_NPOT_DIMENSIONS",
+            "message": "Image has non-power-of-two dimensions: 512x469.",
+            "severity": 2,
+            "pointer": "/images/0"
+          },
+          {
+            "code": "IMAGE_NPOT_DIMENSIONS",
+            "message": "Image has non-power-of-two dimensions: 512x469.",
+            "severity": 2,
+            "pointer": "/images/1"
+          },
+          {
+            "code": "IMAGE_NPOT_DIMENSIONS",
+            "message": "Image has non-power-of-two dimensions: 512x469.",
+            "severity": 2,
+            "pointer": "/images/2"
+          }
+        ],
+        "truncated": false
+      }
+    },
+    "mobile": {
+      "bytes": 30208,
+      "gzipBytes": 22577,
+      "brotliBytes": 21292,
+      "sha256": "c4f3a180374d2e2cca78935e06f6b76bd48c07c50489a2b8bac53612553f355d",
+      "geometryBytes": 31412,
+      "textures": [
+        {
+          "size": [
+            256,
+            234
+          ],
+          "slots": [
+            "baseColorTexture"
+          ],
+          "bytes": 712
+        },
+        {
+          "size": [
+            256,
+            234
+          ],
+          "slots": [
+            "normalTexture"
+          ],
+          "bytes": 6886
+        },
+        {
+          "size": [
+            256,
+            234
+          ],
+          "slots": [
+            "occlusionTexture",
+            "metallicRoughnessTexture"
+          ],
+          "bytes": 2776
+        }
+      ],
+      "textureMemoryBytes": 958464,
+      "validation": {
+        "numErrors": 0,
+        "numWarnings": 0,
+        "numInfos": 4,
+        "numHints": 0,
+        "messages": [
+          {
+            "code": "UNSUPPORTED_EXTENSION",
+            "message": "Cannot validate an extension as it is not supported by the validator: 'EXT_meshopt_compression'.",
+            "severity": 2,
+            "pointer": "/extensionsUsed/0"
+          },
+          {
+            "code": "IMAGE_NPOT_DIMENSIONS",
+            "message": "Image has non-power-of-two dimensions: 256x234.",
+            "severity": 2,
+            "pointer": "/images/0"
+          },
+          {
+            "code": "IMAGE_NPOT_DIMENSIONS",
+            "message": "Image has non-power-of-two dimensions: 256x234.",
+            "severity": 2,
+            "pointer": "/images/1"
+          },
+          {
+            "code": "IMAGE_NPOT_DIMENSIONS",
+            "message": "Image has non-power-of-two dimensions: 256x234.",
+            "severity": 2,
+            "pointer": "/images/2"
+          }
+        ],
+        "truncated": false
+      }
+    }
+  }
+}

@@ -1,0 +1,132 @@
+{
+  "id": "fountain-tiered",
+  "bounds": {
+    "min": [
+      -0.48,
+      0,
+      -0.48
+    ],
+    "max": [
+      0.48,
+      3,
+      0.48
+    ]
+  },
+  "triangles": 4848,
+  "geometryPolicy": "Meshopt high; 16-bit positions/UVs, 8-bit filtered normals/tangents; no simplification",
+  "texturePolicy": "WebP 92 color, lossless data after resize; exactly constant maps are 1 pixel",
+  "variants": {
+    "desktop": {
+      "bytes": 201828,
+      "gzipBytes": 138677,
+      "brotliBytes": 133357,
+      "sha256": "568fa157d8a70257f4279fa13e5c418634ec0d62696af1b378b54351273f2940",
+      "geometryBytes": 269043,
+      "textures": [
+        {
+          "size": [
+            512,
+            512
+          ],
+          "slots": [
+            "baseColorTexture"
+          ],
+          "bytes": 1634
+        },
+        {
+          "size": [
+            512,
+            512
+          ],
+          "slots": [
+            "normalTexture"
+          ],
+          "bytes": 42168
+        },
+        {
+          "size": [
+            512,
+            512
+          ],
+          "slots": [
+            "occlusionTexture",
+            "metallicRoughnessTexture"
+          ],
+          "bytes": 5768
+        }
+      ],
+      "textureMemoryBytes": 4194304,
+      "validation": {
+        "numErrors": 0,
+        "numWarnings": 0,
+        "numInfos": 1,
+        "numHints": 0,
+        "messages": [
+          {
+            "code": "UNSUPPORTED_EXTENSION",
+            "message": "Cannot validate an extension as it is not supported by the validator: 'EXT_meshopt_compression'.",
+            "severity": 2,
+            "pointer": "/extensionsUsed/0"
+          }
+        ],
+        "truncated": false
+      }
+    },
+    "mobile": {
+      "bytes": 168936,
+      "gzipBytes": 106154,
+      "brotliBytes": 100577,
+      "sha256": "dc7664acec3751a8d317c79eceb3fa1689e8fd71e258c244ac7f77e2edf14846",
+      "geometryBytes": 269043,
+      "textures": [
+        {
+          "size": [
+            256,
+            256
+          ],
+          "slots": [
+            "baseColorTexture"
+          ],
+          "bytes": 738
+        },
+        {
+          "size": [
+            256,
+            256
+          ],
+          "slots": [
+            "normalTexture"
+          ],
+          "bytes": 11570
+        },
+        {
+          "size": [
+            256,
+            256
+          ],
+          "slots": [
+            "occlusionTexture",
+            "metallicRoughnessTexture"
+          ],
+          "bytes": 4366
+        }
+      ],
+      "textureMemoryBytes": 1048576,
+      "validation": {
+        "numErrors": 0,
+        "numWarnings": 0,
+        "numInfos": 1,
+        "numHints": 0,
+        "messages": [
+          {
+            "code": "UNSUPPORTED_EXTENSION",
+            "message": "Cannot validate an extension as it is not supported by the validator: 'EXT_meshopt_compression'.",
+            "severity": 2,
+            "pointer": "/extensionsUsed/0"
+          }
+        ],
+        "truncated": false
+      }
+    }
+  }
+}

@@ -12,7 +12,7 @@ export class StopHandle {
   /** Bumped by unload() so a build still awaiting the loader knows it has been retired. */
   private generation = 0;
 
-  constructor(readonly id: string, private loader: KitLoader) {
+  constructor(readonly id: string, private loader: KitLoader, private assembly = new Map<string, number[]>()) {
     this.group.name = id;
   }
 
@@ -34,7 +34,9 @@ export class StopHandle {
       const asset = await this.loader.get(partId);
       const mesh = new InstancedMesh(asset.geometry, asset.material, list.length);
       mesh.name = partId;
-      list.forEach((p, i) => { m.fromArray(p.transform); mesh.setMatrixAt(i, m); });
+      mesh.castShadow = partId !== 'floor-slab-3x3';
+      mesh.receiveShadow = true;
+      list.forEach((p, i) => { m.fromArray(this.assembly.get(p.instance) ?? p.transform); mesh.setMatrixAt(i, m); });
       mesh.instanceMatrix.needsUpdate = true;
       built.push(mesh);
     }
@@ -59,7 +61,7 @@ export class StopHandle {
   }
 }
 
-export function buildScene(layout: Layout, loader: KitLoader): { root: Group; stops: Map<string, StopHandle>; order: string[] } {
+export function buildScene(layout: Layout, loader: KitLoader, assembly = new Map<string, number[]>()): { root: Group; stops: Map<string, StopHandle>; order: string[] } {
   const root = new Group();
   root.name = 'villa';
   const stops = new Map<string, StopHandle>();
@@ -67,7 +69,7 @@ export function buildScene(layout: Layout, loader: KitLoader): { root: Group; st
   for (const p of layout.placements) {
     let handle = stops.get(p.stop);
     if (!handle) {
-      handle = new StopHandle(p.stop, loader);
+      handle = new StopHandle(p.stop, loader, assembly);
       stops.set(p.stop, handle);
       order.push(p.stop);
       root.add(handle.group);

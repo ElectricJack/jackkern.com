@@ -42,7 +42,7 @@ async function walk(dir, base = dir) {
 }
 
 /** Measure the shell, per-stop assets, first-load payload, and aggregate assets. */
-export async function measure(root, dist = 'dist') {
+export async function measure(root, dist = 'dist', tier = 'desktop') {
   const files = await walk(join(root, dist));
   const sum = (predicate) => files
     .filter(predicate)
@@ -50,6 +50,12 @@ export async function measure(root, dist = 'dist') {
   const manifest = JSON.parse(await readFile(join(root, 'content/manifest.json'), 'utf8'));
   const contract = JSON.parse(await readFile(join(root, 'kit/contract.json'), 'utf8'));
   const plan = layout(manifest, contract);
+  let matter = {};
+  try {
+    matter = JSON.parse(await readFile(join(root, dist, 'assets/matter/manifest.json'), 'utf8')).parts;
+  } catch (error) {
+    if (error.code !== 'ENOENT') throw error;
+  }
 
   const partsByStop = new Map();
   const instancesByStop = new Map();
@@ -64,27 +70,47 @@ export async function measure(root, dist = 'dist') {
     instancesByStop.get(placement.stop).add(placement.instance);
   }
 
+  const filesByStop = new Map();
   const stopBytes = {};
   for (const stop of order) {
     const parts = [...partsByStop.get(stop)];
     const instances = [...instancesByStop.get(stop)];
-    stopBytes[stop] = sum((file) =>
+    const urls = new Set(parts.map((part) => matter[part]?.[tier]?.url?.replace(/^\//, '')).filter(Boolean));
+    const selected = files.filter((file) => urls.has(file.rel) ||
       parts.some((part) => file.rel.startsWith(`assets/kit/${part}.`)) ||
       instances.some((instance) => file.rel.startsWith(`assets/bake/${instance}.`))
     );
+    filesByStop.set(stop, selected);
+    stopBytes[stop] = selected.reduce((bytes, file) => bytes + file.bytes, 0);
   }
 
   const shell = sum((file) => file.rel === 'index.html' || file.rel.startsWith('bundle/'));
-  const firstLoad = shell + (stopBytes[order[0]] ?? 0) + (stopBytes[order[1]] ?? 0);
+  // The streamer starts with the current stop and two ahead. Shared assets are
+  // fetched once by KitLoader, even when all three stops instance the same part.
+  const firstFiles = new Map(order.slice(0, 3).flatMap((stop) => filesByStop.get(stop)).map((file) => [file.rel, file.bytes]));
+  const firstLoad = shell + [...firstFiles.values()].reduce((bytes, size) => bytes + size, 0);
   const textures = files.filter((file) =>
     file.rel.startsWith('assets/') && /\.(ktx2|png|jpg|jpeg|webp)$/i.test(file.rel)
   );
 
+  let largestTexture = textures.reduce((largest, texture) => Math.max(largest, texture.bytes), 0);
+  // Matter textures live inside GLBs, so counting only standalone images misses
+  // the largest maps. Read the JSON chunk; geometry does not need decoding.
+  for (const file of files.filter((file) => file.rel.startsWith('assets/') && file.rel.endsWith('.glb'))) {
+    const glb = await readFile(join(root, dist, file.rel));
+    if (glb.readUInt32LE(0) !== 0x46546c67) throw new Error(`Invalid GLB: ${file.rel}`);
+    const gltf = JSON.parse(glb.subarray(20, 20 + glb.readUInt32LE(12)).toString());
+    for (const image of gltf.images ?? []) {
+      if (image.bufferView !== undefined) largestTexture = Math.max(largestTexture, gltf.bufferViews[image.bufferView].byteLength);
+    }
+  }
+
   return {
+    tier,
     shell,
     firstLoad,
     stopBytes,
-    largestTexture: textures.reduce((largest, texture) => Math.max(largest, texture.bytes), 0),
+    largestTexture,
     assets: sum((file) => file.rel.startsWith('assets/')),
     total: sum(() => true),
   };
@@ -111,7 +137,7 @@ export function violations(measurement) {
 }
 
 if (process.argv[1] && resolve(process.argv[1]) === fileURLToPath(import.meta.url)) {
-  const measurement = await measure(process.cwd(), process.argv[2] ?? 'dist');
+  const measurement = await measure(process.cwd(), process.argv[2] ?? 'dist', process.argv[3] ?? 'desktop');
   const format = (bytes) => `${(bytes / MB).toFixed(2)} MB`;
   console.log(
     `shell ${format(measurement.shell)}  first load ${format(measurement.firstLoad)}` +

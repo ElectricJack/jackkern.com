@@ -1,0 +1,2102 @@
+{
+  "column-doric": {
+    "directory": "/mnt/d/Shared With Desktop/AI/matter-engine-cpp/MatterEditor/build/asset-handoff/2026-09-16-r2/pilot-output/villa-column-export-20260916-201713/export-master",
+    "files": [
+      {
+        "file": "asset.glb",
+        "bytes": 6914884,
+        "sha256": "ae6f91245fc09ed50eda8a3a25be55f54e1c3eb230488c60fc2a3bd80ca43ba3"
+      },
+      {
+        "file": "asset.mtl",
+        "bytes": 272,
+        "sha256": "05839e2239a0ab3faed37fa9cf7bbaf347c5689ab10ac4fb16e6bb9ed741e103"
+      },
+      {
+        "file": "asset.obj",
+        "bytes": 3111040,
+        "sha256": "08c4dbd3245ff93b13ae6330c68759b347ee61556a634bdbff0369530c22fa5b"
+      },
+      {
+        "file": "manifest.json",
+        "bytes": 927,
+        "sha256": "b12dcbc2b32d2508d08530eebe11807621f6ae82431188a63814a62b3dd83629"
+      },
+      {
+        "file": "material_0-basecolor.png",
+        "bytes": 4206194,
+        "sha256": "8d5f1173632abb334657e7291cc2971d670aff9ddd2b46689517449c83eaae0f",
+        "width": 3456,
+        "height": 4096,
+        "bitDepth": 8,
+        "colorType": 2
+      },
+      {
+        "file": "material_0-clearcoat.png",
+        "bytes": 424003,
+        "sha256": "f1fd1a7294bbb57f95da5f4fb516f544fbf3828067f03dc064111bff0ecc10fe",
+        "width": 3456,
+        "height": 4096,
+        "bitDepth": 8,
+        "colorType": 2
+      },
+      {
+        "file": "material_0-height.png",
+        "bytes": 282529,
+        "sha256": "51b4eded1512d91d2804f0c325cf58d3ddc91625a2872520fee3062fdbc64c99",
+        "width": 3456,
+        "height": 4096,
+        "bitDepth": 16,
+        "colorType": 0
+      },
+      {
+        "file": "material_0-metallic.png",
+        "bytes": 147009,
+        "sha256": "7d8066428bda8e1ae82235c2f760f6969a6522ee2ccccb4fdd2a0ca94ab123bc",
+        "width": 3456,
+        "height": 4096,
+        "bitDepth": 8,
+        "colorType": 0
+      },
+      {
+        "file": "material_0-normal-obj.png",
+        "bytes": 504740,
+        "sha256": "fea6b77d9403bae4bce49477df9106805bbdfe4af736103abf42868c894d09ad",
+        "width": 3456,
+        "height": 4096,
+        "bitDepth": 8,
+        "colorType": 2
+      },
+      {
+        "file": "material_0-normal.png",
+        "bytes": 504661,
+        "sha256": "1629390f65b7af57afd232209e0088dc181f914d1fd4cb080156bb0651266142",
+        "width": 3456,
+        "height": 4096,
+        "bitDepth": 8,
+        "colorType": 2
+      },
+      {
+        "file": "material_0-occlusion.png",
+        "bytes": 147010,
+        "sha256": "39c5f73756f1142d17d46ad30c9f2714303f936a1c7880b5d7d8608d1b2f5797",
+        "width": 3456,
+        "height": 4096,
+        "bitDepth": 8,
+        "colorType": 0
+      },
+      {
+        "file": "material_0-orm.png",
+        "bytes": 424003,
+        "sha256": "861bfb95c1efc8808f9816224a58f98a34cc323c687c1643cf52fd2472806d84",
+        "width": 3456,
+        "height": 4096,
+        "bitDepth": 8,
+        "colorType": 2
+      },
+      {
+        "file": "material_0-roughness.png",
+        "bytes": 147010,
+        "sha256": "578eb59f43f0ed68a45ef6726ad4282d6e86fb264d873e289c4b7286efa06dd6",
+        "width": 3456,
+        "height": 4096,
+        "bitDepth": 8,
+        "colorType": 0
+      }
+    ]
+  },
+  "wall-3m": {
+    "directory": "/mnt/d/Shared With Desktop/AI/matter-engine-cpp/MatterEditor/build/asset-handoff/2026-09-16-r2/pilot-output/villa-kit-20260916-204523/masters/wall-3m",
+    "files": [
+      {
+        "file": "asset.glb",
+        "bytes": 903708,
+        "sha256": "65939e8c6edf9326ac47f69f723239fc1576365aaca40c25e6b58f91531131f5"
+      },
+      {
+        "file": "asset.mtl",
+        "bytes": 272,
+        "sha256": "05839e2239a0ab3faed37fa9cf7bbaf347c5689ab10ac4fb16e6bb9ed741e103"
+      },
+      {
+        "file": "asset.obj",
+        "bytes": 144254,
+        "sha256": "2750a78a58921ed6e22f1f1860055b13c604e9a54b5501db40d6d6d052c1219a"
+      },
+      {
+        "file": "manifest.json",
+        "bytes": 857,
+        "sha256": "9132ab0446732cf34a7ada265707c4ade9a7c9d498c379a1aadcdd120277075f"
+      },
+      {
+        "file": "material_0-basecolor.png",
+        "bytes": 140883,
+        "sha256": "5db19b15de8f3f5c01e6b42d329535b1032415818c78c736267aa83590d0b23b",
+        "width": 1920,
+        "height": 2304,
+        "bitDepth": 8,
+        "colorType": 2
+      },
+      {
+        "file": "material_0-height.png",
+        "bytes": 113647,
+        "sha256": "23bfcecf3c17d02dd9ce43efcc9d511d9f76fdad21adafc2da88c0aa2b8d89c7",
+        "width": 1920,
+        "height": 2304,
+        "bitDepth": 16,
+        "colorType": 0
+      },
+      {
+        "file": "material_0-metallic.png",
+        "bytes": 81881,
+        "sha256": "7162a1c7dcb8b6cf6d0910eda6acb6224bf1003c1b9187b6f0583f80283c4dc1",
+        "width": 1920,
+        "height": 2304,
+        "bitDepth": 8,
+        "colorType": 0
+      },
+      {
+        "file": "material_0-normal-obj.png",
+        "bytes": 492741,
+        "sha256": "6ca9445230c9c42f59ff88702a03b033c04301943d49686980511c698d31aedf",
+        "width": 1920,
+        "height": 2304,
+        "bitDepth": 8,
+        "colorType": 2
+      },
+      {
+        "file": "material_0-normal.png",
+        "bytes": 492958,
+        "sha256": "379439ad448c912b24db6cc6ba8a3c912b715ed0fa03164c52e8694a14e735ef",
+        "width": 1920,
+        "height": 2304,
+        "bitDepth": 8,
+        "colorType": 2
+      },
+      {
+        "file": "material_0-occlusion.png",
+        "bytes": 75864,
+        "sha256": "6380ad3992cb29e39a9466d9482bdbee1bcaad47ca7c2347b50998e498f42e5f",
+        "width": 1920,
+        "height": 2304,
+        "bitDepth": 8,
+        "colorType": 0
+      },
+      {
+        "file": "material_0-orm.png",
+        "bytes": 193412,
+        "sha256": "5ecd32db052c30332842bb9106f6cf601bcd0cc04eb39ef190ecb8e0b3fd3941",
+        "width": 1920,
+        "height": 2304,
+        "bitDepth": 8,
+        "colorType": 2
+      },
+      {
+        "file": "material_0-roughness.png",
+        "bytes": 74741,
+        "sha256": "7db6ea65ced92fa6640e5b5e567e5415727485e34009648b81f569a5efe588ba",
+        "width": 1920,
+        "height": 2304,
+        "bitDepth": 8,
+        "colorType": 0
+      }
+    ]
+  },
+  "wall-3m-doorway": {
+    "directory": "/mnt/d/Shared With Desktop/AI/matter-engine-cpp/MatterEditor/build/asset-handoff/2026-09-16-r2/pilot-output/villa-kit-20260916-204523/masters/wall-3m-doorway",
+    "files": [
+      {
+        "file": "asset.glb",
+        "bytes": 1204900,
+        "sha256": "4ae0959745eb59c45b8b982c17159cf91cb0b66dfd9efd38d58dc62550f6db65"
+      },
+      {
+        "file": "asset.mtl",
+        "bytes": 272,
+        "sha256": "05839e2239a0ab3faed37fa9cf7bbaf347c5689ab10ac4fb16e6bb9ed741e103"
+      },
+      {
+        "file": "asset.obj",
+        "bytes": 235373,
+        "sha256": "2939a3b076f8f7679c78ce79da2972ddd920f75a89d7fe1b4892cd81e5737f3f"
+      },
+      {
+        "file": "manifest.json",
+        "bytes": 857,
+        "sha256": "cb2cdbcb574246080444d5bc7f540f31230cec4fd94928fbe46f9403f80d0bf6"
+      },
+      {
+        "file": "material_0-basecolor.png",
+        "bytes": 170811,
+        "sha256": "c6e6cdc925b72f4ed256c3a94fcfe707febc20c11b5c610b5c0bee379bed08ae",
+        "width": 2304,
+        "height": 2432,
+        "bitDepth": 8,
+        "colorType": 2
+      },
+      {
+        "file": "material_0-height.png",
+        "bytes": 144621,
+        "sha256": "b8671928ba2e892780d9d36781088981c5b4547a3023f4b868b703d5b33dbfe3",
+        "width": 2304,
+        "height": 2432,
+        "bitDepth": 16,
+        "colorType": 0
+      },
+      {
+        "file": "material_0-metallic.png",
+        "bytes": 111195,
+        "sha256": "f9cb2572d12d03b39f3ec9bebd3b73197bfe5fdf8f44aa1ea3773b9c2667e7c1",
+        "width": 2304,
+        "height": 2432,
+        "bitDepth": 8,
+        "colorType": 0
+      },
+      {
+        "file": "material_0-normal-obj.png",
+        "bytes": 649176,
+        "sha256": "07a4a0f96c9eb83b48303bffd3a9420970186fd66e553450ca4eddc87761b81e",
+        "width": 2304,
+        "height": 2432,
+        "bitDepth": 8,
+        "colorType": 2
+      },
+      {
+        "file": "material_0-normal.png",
+        "bytes": 650604,
+        "sha256": "f7addb70c6d262875074221866a6f4c2b6366bfae992613072fb231156d0eeb1",
+        "width": 2304,
+        "height": 2432,
+        "bitDepth": 8,
+        "colorType": 2
+      },
+      {
+        "file": "material_0-occlusion.png",
+        "bytes": 99158,
+        "sha256": "624bd3249f271976b635ba7d73144b7e276efde3d3b9f938e0fa3466ba0719c8",
+        "width": 2304,
+        "height": 2432,
+        "bitDepth": 8,
+        "colorType": 0
+      },
+      {
+        "file": "material_0-orm.png",
+        "bytes": 260226,
+        "sha256": "0c131f725c832115af66a254f191bd895c2ed2550fe104adb35a4c34f69c3511",
+        "width": 2304,
+        "height": 2432,
+        "bitDepth": 8,
+        "colorType": 2
+      },
+      {
+        "file": "material_0-roughness.png",
+        "bytes": 97280,
+        "sha256": "81bd24840113e4c91598fb53e693892e77ba530d8972d6969fcebe870201a448",
+        "width": 2304,
+        "height": 2432,
+        "bitDepth": 8,
+        "colorType": 0
+      }
+    ]
+  },
+  "entablature-3m": {
+    "directory": "/mnt/d/Shared With Desktop/AI/matter-engine-cpp/MatterEditor/build/asset-handoff/2026-09-16-r2/pilot-output/villa-kit-20260916-204523/masters/entablature-3m",
+    "files": [
+      {
+        "file": "asset.glb",
+        "bytes": 1937388,
+        "sha256": "a6d7785c310eca82fbbafc1a4a2ed590bc375a1555a4fa7b4787a3f82d33f282"
+      },
+      {
+        "file": "asset.mtl",
+        "bytes": 272,
+        "sha256": "05839e2239a0ab3faed37fa9cf7bbaf347c5689ab10ac4fb16e6bb9ed741e103"
+      },
+      {
+        "file": "asset.obj",
+        "bytes": 618778,
+        "sha256": "451b012e8763693af1af3b40d302656a09e8484767c300cf38afd2955173d841"
+      },
+      {
+        "file": "manifest.json",
+        "bytes": 858,
+        "sha256": "765e59de25cb3391ed5369c0236d36f163e9e51e3ac3a6d27ee0b8a19dc0e761"
+      },
+      {
+        "file": "material_0-basecolor.png",
+        "bytes": 271940,
+        "sha256": "c7c5849e57ad438f420dbcc20ec6705584cdbfd4f6016b0b7517de178d71948a",
+        "width": 2944,
+        "height": 3072,
+        "bitDepth": 8,
+        "colorType": 2
+      },
+      {
+        "file": "material_0-height.png",
+        "bytes": 218108,
+        "sha256": "a78580276bd72bdf7d0627e1fff660cb0e8ef21a5327c1dcde76162b01e8ec53",
+        "width": 2944,
+        "height": 3072,
+        "bitDepth": 16,
+        "colorType": 0
+      },
+      {
+        "file": "material_0-metallic.png",
+        "bytes": 173967,
+        "sha256": "9bd5fff09163ac09ff31eac1164ea64e20beb84c8dc29481b77f2d38796cb4b0",
+        "width": 2944,
+        "height": 3072,
+        "bitDepth": 8,
+        "colorType": 0
+      },
+      {
+        "file": "material_0-normal-obj.png",
+        "bytes": 950856,
+        "sha256": "d762676e2898d0e8641c29f0a461084694dec9649f8955ee8ef1232a553aa928",
+        "width": 2944,
+        "height": 3072,
+        "bitDepth": 8,
+        "colorType": 2
+      },
+      {
+        "file": "material_0-normal.png",
+        "bytes": 951355,
+        "sha256": "7af603ce91cd96713938b734cba2c2987fba261ed9243a22ef39ab5ed0e93003",
+        "width": 2944,
+        "height": 3072,
+        "bitDepth": 8,
+        "colorType": 2
+      },
+      {
+        "file": "material_0-occlusion.png",
+        "bytes": 156147,
+        "sha256": "6781bd6512461914bb0e8b106cf5e1b2c506143e347997c2fb9234368c84e1eb",
+        "width": 2944,
+        "height": 3072,
+        "bitDepth": 8,
+        "colorType": 0
+      },
+      {
+        "file": "material_0-orm.png",
+        "bytes": 403622,
+        "sha256": "f9e840c116b0fa4ab5456748bfbe70d6d185006ce33752df76ca503234d6931a",
+        "width": 2944,
+        "height": 3072,
+        "bitDepth": 8,
+        "colorType": 2
+      },
+      {
+        "file": "material_0-roughness.png",
+        "bytes": 147264,
+        "sha256": "be6fe4da2ee2237719d91bec754282dde6ede08282ea2cef205ebb4d7a5ab432",
+        "width": 2944,
+        "height": 3072,
+        "bitDepth": 8,
+        "colorType": 0
+      }
+    ]
+  },
+  "floor-slab-3x3": {
+    "directory": "/mnt/d/Shared With Desktop/AI/matter-engine-cpp/MatterEditor/build/asset-handoff/2026-09-16-r2/pilot-output/villa-kit-20260916-204523/masters/floor-slab-3x3",
+    "files": [
+      {
+        "file": "asset.glb",
+        "bytes": 582612,
+        "sha256": "016e73ee4b0a8c6e72d75af3fb602be4f3d520e9de2cc59c75f40f90a89a7b31"
+      },
+      {
+        "file": "asset.mtl",
+        "bytes": 272,
+        "sha256": "05839e2239a0ab3faed37fa9cf7bbaf347c5689ab10ac4fb16e6bb9ed741e103"
+      },
+      {
+        "file": "asset.obj",
+        "bytes": 93634,
+        "sha256": "5b2d6a8c17bede8c60656dc9c833e9c146219bf455ecb6717d9894ebca059d61"
+      },
+      {
+        "file": "manifest.json",
+        "bytes": 856,
+        "sha256": "aad519ba1ef08e71a6f7e2e077e5d0c2450c76d86fe1f7b8864d92c08a794eb1"
+      },
+      {
+        "file": "material_0-basecolor.png",
+        "bytes": 90867,
+        "sha256": "92220414cf8ea033de46afc33059809acc7b83557dbbd52988c3223a206a60e9",
+        "width": 1664,
+        "height": 1664,
+        "bitDepth": 8,
+        "colorType": 2
+      },
+      {
+        "file": "material_0-height.png",
+        "bytes": 72161,
+        "sha256": "ec9ce9467b19b2cf5de7b685bca0b5bf82be186043a78a0a8fd1dd14b9de52c4",
+        "width": 1664,
+        "height": 1664,
+        "bitDepth": 16,
+        "colorType": 0
+      },
+      {
+        "file": "material_0-metallic.png",
+        "bytes": 47812,
+        "sha256": "e51d1efe601426dcf5b9782bd7295be1e641270f561c0af9e0d581fe3cc17e8e",
+        "width": 1664,
+        "height": 1664,
+        "bitDepth": 8,
+        "colorType": 0
+      },
+      {
+        "file": "material_0-normal-obj.png",
+        "bytes": 329846,
+        "sha256": "0adce2ecf7b15c21585d97f99ed5eb1fb6aa338dc82a803189f59fb2cbe4b5cd",
+        "width": 1664,
+        "height": 1664,
+        "bitDepth": 8,
+        "colorType": 2
+      },
+      {
+        "file": "material_0-normal.png",
+        "bytes": 329889,
+        "sha256": "6722a88095a6eee9475d11677c66c80d84cc32f95845e3c91978212b8e9ce7af",
+        "width": 1664,
+        "height": 1664,
+        "bitDepth": 8,
+        "colorType": 2
+      },
+      {
+        "file": "material_0-occlusion.png",
+        "bytes": 42800,
+        "sha256": "c835ae8536d134879c01d5e38a0033015769e48c6637ba5126673de69b1eb449",
+        "width": 1664,
+        "height": 1664,
+        "bitDepth": 8,
+        "colorType": 0
+      },
+      {
+        "file": "material_0-orm.png",
+        "bytes": 113490,
+        "sha256": "5cb03265248954e860b935f362b44df19f153fff4d188b2fc81ef383f233dfed",
+        "width": 1664,
+        "height": 1664,
+        "bitDepth": 8,
+        "colorType": 2
+      },
+      {
+        "file": "material_0-roughness.png",
+        "bytes": 42467,
+        "sha256": "8b5d945b822e111b06664b58cd97e4705c9346907bc8ca1b4b88cf8e34990848",
+        "width": 1664,
+        "height": 1664,
+        "bitDepth": 8,
+        "colorType": 0
+      }
+    ]
+  },
+  "pool-basin-3x3": {
+    "directory": "/mnt/d/Shared With Desktop/AI/matter-engine-cpp/MatterEditor/build/asset-handoff/2026-09-16-r2/pilot-output/villa-kit-20260916-204523/masters/pool-basin-3x3",
+    "files": [
+      {
+        "file": "asset.glb",
+        "bytes": 2056308,
+        "sha256": "5d29928a2aea6178f9a5168ac73f2085fd3d31c058ac970fb89cd30f097a21a8"
+      },
+      {
+        "file": "asset.mtl",
+        "bytes": 272,
+        "sha256": "05839e2239a0ab3faed37fa9cf7bbaf347c5689ab10ac4fb16e6bb9ed741e103"
+      },
+      {
+        "file": "asset.obj",
+        "bytes": 850659,
+        "sha256": "21175521f6bde5a32abce1cc15ac2213b134f1c28a19f24565ad98c323a97046"
+      },
+      {
+        "file": "manifest.json",
+        "bytes": 928,
+        "sha256": "a159330ca46d1d55857f3709536714bee0563ba3405a03667e25ba6568e14631"
+      },
+      {
+        "file": "material_0-basecolor.png",
+        "bytes": 355108,
+        "sha256": "6234a40c7e0f6f4fc7b6b00cfb7bbd7d131f182ad40d3f45d873df9ed62ded08",
+        "width": 3328,
+        "height": 3584,
+        "bitDepth": 8,
+        "colorType": 2
+      },
+      {
+        "file": "material_0-clearcoat.png",
+        "bytes": 355101,
+        "sha256": "480ea3406d1c95b9e39c9834693a2fdf07f9bf1e684ce785839f394f1e4d4174",
+        "width": 3328,
+        "height": 3584,
+        "bitDepth": 8,
+        "colorType": 2
+      },
+      {
+        "file": "material_0-height.png",
+        "bytes": 246742,
+        "sha256": "1ec43c117bec9f182d8e2443503f0690d4504f029d8ec4eb998c29f5b3e738e4",
+        "width": 3328,
+        "height": 3584,
+        "bitDepth": 16,
+        "colorType": 0
+      },
+      {
+        "file": "material_0-metallic.png",
+        "bytes": 127871,
+        "sha256": "7316c8a7bf6641fefbc8d951f3cdd1581808feb3985bdf1d830d2a4456a190d4",
+        "width": 3328,
+        "height": 3584,
+        "bitDepth": 8,
+        "colorType": 0
+      },
+      {
+        "file": "material_0-normal-obj.png",
+        "bytes": 556324,
+        "sha256": "80456e9d328e27440dc31c3404541218f99444ba1a706af0a12ff06b2d86e15e",
+        "width": 3328,
+        "height": 3584,
+        "bitDepth": 8,
+        "colorType": 2
+      },
+      {
+        "file": "material_0-normal.png",
+        "bytes": 556457,
+        "sha256": "b1d2f712689c4bc63bf7e21653adceebe9190b51cab9ddb4f80c50ba53e1ae5f",
+        "width": 3328,
+        "height": 3584,
+        "bitDepth": 8,
+        "colorType": 2
+      },
+      {
+        "file": "material_0-occlusion.png",
+        "bytes": 125967,
+        "sha256": "66ff6a2efba3ce570bc083c6bdce498c1bca440bae2bca361bfa4f6daaadfcb7",
+        "width": 3328,
+        "height": 3584,
+        "bitDepth": 8,
+        "colorType": 0
+      },
+      {
+        "file": "material_0-orm.png",
+        "bytes": 366469,
+        "sha256": "48632927b482ca29fba00d23f105032adc9c961fe8125a15b3038ec984e633cd",
+        "width": 3328,
+        "height": 3584,
+        "bitDepth": 8,
+        "colorType": 2
+      },
+      {
+        "file": "material_0-roughness.png",
+        "bytes": 125241,
+        "sha256": "19319d42b9d50ff57172e43a3dd889774b95fa0f962f088e21d3fd13cbf967f5",
+        "width": 3328,
+        "height": 3584,
+        "bitDepth": 8,
+        "colorType": 0
+      }
+    ]
+  },
+  "pool-edge-straight": {
+    "directory": "/mnt/d/Shared With Desktop/AI/matter-engine-cpp/MatterEditor/build/asset-handoff/2026-09-16-r2/pilot-output/villa-kit-20260916-204523/masters/pool-edge-straight",
+    "files": [
+      {
+        "file": "asset.glb",
+        "bytes": 111276,
+        "sha256": "11ce1c371476929b00c7e84f5b914b2b58708895d2f1083fa87e0897a2aee9a9"
+      },
+      {
+        "file": "asset.mtl",
+        "bytes": 272,
+        "sha256": "05839e2239a0ab3faed37fa9cf7bbaf347c5689ab10ac4fb16e6bb9ed741e103"
+      },
+      {
+        "file": "asset.obj",
+        "bytes": 18666,
+        "sha256": "bac601ddf70088bc995e70ad16c7157e6b2126352c34123a4b34cca07b7d0c9c"
+      },
+      {
+        "file": "manifest.json",
+        "bytes": 853,
+        "sha256": "d43ed8adfaa09998c2637b3e992d7104d8047a306de49d12d3ccebb1e36f0f21"
+      },
+      {
+        "file": "material_0-basecolor.png",
+        "bytes": 18036,
+        "sha256": "65314d0ac39a8043d1e5c7e134ecc21f4a407eba5ca78495f50bc30d897a4179",
+        "width": 640,
+        "height": 896,
+        "bitDepth": 8,
+        "colorType": 2
+      },
+      {
+        "file": "material_0-height.png",
+        "bytes": 13874,
+        "sha256": "2f908ffbf58d351b4a50e8216de14c9f4812060291516faee4affd2a905e9e16",
+        "width": 640,
+        "height": 896,
+        "bitDepth": 16,
+        "colorType": 0
+      },
+      {
+        "file": "material_0-metallic.png",
+        "bytes": 10640,
+        "sha256": "1141fbd95234c095ebf2dbe8d8feef3f15deaa863d1aa736b6058673610e1b95",
+        "width": 640,
+        "height": 896,
+        "bitDepth": 8,
+        "colorType": 0
+      },
+      {
+        "file": "material_0-normal-obj.png",
+        "bytes": 55777,
+        "sha256": "5e1bbf7582067784f1a67f354553202031e46684b94edcc070e06c66dd0e7252",
+        "width": 640,
+        "height": 896,
+        "bitDepth": 8,
+        "colorType": 2
+      },
+      {
+        "file": "material_0-normal.png",
+        "bytes": 55947,
+        "sha256": "9610bafc45921323a1334a8a458ca0d40fbb742387e53b1a20f6261654bd4bc1",
+        "width": 640,
+        "height": 896,
+        "bitDepth": 8,
+        "colorType": 2
+      },
+      {
+        "file": "material_0-occlusion.png",
+        "bytes": 9585,
+        "sha256": "3181eed2b125f3c9a8e37c9ce36e097acb8c9cc4b1c0da6ee730e8be862d3caf",
+        "width": 640,
+        "height": 896,
+        "bitDepth": 8,
+        "colorType": 0
+      },
+      {
+        "file": "material_0-orm.png",
+        "bytes": 26335,
+        "sha256": "5cf22b399c07aeb282ea9273f0e44917a37ba98b3e8dc7fc503fda3ae56c7826",
+        "width": 640,
+        "height": 896,
+        "bitDepth": 8,
+        "colorType": 2
+      },
+      {
+        "file": "material_0-roughness.png",
+        "bytes": 9019,
+        "sha256": "6a43349fb015f6b7cad23f6249d761fb32ec3ffcf4bb24e3f6546e13842fa512",
+        "width": 640,
+        "height": 896,
+        "bitDepth": 8,
+        "colorType": 0
+      }
+    ]
+  },
+  "pool-edge-corner": {
+    "directory": "/mnt/d/Shared With Desktop/AI/matter-engine-cpp/MatterEditor/build/asset-handoff/2026-09-16-r2/pilot-output/villa-kit-20260916-204523/masters/pool-edge-corner",
+    "files": [
+      {
+        "file": "asset.glb",
+        "bytes": 40040,
+        "sha256": "ba4c92d09f02417155e05589234152d5884b2305c981661d46760fd21b9893eb"
+      },
+      {
+        "file": "asset.mtl",
+        "bytes": 272,
+        "sha256": "05839e2239a0ab3faed37fa9cf7bbaf347c5689ab10ac4fb16e6bb9ed741e103"
+      },
+      {
+        "file": "asset.obj",
+        "bytes": 18890,
+        "sha256": "be730684cd7ddf1f50f3428a721f6bb20599a8ab93b84c6e8f19a6bb780def65"
+      },
+      {
+        "file": "manifest.json",
+        "bytes": 853,
+        "sha256": "33c07422e0302d3a69a3176604f6d21a8d828d658555e0ba81752dc0dcce631f"
+      },
+      {
+        "file": "material_0-basecolor.png",
+        "bytes": 6149,
+        "sha256": "f14df365c561ff811784b7add932bfc523d047bc37384cc379e0fef6de1eb944",
+        "width": 512,
+        "height": 384,
+        "bitDepth": 8,
+        "colorType": 2
+      },
+      {
+        "file": "material_0-height.png",
+        "bytes": 4382,
+        "sha256": "24ea1ac214112bebc5bb81a88148f2f374e7991bd86e8efc13274ceb79b549ac",
+        "width": 512,
+        "height": 384,
+        "bitDepth": 16,
+        "colorType": 0
+      },
+      {
+        "file": "material_0-metallic.png",
+        "bytes": 2976,
+        "sha256": "b1848c24efe9d4eff32d1aa2441daf8cb154d7045049dd31fac152f53cc74347",
+        "width": 512,
+        "height": 384,
+        "bitDepth": 8,
+        "colorType": 0
+      },
+      {
+        "file": "material_0-normal-obj.png",
+        "bytes": 15253,
+        "sha256": "e9cb88ac1788593ac8cb96e496030a3284b84ff91c3420b58c02af13ed4a8ec4",
+        "width": 512,
+        "height": 384,
+        "bitDepth": 8,
+        "colorType": 2
+      },
+      {
+        "file": "material_0-normal.png",
+        "bytes": 15239,
+        "sha256": "845c4a4ed494b15d283dd806b91c81fe911cc3eff568fd4d41466e7a58cb834c",
+        "width": 512,
+        "height": 384,
+        "bitDepth": 8,
+        "colorType": 2
+      },
+      {
+        "file": "material_0-occlusion.png",
+        "bytes": 2879,
+        "sha256": "c5f26f3454aa485bc81ddf202f5294c0bf3bd38f1753147df05b8096629dd00a",
+        "width": 512,
+        "height": 384,
+        "bitDepth": 8,
+        "colorType": 0
+      },
+      {
+        "file": "material_0-orm.png",
+        "bytes": 7692,
+        "sha256": "2bf212320ffab7b627a1ffc2c68992020c5903b003d323be124b3953f3bbddbc",
+        "width": 512,
+        "height": 384,
+        "bitDepth": 8,
+        "colorType": 2
+      },
+      {
+        "file": "material_0-roughness.png",
+        "bytes": 2692,
+        "sha256": "6f5cdbfc53ac1ea76e041fe07ee7333e4304616e6f8302a07a0bd1135cb8ce86",
+        "width": 512,
+        "height": 384,
+        "bitDepth": 8,
+        "colorType": 0
+      }
+    ]
+  },
+  "fountain-tiered": {
+    "directory": "/mnt/d/Shared With Desktop/AI/matter-engine-cpp/MatterEditor/build/asset-handoff/2026-09-16-r2/pilot-output/villa-kit-20260916-204523/masters/fountain-tiered",
+    "files": [
+      {
+        "file": "asset.glb",
+        "bytes": 1727144,
+        "sha256": "e494fd43ea1a46f563da7de274adde1525a6946ddf0c8f527813cc362a2da3d9"
+      },
+      {
+        "file": "asset.mtl",
+        "bytes": 272,
+        "sha256": "05839e2239a0ab3faed37fa9cf7bbaf347c5689ab10ac4fb16e6bb9ed741e103"
+      },
+      {
+        "file": "asset.obj",
+        "bytes": 1688520,
+        "sha256": "ef30b37f02172161464ce60dae3bdb48f85accf77198a568aeda9310b6e77f19"
+      },
+      {
+        "file": "manifest.json",
+        "bytes": 859,
+        "sha256": "52a6d03e347db9f5c55349d52a1ced999c2a8758ad963777cf01fe0b8b0f2c46"
+      },
+      {
+        "file": "material_0-basecolor.png",
+        "bytes": 72108,
+        "sha256": "ea7bfc2d78b121727c3519f003c3583a21af534034aa840f50a6606f1706f4f2",
+        "width": 1536,
+        "height": 1536,
+        "bitDepth": 8,
+        "colorType": 2
+      },
+      {
+        "file": "material_0-height.png",
+        "bytes": 95003,
+        "sha256": "5f4fd369b8149da35116a01ec40b415defa4ac22efb22a94abca5394c2eb8aa6",
+        "width": 1536,
+        "height": 1536,
+        "bitDepth": 16,
+        "colorType": 0
+      },
+      {
+        "file": "material_0-metallic.png",
+        "bytes": 69213,
+        "sha256": "8a31c512ce8c41f43852dc179f41a808ebda924ea78b250de152862d60c0cf82",
+        "width": 1536,
+        "height": 1536,
+        "bitDepth": 8,
+        "colorType": 0
+      },
+      {
+        "file": "material_0-normal-obj.png",
+        "bytes": 761404,
+        "sha256": "1a6488100d279928a7c8c09fa2d8eadf885dcad5df51706612a7c16f8ff7abf6",
+        "width": 1536,
+        "height": 1536,
+        "bitDepth": 8,
+        "colorType": 2
+      },
+      {
+        "file": "material_0-normal.png",
+        "bytes": 760678,
+        "sha256": "1472039c0f43e3ae297ed0960f58639affaecee8d004f41bec3224fd0321578b",
+        "width": 1536,
+        "height": 1536,
+        "bitDepth": 8,
+        "colorType": 2
+      },
+      {
+        "file": "material_0-occlusion.png",
+        "bytes": 62146,
+        "sha256": "880d9cb9a22a2cfa9de611c4596c56ec7ebf0b6c23ea6d03915b798bb419dec8",
+        "width": 1536,
+        "height": 1536,
+        "bitDepth": 8,
+        "colorType": 0
+      },
+      {
+        "file": "material_0-orm.png",
+        "bytes": 136470,
+        "sha256": "64b461e97c9012ba6348792be56630735d3e364940fe1747e6c6b2f34831b078",
+        "width": 1536,
+        "height": 1536,
+        "bitDepth": 8,
+        "colorType": 2
+      },
+      {
+        "file": "material_0-roughness.png",
+        "bytes": 59824,
+        "sha256": "b82c3a36f8834da256c48a3921db897638b49848de3b58f6fb26712f606a4e1c",
+        "width": 1536,
+        "height": 1536,
+        "bitDepth": 8,
+        "colorType": 0
+      }
+    ]
+  },
+  "fountain-wall": {
+    "directory": "/mnt/d/Shared With Desktop/AI/matter-engine-cpp/MatterEditor/build/asset-handoff/2026-09-16-r2/pilot-output/villa-kit-20260916-204523/masters/fountain-wall",
+    "files": [
+      {
+        "file": "asset.glb",
+        "bytes": 3746532,
+        "sha256": "4a2088631d32082239ce619676ede2842f79bd24e56e1ef970f1a4c8eded21d1"
+      },
+      {
+        "file": "asset.mtl",
+        "bytes": 272,
+        "sha256": "05839e2239a0ab3faed37fa9cf7bbaf347c5689ab10ac4fb16e6bb9ed741e103"
+      },
+      {
+        "file": "asset.obj",
+        "bytes": 656871,
+        "sha256": "cbcb32ec00fb7cc7706d8776adc21aa53f8e0e5a651289417a5227b75e05e4bb"
+      },
+      {
+        "file": "manifest.json",
+        "bytes": 928,
+        "sha256": "db74249ac2acbed6dc5e358e72c808074dcc90be1bb69f0e8c35f5b6c9225fec"
+      },
+      {
+        "file": "material_0-basecolor.png",
+        "bytes": 294873,
+        "sha256": "4234df5c145d22aff277a69c401cb75601188c9dab8d97fc7ce84814431ad889",
+        "width": 2944,
+        "height": 3200,
+        "bitDepth": 8,
+        "colorType": 2
+      },
+      {
+        "file": "material_0-clearcoat.png",
+        "bytes": 286223,
+        "sha256": "1929c8a792835d326f6562a4678a23736e08fc34e1030fea02757b869765cc34",
+        "width": 2944,
+        "height": 3200,
+        "bitDepth": 8,
+        "colorType": 2
+      },
+      {
+        "file": "material_0-height.png",
+        "bytes": 301292,
+        "sha256": "e04f086e0459a9ea48aa8e46e7a8e56cc5873a439afaa3a9b2ab8c610ad5be2d",
+        "width": 2944,
+        "height": 3200,
+        "bitDepth": 16,
+        "colorType": 0
+      },
+      {
+        "file": "material_0-metallic.png",
+        "bytes": 255479,
+        "sha256": "242a67ee5b7f78d0e2bd34f40b522c474c7ad9448fb9d09b9a6cd4e6ea7427d1",
+        "width": 2944,
+        "height": 3200,
+        "bitDepth": 8,
+        "colorType": 0
+      },
+      {
+        "file": "material_0-normal-obj.png",
+        "bytes": 2344798,
+        "sha256": "017d39a10113a079062026cf41dab11df5d1f22655e2e16074d31b5ee4650a80",
+        "width": 2944,
+        "height": 3200,
+        "bitDepth": 8,
+        "colorType": 2
+      },
+      {
+        "file": "material_0-normal.png",
+        "bytes": 2344041,
+        "sha256": "faf7b0c70791bbd0eb22f423cbb7332ca354c8153fbc43dcfbc6edbe96e74722",
+        "width": 2944,
+        "height": 3200,
+        "bitDepth": 8,
+        "colorType": 2
+      },
+      {
+        "file": "material_0-occlusion.png",
+        "bytes": 210860,
+        "sha256": "4956dbcbc68d325c5e897dae41ad506e5b314ca0cab4ed7e4911908a7370f47f",
+        "width": 2944,
+        "height": 3200,
+        "bitDepth": 8,
+        "colorType": 0
+      },
+      {
+        "file": "material_0-orm.png",
+        "bytes": 518662,
+        "sha256": "035ba8bb75e2a16d3851be7e8c8c5535005e64fd5724fe48704226e34721359a",
+        "width": 2944,
+        "height": 3200,
+        "bitDepth": 8,
+        "colorType": 2
+      },
+      {
+        "file": "material_0-roughness.png",
+        "bytes": 207102,
+        "sha256": "4239b6815c23c033cfa09dbfc67b2c4781e0488ffafb5cf9290e9674eb7b03f3",
+        "width": 2944,
+        "height": 3200,
+        "bitDepth": 8,
+        "colorType": 0
+      }
+    ]
+  },
+  "planter-square": {
+    "directory": "/mnt/d/Shared With Desktop/AI/matter-engine-cpp/MatterEditor/build/asset-handoff/2026-09-16-r2/pilot-output/villa-kit-20260916-204523/masters/planter-square",
+    "files": [
+      {
+        "file": "asset.glb",
+        "bytes": 653540,
+        "sha256": "7b9f17c7b6c5a2ba87dd91c97d51dd96fa72dfabe4ace0f973ef84bc517e47fc"
+      },
+      {
+        "file": "asset.mtl",
+        "bytes": 272,
+        "sha256": "05839e2239a0ab3faed37fa9cf7bbaf347c5689ab10ac4fb16e6bb9ed741e103"
+      },
+      {
+        "file": "asset.obj",
+        "bytes": 187341,
+        "sha256": "f261f016d05cfb17b32fb02389b0eb697efed6136b38733796329e08d2528fe5"
+      },
+      {
+        "file": "manifest.json",
+        "bytes": 857,
+        "sha256": "942a322b9843294ed6fc12fee2c30e81b00a1929fee1a886b3ed84d27c193bec"
+      },
+      {
+        "file": "material_0-basecolor.png",
+        "bytes": 66201,
+        "sha256": "4e3055fbc0ef2f1ba471e024372011d99a9e0499a42e1c2c9ee68d2239752891",
+        "width": 1536,
+        "height": 1408,
+        "bitDepth": 8,
+        "colorType": 2
+      },
+      {
+        "file": "material_0-height.png",
+        "bytes": 65507,
+        "sha256": "1d8b30bd9391058a2200766130785b7e72590b064a16e47cdedfa14bc7fa9c79",
+        "width": 1536,
+        "height": 1408,
+        "bitDepth": 16,
+        "colorType": 0
+      },
+      {
+        "file": "material_0-metallic.png",
+        "bytes": 47695,
+        "sha256": "a45d060698dc055555b4967cbc0e9a8c67c7053785485b2609a2a5b62d13f23d",
+        "width": 1536,
+        "height": 1408,
+        "bitDepth": 8,
+        "colorType": 0
+      },
+      {
+        "file": "material_0-normal-obj.png",
+        "bytes": 389264,
+        "sha256": "e3bd95ea056882d7a14b72318de9d86d7dc659964ff731bfd7526df82518f669",
+        "width": 1536,
+        "height": 1408,
+        "bitDepth": 8,
+        "colorType": 2
+      },
+      {
+        "file": "material_0-normal.png",
+        "bytes": 390544,
+        "sha256": "53f9a483f97d8ef383bf2bb9e07dddffa4ce5369c54d0874e6f9163fc36345e7",
+        "width": 1536,
+        "height": 1408,
+        "bitDepth": 8,
+        "colorType": 2
+      },
+      {
+        "file": "material_0-occlusion.png",
+        "bytes": 41129,
+        "sha256": "7c7c02bab510af29e88ecb2b68554d822035697692a503166f2648d3b3fcaa14",
+        "width": 1536,
+        "height": 1408,
+        "bitDepth": 8,
+        "colorType": 0
+      },
+      {
+        "file": "material_0-orm.png",
+        "bytes": 101596,
+        "sha256": "b820cd006281a075de4ab952ea935caa0fcb5735ee94588e1d4f33e729c1077e",
+        "width": 1536,
+        "height": 1408,
+        "bitDepth": 8,
+        "colorType": 2
+      },
+      {
+        "file": "material_0-roughness.png",
+        "bytes": 39585,
+        "sha256": "a4c300dc1c5f479184d319325717b04faf57593219380d9c84497c917be4bc57",
+        "width": 1536,
+        "height": 1408,
+        "bitDepth": 8,
+        "colorType": 0
+      }
+    ]
+  },
+  "stair-run-3m": {
+    "directory": "/mnt/d/Shared With Desktop/AI/matter-engine-cpp/MatterEditor/build/asset-handoff/2026-09-16-r2/pilot-output/villa-kit-20260916-204523/masters/stair-run-3m",
+    "files": [
+      {
+        "file": "asset.glb",
+        "bytes": 1676908,
+        "sha256": "fe0f6c17a6fec02a608156025e4a6a1bb7ed25e0e0b7fea117c76c52a7713dc9"
+      },
+      {
+        "file": "asset.mtl",
+        "bytes": 272,
+        "sha256": "05839e2239a0ab3faed37fa9cf7bbaf347c5689ab10ac4fb16e6bb9ed741e103"
+      },
+      {
+        "file": "asset.obj",
+        "bytes": 180976,
+        "sha256": "5f2256772451410e7b296788fb4b0246af2ec991e114e3da984d589ffba5af6e"
+      },
+      {
+        "file": "manifest.json",
+        "bytes": 857,
+        "sha256": "87ada33f3c40350c1897445d0eed9d6bdeed3a973856af47adb560aa6133bc2a"
+      },
+      {
+        "file": "material_0-basecolor.png",
+        "bytes": 200342,
+        "sha256": "ebb0bf61ac71822d614b77a0fdb8995136bb2ab2130856a834a1369be9f4399e",
+        "width": 2432,
+        "height": 2688,
+        "bitDepth": 8,
+        "colorType": 2
+      },
+      {
+        "file": "material_0-height.png",
+        "bytes": 179497,
+        "sha256": "002e3776a79b5ebcbeca9e172bba5016679b9ee66d0c28bf54dc54ae734cbc68",
+        "width": 2432,
+        "height": 2688,
+        "bitDepth": 16,
+        "colorType": 0
+      },
+      {
+        "file": "material_0-metallic.png",
+        "bytes": 162456,
+        "sha256": "2d88c2e392adf8d801b8b0e9c3006ea83a26fc95fd51e151b6bc4addaf889d95",
+        "width": 2432,
+        "height": 2688,
+        "bitDepth": 8,
+        "colorType": 0
+      },
+      {
+        "file": "material_0-normal-obj.png",
+        "bytes": 1036674,
+        "sha256": "335558eae552c611a6e4161b70349be7e486a1289e4d1669f296557865a6bbc0",
+        "width": 2432,
+        "height": 2688,
+        "bitDepth": 8,
+        "colorType": 2
+      },
+      {
+        "file": "material_0-normal.png",
+        "bytes": 1033209,
+        "sha256": "0c3574256b8ce123ca44bcefb4dfc43125bf6fd85109a408b4f74778a34105d9",
+        "width": 2432,
+        "height": 2688,
+        "bitDepth": 8,
+        "colorType": 2
+      },
+      {
+        "file": "material_0-occlusion.png",
+        "bytes": 147232,
+        "sha256": "bc7f8370207e5595fea3765cc02507d7a4836919b47f70d4473280db779ea645",
+        "width": 2432,
+        "height": 2688,
+        "bitDepth": 8,
+        "colorType": 0
+      },
+      {
+        "file": "material_0-orm.png",
+        "bytes": 348188,
+        "sha256": "82e3caede317559f120be89b85e43f2a51872be9a284b4cd36c9ce94ad680bbf",
+        "width": 2432,
+        "height": 2688,
+        "bitDepth": 8,
+        "colorType": 2
+      },
+      {
+        "file": "material_0-roughness.png",
+        "bytes": 141068,
+        "sha256": "04f30156b3070ce3c951661b8b6dd6014dc1d961b92193ff0b9064ac0a30ca8f",
+        "width": 2432,
+        "height": 2688,
+        "bitDepth": 8,
+        "colorType": 0
+      }
+    ]
+  },
+  "urn-small": {
+    "directory": "/mnt/d/Shared With Desktop/AI/matter-engine-cpp/MatterEditor/build/asset-handoff/2026-09-16-r2/pilot-output/villa-kit-20260916-204523/masters/urn-small",
+    "files": [
+      {
+        "file": "asset.glb",
+        "bytes": 579968,
+        "sha256": "1f0b49e2e65249b8a6c8d45a49e2804acbd687d2a7f635c6c74db844000fa674"
+      },
+      {
+        "file": "asset.mtl",
+        "bytes": 272,
+        "sha256": "05839e2239a0ab3faed37fa9cf7bbaf347c5689ab10ac4fb16e6bb9ed741e103"
+      },
+      {
+        "file": "asset.obj",
+        "bytes": 928457,
+        "sha256": "6a07e4a588eddf11781cdfbe0bca0831fc9b7e2a4e5f5c22cdd5fcafc61ddc8b"
+      },
+      {
+        "file": "manifest.json",
+        "bytes": 835,
+        "sha256": "9d79f7a2f4564814df868a0ada9cb54d8ce8499edd96d97e0a8238ff3e9e84e9"
+      },
+      {
+        "file": "material_0-basecolor.png",
+        "bytes": 46202,
+        "sha256": "0b874cf77fbcf854be75b5b4342dfc5f8323fc4d9107f8148a464a1b1f86a6c4",
+        "width": 1280,
+        "height": 1152,
+        "bitDepth": 8,
+        "colorType": 2
+      },
+      {
+        "file": "material_0-height.png",
+        "bytes": 30066,
+        "sha256": "f161497006b5ae67eaea6afe1deafb3ab533240d72b49f0eee8d558a88a2acca",
+        "width": 1280,
+        "height": 1152,
+        "bitDepth": 16,
+        "colorType": 0
+      },
+      {
+        "file": "material_0-metallic.png",
+        "bytes": 16514,
+        "sha256": "63d2b360e0729ab39e4eb4b885b581171d9890ed41f5c9a9fab91cd9bb9f77ce",
+        "width": 1280,
+        "height": 1152,
+        "bitDepth": 8,
+        "colorType": 0
+      },
+      {
+        "file": "material_0-normal-obj.png",
+        "bytes": 71799,
+        "sha256": "c1ca0ceca6970bfab21f4381e1ebe1908b1d4c81b913597a199338ed50d59128",
+        "width": 1280,
+        "height": 1152,
+        "bitDepth": 8,
+        "colorType": 2
+      },
+      {
+        "file": "material_0-normal.png",
+        "bytes": 71642,
+        "sha256": "54e174cf91d940574f5ca57cfd469cf0e7b6e2a42a241a6d0954ba813d721e0b",
+        "width": 1280,
+        "height": 1152,
+        "bitDepth": 8,
+        "colorType": 2
+      },
+      {
+        "file": "material_0-occlusion.png",
+        "bytes": 15379,
+        "sha256": "398984cbf3a1162cd687dc7d437e37d4a8e85412632f00c40e7c7c4c6dca60fa",
+        "width": 1280,
+        "height": 1152,
+        "bitDepth": 8,
+        "colorType": 0
+      },
+      {
+        "file": "material_0-orm.png",
+        "bytes": 46194,
+        "sha256": "3b500692a0b8e5db45bebb00259b36eb4fc67b30a5caead49b818a17f4f7291e",
+        "width": 1280,
+        "height": 1152,
+        "bitDepth": 8,
+        "colorType": 2
+      },
+      {
+        "file": "material_0-roughness.png",
+        "bytes": 16513,
+        "sha256": "785105aa3b7fecc31d3939e67245fb5c03985d9960c80ac84277ae521dba9fe5",
+        "width": 1280,
+        "height": 1152,
+        "bitDepth": 8,
+        "colorType": 0
+      }
+    ]
+  },
+  "statue-a": {
+    "directory": "/mnt/d/Shared With Desktop/AI/matter-engine-cpp/MatterEditor/build/asset-handoff/2026-09-16-r2/pilot-output/villa-kit-20260916-204523/masters/statue-a",
+    "files": [
+      {
+        "file": "asset.glb",
+        "bytes": 1026884,
+        "sha256": "a72461c5f516f72e1cc3eb1030dd74ac9c662e01c3053acde58685ed8a48e384"
+      },
+      {
+        "file": "asset.mtl",
+        "bytes": 272,
+        "sha256": "05839e2239a0ab3faed37fa9cf7bbaf347c5689ab10ac4fb16e6bb9ed741e103"
+      },
+      {
+        "file": "asset.obj",
+        "bytes": 831130,
+        "sha256": "0e648759ee742a933284d7b47d4e1ee8198e7731a109367b607ab6b0e0b8b424"
+      },
+      {
+        "file": "manifest.json",
+        "bytes": 926,
+        "sha256": "42ed667991d8f6e9257b4a0b80b882390943f6f881e2f5cea051e80e6b177039"
+      },
+      {
+        "file": "material_0-basecolor.png",
+        "bytes": 329165,
+        "sha256": "4f0797ba380e36baedddf8b657276b5516a35cb8e8e7282b15348142df4c1114",
+        "width": 1280,
+        "height": 1408,
+        "bitDepth": 8,
+        "colorType": 2
+      },
+      {
+        "file": "material_0-clearcoat.png",
+        "bytes": 56571,
+        "sha256": "dd08cbe26beda52ab5a2b5deff9fec3719b569f3bdec05c6a7edbf4ef6666a13",
+        "width": 1280,
+        "height": 1408,
+        "bitDepth": 8,
+        "colorType": 2
+      },
+      {
+        "file": "material_0-height.png",
+        "bytes": 42328,
+        "sha256": "1599cebc31f453a36fb2df488f83ced9022cc8ce9b2fe95cba05b4c99a0201a5",
+        "width": 1280,
+        "height": 1408,
+        "bitDepth": 16,
+        "colorType": 0
+      },
+      {
+        "file": "material_0-metallic.png",
+        "bytes": 32063,
+        "sha256": "6d46ff0ee2797db88c6a02841f7e204fd467122c1a6f1533ec2660762698d88f",
+        "width": 1280,
+        "height": 1408,
+        "bitDepth": 8,
+        "colorType": 0
+      },
+      {
+        "file": "material_0-normal-obj.png",
+        "bytes": 211256,
+        "sha256": "da86ad614b321b30dfcb6fb6396f7dfe939b408762e8208c5b94bca904a63e5e",
+        "width": 1280,
+        "height": 1408,
+        "bitDepth": 8,
+        "colorType": 2
+      },
+      {
+        "file": "material_0-normal.png",
+        "bytes": 211350,
+        "sha256": "b7363045120256feaf953965c785327cc3cebfa17779b91565ee9cf61e90c8c5",
+        "width": 1280,
+        "height": 1408,
+        "bitDepth": 8,
+        "colorType": 2
+      },
+      {
+        "file": "material_0-occlusion.png",
+        "bytes": 30205,
+        "sha256": "6610968bd4c9ff3eea3e57c7627fd7740356c0a48e812b6ea931d3760ffa7d4b",
+        "width": 1280,
+        "height": 1408,
+        "bitDepth": 8,
+        "colorType": 0
+      },
+      {
+        "file": "material_0-orm.png",
+        "bytes": 70279,
+        "sha256": "01508a593aa2352bcb3d6917405e6942e48517b7175e167270428d79003e14a1",
+        "width": 1280,
+        "height": 1408,
+        "bitDepth": 8,
+        "colorType": 2
+      },
+      {
+        "file": "material_0-roughness.png",
+        "bytes": 29631,
+        "sha256": "7952eadb8ed9b111fbd90c31f913aca8d67c90e1873aa0bd236ef7f526e6ed13",
+        "width": 1280,
+        "height": 1408,
+        "bitDepth": 8,
+        "colorType": 0
+      }
+    ]
+  },
+  "bench-3m": {
+    "directory": "/mnt/d/Shared With Desktop/AI/matter-engine-cpp/MatterEditor/build/asset-handoff/2026-09-16-r2/pilot-output/villa-kit-20260916-204523/masters/bench-3m",
+    "files": [
+      {
+        "file": "asset.glb",
+        "bytes": 701292,
+        "sha256": "7b65b36bc7a1848c62fe5fd99eb257e8305e675acc26cb74b2a1ea895c514841"
+      },
+      {
+        "file": "asset.mtl",
+        "bytes": 272,
+        "sha256": "05839e2239a0ab3faed37fa9cf7bbaf347c5689ab10ac4fb16e6bb9ed741e103"
+      },
+      {
+        "file": "asset.obj",
+        "bytes": 109969,
+        "sha256": "264ba50c4379b46edbffd1f37101cdcc777cc7d27e684ea304c726899adb8eb0"
+      },
+      {
+        "file": "manifest.json",
+        "bytes": 857,
+        "sha256": "eb964ee6c8489726bc5c7e26aa51fedfa0a0da51629551873a0938007d6feb62"
+      },
+      {
+        "file": "material_0-basecolor.png",
+        "bytes": 72453,
+        "sha256": "fb491d6ca67a24f4fdf30f4531baf0bcc714ba9c6c60158d8e34a9f437a97320",
+        "width": 1408,
+        "height": 1664,
+        "bitDepth": 8,
+        "colorType": 2
+      },
+      {
+        "file": "material_0-height.png",
+        "bytes": 70529,
+        "sha256": "29017f91e5cc28466e4ffdf9ca867a82956dfa32d1a720d1422ca2f4960b18a8",
+        "width": 1408,
+        "height": 1664,
+        "bitDepth": 16,
+        "colorType": 0
+      },
+      {
+        "file": "material_0-metallic.png",
+        "bytes": 57719,
+        "sha256": "b5717a30d73bf8abb168204b49c4da5b6c08e70860849089d5431ca7f31b53f4",
+        "width": 1408,
+        "height": 1664,
+        "bitDepth": 8,
+        "colorType": 0
+      },
+      {
+        "file": "material_0-normal-obj.png",
+        "bytes": 448794,
+        "sha256": "54fa0d72162a66a5cc36bcdbde217d1bb0e73eb5ef4c0537df35382800bbd393",
+        "width": 1408,
+        "height": 1664,
+        "bitDepth": 8,
+        "colorType": 2
+      },
+      {
+        "file": "material_0-normal.png",
+        "bytes": 447529,
+        "sha256": "29a4be21205370e89304edc57f1bff459c30f5d1b17c62d2d97b309944e944e7",
+        "width": 1408,
+        "height": 1664,
+        "bitDepth": 8,
+        "colorType": 2
+      },
+      {
+        "file": "material_0-occlusion.png",
+        "bytes": 52703,
+        "sha256": "5847fc9d8fa8cdbc912f3353edb747b3f7b79a1023c782cc1281955a7ba48394",
+        "width": 1408,
+        "height": 1664,
+        "bitDepth": 8,
+        "colorType": 0
+      },
+      {
+        "file": "material_0-orm.png",
+        "bytes": 123563,
+        "sha256": "7fafba7dbf82ae9d610a2fca2aa69b1d4ecedda98d62a22a41ece91ea9278348",
+        "width": 1408,
+        "height": 1664,
+        "bitDepth": 8,
+        "colorType": 2
+      },
+      {
+        "file": "material_0-roughness.png",
+        "bytes": 50303,
+        "sha256": "b3695d743d0a9da594a287c406559ae4979830d3a43fc7105b2f48b39d0fbf19",
+        "width": 1408,
+        "height": 1664,
+        "bitDepth": 8,
+        "colorType": 0
+      }
+    ]
+  },
+  "statue-b": {
+    "directory": "/mnt/d/Shared With Desktop/AI/matter-engine-cpp/MatterEditor/build/asset-handoff/2026-09-16-r2/pilot-output/villa-kit-20260916-204523/masters/statue-b",
+    "files": [
+      {
+        "file": "asset.glb",
+        "bytes": 1565824,
+        "sha256": "e26c2974857ad4c7252d18077e0f836ff6ebb96ba5ded05aa794edf7a6ffe7a9"
+      },
+      {
+        "file": "asset.mtl",
+        "bytes": 272,
+        "sha256": "05839e2239a0ab3faed37fa9cf7bbaf347c5689ab10ac4fb16e6bb9ed741e103"
+      },
+      {
+        "file": "asset.obj",
+        "bytes": 590551,
+        "sha256": "d666d6d965b229a55fe5a5fdb41a80f0345c991390518c496141f2ad5cfa4b83"
+      },
+      {
+        "file": "manifest.json",
+        "bytes": 926,
+        "sha256": "739acff89bd959c5df885ef0163d8f273c026f721aaf8bfce719fdf2842f0fe6"
+      },
+      {
+        "file": "material_0-basecolor.png",
+        "bytes": 838725,
+        "sha256": "2d24557c66800c232379a38c0715486506dfcc86652194903c459f9a0e0624b1",
+        "width": 2176,
+        "height": 2048,
+        "bitDepth": 8,
+        "colorType": 2
+      },
+      {
+        "file": "material_0-clearcoat.png",
+        "bytes": 136563,
+        "sha256": "fa5c521c82c2650bf4f09a927738c5e42a83d33a53ecfb98a16657d0639615ab",
+        "width": 2176,
+        "height": 2048,
+        "bitDepth": 8,
+        "colorType": 2
+      },
+      {
+        "file": "material_0-height.png",
+        "bytes": 91248,
+        "sha256": "0d978c86cd36aabd069c7178332494d977e7d329cc0be63b80c615116287f2b1",
+        "width": 2176,
+        "height": 2048,
+        "bitDepth": 16,
+        "colorType": 0
+      },
+      {
+        "file": "material_0-metallic.png",
+        "bytes": 50125,
+        "sha256": "3e5bc420ee0323b005d15b1c1e511fb8e51b4a43124e44ed35332e5991f8c965",
+        "width": 2176,
+        "height": 2048,
+        "bitDepth": 8,
+        "colorType": 0
+      },
+      {
+        "file": "material_0-normal-obj.png",
+        "bytes": 177141,
+        "sha256": "9376fd106b3afdb83538e9106e9b227aa31892610bc8761288bf15f173b4e127",
+        "width": 2176,
+        "height": 2048,
+        "bitDepth": 8,
+        "colorType": 2
+      },
+      {
+        "file": "material_0-normal.png",
+        "bytes": 177161,
+        "sha256": "be5593ccbf0b1402928cfe80009eb9b7b7a10179ecb077da4cc79432dada1ea9",
+        "width": 2176,
+        "height": 2048,
+        "bitDepth": 8,
+        "colorType": 2
+      },
+      {
+        "file": "material_0-occlusion.png",
+        "bytes": 47781,
+        "sha256": "fe264e8ef42b72be3212f290f98f779e88241979e056d7c96b9d9819ffe986ca",
+        "width": 2176,
+        "height": 2048,
+        "bitDepth": 8,
+        "colorType": 0
+      },
+      {
+        "file": "material_0-orm.png",
+        "bytes": 138719,
+        "sha256": "000bc76e05be8299db6f465ff6541c06b7bf52647de6369320b799bc525ff2b0",
+        "width": 2176,
+        "height": 2048,
+        "bitDepth": 8,
+        "colorType": 2
+      },
+      {
+        "file": "material_0-roughness.png",
+        "bytes": 50146,
+        "sha256": "27429e1bf1ec61d50f9b2475e6907c86f670a4c00c2cf08e70fe9218a7b5cad3",
+        "width": 2176,
+        "height": 2048,
+        "bitDepth": 8,
+        "colorType": 0
+      }
+    ]
+  },
+  "relief-a": {
+    "directory": "/mnt/d/Shared With Desktop/AI/matter-engine-cpp/MatterEditor/build/asset-handoff/2026-09-16-r2/pilot-output/villa-kit-20260916-204523/masters/relief-a",
+    "files": [
+      {
+        "file": "asset.glb",
+        "bytes": 2566308,
+        "sha256": "6e4a1def056ff71cda011f833ea09e2c4d81d42ec9e128781920cf866f2a68cb"
+      },
+      {
+        "file": "asset.mtl",
+        "bytes": 272,
+        "sha256": "05839e2239a0ab3faed37fa9cf7bbaf347c5689ab10ac4fb16e6bb9ed741e103"
+      },
+      {
+        "file": "asset.obj",
+        "bytes": 1883268,
+        "sha256": "268a66ea3d2986bab986cb79f57d284fe061dbf0278a4f42f5d912f37207b9c1"
+      },
+      {
+        "file": "manifest.json",
+        "bytes": 927,
+        "sha256": "1710059bed8761cc2cfc3270507f4039949dc947b24ec4ad13d67a674e470670"
+      },
+      {
+        "file": "material_0-basecolor.png",
+        "bytes": 510970,
+        "sha256": "ed172bf657a479126c781f268b0174065de59e4cd356e71540184bd8169ed562",
+        "width": 2816,
+        "height": 3072,
+        "bitDepth": 8,
+        "colorType": 2
+      },
+      {
+        "file": "material_0-clearcoat.png",
+        "bytes": 258435,
+        "sha256": "8ee911b8f2909041be2569b270efdbfa619afe944be44764faf7f45caa7858b3",
+        "width": 2816,
+        "height": 3072,
+        "bitDepth": 8,
+        "colorType": 2
+      },
+      {
+        "file": "material_0-height.png",
+        "bytes": 185655,
+        "sha256": "39e560f4b98ee1650db465fdf096dd43b2e968f2ba46241db51a5d6d4b013cde",
+        "width": 2816,
+        "height": 3072,
+        "bitDepth": 16,
+        "colorType": 0
+      },
+      {
+        "file": "material_0-metallic.png",
+        "bytes": 128165,
+        "sha256": "b1ef11421250d5db90025931f49088b907d699b89a50b6565a869d603fc25f14",
+        "width": 2816,
+        "height": 3072,
+        "bitDepth": 8,
+        "colorType": 0
+      },
+      {
+        "file": "material_0-normal-obj.png",
+        "bytes": 660969,
+        "sha256": "57910f92dcd9dd41043fab11fac8d04ce141277f5ebefd85f38e33846073159b",
+        "width": 2816,
+        "height": 3072,
+        "bitDepth": 8,
+        "colorType": 2
+      },
+      {
+        "file": "material_0-normal.png",
+        "bytes": 662266,
+        "sha256": "ffb123aafb32973ff61d84bd57ae575bbd7039032c3bfc80745a5046be6f2586",
+        "width": 2816,
+        "height": 3072,
+        "bitDepth": 8,
+        "colorType": 2
+      },
+      {
+        "file": "material_0-occlusion.png",
+        "bytes": 120652,
+        "sha256": "88c442309c8d1bccf87e37f38af5631d1c65ea455608b851cab4334891a66cbd",
+        "width": 2816,
+        "height": 3072,
+        "bitDepth": 8,
+        "colorType": 0
+      },
+      {
+        "file": "material_0-orm.png",
+        "bytes": 315865,
+        "sha256": "507bccb043f93ce263095f014bf98c319fefa6e02782125e3f554d24624907b9",
+        "width": 2816,
+        "height": 3072,
+        "bitDepth": 8,
+        "colorType": 2
+      },
+      {
+        "file": "material_0-roughness.png",
+        "bytes": 121851,
+        "sha256": "ca8844ea8d1aa547415fda492c39a37d855d2b0b56be232ef318884807c24cfe",
+        "width": 2816,
+        "height": 3072,
+        "bitDepth": 8,
+        "colorType": 0
+      }
+    ]
+  },
+  "urn-large": {
+    "directory": "/mnt/d/Shared With Desktop/AI/matter-engine-cpp/MatterEditor/build/asset-handoff/2026-09-16-r2/pilot-output/villa-kit-20260916-204523/masters/urn-large",
+    "files": [
+      {
+        "file": "asset.glb",
+        "bytes": 877416,
+        "sha256": "6633c73490976f0003e81770747d1e67edaa7446027c454b32063e83c40f5b60"
+      },
+      {
+        "file": "asset.mtl",
+        "bytes": 272,
+        "sha256": "05839e2239a0ab3faed37fa9cf7bbaf347c5689ab10ac4fb16e6bb9ed741e103"
+      },
+      {
+        "file": "asset.obj",
+        "bytes": 1112241,
+        "sha256": "4b0247c88098a46b0ac16ec08bb8a82ca7c34e59c0abca1e699d42f2b1159f7a"
+      },
+      {
+        "file": "manifest.json",
+        "bytes": 928,
+        "sha256": "c58b8b295f4162f06586e4ece7506c19e600b50aad28b80e1f075483330458cf"
+      },
+      {
+        "file": "material_0-basecolor.png",
+        "bytes": 66603,
+        "sha256": "0dc915dccbad632fe56da038368341400a73e74da49d3c6559e08d5b6e13da82",
+        "width": 1536,
+        "height": 1408,
+        "bitDepth": 8,
+        "colorType": 2
+      },
+      {
+        "file": "material_0-clearcoat.png",
+        "bytes": 66563,
+        "sha256": "5f7a9b70c689628f23c2f49b20e279dd16b04405311ccd0c9d9f41f44697059a",
+        "width": 1536,
+        "height": 1408,
+        "bitDepth": 8,
+        "colorType": 2
+      },
+      {
+        "file": "material_0-height.png",
+        "bytes": 49912,
+        "sha256": "1a5ab1b7fce96450d9bdd54eeba7faa64953b81c193f2a90826101077ffb7af2",
+        "width": 1536,
+        "height": 1408,
+        "bitDepth": 16,
+        "colorType": 0
+      },
+      {
+        "file": "material_0-metallic.png",
+        "bytes": 28025,
+        "sha256": "d9059e698da02ee11cb6f12d65759cd1d741e07b1faa1eb6406efb00f97e3ee2",
+        "width": 1536,
+        "height": 1408,
+        "bitDepth": 8,
+        "colorType": 0
+      },
+      {
+        "file": "material_0-normal-obj.png",
+        "bytes": 164739,
+        "sha256": "12bf6ed654c2f3c372ffce5eba4015100c36924516aacb28df96e4fcd3315c0e",
+        "width": 1536,
+        "height": 1408,
+        "bitDepth": 8,
+        "colorType": 2
+      },
+      {
+        "file": "material_0-normal.png",
+        "bytes": 164981,
+        "sha256": "752c93d6adac838a391faae600cd286fbe65761a3a9d73f6110889d27103bd29",
+        "width": 1536,
+        "height": 1408,
+        "bitDepth": 8,
+        "colorType": 2
+      },
+      {
+        "file": "material_0-occlusion.png",
+        "bytes": 27481,
+        "sha256": "5145c3d753d5d4400a8f0e7e9c89d5fa41207a07e2cf4b188e3fe7ed1b60dd04",
+        "width": 1536,
+        "height": 1408,
+        "bitDepth": 8,
+        "colorType": 0
+      },
+      {
+        "file": "material_0-orm.png",
+        "bytes": 75618,
+        "sha256": "bda3927277feef362ace01c847b986392b2a01f2ebb17395c8f6a2c02f7b9a32",
+        "width": 1536,
+        "height": 1408,
+        "bitDepth": 8,
+        "colorType": 2
+      },
+      {
+        "file": "material_0-roughness.png",
+        "bytes": 28447,
+        "sha256": "d36b3fcf7e56f2cec9749274542debd773644251956e66e2d35a24d4afb6b500",
+        "width": 1536,
+        "height": 1408,
+        "bitDepth": 8,
+        "colorType": 0
+      }
+    ]
+  },
+  "olive-small": {
+    "directory": "/mnt/d/Shared With Desktop/AI/matter-engine-cpp/MatterEditor/build/asset-handoff/2026-09-16-r2/pilot-output/villa-kit-20260916-204523/masters/olive-small",
+    "files": [
+      {
+        "file": "asset.glb",
+        "bytes": 1442548,
+        "sha256": "1987d8e876616cb1ad7fc0f1ab1704c19afca4a453d4cc550bcf215266a3b435"
+      },
+      {
+        "file": "asset.mtl",
+        "bytes": 272,
+        "sha256": "05839e2239a0ab3faed37fa9cf7bbaf347c5689ab10ac4fb16e6bb9ed741e103"
+      },
+      {
+        "file": "asset.obj",
+        "bytes": 874329,
+        "sha256": "7f998b3cd91e3094a773f7e53b3fe18be036bd39281484da94574a28c22f5abe"
+      },
+      {
+        "file": "manifest.json",
+        "bytes": 835,
+        "sha256": "770a586c3f8dad29c5b9803d9931a272e440e2a4ae7ebab5f6a2d7f198197a20"
+      },
+      {
+        "file": "material_0-basecolor.png",
+        "bytes": 379332,
+        "sha256": "002e3c1772a24006dbd73bb018d3ed26c07d5e31ebe4159778322058e57e38b3",
+        "width": 2688,
+        "height": 2560,
+        "bitDepth": 8,
+        "colorType": 2
+      },
+      {
+        "file": "material_0-height.png",
+        "bytes": 137665,
+        "sha256": "a84067a0ddfb55864ead4e2b9d1e1eef3d6d35013229e6f85e93ab0dccb72382",
+        "width": 2688,
+        "height": 2560,
+        "bitDepth": 16,
+        "colorType": 0
+      },
+      {
+        "file": "material_0-metallic.png",
+        "bytes": 72705,
+        "sha256": "1a35600424ab3d8e00fb17f75cab6c70ce50d0b9239fb27d187e77662a8c9bc5",
+        "width": 2688,
+        "height": 2560,
+        "bitDepth": 8,
+        "colorType": 0
+      },
+      {
+        "file": "material_0-normal-obj.png",
+        "bytes": 386272,
+        "sha256": "63e4044e1976c5b0b4f07ca53f619ce16d19387690ef866c03030b941abee098",
+        "width": 2688,
+        "height": 2560,
+        "bitDepth": 8,
+        "colorType": 2
+      },
+      {
+        "file": "material_0-normal.png",
+        "bytes": 386983,
+        "sha256": "9cacf6b9e708506e0e1c38e693ffc598d96703473381ffd43381e968ce5a12ad",
+        "width": 2688,
+        "height": 2560,
+        "bitDepth": 8,
+        "colorType": 2
+      },
+      {
+        "file": "material_0-occlusion.png",
+        "bytes": 72706,
+        "sha256": "c8a5feadcb39eb5382f9cbd9f33de36486c6baa5fd09ac0b445337303e963db9",
+        "width": 2688,
+        "height": 2560,
+        "bitDepth": 8,
+        "colorType": 0
+      },
+      {
+        "file": "material_0-orm.png",
+        "bytes": 296783,
+        "sha256": "958fbdd94fc121caafd57e376d900291689f058620895374fa6e003ed011d6f6",
+        "width": 2688,
+        "height": 2560,
+        "bitDepth": 8,
+        "colorType": 2
+      },
+      {
+        "file": "material_0-roughness.png",
+        "bytes": 147289,
+        "sha256": "85d7ca2a687958c5ef7dcdc659883cd4321dd621cc6e63f90471a4df6bc994be",
+        "width": 2688,
+        "height": 2560,
+        "bitDepth": 8,
+        "colorType": 0
+      }
+    ]
+  },
+  "ground-plant-clump": {
+    "directory": "/mnt/d/Shared With Desktop/AI/matter-engine-cpp/MatterEditor/build/asset-handoff/2026-09-16-r2/pilot-output/villa-kit-20260916-204523/masters/ground-plant-clump",
+    "files": [
+      {
+        "file": "asset.glb",
+        "bytes": 437488,
+        "sha256": "807d378c4c6c89b99d3e26ee438e5c67f1f5416ea1d8669605f3c3ef5f27d858"
+      },
+      {
+        "file": "asset.mtl",
+        "bytes": 272,
+        "sha256": "05839e2239a0ab3faed37fa9cf7bbaf347c5689ab10ac4fb16e6bb9ed741e103"
+      },
+      {
+        "file": "asset.obj",
+        "bytes": 229330,
+        "sha256": "cec160849791de36f4532e9365ac2f348179404d3cdedeb2a2d8c38f4f2c1d29"
+      },
+      {
+        "file": "manifest.json",
+        "bytes": 857,
+        "sha256": "2d48ae4164166cfcfd6d6aa19c668752ddf9abc3a58298ae6a3f664640227f5b"
+      },
+      {
+        "file": "material_0-basecolor.png",
+        "bytes": 101471,
+        "sha256": "6409531c94c789759016ecfb649b78291719d14cb4b68558f7fda3a808ba40ec",
+        "width": 1408,
+        "height": 1408,
+        "bitDepth": 8,
+        "colorType": 2
+      },
+      {
+        "file": "material_0-height.png",
+        "bytes": 45206,
+        "sha256": "92c4994e1d3620657f24a03cb3a16fbf45b52c37ac7b2e7c03a96b4a2d560129",
+        "width": 1408,
+        "height": 1408,
+        "bitDepth": 16,
+        "colorType": 0
+      },
+      {
+        "file": "material_0-metallic.png",
+        "bytes": 23519,
+        "sha256": "5102a361d46e095a0feb971576e38d49200e3d9b71c632aeb1aafb422a70723e",
+        "width": 1408,
+        "height": 1408,
+        "bitDepth": 8,
+        "colorType": 0
+      },
+      {
+        "file": "material_0-normal-obj.png",
+        "bytes": 143353,
+        "sha256": "bdb6a2db6c6a0aeac6fc4d9a3469052caebc93abd970bf53405d20f3811dc8f8",
+        "width": 1408,
+        "height": 1408,
+        "bitDepth": 8,
+        "colorType": 2
+      },
+      {
+        "file": "material_0-normal.png",
+        "bytes": 143579,
+        "sha256": "da9e016c60d1c14e6a9df535da0bfc82f1f17561623e6bd3521a589bf446686a",
+        "width": 1408,
+        "height": 1408,
+        "bitDepth": 8,
+        "colorType": 2
+      },
+      {
+        "file": "material_0-occlusion.png",
+        "bytes": 22985,
+        "sha256": "ee5c21b62374826457e2b80734f29cf5eeb1ab1e826dc71ae0f0840f50c8fa19",
+        "width": 1408,
+        "height": 1408,
+        "bitDepth": 8,
+        "colorType": 0
+      },
+      {
+        "file": "material_0-orm.png",
+        "bytes": 90985,
+        "sha256": "6680d35d9968c94cdcb4ffec6f6b6a5b928acd3c889eca9addcc5d06de3be4f8",
+        "width": 1408,
+        "height": 1408,
+        "bitDepth": 8,
+        "colorType": 2
+      },
+      {
+        "file": "material_0-roughness.png",
+        "bytes": 43813,
+        "sha256": "9253ad3548215a144441a790cbee8bc1505c00b1ed2aa4ece7b2ee2ef5fa3af4",
+        "width": 1408,
+        "height": 1408,
+        "bitDepth": 8,
+        "colorType": 0
+      }
+    ]
+  },
+  "wall-inset-panel": {
+    "directory": "/mnt/d/Shared With Desktop/AI/matter-engine-cpp/MatterEditor/build/asset-handoff/2026-09-16-r2/pilot-output/villa-kit-20260916-204523/masters/wall-inset-panel",
+    "files": [
+      {
+        "file": "asset.glb",
+        "bytes": 2075260,
+        "sha256": "1d367764031879019983976249bd3d36d81081df07f68f2246c68fcd548ee9ce"
+      },
+      {
+        "file": "asset.mtl",
+        "bytes": 272,
+        "sha256": "05839e2239a0ab3faed37fa9cf7bbaf347c5689ab10ac4fb16e6bb9ed741e103"
+      },
+      {
+        "file": "asset.obj",
+        "bytes": 1138733,
+        "sha256": "23f24fb012d25bbe69b2320c30f977e995d6f344169a85f74e8400f1cbf44e4b"
+      },
+      {
+        "file": "manifest.json",
+        "bytes": 858,
+        "sha256": "376cc5dd96429bfa2f9de9f8910e5d7f80b69e66eb10fde0cbc8c0c0808af99f"
+      },
+      {
+        "file": "material_0-basecolor.png",
+        "bytes": 122490,
+        "sha256": "292497b3602be0cb304220714715eceeb90dc7182581daaca969a3394cf9dfb9",
+        "width": 2048,
+        "height": 1920,
+        "bitDepth": 8,
+        "colorType": 2
+      },
+      {
+        "file": "material_0-height.png",
+        "bytes": 152982,
+        "sha256": "816f5898929ee3cc2fd4fd6d3239b8a10cb3bebc300adc905d8e92db185b088b",
+        "width": 2048,
+        "height": 1920,
+        "bitDepth": 16,
+        "colorType": 0
+      },
+      {
+        "file": "material_0-metallic.png",
+        "bytes": 114938,
+        "sha256": "b11a00528831d27290b9bd4c84b73efe700bbe65be2c875af1f424386cfc049f",
+        "width": 2048,
+        "height": 1920,
+        "bitDepth": 8,
+        "colorType": 0
+      },
+      {
+        "file": "material_0-normal-obj.png",
+        "bytes": 1229351,
+        "sha256": "b2678e0839a14fb2835a1d8dd2ca09adf9462d341408e95107e469542918a668",
+        "width": 2048,
+        "height": 1920,
+        "bitDepth": 8,
+        "colorType": 2
+      },
+      {
+        "file": "material_0-normal.png",
+        "bytes": 1230050,
+        "sha256": "ec06f98d219711339f197d232dcb2a6e10770241a201bc938efe453bb387bc29",
+        "width": 2048,
+        "height": 1920,
+        "bitDepth": 8,
+        "colorType": 2
+      },
+      {
+        "file": "material_0-occlusion.png",
+        "bytes": 97880,
+        "sha256": "db2798351e18668dbf287c4b103cc9986a7cb534069b3b86ab3b37e25fc35de0",
+        "width": 2048,
+        "height": 1920,
+        "bitDepth": 8,
+        "colorType": 0
+      },
+      {
+        "file": "material_0-orm.png",
+        "bytes": 223152,
+        "sha256": "bfb2dd5b7135ebb964cf1430077bc12849731f49603e6c8b04b430628793fe5a",
+        "width": 2048,
+        "height": 1920,
+        "bitDepth": 8,
+        "colorType": 2
+      },
+      {
+        "file": "material_0-roughness.png",
+        "bytes": 98634,
+        "sha256": "a47b5c28b8d3a71b49b9ae201ab7d03be12ec30ab66f569090a874b7d6e8aaef",
+        "width": 2048,
+        "height": 1920,
+        "bitDepth": 8,
+        "colorType": 0
+      }
+    ]
+  }
+}

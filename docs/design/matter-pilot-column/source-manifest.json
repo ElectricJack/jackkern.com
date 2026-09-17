@@ -1,0 +1,10 @@
+{
+  "projects/world_demo/shared-lib/villa_doric_pilot.js": "e54a4e761225c168722e33247f511c9e1aac99a7b2ad5ec1969c82d9d6b4aff3",
+  "projects/world_demo/scenes/architecture/villa/VillaDoricColumnStudy/props.json": "fc0e5cef46edd633ed880920fa01890da9e1dd88d3286b07a1949c2ee6318b77",
+  "projects/world_demo/scenes/architecture/villa/VillaDoricColumnStudy/README.md": "a86eff3ba0b1bc8a06e2d066d9d206f9585427620e3e213505d5659364906c68",
+  "projects/world_demo/scenes/architecture/villa/VillaDoricColumnStudy/verify.mjs": "305c164bb1fb6c3b023c642a223e290b6c2582dbba18c4d03ce575aed0c31eac",
+  "projects/world_demo/scenes/architecture/villa/VillaDoricColumnStudy/VillaDoricColumnStudy.js": "eae457fae9bb880b8186a495fe57cd71f53c165d265b5cb32126ca18397002e3",
+  "projects/world_demo/scenes/architecture/villa/VillaDoricColumnStudy/objects/VillaColumnStudyFloor.js": "0e0e9b2a1fe67f2657e8f3217d6dde8c5db85daa9ae5b4db07e8c32393761e17",
+  "projects/world_demo/scenes/architecture/villa/VillaDoricColumnStudy/objects/VillaDoricColumnPilot.js": "de7863516e589e35fff33891f69cae274ee542d8d2e9d69835b0ab67417a68d3",
+  "projects/world_demo/scenes/architecture/villa/VillaDoricColumnStudy/objects/VillaLimestonePilotDetail.js": "407f60981aef84ad875ddedf4c82c8a2fe9551c61c98199fc7e693bf2271caf6"
+}

@@ -1,0 +1,20 @@
+[
+  {
+    "mode": "default",
+    "ready": true,
+    "requests": [],
+    "warnings": [],
+    "uncaughtErrors": []
+  },
+  {
+    "mode": "missing-column",
+    "ready": true,
+    "requests": [
+      "http://127.0.0.1:4321/assets/matter/column-doric/desktop.glb"
+    ],
+    "warnings": [
+      "villa: Matter column could not load; using stand-in cf: fetch for \"http://127.0.0.1:4321/assets/matter/column-doric/desktop.glb\" responded with 404: Not Found\n    at http://127.0.0.1:4321/bundle/main-ClAniawS.js:42:83831"
+    ],
+    "uncaughtErrors": []
+  }
+]

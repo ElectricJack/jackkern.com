@@ -55,8 +55,11 @@ test('the walk keeps the camera at eye height over the floor or stairs under it'
   }
 
   expect(unsupported.slice(0, 5)).toEqual([]);
-  // Every stair run is one the walk goes down, not one it steps around.
-  const stairs = plan.placements.filter((p) => p.part === STAIRS).map((p) => p.instance);
+  // Interior stairs carry the route. The exterior arrival steps sit before the
+  // start of the flight, outside the court's bounds, and are intentionally untraversed.
+  const stairs = plan.placements.filter((p) => p.part === STAIRS && Object.values(plan.bounds).some((b) => [0, 2].every((axis) =>
+    p.transform[12 + axis] >= b.min[axis] && p.transform[12 + axis] <= b.max[axis]
+  ))).map((p) => p.instance);
   expect(stairs.length).toBeGreaterThan(0);
   expect(stairs.filter((instance) => walked.has(instance))).toEqual(stairs);
   expect(

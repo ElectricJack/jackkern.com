@@ -4,7 +4,7 @@ import { greyboxGeometry, greyboxMaterial } from './greybox';
 
 export interface PartAsset {
   geometry: BufferGeometry;
-  material: Material;
+  material: Material | Material[];
 }
 
 export interface KitSource {
