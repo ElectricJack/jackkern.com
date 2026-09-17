@@ -8,6 +8,7 @@ test('buildContent renders one entry per project stop in manifest order', async 
   expect(content.map((c) => c.id)).toEqual(['matter-engine', 'outrider-ide', 'agent-queue', 'quilt-trader']);
   expect(content[0].title).toBe('Matter Engine');
   expect(content[0].html).toContain('<p>');
-  expect(content[0].html).toContain('href="https://github.com/ElectricJack/matter-engine"');
+  expect(content[0].html).toContain('href="https://electricjack.github.io/matter-engine/"');
+  expect(content[3].html).toContain('href="https://electricjack.github.io/quilt-trader/"');
   expect(Array.isArray(content[0].screenshots)).toBe(true);
 });

@@ -4,4 +4,4 @@ Matter Engine brings together meshing, spatial queries, simulation, and a Vulkan
 
 This villa is a work in progress. Its simple forms will eventually give way to geometry, materials, and baked light authored in Matter Engine.
 
-[Explore the source](https://github.com/ElectricJack/matter-engine)
+[Explore Matter Engine](https://electricjack.github.io/matter-engine/)

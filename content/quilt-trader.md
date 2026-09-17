@@ -4,4 +4,4 @@ Quilt Trader keeps market data in a local Parquet store and exposes the research
 
 A coordinator, dashboard, and distributed workers connect research to execution. Currently in private alpha, with an open-source release planned.
 
-[Ask me about Quilt Trader](mailto:jack.w.kern@gmail.com)
+[Explore Quilt Trader](https://electricjack.github.io/quilt-trader/)

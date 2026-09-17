@@ -140,7 +140,7 @@ For the record, so nobody "fixes" these into something unsourced:
 | `Rust · C/C++ · C# · Python · TS` | GitHub profile bio (`c/c++/c#/js/ts/py`) plus each pinned repo's primary language |
 | Outrider card | [outrider-ide README](https://github.com/ElectricJack/outrider-ide) and its site |
 | Agent Queue card | [agent-queue README](https://github.com/ElectricJack/agent-queue) |
-| Matter Engine card | [matter-engine README](https://github.com/ElectricJack/matter-engine) |
-| Quilt Trader card | [quilt-trader README](https://github.com/ElectricJack/quilt-trader) |
+| Matter Engine card | [matter-engine README](https://github.com/ElectricJack/matter-engine) and [project site](https://electricjack.github.io/matter-engine/) |
+| Quilt Trader card | [quilt-trader README](https://github.com/ElectricJack/quilt-trader) and [project site](https://electricjack.github.io/quilt-trader/) |
 | `24 public repositories` | GitHub profile `public_repos` — **this one goes stale**; it is a hand-written number, not a live count |
 | `@ElectricJack` on X | GitHub profile `twitter_username` |
