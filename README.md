@@ -75,11 +75,22 @@ The layout is generated from the manifest; nothing else needs editing.
 
 ## Deploy
 
-Pushes to `main` build and publish to GitHub Pages through `.github/workflows/deploy.yml`.
-The mobile test URL is **https://electricjack.github.io/jackkern.com/**. Relative URLs let the
-same build work there or at a future custom-domain root. The custom domain is controlled by
-repository Pages settings; [GitHub ignores `CNAME` files for Actions deployments](https://docs.github.com/en/pages/configuring-a-custom-domain-for-your-github-pages-site/managing-a-custom-domain-for-your-github-pages-site).
-`jackkern.com` still points to its existing host; its DNS has not been changed for this test.
+The primary site is **https://electricjack.github.io/**. Its deployment workflow lives in
+[ElectricJack/electricjack.github.io](https://github.com/ElectricJack/electricjack.github.io)
+and builds this repository's source. After pushing the tested source to `main`, publish it with:
+
+```sh
+gh workflow run deploy.yml --repo ElectricJack/electricjack.github.io -f source_ref=main
+```
+
+Use a commit SHA instead of `main` to publish a specific tested revision. The root site's
+`deployment.json` records the source and deployment revisions.
+
+Pushes to `main` also publish the project preview at **https://electricjack.github.io/jackkern.com/**
+through this repository's `.github/workflows/deploy.yml`. Both addresses use the same relative-URL
+build. Custom domains are controlled by repository Pages settings;
+[GitHub ignores `CNAME` files for Actions deployments](https://docs.github.com/en/pages/configuring-a-custom-domain-for-your-github-pages-site/managing-a-custom-domain-for-your-github-pages-site).
+`jackkern.com` still points to its existing host; its DNS has not been changed.
 
 ### DNS for jackkern.com
 
