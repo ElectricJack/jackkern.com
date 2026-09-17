@@ -12,18 +12,22 @@ Design: `docs/superpowers/specs/2026-09-15-jackkern-3d-site-design.md`.
 
 ## Loading and moving through the villa
 
-With WebGL, and without `prefers-reduced-motion: reduce`, the page opens straight into the villa:
-its sky colour and a thin progress line while three.js downloads, then the entry court. Without
-WebGL, with reduced motion, or without scripts, it shows the static version instead, an image of
-every view and every panel.
+With WebGL, the page opens straight into the 3D villa. The camera starts after ten seconds of
+inactivity at the entrance, measured from the first visible scene frame. It stops at each project's
+reading view for ten seconds, then continues, coming to rest at the terrace. A countdown in the
+footer shows when the next flight begins. Begin, Continue, scrolling and swiping can start it sooner.
+Explicit Pause, opening project details or opening the project index cancels automatic departure
+until the visitor continues. Hidden tabs and the reading view do not advance the tour or its timer.
 
-The mouse wheel and touch swipes push the camera along its rail through a velocity that coasts to
-rest: a wheel notch walks about half a metre, a trackpad flick coasts to a stop within a second, and
-nothing moves it faster than 4 m/s. Every tuning constant is in `src/camera/travel.ts`. The arrow
-keys, Page Up, Page Down, Space and the hotspot spheres glide to a viewpoint instead. The camera's
-position and its look target follow two splines through the same points (`src/camera/rail.ts`),
-with the view leaning a little ahead between viewpoints so it turns into a doorway before walking
-through it.
+Reduced-motion visitors also land in 3D, with automatic flight and ambient animation disabled.
+They can move using the normal controls. Without WebGL or scripts, or with `?view=list`, the site
+shows the reading version instead. `?capture=1` keeps the camera stationary for static captures.
+
+Page-up wheel gestures and downward touch swipes move forward; the opposite gestures reverse.
+Scroll intensity sets a sustained speed until the next project, from 0.72 to 2.592 m/s; automatic
+flight uses 1.44 m/s. Arrow keys choose direction and Space pauses or resumes. Each leg follows
+the continuous camera and look-target curves with smooth acceleration and jerk at its endpoints.
+Tuning lives in `src/camera/travel.ts`; the ten-second tour waits live in `src/camera/director.ts`.
 
 ## Build and check
 
@@ -36,6 +40,7 @@ through it.
     node tools/check-visual.mjs tmp/visual tests/visual/refs --update   # accept new references
     npm run budgets                     # byte budgets (spec section 8)
     npm run check:links:external
+    node tools/verify-auto-tour.mjs      # desktop/mobile landing, idle start, timed stops, manual pause
 
 `npm run build` is `vite build` followed by the static capture: headless Chromium loads every
 viewpoint of the built site and writes the fallback images the page links. Without Chromium the

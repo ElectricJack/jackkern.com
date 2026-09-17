@@ -106,3 +106,19 @@ test('expanded project details own scrolling and native controls own space', () 
   dispose();
   el.remove();
 });
+
+test('pointer and touch activity restart the entrance idle timer and disposal removes the listeners', () => {
+  const el = document.createElement('div'); document.body.append(el);
+  const director = new Director(new Rail(plan.rail, plan.path), new PerspectiveCamera(), projects);
+  const dispose = bindInputs(el, director);
+  director.setAutoplay(true);
+  for (const type of ['pointermove', 'pointerdown', 'touchstart', 'touchmove', 'keydown']) {
+    director.update(9);
+    window.dispatchEvent(new Event(type));
+    expect(director.autoResumeIn).toBe(10);
+  }
+  dispose(); director.update(9);
+  window.dispatchEvent(new Event('pointermove'));
+  expect(director.autoResumeIn).toBe(1);
+  el.remove();
+});

@@ -131,3 +131,104 @@ test('jump and viewpoint notifications retain stationary capture positions and p
   const before = state(director); run(director, 5);
   expect(state(director)).toEqual(before);
 });
+
+test('the automatic tour starts after ten idle seconds, resetting on entrance activity', () => {
+  const { director } = make();
+  director.jump(0);
+  director.setAutoplay(true);
+  run(director, 9);
+  expect(state(director)).toEqual([0, 0, 0, 0]);
+  director.activity();
+  expect(director.autoResumeIn).toBe(10);
+  run(director, 9.9);
+  expect(director.playing).toBe(false);
+  run(director, .1);
+  expect(director.playing).toBe(true);
+  expect(director.autoResumeIn).toBeNull();
+  expect(state(director)).toEqual([0, 0, 0, 0]);
+  run(director, 3);
+  expect(director.u).toBeGreaterThan(0);
+});
+
+test('automatic flight holds each project for ten seconds in both directions, then stays at the endpoint', () => {
+  const { director } = make();
+  director.setAutoplay(true);
+  run(director, 10);
+  for (const [direction, targets] of [
+    [1, [...director.readingViews, rail.u.length - 1]],
+    [-1, [...director.readingViews].reverse().concat(0)],
+  ] as const) {
+    if (direction < 0) director.fly(-1);
+    for (const target of targets) {
+      arrive(director, target);
+      const stopped = state(director);
+      if (director.atProject) {
+        expect(director.autoResumeIn).toBe(10);
+        run(director, 5); director.activity(); run(director, 4.9);
+        expect(state(director)).toEqual(stopped);
+        run(director, .1);
+        expect(director.playing).toBe(true);
+        expect(state(director)).toEqual(stopped); // restart has zero velocity, acceleration and jerk
+      } else {
+        expect(director.autoResumeIn).toBeNull();
+        run(director, 20);
+        expect(state(director)).toEqual(stopped);
+      }
+    }
+  }
+});
+
+test('manual pause cancels automatic departure until Continue, including selected projects', () => {
+  const { director } = make();
+  director.setAutoplay(true);
+  director.glideTo(director.readingViews[1]);
+  arrive(director, director.readingViews[1]);
+  run(director, 5);
+  director.pause();
+  const stopped = state(director);
+  run(director, 20);
+  expect(state(director)).toEqual(stopped);
+  expect(director.autoResumeIn).toBeNull();
+  director.toggle();
+  arrive(director, director.readingViews[2]);
+  expect(director.autoResumeIn).toBe(10);
+  director.toggle(); run(director, 3);
+  expect(director.u).toBeGreaterThan(rail.u[director.readingViews[2]]);
+});
+
+test('timers use real visible time even when camera integration is capped for a slow frame', () => {
+  const { director } = make();
+  director.setAutoplay(true);
+  for (let i = 0; i < 19; i++) director.update(.1, .5);
+  expect(director.playing).toBe(false);
+  director.update(.1, .5);
+  expect(director.playing).toBe(true);
+  expect(state(director)).toEqual([0, 0, 0, 0]);
+});
+
+test('disabling autoplay cancels its timer and leaves subsequent stops manual', () => {
+  const { director } = make();
+  director.setAutoplay(true);
+  run(director, 8);
+  director.setAutoplay(false);
+  run(director, 20);
+  expect(director.playing).toBe(false);
+  director.fly(); arrive(director, director.readingViews[0]);
+  const stopped = state(director); run(director, 20);
+  expect(state(director)).toEqual(stopped);
+  expect(director.autoResumeIn).toBeNull();
+});
+
+test('selecting the current project starts a fresh reading pause without moving the camera', () => {
+  const { director } = make();
+  director.jump(director.readingViews[0]);
+  director.setAutoplay(true);
+  run(director, 8);
+  const stopped = state(director);
+  director.glideTo(director.readingViews[0]);
+  director.update(1 / 60);
+  expect(state(director)).toEqual(stopped);
+  expect(director.autoResumeIn).toBe(10);
+  run(director, 10);
+  expect(director.playing).toBe(true);
+});

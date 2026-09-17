@@ -1,6 +1,6 @@
 import { chooseMode } from './boot';
 import { debugRequested, installCollector } from './debug/collect';
-import { prefersReducedMotion, supportsWebGL } from './fallback/static';
+import { supportsWebGL } from './fallback/static';
 
 // First, so ?debug=1 also sees what goes wrong while the page starts. The
 // overlay that shows it is a separate chunk only debug visits download.
@@ -19,12 +19,10 @@ const panels = document.getElementById('panels') as HTMLElement;
 const params = new URLSearchParams(location.search);
 const capture = params.has('capture');
 const webgl = supportsWebGL();
-const reducedMotion = prefersReducedMotion();
 const notice = document.getElementById('view-notice') as HTMLElement;
 
 const mode = chooseMode({
   webgl,
-  reducedMotion,
   capture,
   view: params.get('view'),
 });
@@ -95,9 +93,7 @@ if (capture) app.dataset.capture = '';
 if (mode === 'scene') void startScene();
 else show('static', !webgl
   ? 'This browser isn’t providing 3D rendering. You can read every project here, or try the villa in a browser with graphics acceleration enabled.'
-  : params.get('view') === 'list'
-    ? 'You’re viewing the reading version. The full portfolio is also a 3D villa you can explore.'
-    : 'Your reduced-motion setting opened the reading version. You can choose to explore the 3D villa below.');
+  : 'You’re viewing the reading version. The full portfolio is also a 3D villa you can explore.');
 
 document.querySelector('.skip-link')?.addEventListener('click', () => {
   readingPage = true;

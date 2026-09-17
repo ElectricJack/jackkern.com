@@ -49,3 +49,28 @@ test('project index selection uses the same reading viewpoint as the automatic p
   expect(rail.viewpoints[select.mock.calls[0][0]].id).toBe('outrider-ide-focal');
   document.body.innerHTML = '';
 });
+
+test('countdowns explain automatic departure and opening project details cancels it', () => {
+  document.body.innerHTML = html;
+  const director = new Director(rail, new PerspectiveCamera(), projects.map(p => p.id));
+  const update = journeyUI(director, rail, content);
+  const instruction = document.getElementById('travel-instruction')!;
+  director.setAutoplay(true); update(director.u);
+  expect(instruction.textContent).toBe('Tour begins in 10s');
+  director.update(1); update(director.u);
+  expect(instruction.textContent).toBe('Tour begins in 9s');
+  director.jump(director.readingViews[0]);
+  director.setAutoplay(true); update(director.u);
+  expect(instruction.textContent).toBe('Continuing in 10s');
+  const details = document.createElement('details');
+  document.getElementById('panels')!.append(details);
+  details.open = true;
+  details.dispatchEvent(new Event('toggle'));
+  director.update(20); update(director.u);
+  expect(director.playing).toBe(false);
+  expect(director.autoResumeIn).toBeNull();
+  expect(instruction.textContent).toBe('Scroll to continue');
+  document.getElementById('next-space')!.click();
+  expect(director.playing).toBe(true);
+  document.body.innerHTML = '';
+});

@@ -21,7 +21,7 @@ declare global {
     /** The viewpoint the camera is nearest, for tools/console-probe.mjs. */
     __villaViewpoint?: number;
     /** Where the camera is along the walk and how fast it is going, for the wheel checks in docs/verification. */
-    __villaTravel?: () => { u: number; metres: number; speed: number; acceleration: number; jerk: number; mode: string; viewpoint: number; position: number[] };
+    __villaTravel?: () => { u: number; metres: number; speed: number; acceleration: number; jerk: number; mode: string; viewpoint: number; position: number[]; autoResumeIn: number | null };
     __villaAssets?: () => { tier: string; loaded: Record<string, string> };
     __villaRenderStats?: () => { calls: number; triangles: number; textures: number; geometries: number; residentStops: string[]; reflectionPasses: number; leaves: number; dust: number };
   }
@@ -138,6 +138,7 @@ export async function boot(progress: (fraction: number) => void = () => {}): Pro
     mode: director.mode,
     viewpoint: director.nearest(),
     position: camera.position.toArray(),
+    autoResumeIn: director.autoResumeIn,
   });
 
   await streamer.update(plan.rail[startAt].stop);
@@ -154,21 +155,32 @@ export async function boot(progress: (fraction: number) => void = () => {}): Pro
   let last = performance.now();
   let lastPlaying = director.playing;
   let lastMode = director.mode;
+  let lastCountdown = -1;
   let lastRender = -Infinity, atmosphereTime = 0;
   const reducedMotion = matchMedia('(prefers-reduced-motion: reduce)');
+  document.addEventListener('visibilitychange', () => { last = performance.now(); });
+  canvas.addEventListener('webglcontextrestored', () => { last = performance.now(); });
+  reducedMotion.addEventListener('change', () => {
+    if (reducedMotion.matches) director.pause();
+    director.setAutoplay(!capture && !reducedMotion.matches);
+    needsRender = true;
+  });
   renderer.setAnimationLoop((now) => {
-    const dt = Math.min(0.1, (now - last) / 1000);
+    const elapsed = Math.max(0, (now - last) / 1000);
+    const dt = Math.min(0.1, elapsed);
     last = now;
     // Reading mode hides an already-started scene; stop its ambient GPU work too.
     if (document.hidden || (canvas.hidden && window.__villaReady !== undefined)) return;
     const before = director.u;
-    director.update(dt);
+    director.update(dt, elapsed);
+    const countdown = Math.ceil(director.autoResumeIn ?? -1);
     const ambientMotion = detailed && !capture && !reducedMotion.matches;
     atmosphereTime += ambientMotion ? dt : 0;
-    if (!needsRender && director.u === before && lastPlaying === director.playing && lastMode === director.mode &&
+    if (!needsRender && director.u === before && lastPlaying === director.playing && lastMode === director.mode && lastCountdown === countdown &&
       (!ambientMotion || now - lastRender < (innerWidth < 768 ? 1000 / 24 : 1000 / 30))) return;
     lastPlaying = director.playing;
     lastMode = director.mode;
+    lastCountdown = countdown;
     needsRender = false;
     lastRender = now;
     water?.update(ambientMotion ? atmosphereTime : 0);
@@ -179,6 +191,8 @@ export async function boot(progress: (fraction: number) => void = () => {}): Pro
     renderer.render(scene, camera);
     if (window.__villaReady === undefined) {
       window.__villaReady = startAt;
+      director.setAutoplay(!capture && !reducedMotion.matches);
+      last = performance.now();
       progress(1);
     }
   });

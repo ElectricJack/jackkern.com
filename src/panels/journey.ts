@@ -54,6 +54,7 @@ export function journeyUI(director: Director, rail: Rail, content: PanelContent[
   let lastPercent = -1;
   let lastStop = '';
   let lastAction = '';
+  let lastInstruction = '';
   return (u) => {
     note(welcome, paneVisibility(u, 0, 1 / rail.length, 5 / rail.length));
     note(farewell, paneVisibility(u, 1, 1, 4 / rail.length));
@@ -73,8 +74,11 @@ export function journeyUI(director: Director, rail: Rail, content: PanelContent[
     if (action !== lastAction) {
       next.innerHTML = `${action} <span aria-hidden="true">${director.playing ? 'Ⅱ' : u >= 1 ? '↺' : '→'}</span>`;
       next.setAttribute('aria-label', `${action} the flight`);
-      instruction.textContent = director.playing ? 'Scroll to set the pace' : u <= 0 ? 'Scroll to begin' : 'Scroll to continue';
       lastAction = action;
     }
+    const countdown = director.autoResumeIn;
+    const hint = countdown !== null ? `${u <= 0 ? 'Tour begins' : 'Continuing'} in ${Math.ceil(countdown)}s`
+      : director.playing ? 'Scroll to set the pace' : u <= 0 ? 'Scroll to begin' : 'Scroll to continue';
+    if (hint !== lastInstruction) { instruction.textContent = hint; lastInstruction = hint; }
   };
 }

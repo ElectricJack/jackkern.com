@@ -11,6 +11,7 @@ export function bindInputs(
   director: Director,
 ): () => void {
   let touchY: number | null = null;
+  const onActivity = (): void => director.activity();
   const reading = (event: Event) => event.target instanceof Element && (
     !!event.target.closest('dialog') || !!event.target.closest('.panel')?.querySelector('details[open]')
   );
@@ -66,6 +67,8 @@ export function bindInputs(
   el.addEventListener('touchend', onTouchEnd);
   el.addEventListener('touchcancel', onTouchEnd);
   window.addEventListener('keydown', onKey);
+  const activityEvents = ['pointermove', 'pointerdown', 'touchstart', 'touchmove', 'wheel', 'keydown'] as const;
+  for (const event of activityEvents) window.addEventListener(event, onActivity, { passive: true });
 
   return () => {
     el.removeEventListener('wheel', onWheel);
@@ -74,5 +77,6 @@ export function bindInputs(
     el.removeEventListener('touchend', onTouchEnd);
     el.removeEventListener('touchcancel', onTouchEnd);
     window.removeEventListener('keydown', onKey);
+    for (const event of activityEvents) window.removeEventListener(event, onActivity);
   };
 }
