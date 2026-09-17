@@ -85,9 +85,8 @@ export async function measure(root, dist = 'dist', tier = 'desktop') {
   }
 
   const shell = sum((file) => file.rel === 'index.html' || file.rel.startsWith('bundle/'));
-  // The streamer starts with the current stop and two ahead. Shared assets are
-  // fetched once by KitLoader, even when all three stops instance the same part.
-  const firstFiles = new Map(order.slice(0, 3).flatMap((stop) => filesByStop.get(stop)).map((file) => [file.rel, file.bytes]));
+  // Only the entrance and its visible neighbour block the first frame.
+  const firstFiles = new Map(order.slice(0, 2).flatMap((stop) => filesByStop.get(stop)).map((file) => [file.rel, file.bytes]));
   const firstLoad = shell + [...firstFiles.values()].reduce((bytes, size) => bytes + size, 0);
   const textures = files.filter((file) =>
     file.rel.startsWith('assets/') && /\.(ktx2|png|jpg|jpeg|webp)$/i.test(file.rel)

@@ -1,10 +1,10 @@
 /** Metres and seconds for each continuous leg between reading stops. */
 export const TRAVEL = {
-  cruiseSpeed: 1.44,
-  minSpeed: .72,
-  maxSpeed: 2.592,
-  rampSeconds: 3,
-  controlSeconds: 1.8,
+  cruiseSpeed: 4.2,
+  minSpeed: 2.1,
+  maxSpeed: 7.56,
+  rampSeconds: 1.1,
+  controlSeconds: .45,
   lineHeightPx: 100 / 3,
   pageHeightPx: 800,
 };

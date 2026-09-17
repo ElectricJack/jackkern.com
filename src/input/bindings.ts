@@ -12,8 +12,8 @@ export function bindInputs(
 ): () => void {
   let touchY: number | null = null;
   const onActivity = (): void => director.activity();
-  const reading = (event: Event) => event.target instanceof Element && (
-    !!event.target.closest('dialog') || !!event.target.closest('.panel')?.querySelector('details[open]')
+  const reading = (event: Event) => el.hasAttribute('data-travelling') || event.target instanceof Element && (
+    !!event.target.closest('dialog, .panel, .route-map')
   );
 
   const onWheel = (event: WheelEvent): void => {
@@ -52,10 +52,10 @@ export function bindInputs(
     if (event.key === ' ') {
       event.preventDefault();
       if (!event.repeat) director.toggle();
-    } else if (['ArrowDown', 'PageDown'].includes(event.key)) {
+    } else if (['ArrowUp', 'ArrowRight', 'PageDown'].includes(event.key)) {
       event.preventDefault();
       director.step(1);
-    } else if (['ArrowUp', 'PageUp'].includes(event.key)) {
+    } else if (['ArrowDown', 'ArrowLeft', 'PageUp'].includes(event.key)) {
       event.preventDefault();
       director.step(-1);
     }

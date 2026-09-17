@@ -10,17 +10,38 @@ import { bindInputs } from '../../src/input/bindings';
 const plan = layout(manifest, contract);
 const projects = manifest.stops.filter(s => s.kind === 'project').map(s => s.id);
 
+test('wheel and keyboard input cannot interrupt a quick-link transition', () => {
+  const el = document.createElement('div');
+  document.body.append(el);
+  el.dataset.travelling = '';
+  const director = new Director(new Rail(plan.rail, plan.path), new PerspectiveCamera(), projects);
+  const push = vi.spyOn(director, 'push');
+  const step = vi.spyOn(director, 'step');
+  const toggle = vi.spyOn(director, 'toggle');
+  const dispose = bindInputs(el, director);
+  el.dispatchEvent(new WheelEvent('wheel', { deltaY: -100, cancelable: true }));
+  window.dispatchEvent(new KeyboardEvent('keydown', { key: 'ArrowDown' }));
+  window.dispatchEvent(new KeyboardEvent('keydown', { key: ' ' }));
+  expect(push).not.toHaveBeenCalled();
+  expect(step).not.toHaveBeenCalled();
+  expect(toggle).not.toHaveBeenCalled();
+  delete el.dataset.travelling;
+  window.dispatchEvent(new KeyboardEvent('keydown', { key: 'ArrowDown' }));
+  expect(step).toHaveBeenCalledWith(-1);
+  dispose(); el.remove();
+});
+
 test('page-up wheel gestures move forward and page-down gestures reverse the camera', () => {
   const el = document.createElement('div'); document.body.append(el);
   const director = new Director(new Rail(plan.rail, plan.path), new PerspectiveCamera(), projects);
   director.jump(4);
   const dispose = bindInputs(el, director), start = director.u;
   el.dispatchEvent(new WheelEvent('wheel', { deltaY: -100, cancelable: true }));
-  for (let i = 0; i < 240; i++) director.update(1 / 60);
+  for (let i = 0; i < 90; i++) director.update(1 / 60);
   expect(director.u).toBeGreaterThan(start);
   expect(director.velocity).toBeGreaterThan(0);
   el.dispatchEvent(new WheelEvent('wheel', { deltaY: 100, cancelable: true }));
-  for (let i = 0; i < 300; i++) director.update(1 / 60);
+  for (let i = 0; i < 90; i++) director.update(1 / 60);
   expect(director.velocity).toBeLessThan(0);
   dispose(); el.remove();
 });
@@ -65,7 +86,7 @@ test('wheel, touch and arrows start the flight; space toggles pause without key-
 
   window.dispatchEvent(new KeyboardEvent('keydown', { key: 'ArrowDown' }));
   window.dispatchEvent(new KeyboardEvent('keydown', { key: 'ArrowUp' }));
-  expect(step.mock.calls).toEqual([[1], [-1]]);
+  expect(step.mock.calls).toEqual([[-1], [1]]);
   window.dispatchEvent(new KeyboardEvent('keydown', { key: ' ' }));
   window.dispatchEvent(new KeyboardEvent('keydown', { key: ' ', repeat: true }));
   expect(toggle).toHaveBeenCalledTimes(1);
@@ -76,7 +97,22 @@ test('wheel, touch and arrows start the flight; space toggles pause without key-
   el.remove();
 });
 
-test('expanded project details own scrolling and native controls own space', () => {
+test.each([['ArrowUp', 1], ['ArrowRight', 1], ['ArrowDown', -1], ['ArrowLeft', -1], ['PageDown', 1], ['PageUp', -1]] as const)(
+  '%s moves the camera in direction %s', (key, direction) => {
+    const el = document.createElement('div'); document.body.append(el);
+    const director = new Director(new Rail(plan.rail, plan.path), new PerspectiveCamera(), projects);
+    director.jump(director.readingViews[1]);
+    const start = director.u, dispose = bindInputs(el, director);
+    const event = new KeyboardEvent('keydown', { key, cancelable: true });
+    window.dispatchEvent(event);
+    for (let i = 0; i < 120; i++) director.update(1 / 60);
+    expect(event.defaultPrevented).toBe(true);
+    expect((director.u - start) * direction).toBeGreaterThan(0);
+    dispose(); el.remove();
+  },
+);
+
+test('project previews always own scrolling and native controls own space', () => {
   const el = document.createElement('div');
   el.innerHTML = '<aside data-ui><section class="panel"><details open><summary>Read more</summary><p>Project details</p></details><button>Next</button></section></aside>';
   document.body.append(el);
@@ -97,11 +133,11 @@ test('expanded project details own scrolling and native controls own space', () 
   expect(space.defaultPrevented).toBe(false);
   expect(step).not.toHaveBeenCalled();
   text.dispatchEvent(new WheelEvent('wheel', { deltaY: 100, bubbles: true, cancelable: true }));
-  expect(push).toHaveBeenCalledTimes(1);
+  expect(push).not.toHaveBeenCalled();
   el.dataset.mode = 'static';
   el.dispatchEvent(new WheelEvent('wheel', { deltaY: 100, cancelable: true }));
   window.dispatchEvent(new KeyboardEvent('keydown', { key: 'ArrowDown' }));
-  expect(push).toHaveBeenCalledTimes(1);
+  expect(push).not.toHaveBeenCalled();
   expect(step).not.toHaveBeenCalled();
   dispose();
   el.remove();

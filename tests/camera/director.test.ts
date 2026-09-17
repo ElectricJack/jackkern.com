@@ -2,7 +2,7 @@ import { PerspectiveCamera } from 'three';
 import contract from '../../kit/contract.json';
 import manifest from '../../content/manifest.json';
 import { layout } from '../../layout/layout.js';
-import { Director } from '../../src/camera/director';
+import { Director, QUICK_VISIT_SECONDS } from '../../src/camera/director';
 import { Rail } from '../../src/camera/rail';
 import { TRAVEL } from '../../src/camera/travel';
 
@@ -12,6 +12,95 @@ const projects = manifest.stops.filter(s => s.kind === 'project').map(s => s.id)
 const make = () => { const camera = new PerspectiveCamera(); return { camera, director: new Director(rail, camera, projects) }; };
 const run = (d: Director, seconds: number, hz = 60) => { for (let i = 0; i < Math.round(seconds * hz); i++) d.update(1 / hz); };
 const state = (d: Director) => [d.u, d.velocity, d.acceleration, d.jerk];
+
+test('adjacent quick links animate along the rail in 1.8 seconds without fading', () => {
+  const { director, camera } = make();
+  director.jump(director.readingViews[0]);
+  const start = director.u, target = director.readingViews[1];
+  director.visit(target);
+  run(director, .4);
+  expect(director.u).toBeGreaterThan(start);
+  expect(director.u).toBeLessThan(rail.u[target]);
+  expect(camera.position.distanceTo(rail.pose(director.u).position)).toBeLessThan(1e-9);
+  expect(director.transitionOpacity).toBe(1);
+  run(director, .4);
+  expect(director.transitionOpacity).toBe(1);
+  run(director, 1);
+  expect(director.u).toBeCloseTo(rail.u[target], 12);
+  expect(director.quickVisiting).toBe(false);
+  expect(director.autoResumeIn).toBeNull();
+});
+
+test('distant quick links move at both ends and hide the middle cut under a full fade', () => {
+  for (const reverse of [false, true]) {
+    const { director, camera } = make();
+    const from = director.readingViews[reverse ? 3 : 0], to = director.readingViews[reverse ? 0 : 3];
+    director.jump(from);
+    const initial = camera.position.clone();
+    const visited: string[] = [];
+    director.onViewpoint((_, stop) => visited.push(stop));
+    director.visit(to);
+    run(director, .3);
+    expect(camera.position.distanceTo(initial)).toBeGreaterThan(.01);
+    expect(director.transitionOpacity).toBe(1); // visible departure before fading
+    const departure = director.u;
+    run(director, .3);
+    expect(director.u).not.toBe(departure); // moving while fading to white
+    expect(director.transitionOpacity).toBeLessThan(1);
+    expect(director.transitionOpacity).toBeGreaterThan(0);
+    run(director, .25); // just before the cut
+    expect(director.transitionOpacity).toBe(0);
+    run(director, .1); // just after the cut
+    expect(director.transitionOpacity).toBe(0);
+    const arrival = camera.position.clone();
+    run(director, .25);
+    expect(director.transitionOpacity).toBeGreaterThan(0);
+    expect(director.transitionOpacity).toBeLessThan(1);
+    expect(camera.position.distanceTo(arrival)).toBeGreaterThan(.01);
+    run(director, .3);
+    expect(director.transitionOpacity).toBe(1); // fully visible before settling
+    expect(Math.abs(director.u - rail.u[to]) * rail.length).toBeGreaterThan(.1);
+    run(director, .3);
+    expect(director.u).toBeCloseTo(rail.u[to], 12);
+    expect(visited.filter(stop => projects.includes(stop))).not.toContain('outrider-ide');
+    expect(visited.filter(stop => projects.includes(stop))).not.toContain('agent-queue');
+    expect(director.transitionOpacity).toBe(1);
+  }
+});
+
+test('a quick visit can be replaced without snapping the current camera pose', () => {
+  const { director, camera } = make();
+  director.visit(director.readingViews[1]);
+  run(director, .3);
+  const position = camera.position.clone();
+  director.visit(director.readingViews[3]);
+  expect(camera.position.distanceTo(position)).toBe(0);
+  run(director, QUICK_VISIT_SECONDS);
+  expect(director.u).toBeCloseTo(rail.u[director.readingViews[3]], 12);
+  director.visit(0, 0);
+  expect(director.u).toBe(0);
+  expect(director.quickVisiting).toBe(false);
+});
+
+test('slow frames cannot skip camera motion or expose the distant path cut', () => {
+  const { director } = make();
+  director.jump(director.readingViews[0]);
+  director.visit(director.readingViews[3]);
+  let previous = director.u, previousOpacity = director.transitionOpacity;
+  let sawCut = false, frames = 0;
+  while (director.quickVisiting && frames++ < 100) {
+    director.update(.1, 3); // a multi-second shader/render stall
+    if (Math.abs(director.u - previous) * rail.length > 10) {
+      expect(previousOpacity).toBe(0);
+      expect(director.transitionOpacity).toBe(0);
+      sawCut = true;
+    }
+    previous = director.u; previousOpacity = director.transitionOpacity;
+  }
+  expect(sawCut).toBe(true);
+  expect(frames).toBeGreaterThanOrEqual(36);
+  expect(director.quickVisiting).toBe(false);
+});
 
 function arrive(d: Director, target: number) {
   const limit = Math.ceil(rail.length / TRAVEL.minSpeed + 20) * 60;
@@ -51,17 +140,17 @@ test('the tour stops once per project, cruises through courtyards, and waits to 
 test('scroll pace persists between gestures, can be lowered by a new gesture, and resets at the next project', () => {
   const { director } = make();
   director.jump(director.readingViews[0]);
-  director.push(200, 0); run(director, 5);
+  director.push(200, 0); run(director, 1.5);
   expect(director.velocity).toBeCloseTo(TRAVEL.maxSpeed, 10);
   const before = state(director);
   director.push(30, 1000);
   expect(state(director)).toEqual(before);
-  run(director, 2);
+  run(director, .5);
   expect(director.velocity).toBeCloseTo(TRAVEL.minSpeed, 10);
-  run(director, 2);
+  run(director, .5);
   expect(director.velocity).toBeCloseTo(TRAVEL.minSpeed, 10);
   arrive(director, director.readingViews[1]);
-  director.toggle(); run(director, 5);
+  director.toggle(); run(director, 2);
   expect(director.velocity).toBeCloseTo(TRAVEL.cruiseSpeed, 10);
 });
 

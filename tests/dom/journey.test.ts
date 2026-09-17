@@ -23,7 +23,7 @@ test('a project arrival presents a fully visible card and Continue advances to t
   expect(next.textContent).toContain('Begin');
   next.click(); update(director.u);
   expect(next.textContent).toContain('Pause');
-  expect(document.getElementById('travel-instruction')!.textContent).toBe('Scroll to set the pace');
+  expect(document.getElementById('travel-instruction')!.textContent).toBe('Heading to Matter Engine');
   for (let i = 0; i < 2000 && director.playing; i++) director.update(.05);
   update(director.u); panels.update(director.u);
   expect(next.textContent).toContain('Continue');
@@ -36,17 +36,46 @@ test('a project arrival presents a fully visible card and Continue advances to t
   document.body.innerHTML = '';
 });
 
+test('the forward button goes forward even after a backward timeline visit', () => {
+  document.body.innerHTML = html;
+  const director = new Director(rail, new PerspectiveCamera(), projects.map(p => p.id));
+  const update = journeyUI(director, rail, content);
+  director.jump(director.readingViews[3]);
+  director.visit(director.readingViews[1]);
+  for (let i = 0; i < 120; i++) director.update(1 / 60);
+  update(director.u);
+  const start = director.u, next = document.getElementById('next-space')!;
+  next.click();
+  for (let i = 0; i < 120; i++) director.update(1 / 60);
+  expect(director.u).toBeGreaterThan(start);
+  director.jump(rail.u.length - 1); update(director.u);
+  expect(next.textContent).toContain('Fly back');
+  next.click();
+  for (let i = 0; i < 120; i++) director.update(1 / 60);
+  expect(director.u).toBeLessThan(1);
+  document.body.innerHTML = '';
+});
+
 test('project index selection uses the same reading viewpoint as the automatic pause', () => {
   document.body.innerHTML = html;
   const dialog = document.getElementById('project-dialog') as HTMLDialogElement;
   dialog.insertAdjacentHTML('beforeend', projectIndexMarkup(content));
   dialog.close = vi.fn();
   const director = new Director(rail, new PerspectiveCamera(), projects.map(p => p.id));
-  const select = vi.spyOn(director, 'glideTo');
+  const select = vi.spyOn(director, 'visit');
   journeyUI(director, rail, content);
   dialog.querySelector<HTMLElement>('[data-project="outrider-ide"]')!.click();
   expect(select).toHaveBeenCalledWith(director.projectView('outrider-ide'));
   expect(rail.viewpoints[select.mock.calls[0][0]].id).toBe('outrider-ide-focal');
+  document.body.innerHTML = '';
+});
+
+test('quick links contain projects and endpoints, but not the intervening courtyards', () => {
+  document.body.innerHTML = html;
+  const director = new Director(rail, new PerspectiveCamera(), projects.map(p => p.id));
+  journeyUI(director, rail, content);
+  expect([...document.querySelectorAll<HTMLElement>('#route-map button')].map(b => b.dataset.stop))
+    .toEqual(['entry', ...projects.map(p => p.id), 'terrace']);
   document.body.innerHTML = '';
 });
 

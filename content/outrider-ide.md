@@ -2,4 +2,4 @@ A code editor for seeing the bigger picture. Explore a repository, follow its ch
 
 Outrider combines a repository churn map, a navigable view of real source, and a palette-driven workflow. The emphasis is on moving through a codebase and understanding how its pieces fit together.
 
-[Visit Outrider](https://electricjack.github.io/outrider-ide/) · [View source](https://github.com/ElectricJack/outrider-ide)
+[Dive deeper into Outrider ↗](https://electricjack.github.io/outrider-ide/) · [View source](https://github.com/ElectricJack/outrider-ide)

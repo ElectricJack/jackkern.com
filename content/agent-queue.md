@@ -4,4 +4,4 @@ Agent Queue brings task graphs, worker pools, playbooks, and isolated Git worktr
 
 The tasks behind this website have been managed through Agent Queue.
 
-[Explore the source](https://github.com/ElectricJack/agent-queue)
+[Dive deeper into Agent Queue ↗](https://electricjack.github.io/agent-queue/) · [View source](https://github.com/ElectricJack/agent-queue)

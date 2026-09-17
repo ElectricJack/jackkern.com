@@ -16,7 +16,7 @@ With WebGL, the page opens straight into the 3D villa. The camera starts after t
 inactivity at the entrance, measured from the first visible scene frame. It stops at each project's
 reading view for ten seconds, then continues, coming to rest at the terrace. A countdown in the
 footer shows when the next flight begins. Begin, Continue, scrolling and swiping can start it sooner.
-Explicit Pause, opening project details or opening the project index cancels automatic departure
+Explicit Pause, interacting with a project card or opening the project index cancels automatic departure
 until the visitor continues. Hidden tabs and the reading view do not advance the tour or its timer.
 
 Reduced-motion visitors also land in 3D, with automatic flight and ambient animation disabled.
@@ -24,10 +24,48 @@ They can move using the normal controls. Without WebGL or scripts, or with `?vie
 shows the reading version instead. `?capture=1` keeps the camera stationary for static captures.
 
 Page-up wheel gestures and downward touch swipes move forward; the opposite gestures reverse.
-Scroll intensity sets a sustained speed until the next project, from 0.72 to 2.592 m/s; automatic
-flight uses 1.44 m/s. Arrow keys choose direction and Space pauses or resumes. Each leg follows
+Scroll intensity sets a sustained speed until the next project, from 2.1 to 7.56 m/s; automatic
+flight uses 4.2 m/s. Up/Right arrows go forward, Down/Left go backward, and Space pauses or resumes. Each leg follows
 the continuous camera and look-target curves with smooth acceleration and jerk at its endpoints.
 Tuning lives in `src/camera/travel.ts`; the ten-second tour waits live in `src/camera/director.ts`.
+
+The full-width route map links the four projects, entrance and terrace. Courtyards remain
+part of the tour, without quick-link buttons. Quick links and the header project index animate
+the camera for 1.8 seconds: adjacent destinations follow the connecting rail, while distant
+destinations visibly depart, fade to white while moving, cut forward/back along the rail,
+then fade in while approaching and settling at the destination. Slow rendering extends the
+animation rather than skipping its visible motion. Both ends are preloaded
+and retained through the transition. Manual navigation animates even with the OS reduced-motion
+preference; that preference still disables autoplay and ambient motion. The forward button
+always goes forward, except the explicitly labelled return at the terrace. Explicit visits stay paused. Each project automatically reveals a
+screenshot and a short explanation beside its sculpture, with a persistent link to the full
+project site. Cards own their scrolling. The reading version is a separate editorial scroll
+experience, with all project text and screenshots visible without expansion controls.
+
+Every hanging has its own deterministic abstract painting, with each room using a coordinated palette:
+Matter uses domain-warped mineral strata in verdigris; Outrider uses angular palette-knife
+gestures in petrol blue; Agent Queue uses flow-field pigment ribbons in aubergine/clay;
+Quilt uses interlaced warp/weft paint bands in oxide/umber. These are separate composition
+algorithms, not recolorings. Shared canvas grain, scratches and splatters surround one
+individually positioned gold gesture. All 36 paintings
+are unique, including opposite faces of a wall. Packed height/roughness/metalness maps
+make the gold catch the environment light while the pigment stays matte. Paintings are
+generated only as rooms load, reuse their textures on return visits, and use half-resolution
+maps on mobile. No additional image downloads are required.
+
+Only the starting room and its visible neighbour block the first frame; shared assets warm
+serially during idle time afterward. Nearby rooms stream in a bounded window. Mobile uses
+simplified Meshopt models, smaller WebP textures, a 1.25 pixel-ratio cap, lower-detail sculptures,
+and water waves without a second scene-rendering reflection pass. Rebuild the four optimized
+mobile assets with `node tools/assets/optimize-mobile.mjs` (asset-tool dependencies required).
+The sculptures are lightweight three.js geometry; the surrounding architecture and materials
+are Matter Engine exports. Courtyards 2–4 have distinct water gardens: a potted olive island,
+twin planted rills with a small spring, and a raised planted basin cascading into a lower pool.
+All trees and ground plants in these courts are rooted in containers with visible soil.
+Embedded project screenshots fill the card width at their natural aspect ratio.
+
+`node tools/verify-feedback.mjs http://localhost:5173/` checks direct navigation, initial loading,
+desktop/mobile project views, scrolling images, reduced motion, and the no-JavaScript page.
 
 ## Build and check
 

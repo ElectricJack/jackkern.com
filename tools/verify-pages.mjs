@@ -18,7 +18,7 @@ try {
     await page.waitForFunction(v => window.__villaReady === v, vp, { timeout: 120000 });
     await page.waitForFunction(() => getComputedStyle(document.querySelector('#loading')).visibility === 'hidden');
     const assets = await page.evaluate(() => window.__villaAssets());
-    if (assets.tier !== 'mobile' || Object.values(assets.loaded).some(value => value !== 'matter')) throw Error('Mobile assets did not load');
+    if (assets.tier !== 'mobile' || Object.values(assets.loaded).some(value => value === 'fallback')) throw Error('Mobile assets did not load');
     if (vp === 11 && !['urn-large', 'gold-bar', 'gold-coin'].every(id => assets.loaded[id] === 'matter')) throw Error('Gold room is incomplete');
     const requests = await page.evaluate(() => performance.getEntriesByType('resource').map(r => r.name));
     if (requests.some(url => new URL(url).origin === new URL(base).origin && !new URL(url).pathname.startsWith(new URL(base).pathname))) throw Error('A resource escaped the project path');

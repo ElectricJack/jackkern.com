@@ -7,6 +7,7 @@ import type { Part } from '../types';
 import { GreyboxSource, type KitSource, type PartAsset } from './loader';
 import { finishMatterStone } from '../scene/marble';
 import { broadenCornice } from '../scene/joinery';
+import { projectArt } from '../scene/project-art';
 
 type AssetEntry = { bounds: { min: number[]; max: number[] }; desktop: { url: string }; mobile: { url: string } };
 const assets: Record<string, AssetEntry> = manifest.parts;
@@ -66,11 +67,13 @@ export function columnAsset(scene: Object3D): PartAsset {
 export class MatterSource implements KitSource {
   private readonly fallback = new GreyboxSource();
   private readonly gltf = new GLTFLoader().setMeshoptDecoder(MeshoptDecoder);
-  readonly loaded: Record<string, 'matter' | 'fallback'> = {};
+  readonly loaded: Record<string, 'matter' | 'sculpture' | 'fallback'> = {};
 
   constructor(private readonly renderer: WebGLRenderer, readonly tier: 'desktop' | 'mobile') {}
 
   async load(part: Part): Promise<PartAsset> {
+    const sculpture = projectArt(part.id, this.tier === 'mobile');
+    if (sculpture) { this.loaded[part.id] = 'sculpture'; return sculpture; }
     const entry = assets[part.id];
     try {
       if (!entry) throw new Error(`No export registered for ${part.id}`);
@@ -80,7 +83,7 @@ export class MatterSource implements KitSource {
       finishMatterStone(part.id, asset);
       for (const material of Array.isArray(asset.material) ? asset.material : [asset.material]) {
         for (const value of Object.values(material)) if (value?.isTexture) {
-          value.anisotropy = Math.min(8, this.renderer.capabilities.getMaxAnisotropy());
+          value.anisotropy = Math.min(this.tier === 'mobile' ? 2 : 8, this.renderer.capabilities.getMaxAnisotropy());
         }
       }
       this.loaded[part.id] = 'matter';

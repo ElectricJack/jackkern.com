@@ -74,10 +74,14 @@ test('pool coping begins above basin walls instead of sharing their inner faces'
     return new Box3(new Vector3(...b.min), new Vector3(...b.max)).applyMatrix4(new Matrix4().fromArray(p.transform));
   };
   const basins = plan.placements.filter(p => p.part === 'pool-basin-3x3');
-  expect(basins).toHaveLength(6);
+  expect(basins).toHaveLength(8);
   for (const basin of basins) {
     const top = box(basin).max.y;
-    const coping = plan.placements.filter(p => p.stop === basin.stop && p.part.startsWith('pool-edge-'));
+    const footprint = box(basin);
+    const coping = plan.placements.filter(p => p.stop === basin.stop && p.part.startsWith('pool-edge-') &&
+      p.transform[13] >= basin.transform[13] && p.transform[13] < basin.transform[13] + .2 &&
+      p.transform[12] >= footprint.min.x - .001 && p.transform[12] <= footprint.max.x + .001 &&
+      p.transform[14] >= footprint.min.z - .001 && p.transform[14] <= footprint.max.z + .001);
     expect(coping.length).toBe(8);
     for (const p of coping) expect(box(p).min.y).toBeCloseTo(top, 3);
   }

@@ -71,8 +71,16 @@ export function villaWater(plan: Layout, mobile: boolean) {
   for (const p of plan.placements) {
     const m = new Matrix4().fromArray(p.transform);
     if (p.part === 'pool-basin-3x3') {
-      const water = m.clone().multiply(compose(0,.215,0,2.62,1,2.62));
+      const lower = p.stop === 'cy-4' ? plan.placements.find(other => other.stop === p.stop && other.part === p.part && other.transform[13] < p.transform[13] - .3) : undefined;
+      const level = lower ? .392 : .215;
+      const water = m.clone().multiply(compose(0,level,0,2.62,1,2.62));
       planeMatrices.push(water);poolPositions.push(new Vector3().setFromMatrixPosition(water));
+      if (lower) {
+        // A shallow spillway carries water over the coping; the sheet falls outside
+        // the upper wall and lands inside the lower basin, rather than through stone.
+        planeMatrices.push(m.clone().multiply(compose(0,level,-1.395,.7,1,.17)));
+        falling(m, 0, -1.48, lower.transform[13] - p.transform[13] + .215, level, .7);
+      }
     } else if (p.part === 'fountain-tiered') {
       for (const [y,radius] of [[.46,.48],[1.27,.37],[2.04,.26]]) bowlMatrices.push(m.clone().multiply(compose(0,y+radius*.465,0,radius*.85,1,radius*.85)));
       for(let i=0;i<3;i++){
@@ -81,9 +89,6 @@ export function villaWater(plan: Layout, mobile: boolean) {
         falling(m,Math.cos(angle+.5)*.34,Math.sin(angle+.5)*.34,.68,1.47,.018);
         falling(m,Math.cos(angle+.9)*.43,Math.sin(angle+.9)*.43,.225,.68,.019);
       }
-    } else if (p.part === 'fountain-wall') {
-      planeMatrices.push(m.clone().multiply(compose(0,.423,-.09,2.12,1,.54)));
-      falling(m,0,-.28,.427,1.52,.032);
     }
   }
   const surfaces = new InstancedMesh(new PlaneGeometry(1,1).rotateX(-Math.PI/2),material,planeMatrices.length);
@@ -119,7 +124,8 @@ export function villaWater(plan: Layout, mobile: boolean) {
     restore() {rebuild();},
     get reflectionPasses() {return reflectionPasses;},
     reflect(renderer:WebGLRenderer,scene:Scene,camera:PerspectiveCamera,now:number,excluded?:Group) {
-      if(!poolPositions.length)return;
+      // Mobile keeps animated wave normals but avoids rendering the scene twice.
+      if(mobile || !poolPositions.length)return;
       const moved=camera.position.distanceToSquared(lastPosition)>.00001 || 1-Math.abs(camera.quaternion.dot(lastRotation))>.000001;
       if(!dirty && (!moved || now-lastReflection<(mobile?65:33)))return;
       const pool=poolPositions.reduce((a,b)=>a.distanceToSquared(camera.position)<b.distanceToSquared(camera.position)?a:b);

@@ -442,15 +442,51 @@ export function fill(stop, parts, rng) {
     }
   }
 
-  // Water.
-  if (archetype === 'pool-hall' || archetype === 'courtyard' || archetype === 'court') {
-    place('pool-basin-3x3', 0, d / 2, 0, 0);
-    for (const side of [-1, 1]) {
-      place('pool-edge-straight', 0, d / 2 + side * 1.41, 0, .07);
-      place('pool-edge-straight', side * 1.41, d / 2, 1, .07);
-      for (const other of [-1, 1]) place('pool-edge-corner', side * 1.41, d / 2 + other * 1.41, 0, .07);
+  const scaled = (part, u, v, q, y, sx = 1, sy = 1, sz = 1) => {
+    place(part, u, v, q, y);
+    const m = out[out.length - 1].transform;
+    for (const [column, scale] of [[0, sx], [4, sy], [8, sz]]) {
+      for (let row = 0; row < 3; row++) m[column + row] = fix(m[column + row] * scale);
     }
+  };
+  const pool = (u, v, sx = 1, sz = 1, y = 0) => {
+    scaled('pool-basin-3x3', u, v, 0, y, sx, 1, sz);
+    for (const side of [-1, 1]) {
+      scaled('pool-edge-straight', u, v + side * 1.41 * sz, 0, y + .07, sx, 1, sz);
+      scaled('pool-edge-straight', u + side * 1.41 * sx, v, 1, y + .07, sz, 1, sx);
+      for (const other of [-1, 1]) scaled('pool-edge-corner', u + side * 1.41 * sx, v + other * 1.41 * sz, 0, y + .07, sx, 1, sz);
+    }
+  };
+  const planted = (u, v, y = 0, size = 1, tree = false) => {
+    scaled('planter-square', u, v, 0, y, size, size, size);
+    const soil = y + .69 * size;
+    scaled('ground-plant-clump', u, v, 0, soil, size, size, size);
+    if (tree) scaled('olive-small', u, v, 0, soil, .70 * size, .8 * size, .70 * size);
+  };
+
+  // Each water garden stays within the central island, clear of the walking rail.
+  if (archetype === 'pool-hall' || archetype === 'court' || stop.id === 'cy-1') {
+    pool(0, d / 2);
     if (archetype !== 'pool-hall') place(CENTREPIECE, 0, d / 2, 0, 0);
+  } else if (stop.id === 'cy-2') {
+    // An olive island surrounded by a broad, still reflecting pool.
+    pool(0, d / 2);
+    planted(0, d / 2, .08, 1.1, true);
+  } else if (stop.id === 'cy-3') {
+    // Two narrow rills flank a row of planted stone boxes and a small spring.
+    for (const side of [-1, 1]) pool(side * .85, d / 2, .33, .85);
+    for (const offset of [-.88, 0, .88]) planted(0, d / 2 + offset, .05, .75);
+    scaled('fountain-tiered', -.85, d / 2, 0, .05, .4, .4, .4);
+  } else if (stop.id === 'cy-4') {
+    // A raised planted basin spills into a lower pool on the terrace approach.
+    pool(0, d / 2 - .55, .8, .4);
+    scaled('floor-slab-3x3', 0, d / 2 + .55, 0, .42, .8, 4.2, .4);
+    pool(0, d / 2 + .55, .8, .4, .42);
+    planted(-.78, d / 2 + .65, .48, .65);
+    planted(.78, d / 2 + .65, .48, .65, true);
+  } else if (archetype === 'courtyard') {
+    pool(0, d / 2);
+    planted(0, d / 2, .08, 1, true);
   }
 
   // Stairs at the exit of a dropping courtyard, going down on through it: the run's local +z,
@@ -524,7 +560,12 @@ export function fill(stop, parts, rng) {
     for (const side of ['back', 'front']) for (const seg of sideSegments(stop, side)) {
       if (status[side] === 'door' && seg.u === thresholdAlong(stop, side)) continue;
       // Both faces of the end walls are seen during the flight.
-      for (const face of [-1, 1]) place('wall-inset-panel', seg.u, seg.v + face * .18, face < 0 ? 0 : 2);
+      for (const face of [-1, 1]) {
+        // The exterior entry face belongs to the courtyard above the stairs,
+        // not the lower room floor. Keep its paintings at that viewer's height.
+        const rise = side === 'back' && face < 0 ? Math.max(0, stop.entryLevel - stop.level) * LEVEL_HEIGHT : 0;
+        place('wall-inset-panel', seg.u, seg.v + face * .18, face < 0 ? 0 : 2, rise);
+      }
     }
   }
   if (archetype === 'terrace') {

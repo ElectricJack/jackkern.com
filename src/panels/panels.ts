@@ -13,9 +13,8 @@ export function panelMarkup(content: PanelContent[]): string {
       const shots = c.screenshots
         .map((s) => `<img src="${escapeHtml(s)}" alt="${escapeHtml(c.title)} screenshot" loading="lazy">`)
         .join('');
-      const more = c.details || shots
-        ? `<details class="project-details"><summary>Behind the project <span aria-hidden="true">+</span></summary><div class="details-body">${shots}${c.details ?? ''}</div></details>` : '';
-      return `<section class="panel" data-stop="${escapeHtml(c.id)}" hidden><div class="panel-meta"><span>${String(index + 1).padStart(2, '0')} / SELECTED WORK</span><span class="panel-mark" aria-hidden="true">↗</span></div><h2>${escapeHtml(c.title)}</h2><p class="discipline">${escapeHtml(c.discipline ?? 'Selected project')}</p><div class="panel-body">${c.summary ?? c.html}</div>${more}<div class="project-links">${c.links ?? ''}</div></section>`;
+      const more = `<div class="project-preview">${shots}${c.id === 'quilt-trader' ? '<p class="preview-caption">Data verification example · synthetic data</p>' : ''}<div class="details-body">${c.details?.match(/^<p>[\s\S]*?<\/p>/)?.[0] ?? ''}</div></div>`;
+      return `<section class="panel" data-stop="${escapeHtml(c.id)}" hidden><div class="project-overview"><div class="panel-meta"><span>${String(index + 1).padStart(2, '0')} / SELECTED WORK</span><span>IN THE COLLECTION</span></div><h2>${escapeHtml(c.title)}</h2><p class="discipline">${escapeHtml(c.discipline ?? 'Selected project')}</p><div class="panel-body">${c.summary ?? c.html}</div>${more}</div><div class="project-links">${c.links ?? ''}</div></section>`;
     })
     .join('\n');
 }
@@ -47,7 +46,7 @@ export class Panels {
   }
 
   show(stopId: string | null, opacity = 1): void {
-    // Keep a card readable while someone is using its links or expanded details. Moving the
+    // Keep a card readable while someone is using its links. Moving the
     // camera must never silently remove keyboard focus; leaving the card releases it.
     const focused = [...this.sections.entries()].find(([, section]) => section.contains(document.activeElement));
     if (focused) { stopId = focused[0]; opacity = 1; }

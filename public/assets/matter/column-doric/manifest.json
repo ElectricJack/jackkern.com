@@ -13,8 +13,8 @@
     ]
   },
   "triangles": 8680,
-  "geometryPolicy": "Meshopt high; 16-bit positions/UVs, 8-bit filtered normals/tangents; no simplification",
-  "texturePolicy": "WebP 92 color, lossless data after resize; exactly constant maps are 1 pixel",
+  "geometryPolicy": "Desktop: original Meshopt export. Mobile: simplified LOD, error <= 0.001, locked borders, verified kit bounds.",
+  "texturePolicy": "Desktop: original export. Mobile: WebP quality 82, maximum 512px columns / 256px other assets.",
   "variants": {
     "desktop": {
       "bytes": 360452,
@@ -97,57 +97,11 @@
       }
     },
     "mobile": {
-      "bytes": 298944,
-      "gzipBytes": 200201,
-      "brotliBytes": 186842,
-      "sha256": "67318bf8cddfbb611e0fe8a22e5423aebef8fdc43f698044d0849526b9cf1fd7",
-      "geometryBytes": 480378,
-      "textures": [
-        {
-          "size": [
-            864,
-            1024
-          ],
-          "slots": [
-            "baseColorTexture"
-          ],
-          "bytes": 43002
-        },
-        {
-          "size": [
-            864,
-            1024
-          ],
-          "slots": [
-            "normalTexture",
-            "clearcoatNormalTexture"
-          ],
-          "bytes": 7730
-        },
-        {
-          "size": [
-            1,
-            1
-          ],
-          "slots": [
-            "occlusionTexture",
-            "metallicRoughnessTexture"
-          ],
-          "bytes": 36
-        },
-        {
-          "size": [
-            1,
-            1
-          ],
-          "slots": [
-            "clearcoatTexture",
-            "clearcoatRoughnessTexture"
-          ],
-          "bytes": 36
-        }
-      ],
-      "textureMemoryBytes": 9437195,
+      "url": "/assets/matter/column-doric/mobile.glb",
+      "bytes": 125928,
+      "sha256": "c146c24c894f631c15e282fd4c6ab29e8786fa7012daa6919149fd546ce3d68b",
+      "textureMemoryBytes": 2359307,
+      "triangles": 6580,
       "validation": {
         "numErrors": 0,
         "numWarnings": 0,
@@ -162,13 +116,13 @@
           },
           {
             "code": "IMAGE_NPOT_DIMENSIONS",
-            "message": "Image has non-power-of-two dimensions: 864x1024.",
+            "message": "Image has non-power-of-two dimensions: 432x512.",
             "severity": 2,
             "pointer": "/images/0"
           },
           {
             "code": "IMAGE_NPOT_DIMENSIONS",
-            "message": "Image has non-power-of-two dimensions: 864x1024.",
+            "message": "Image has non-power-of-two dimensions: 432x512.",
             "severity": 2,
             "pointer": "/images/1"
           }

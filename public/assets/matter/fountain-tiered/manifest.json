@@ -13,8 +13,8 @@
     ]
   },
   "triangles": 4848,
-  "geometryPolicy": "Meshopt high; 16-bit positions/UVs, 8-bit filtered normals/tangents; no simplification",
-  "texturePolicy": "WebP 92 color, lossless data after resize; exactly constant maps are 1 pixel",
+  "geometryPolicy": "Desktop: original Meshopt export. Mobile: simplified LOD, error <= 0.001, locked borders, verified kit bounds.",
+  "texturePolicy": "Desktop: original export. Mobile: WebP quality 82, maximum 512px columns / 256px other assets.",
   "variants": {
     "desktop": {
       "bytes": 201828,
@@ -73,45 +73,11 @@
       }
     },
     "mobile": {
-      "bytes": 168936,
-      "gzipBytes": 106154,
-      "brotliBytes": 100577,
-      "sha256": "dc7664acec3751a8d317c79eceb3fa1689e8fd71e258c244ac7f77e2edf14846",
-      "geometryBytes": 269043,
-      "textures": [
-        {
-          "size": [
-            256,
-            256
-          ],
-          "slots": [
-            "baseColorTexture"
-          ],
-          "bytes": 738
-        },
-        {
-          "size": [
-            256,
-            256
-          ],
-          "slots": [
-            "normalTexture"
-          ],
-          "bytes": 11570
-        },
-        {
-          "size": [
-            256,
-            256
-          ],
-          "slots": [
-            "occlusionTexture",
-            "metallicRoughnessTexture"
-          ],
-          "bytes": 4366
-        }
-      ],
+      "url": "/assets/matter/fountain-tiered/mobile.glb",
+      "bytes": 85852,
+      "sha256": "9b407da87040c08e8cb332ad5bb24c1c6b9247b0b7e1676f982e1ea981891bc9",
       "textureMemoryBytes": 1048576,
+      "triangles": 4392,
       "validation": {
         "numErrors": 0,
         "numWarnings": 0,

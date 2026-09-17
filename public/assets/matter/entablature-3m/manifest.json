@@ -13,8 +13,8 @@
     ]
   },
   "triangles": 1980,
-  "geometryPolicy": "Meshopt high; 16-bit positions/UVs, 8-bit filtered normals/tangents; no simplification",
-  "texturePolicy": "WebP 92 color, lossless data after resize; exactly constant maps are 1 pixel",
+  "geometryPolicy": "Desktop: original Meshopt export. Mobile: simplified LOD, error <= 0.001, locked borders, verified kit bounds.",
+  "texturePolicy": "Desktop: original export. Mobile: WebP quality 82, maximum 512px columns / 256px other assets.",
   "variants": {
     "desktop": {
       "bytes": 77624,
@@ -85,45 +85,11 @@
       }
     },
     "mobile": {
-      "bytes": 60284,
-      "gzipBytes": 31393,
-      "brotliBytes": 28884,
-      "sha256": "874720362d6123e192628f74aa3b92f9ca20a913536a67e3ddc5c98604a534c9",
-      "geometryBytes": 103918,
-      "textures": [
-        {
-          "size": [
-            1,
-            1
-          ],
-          "slots": [
-            "baseColorTexture"
-          ],
-          "bytes": 54
-        },
-        {
-          "size": [
-            245,
-            256
-          ],
-          "slots": [
-            "normalTexture"
-          ],
-          "bytes": 8172
-        },
-        {
-          "size": [
-            245,
-            256
-          ],
-          "slots": [
-            "occlusionTexture",
-            "metallicRoughnessTexture"
-          ],
-          "bytes": 948
-        }
-      ],
+      "url": "/assets/matter/entablature-3m/mobile.glb",
+      "bytes": 39868,
+      "sha256": "febd7443acef09290148fe3c9238ecefcf9f9e4a9f14efd35828991501711c16",
       "textureMemoryBytes": 669019,
+      "triangles": 1980,
       "validation": {
         "numErrors": 0,
         "numWarnings": 0,

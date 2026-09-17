@@ -12,6 +12,7 @@ import { journeyUI } from './panels/journey';
 import { buildScene } from './scene/builder';
 import { Streamer } from './scene/streamer';
 import { corniceJoinery } from './scene/joinery';
+import { wallArtFactory } from './scene/wall-art';
 import type { Contract, Manifest } from './types';
 
 declare global {
@@ -21,7 +22,7 @@ declare global {
     /** The viewpoint the camera is nearest, for tools/console-probe.mjs. */
     __villaViewpoint?: number;
     /** Where the camera is along the walk and how fast it is going, for the wheel checks in docs/verification. */
-    __villaTravel?: () => { u: number; metres: number; speed: number; acceleration: number; jerk: number; mode: string; viewpoint: number; position: number[]; autoResumeIn: number | null };
+    __villaTravel?: () => { u: number; metres: number; speed: number; acceleration: number; jerk: number; mode: string; viewpoint: number; position: number[]; autoResumeIn: number | null; quickVisiting: boolean; transitionOpacity: number };
     __villaAssets?: () => { tier: string; loaded: Record<string, string> };
     __villaRenderStats?: () => { calls: number; triangles: number; textures: number; geometries: number; residentStops: string[]; reflectionPasses: number; leaves: number; dust: number };
   }
@@ -41,8 +42,9 @@ const startAt = Math.min(plan.rail.length - 1, Math.max(0, Number(params.get('vp
  * way as the scene and its first stops are built, and 1 once the first frame is on screen.
  */
 export async function boot(progress: (fraction: number) => void = () => {}): Promise<void> {
-  const renderer = new WebGLRenderer({ canvas, antialias: true, powerPreference: 'high-performance' });
-  renderer.setPixelRatio(Math.min(devicePixelRatio, 2));
+  const mobile = innerWidth < 768 || matchMedia('(pointer: coarse)').matches;
+  const renderer = new WebGLRenderer({ canvas, antialias: !mobile, powerPreference: mobile ? 'low-power' : 'high-performance' });
+  renderer.setPixelRatio(Math.min(devicePixelRatio, mobile ? 1.25 : 1.75));
   renderer.toneMapping = ACESFilmicToneMapping;
   renderer.toneMappingExposure = 1.08;
 
@@ -60,7 +62,7 @@ export async function boot(progress: (fraction: number) => void = () => {}): Pro
   let source = new GreyboxSource();
   if (params.get('assets') !== 'greybox') {
     const { MatterSource } = await import('./kit/matter');
-    const tier = params.get('assetTier') === 'mobile' || (params.get('assetTier') !== 'desktop' && innerWidth < 768)
+    const tier = params.get('assetTier') === 'mobile' || (params.get('assetTier') !== 'desktop' && mobile)
       ? 'mobile' : 'desktop';
     const matter = new MatterSource(renderer, tier);
     source = matter;
@@ -68,7 +70,8 @@ export async function boot(progress: (fraction: number) => void = () => {}): Pro
   }
   const loader = new KitLoader(contract as Contract, source);
   const detailed = params.get('assets') !== 'greybox';
-  const { root, stops, order } = buildScene(plan, loader, detailed ? corniceJoinery(plan).transforms : undefined);
+  const { root, stops, order } = buildScene(plan, loader, detailed ? corniceJoinery(plan).transforms : undefined,
+    detailed ? wallArtFactory(mobile) : undefined);
   window.__villaRenderStats = () => ({ calls: renderer.info.render.calls, triangles: renderer.info.render.triangles,
     textures: renderer.info.memory.textures, geometries: renderer.info.memory.geometries,
     residentStops: [...stops].filter(([, stop]) => stop.loaded).map(([id]) => id),
@@ -82,25 +85,59 @@ export async function boot(progress: (fraction: number) => void = () => {}): Pro
     const [{ villaDaylight }, { villaWater }, { villaGardens }, { villaAtmosphere }] = await Promise.all([
       import('./scene/daylight'), import('./scene/water'), import('./scene/gardens'), import('./scene/atmosphere'),
     ]);
-    daylight = villaDaylight(renderer, scene, sun, plan, innerWidth < 768);
-    const surfaces = villaWater(plan, innerWidth < 768);
+    daylight = villaDaylight(renderer, scene, sun, plan, mobile);
+    const surfaces = villaWater(plan, mobile);
     water = surfaces; scene.add(surfaces.root);
-    gardens = villaGardens(plan, innerWidth < 768); scene.add(gardens.root);
-    atmosphere = villaAtmosphere(innerWidth < 768); scene.add(atmosphere.root);
+    gardens = villaGardens(plan, mobile); scene.add(gardens.root);
+    atmosphere = villaAtmosphere(mobile); scene.add(atmosphere.root);
   }
   progress(0.3);
 
-  const streamer = new Streamer(stops, order);
+  const streamer = new Streamer(stops, order, 2, mobile ? 1 : 2);
   const rail = new Rail(plan.rail, plan.path);
   const director = new Director(rail, camera, manifest.stops.filter(s => s.kind === 'project').map(s => s.id));
   const panels = new Panels(panelsRoot, content);
   panels.setRoute(plan.rail, rail.u, rail.length);
-  const updateJourney = journeyUI(director, rail, content);
   let needsRender = true;
+  let navigation = 0;
+  let visitStarted = false;
+  let initialLoading = true;
+  const updateJourney = journeyUI(director, rail, content, index => {
+    const token = ++navigation;
+    director.pause();
+    visitStarted = false;
+    app.style.setProperty('--journey-opacity', '1');
+    const stop = plan.rail[index].stop;
+    const status = document.getElementById('travel-status')!;
+    status.textContent = `Travelling to ${content.find(c => c.id === stop)?.title ?? stop}`;
+    status.hidden = false;
+    app.dataset.travelling = '';
+    panelsRoot.inert = true;
+    void (async () => {
+      await streamer.prepare(plan.rail[director.nearest()].stop, stop);
+      if (token !== navigation) return;
+      gardens?.show(new Set([...stops].filter(([, handle]) => handle.loaded).map(([id]) => id)));
+      daylight?.refresh(); water?.refresh();
+      // Explicit navigation always animates as requested. The OS motion preference
+      // still disables autoplay/ambient effects, but must not turn clicks into cuts.
+      director.visit(index);
+      // Loading and scene preparation must not consume the first animation frame.
+      last = performance.now();
+      visitStarted = true;
+      needsRender = true;
+    })().catch(error => {
+      if (token !== navigation) return;
+      delete app.dataset.travelling;
+      panelsRoot.inert = false;
+      status.textContent = 'This area could not load. Choose another area or read as a page.';
+      console.error('villa: destination loading failed', error);
+    });
+  });
 
   director.onViewpoint((index, stop) => {
     window.__villaViewpoint = index;
     daylight?.focus(stop);
+    if (initialLoading || app.hasAttribute('data-travelling')) return;
     void streamer.update(stop).then(() => { daylight?.refresh(); water?.refresh();
       gardens?.show(new Set([...stops].filter(([, handle]) => handle.loaded).map(([id]) => id))); needsRender = true; });
   });
@@ -116,7 +153,7 @@ export async function boot(progress: (fraction: number) => void = () => {}): Pro
     camera.fov = camera.aspect < 1 ? 2 * Math.atan(Math.tan(55 * Math.PI / 360) / camera.aspect) * 180 / Math.PI : 55;
     // Keep the artwork above the floating mobile card, using a fixed framing offset.
     if (camera.aspect < 1) camera.setViewOffset(w, h, 0, h * .12, w, h);
-    else camera.clearViewOffset();
+    else camera.setViewOffset(w, h, -w * (w < 1100 ? .18 : .12), 0, w, h);
     camera.updateProjectionMatrix();
     water?.refresh();
     needsRender = true;
@@ -139,9 +176,12 @@ export async function boot(progress: (fraction: number) => void = () => {}): Pro
     viewpoint: director.nearest(),
     position: camera.position.toArray(),
     autoResumeIn: director.autoResumeIn,
+    quickVisiting: director.quickVisiting,
+    transitionOpacity: director.transitionOpacity,
   });
 
-  await streamer.update(plan.rail[startAt].stop);
+  // The entrance and its visible neighbouring room are the only blocking loads.
+  await streamer.update(plan.rail[startAt].stop, 1, startAt === 0 ? 0 : 1);
   daylight?.focus(plan.rail[startAt].stop);
   director.jump(startAt);
   if (capture && params.has('u')) {
@@ -150,6 +190,7 @@ export async function boot(progress: (fraction: number) => void = () => {}): Pro
     await streamer.update(plan.rail[director.nearest()].stop);
   }
   gardens?.show(new Set([...stops].filter(([, handle]) => handle.loaded).map(([id]) => id)));
+  initialLoading = false;
   progress(0.8);
 
   let last = performance.now();
@@ -172,12 +213,26 @@ export async function boot(progress: (fraction: number) => void = () => {}): Pro
     // Reading mode hides an already-started scene; stop its ambient GPU work too.
     if (document.hidden || (canvas.hidden && window.__villaReady !== undefined)) return;
     const before = director.u;
-    director.update(dt, elapsed);
+    if (!app.hasAttribute('data-travelling') || visitStarted) director.update(dt, elapsed);
+    if (visitStarted) {
+      app.style.setProperty('--journey-opacity', String(director.transitionOpacity));
+      needsRender = true;
+      if (!director.quickVisiting) {
+        visitStarted = false;
+        delete app.dataset.travelling;
+        panelsRoot.inert = false;
+        document.getElementById('travel-status')!.hidden = true;
+        void streamer.update(plan.rail[director.nearest()].stop).then(() => {
+          gardens?.show(new Set([...stops].filter(([, handle]) => handle.loaded).map(([id]) => id)));
+          daylight?.refresh(); water?.refresh(); needsRender = true;
+        });
+      }
+    }
     const countdown = Math.ceil(director.autoResumeIn ?? -1);
     const ambientMotion = detailed && !capture && !reducedMotion.matches;
     atmosphereTime += ambientMotion ? dt : 0;
     if (!needsRender && director.u === before && lastPlaying === director.playing && lastMode === director.mode && lastCountdown === countdown &&
-      (!ambientMotion || now - lastRender < (innerWidth < 768 ? 1000 / 24 : 1000 / 30))) return;
+      (!ambientMotion || now - lastRender < (mobile ? 1000 / 24 : 1000 / 30))) return;
     lastPlaying = director.playing;
     lastMode = director.mode;
     lastCountdown = countdown;
@@ -194,6 +249,16 @@ export async function boot(progress: (fraction: number) => void = () => {}): Pro
       director.setAutoplay(!capture && !reducedMotion.matches);
       last = performance.now();
       progress(1);
+      // Warm compressed, shared assets serially after first paint. Instanced rooms
+      // remain bounded by the streaming window; idle work never mounts the whole villa.
+      const remaining = [...new Set(plan.placements.map(p => p.part))].filter(id => !detailed || id !== 'wall-inset-panel');
+      const warm = () => {
+        const schedule = () => 'requestIdleCallback' in window ? requestIdleCallback(warm) : setTimeout(warm, 150);
+        if (!remaining.length) return;
+        if (document.hidden || app.dataset.mode !== 'scene' || app.hasAttribute('data-travelling')) { setTimeout(warm, 1000); return; }
+        void loader.get(remaining.shift()!).then(schedule).catch(error => console.warn('villa: background asset', error));
+      };
+      if (!capture) setTimeout(warm, 300);
     }
   });
 }

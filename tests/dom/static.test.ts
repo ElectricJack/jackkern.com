@@ -10,18 +10,14 @@ const content = [
   { id: 'agent-queue', title: 'Agent Queue', html: '<p>a</p>', screenshots: [] },
 ];
 
-test('staticMarkup emits one image per viewpoint, in rail order, and each project panel once', () => {
+test('the scrolling portfolio includes every project and visible lazy imagery without expansion', () => {
   const html = staticMarkup(content, plan.rail);
-  expect(html.match(/class="static-view"/g)!.length).toBe(plan.rail.length);
-  expect(html.match(/<details class="static-view">/g)!.length).toBe(plan.rail.length - 1);
-  // Even the first view is lazy: the list is hidden while the villa loads, and a hidden lazy image
-  // is never fetched, so a visitor who gets the villa does not download the fallback's picture.
-  expect(html).toContain('entry-view.jpg" alt="View of entry" loading="lazy"');
-  expect(html).toContain('matter-engine-enter.jpg" alt="View of matter-engine" loading="lazy"');
-  expect(html.indexOf('/static/entry-view.jpg')).toBeLessThan(html.indexOf('/static/matter-engine-enter.jpg'));
+  expect(html).not.toContain('<details');
+  expect(html.match(/loading="lazy"/g)!.length).toBe(content.length);
+  expect(html).toContain('matter-engine-enter.jpg');
   expect(html.match(/data-stop="matter-engine"/g)!.length).toBe(1);
   expect(html).toContain('<h2>Matter &lt;Engine&gt;</h2>');
-  expect(html.indexOf('/static/matter-engine-enter.jpg')).toBeLessThan(html.indexOf('data-stop="matter-engine"'));
+  expect(html.indexOf('data-stop="matter-engine"')).toBeLessThan(html.indexOf('data-stop="agent-queue"'));
 });
 
 test('renderStatic replaces the root and marks static mode', () => {
@@ -30,7 +26,7 @@ test('renderStatic replaces the root and marks static mode', () => {
   renderStatic(root, content, plan.rail);
   expect(root.dataset.mode).toBe('static');
   expect(root.querySelector('[data-stop="x"]')).toBeNull();
-  expect(root.querySelectorAll('img').length).toBe(plan.rail.length);
+  expect(root.querySelectorAll('img').length).toBe(content.length);
 });
 
 test('supportsWebGL is false in jsdom, which has no GL context', () => {

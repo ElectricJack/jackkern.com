@@ -1,6 +1,6 @@
 import contract from '../../kit/contract.json';
 import manifest from '../../content/manifest.json';
-import { HEADINGS, entryLocal, exitLocal, fill, sequence, worldPoint, worldTransform } from '../../layout/layout.js';
+import { HEADINGS, LEVEL_HEIGHT, entryLocal, exitLocal, fill, sequence, worldPoint, worldTransform } from '../../layout/layout.js';
 import { mulberry32 } from '../../layout/rng.js';
 // @ts-expect-error -- plain JS geometry helper, shared with docs/verification/task-16/occlusion.mjs
 import { rayHitsBox, worldShapes } from '../../tools/sightlines.mjs';
@@ -52,6 +52,26 @@ test('a dropping courtyard places a stair run at its exit', () => {
   expect(placementsOf('cy-1').filter((x) => x.part === 'stair-run-3m').length).toBe(0);
 });
 
+test('courtyard-facing paintings hang above the upper floor, without raising interior art', () => {
+  let raised = 0;
+  for (const stop of stops.filter(s => s.kind === 'room')) {
+    const [dx, dz] = HEADINGS[stop.h];
+    for (const painting of placementsOf(stop.id).filter(p => p.part === 'wall-inset-panel')) {
+      const localV = (painting.transform[12] - stop.x) * dx + (painting.transform[14] - stop.z) * dz;
+      const outsideEntry = Math.abs(localV + .18) < 1e-6;
+      const floor = outsideEntry ? Math.max(stop.entryLevel, stop.level) : stop.level;
+      expect(painting.transform[13], painting.instance).toBeCloseTo(floor * LEVEL_HEIGHT);
+      if (outsideEntry && stop.entryLevel > stop.level) {
+        raised++;
+        expect(painting.transform[13] + 1.1 - stop.entryLevel * LEVEL_HEIGHT).toBeCloseTo(1.1);
+        expect(painting.transform[13] + parts.get('wall-inset-panel')!.height)
+          .toBeLessThan(stop.level * LEVEL_HEIGHT + parts.get('wall-3m')!.height);
+      }
+    }
+  }
+  expect(raised).toBe(2);
+});
+
 test('a stair run fills the first 3 m past the exit and goes down facing on through it', () => {
   // The run slopes down along its local +z (src/kit/greybox.ts), so that has to be the way the
   // walk leaves: straight on, or out through the side a courtyard turns to.
@@ -69,6 +89,21 @@ test('a stair run fills the first 3 m past the exit and goes down facing on thro
 
 test('fill is deterministic for the same seed', () => {
   expect(placementsOf('entry')).toEqual(placementsOf('entry'));
+});
+
+test('water gardens have distinct pool layouts and every tree and ground plant has a planter', () => {
+  const arrangements = ['cy-2', 'cy-3', 'cy-4'].map(id => placementsOf(id).filter(p => p.part === 'pool-basin-3x3'));
+  expect(arrangements.map(pools => pools.length)).toEqual([1, 2, 2]);
+  expect(arrangements[1][0].transform[13]).toBe(arrangements[1][1].transform[13]);
+  expect(Math.abs(arrangements[2][0].transform[13] - arrangements[2][1].transform[13])).toBeCloseTo(.42);
+  for (const id of ['cy-2', 'cy-3', 'cy-4']) {
+    const placements = placementsOf(id);
+    for (const plant of placements.filter(p => ['olive-small', 'ground-plant-clump'].includes(p.part))) {
+      const pot = placements.find(p => p.part === 'planter-square' && p.transform[12] === plant.transform[12] && p.transform[14] === plant.transform[14]);
+      expect(pot, `${id}: ${plant.instance} needs a container`).toBeDefined();
+      expect(plant.transform[13]).toBeCloseTo(pot!.transform[13] + .69 * pot!.transform[5], 5);
+    }
+  }
 });
 
 test('a threshold is an opening: nothing stands in the way, not even the frame of its doorway', () => {

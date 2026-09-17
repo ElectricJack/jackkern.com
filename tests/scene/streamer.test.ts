@@ -30,3 +30,31 @@ test('Streamer loads the window and unloads what fell out of it', async () => {
   await streamer.update('not-a-stop');
   expect(stops.get('agent-queue')!.loaded).toBe(true);
 });
+
+test('a direct shortcut cancels stale room loads without mounting intermediate stops', async () => {
+  let release!: () => void;
+  const gate = new Promise<void>(resolve => { release = resolve; });
+  const source = new GreyboxSource();
+  const { stops, order } = buildScene(layout(manifest, contract), new KitLoader(contract as Contract, {
+    async load(part) { await gate; return source.load(part); },
+  }));
+  const streamer = new Streamer(stops, order, 0, 0);
+  const old = streamer.update('entry');
+  const destination = streamer.update('quilt-trader');
+  release();
+  await Promise.all([old, destination]);
+  expect(order.filter(id => stops.get(id)!.loaded)).toEqual(['quilt-trader']);
+  expect(stops.get('entry')!.group.children).toHaveLength(0);
+});
+
+test('preparing a distant visit retains both ends without loading intermediate projects', async () => {
+  const { stops, order } = buildScene(layout(manifest, contract), new KitLoader(contract as Contract, new GreyboxSource()));
+  const streamer = new Streamer(stops, order);
+  await streamer.prepare('matter-engine', 'quilt-trader');
+  expect(stops.get('matter-engine')!.loaded).toBe(true);
+  expect(stops.get('quilt-trader')!.loaded).toBe(true);
+  expect(stops.get('outrider-ide')!.loaded).toBe(false);
+  expect(stops.get('agent-queue')!.loaded).toBe(false);
+  await streamer.update('quilt-trader');
+  expect(stops.get('matter-engine')!.loaded).toBe(false);
+});

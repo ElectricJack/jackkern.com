@@ -14,7 +14,7 @@
       <a class="skip-link" href="#fallback">Skip to project list</a>
       <header class="site-header" data-ui>
         <a class="wordmark" href="./" aria-label="Jack Kern, home"><span class="monogram" aria-hidden="true">jk</span><span>Jack Kern<small>Engines, tools &amp; other explorations</small></span></a>
-        <nav aria-label="Main navigation"><a href="#work-index" id="index-toggle">Projects <span aria-hidden="true">↗</span></a><a class="contact-link" href="mailto:jack.w.kern@gmail.com">Say hello <span aria-hidden="true">↗</span></a></nav>
+        <nav aria-label="Main navigation"><a href="#work-index" id="index-toggle">Projects <span aria-hidden="true">↗</span></a><a class="contact-link" href="mailto:jack.w.kern@gmail.com">Say hello <span aria-hidden="true">↗</span></a><a class="social-link" href="https://www.linkedin.com/in/jackkern" rel="me">LinkedIn</a><a class="social-link" href="https://twitter.com/ElectricJack" rel="me">Twitter / X</a></nav>
       </header>
       <div id="loading" role="progressbar" aria-label="Loading the villa" aria-valuemin="0" aria-valuemax="100"><span></span><p>Opening the courtyard</p></div>
       <section id="fallback" aria-label="Project promenade"><!-- fallback --></section>
@@ -25,6 +25,7 @@
         <h1>A place for<br>things I <em>build.</em></h1>
         <p class="intro-copy">Engines, developer tools, and systems for working with AI. A few ongoing explorations, gathered under one roof.</p>
         <button class="text-button" id="begin-walk">Explore the projects <span aria-hidden="true">↗</span></button>
+        <p class="engine-credit">A villa built in <a href="https://electricjack.github.io/matter-engine/">Matter Engine</a>, exported to three.js.</p>
       </section>
       <aside id="panels" aria-label="Project details" data-ui hidden><!-- panels --></aside>
       <section id="farewell" class="journey-note" data-ui hidden>
@@ -33,10 +34,12 @@
         <a class="text-button" href="mailto:jack.w.kern@gmail.com">Let’s talk <span aria-hidden="true">↗</span></a>
       </section>
       <footer class="journey-footer" data-ui>
-        <div class="travel-hint"><span class="scroll-symbol" aria-hidden="true">↓</span><span><span id="travel-instruction">Scroll to begin</span><small>space to pause · arrows to change direction</small></span></div>
+        <nav class="route-map" id="route-map" aria-label="Jump to an area"></nav>
+        <div class="travel-hint"><span class="scroll-symbol" aria-hidden="true">↓</span><span><span id="travel-instruction">Scroll to begin</span><small>↑/→ forward · ↓/← back · space to pause</small></span></div>
         <div class="journey-position"><span id="room-name">The courtyard</span><span class="position-track"><span id="walk-progress"></span></span><span id="walk-percent">00</span></div>
         <div class="journey-actions"><a href="./?view=list">Read as a page</a><button id="next-space" aria-label="Begin the flight">Begin <span aria-hidden="true">→</span></button></div>
       </footer>
+      <div id="travel-status" role="status" aria-live="polite" hidden></div>
     </main>
     <dialog id="project-dialog" aria-labelledby="index-title">
       <div class="index-header"><p class="eyebrow">Take a closer look</p><button id="index-close" aria-label="Close project index">×</button></div>

@@ -21,6 +21,20 @@ const capture = params.has('capture');
 const webgl = supportsWebGL();
 const notice = document.getElementById('view-notice') as HTMLElement;
 
+// Enhancement only: unobserved, reduced-motion and no-script content stays visible.
+if ('IntersectionObserver' in window && !matchMedia('(prefers-reduced-motion: reduce)').matches) {
+  const observer = new IntersectionObserver(entries => {
+    for (const entry of entries) if (entry.isIntersecting) {
+      entry.target.classList.add('revealed');
+      observer.unobserve(entry.target);
+    }
+  }, { root: fallback, threshold: .08 });
+  fallback.querySelectorAll('.reveal').forEach(element => {
+    element.classList.add('will-reveal');
+    observer.observe(element);
+  });
+}
+
 const mode = chooseMode({
   webgl,
   capture,

@@ -54,23 +54,22 @@ test('project fades are continuous in either direction and courtyards have no pa
   expect([...root.querySelectorAll<HTMLElement>('.panel')].every((s) => s.hidden && s.inert)).toBe(true);
 });
 
-test('a focused project remains readable until focus leaves, then closes its details', () => {
+test('previews need no expansion and a focused project remains readable until focus leaves', () => {
   const root = document.createElement('aside');
   document.body.append(root);
   const panels = new Panels(root, content);
   panels.show('a');
   const a = root.querySelector<HTMLElement>('[data-stop="a"]')!;
-  const details = a.querySelector('details')!;
-  details.open = true;
-  details.querySelector('summary')!.focus();
+  expect(a.querySelector('details')).toBeNull();
+  expect(a.querySelector('.project-preview img')).not.toBeNull();
+  const link = document.createElement('a'); link.href = '#project'; link.textContent = 'Dive deeper'; a.append(link);
+  link.focus();
   panels.show('b');
   expect(a.hidden).toBe(false);
-  expect(details.open).toBe(true);
   expect(a.style.getPropertyValue('--pane-opacity')).toBe('1.000');
   (document.activeElement as HTMLElement).blur();
   panels.show('b');
   expect(a.hidden).toBe(true);
   expect(a.inert).toBe(true);
-  expect(details.open).toBe(false);
   root.remove();
 });

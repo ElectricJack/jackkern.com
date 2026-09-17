@@ -38,7 +38,7 @@ test('the takeoff, cruise and arrival seams have continuous velocity, accelerati
   for (const time of [0, TRAVEL.controlSeconds, TRAVEL.rampSeconds + offset, length / TRAVEL.cruiseSpeed + offset, length / TRAVEL.cruiseSpeed + TRAVEL.rampSeconds + offset]) {
     const left = new Travel(length), right = new Travel(length);
     left.start(); right.start();
-    left.advance(Math.max(0, time - 1e-6)); right.advance(time + 1e-6);
+    left.advance(Math.max(0, time - 1e-8)); right.advance(time + 1e-8);
     for (let k = 1; k < 4; k++) expect(Math.abs(sample(left)[k] - sample(right)[k])).toBeLessThan(1e-5);
   }
 });
@@ -50,14 +50,14 @@ test('explicit pause and reversal preserve all three derivatives, including quic
   const before = sample(travel);
   travel.pause();
   expect(sample(travel)).toEqual(before);
-  run(travel, 0.5);
+  travel.advance(TRAVEL.controlSeconds / 2);
   const pausing = sample(travel);
   travel.start(-1);
   expect(sample(travel)).toEqual(pausing);
   // The pause finishes before the queued reversal begins, with no derivative reset.
-  run(travel, TRAVEL.controlSeconds - 0.5 - 1 / 60);
+  travel.advance(TRAVEL.controlSeconds / 2 - 1e-6);
   const lastJerk = travel.jerk;
-  travel.advance(1 / 60);
+  travel.advance(1e-6);
   expect(travel.velocity).toBeCloseTo(0, 9);
   expect(travel.acceleration).toBeCloseTo(0, 9);
   expect(travel.jerk).toBeCloseTo(0, 9);
@@ -113,13 +113,13 @@ test('wheelPixels normalises pixel, line and page deltas', () => {
 });
 
 test('speed changes preserve all derivatives and settle at the selected pace without new input', () => {
-  const travel = new Travel(100); travel.start(); run(travel, 5);
+  const travel = new Travel(1000); travel.start(); run(travel, 5);
   for (const speed of [TRAVEL.maxSpeed, TRAVEL.minSpeed, TRAVEL.cruiseSpeed]) {
     const before = sample(travel); travel.start(1, speed);
     expect(sample(travel)).toEqual(before);
     const left = new Travel(100), right = new Travel(100);
     for (const t of [left, right]) { t.start(); t.advance(5); t.start(1, speed); }
-    left.advance(TRAVEL.controlSeconds - 1e-6); right.advance(TRAVEL.controlSeconds + 1e-6);
+    left.advance(TRAVEL.controlSeconds - 1e-8); right.advance(TRAVEL.controlSeconds + 1e-8);
     for (let k = 1; k < 4; k++) expect(Math.abs(sample(left)[k] - sample(right)[k])).toBeLessThan(1e-4);
     run(travel, 3);
     expect(travel.velocity).toBeCloseTo(speed, 10);

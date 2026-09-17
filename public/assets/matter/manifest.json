@@ -23,9 +23,10 @@
       },
       "mobile": {
         "url": "/assets/matter/column-doric/mobile.glb",
-        "bytes": 298944,
-        "sha256": "67318bf8cddfbb611e0fe8a22e5423aebef8fdc43f698044d0849526b9cf1fd7",
-        "textureMemoryBytes": 9437195
+        "bytes": 125928,
+        "sha256": "c146c24c894f631c15e282fd4c6ab29e8786fa7012daa6919149fd546ce3d68b",
+        "textureMemoryBytes": 2359307,
+        "triangles": 6580
       }
     },
     "wall-3m": {
@@ -104,9 +105,10 @@
       },
       "mobile": {
         "url": "/assets/matter/entablature-3m/mobile.glb",
-        "bytes": 60284,
-        "sha256": "874720362d6123e192628f74aa3b92f9ca20a913536a67e3ddc5c98604a534c9",
-        "textureMemoryBytes": 669019
+        "bytes": 39868,
+        "sha256": "febd7443acef09290148fe3c9238ecefcf9f9e4a9f14efd35828991501711c16",
+        "textureMemoryBytes": 669019,
+        "triangles": 1980
       }
     },
     "floor-slab-3x3": {
@@ -239,9 +241,10 @@
       },
       "mobile": {
         "url": "/assets/matter/fountain-tiered/mobile.glb",
-        "bytes": 168936,
-        "sha256": "dc7664acec3751a8d317c79eceb3fa1689e8fd71e258c244ac7f77e2edf14846",
-        "textureMemoryBytes": 1048576
+        "bytes": 85852,
+        "sha256": "9b407da87040c08e8cb332ad5bb24c1c6b9247b0b7e1676f982e1ea981891bc9",
+        "textureMemoryBytes": 1048576,
+        "triangles": 4392
       }
     },
     "fountain-wall": {
@@ -509,9 +512,10 @@
       },
       "mobile": {
         "url": "/assets/matter/olive-small/mobile.glb",
-        "bytes": 94748,
-        "sha256": "ad9029da6281580a85ad1738b6393683ae382f69a35aa8bbb87bc845dd759084",
-        "textureMemoryBytes": 995328
+        "bytes": 76624,
+        "sha256": "ee14ae252bebe4e00eb07619c58a97f1940d3edc415df721e1186763d11ecdf0",
+        "textureMemoryBytes": 995328,
+        "triangles": 2382
       }
     },
     "ground-plant-clump": {

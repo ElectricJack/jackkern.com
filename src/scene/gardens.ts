@@ -97,6 +97,7 @@ export function villaGardens(plan:Layout,mobile:boolean) {
           add('bronze',m,new Matrix4().compose(from.clone().add(to).multiplyScalar(.5),new Quaternion().setFromUnitVectors(UP,delta.clone().normalize()),new Vector3(.024,delta.length(),.024)));
         }
       } else if(p.part==='planter-square'){
+        add('earth',m,compose(0,.69,0,.70,.035,.70));
         for(let shoot=0;shoot<(mobile?8:12);shoot++){
           const a=shoot*Math.PI*2/(mobile?8:12),r=.13+random()*.09;
           const base=new Vector3(Math.cos(a)*r,.70,Math.sin(a)*r),tip=new Vector3(Math.cos(a)*.32,1.02+random()*.12,Math.sin(a)*.32);

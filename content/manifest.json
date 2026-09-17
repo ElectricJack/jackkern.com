@@ -3,10 +3,10 @@
   "seed": 20260915,
   "stops": [
     { "id": "entry", "kind": "court" },
-    { "id": "matter-engine", "kind": "project", "title": "Matter Engine", "discipline": "Worlds & simulation", "archetype": "pool-hall", "focal": "fountain-wall", "panel": "content/matter-engine.md", "screenshots": [] },
-    { "id": "outrider-ide", "kind": "project", "title": "Outrider IDE", "discipline": "Tools for developers", "archetype": "gallery", "focal": "statue-b", "panel": "content/outrider-ide.md", "screenshots": [] },
-    { "id": "agent-queue", "kind": "project", "title": "Agent Queue", "discipline": "Agent orchestration", "archetype": "exedra", "focal": "relief-a", "focalScale": 0.76, "panel": "content/agent-queue.md", "screenshots": [] },
-    { "id": "quilt-trader", "kind": "project", "title": "Quilt Trader", "discipline": "Data & trading research", "archetype": "gallery", "focal": "urn-large", "panel": "content/quilt-trader.md", "screenshots": [] },
+    { "id": "matter-engine", "kind": "project", "title": "Matter Engine", "discipline": "Worlds & simulation", "archetype": "pool-hall", "focal": "fountain-wall", "panel": "content/matter-engine.md", "screenshots": ["./images/projects/matter-engine.webp", "./images/projects/matter-editor.webp"] },
+    { "id": "outrider-ide", "kind": "project", "title": "Outrider IDE", "discipline": "Tools for developers", "archetype": "gallery", "focal": "statue-b", "panel": "content/outrider-ide.md", "screenshots": ["./images/projects/outrider-ide.webp", "./images/projects/outrider-code.webp"] },
+    { "id": "agent-queue", "kind": "project", "title": "Agent Queue", "discipline": "Agent orchestration", "archetype": "exedra", "focal": "relief-a", "focalScale": 0.76, "panel": "content/agent-queue.md", "screenshots": ["./images/projects/agent-graph.webp", "./images/projects/agent-queue.webp"] },
+    { "id": "quilt-trader", "kind": "project", "title": "Quilt Trader", "discipline": "Data & trading research", "archetype": "gallery", "focal": "urn-large", "panel": "content/quilt-trader.md", "screenshots": ["./images/projects/quilt-trader.webp"] },
     { "id": "terrace", "kind": "terrace" }
   ]
 }
