@@ -118,6 +118,23 @@ The layout is generated from the manifest; nothing else needs editing.
 
 ## Deploy
 
+### Site icons
+
+`public/favicon.svg` is the editable olive/ivory JK mark. The ICO (16/32px),
+Apple touch icon (180px), and home-screen icons (192/512px) are generated from it:
+
+```sh
+node tools/assets/generate-icons.mjs .
+```
+
+The generator uses the existing `tools/assets` Sharp dependency. It also accepts
+another website directory with `public/favicon.svg` and `public/site.webmanifest`.
+`node tools/verify-icons.mjs <site-url>` checks browser discovery and icon formats,
+sizes, opacity and deployment-relative paths. Bump the icon URL query versions in
+`index.html` when changing a mark to refresh cached browser favicons.
+
+### Publishing
+
 The primary site is **https://electricjack.github.io/**. Its deployment workflow lives in
 [ElectricJack/electricjack.github.io](https://github.com/ElectricJack/electricjack.github.io)
 and builds this repository's source. After pushing the tested source to `main`, publish it with:
