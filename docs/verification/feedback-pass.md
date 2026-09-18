@@ -13,8 +13,9 @@ white, then fade back in during the approach and settle visibly. Explicit visits
 ordinary tour runs at 4.2 m/s (previously 1.44), with 1.1-second endpoint ramps and
 0.45-second input ramps, and names its destination. Cards own wheel/touch scrolling.
 
-Matter's armillary, Outrider's compass and Agent Queue's linked nodes use small, texture-free
-three.js meshes. Quilt retains its Matter-authored gold treasury and native simulation poses.
+Matter's armillary and Outrider's compass use small, texture-free three.js meshes.
+Agent Queue was restored to its original Matter-exported bronze-and-white connected-node
+relief at the user's request. Quilt retains its Matter-authored gold treasury and native simulation poses.
 Courtyard 2 has a potted olive island and reflecting pool; courtyard 3 has twin planted rills
 and a small spring; courtyard 4 has a raised planted basin and a spillway into a lower pool.
 Trees and ground plants sit in stone containers with soil. Screenshots now use their natural

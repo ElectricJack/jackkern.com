@@ -58,8 +58,9 @@ serially during idle time afterward. Nearby rooms stream in a bounded window. Mo
 simplified Meshopt models, smaller WebP textures, a 1.25 pixel-ratio cap, lower-detail sculptures,
 and water waves without a second scene-rendering reflection pass. Rebuild the four optimized
 mobile assets with `node tools/assets/optimize-mobile.mjs` (asset-tool dependencies required).
-The sculptures are lightweight three.js geometry; the surrounding architecture and materials
-are Matter Engine exports. Courtyards 2–4 have distinct water gardens: a potted olive island,
+Matter's and Outrider's sculptures are lightweight three.js geometry. Agent Queue uses its
+original Matter-exported connected-node relief; the surrounding architecture and materials
+are also Matter Engine exports. Courtyards 2–4 have distinct water gardens: a potted olive island,
 twin planted rills with a small spring, and a raised planted basin cascading into a lower pool.
 All trees and ground plants in these courts are rooted in containers with visible soil.
 Embedded project screenshots fill the card width at their natural aspect ratio.
